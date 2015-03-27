@@ -10,3 +10,19 @@
       @include shift(1);
   }
 }
+
+nav {
+  ul {
+    background-color: #000000;
+    margin: 0;
+    li {
+      display: inline-block;
+      padding: 1.2em;
+      a {
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
