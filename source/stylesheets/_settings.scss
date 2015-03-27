@@ -4,8 +4,15 @@ $tablet: new-breakpoint(max-width 767px and min-width 481px);
 $mobile: new-breakpoint(max-width 480px);
 
 // Colors
+$bg-contribute: white;
+$bg-nav: #000000;
+
+$link-nav: white;
 
 // Typography
+html {
+  font-size: 14px;
+}
 
 // Mixins
 

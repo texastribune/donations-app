@@ -1,7 +1,7 @@
 // Splash
 .splash {
   background-size: cover;
-  height: 500px;
+  height: 550px;
 }
 
 .splash-landing {
@@ -14,4 +14,21 @@
 
 .splash-circle {
   background-image: url("http://lorempixel.com/output/city-q-c-798-495-5.jpg");
+}
+
+
+// Widgets
+.box-contribute {
+  @include size(300px 370px);
+  float: right;
+  margin: 70px 20px 0 0;
+  .contribute {
+    @include size(300px 320px);
+    background-color: $bg-contribute;
+  }
+  .mail {
+    @include size(300px 50px);
+    background-color: gray;
+    margin-top: 20px;
+  }
 }
