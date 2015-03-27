@@ -1,5 +1,8 @@
 // Splash
 .splash {
+  @include display(flex);
+  @include justify-content(center);
+  @include align-items(center);
   background-size: cover;
   height: 550px;
 }
@@ -18,12 +21,18 @@
 
 
 // Widgets
+.support-container {
+  @include span-columns(10);
+    @include shift(2);
+  .splash-greeting {
+    @include span-columns(6);
+  }
+}
+
 .box-contribute {
-  @include size(300px 370px);
-  float: right;
-  margin: 70px 20px 0 0;
+  @include span-columns(6);
   .contribute {
-    @include size(300px 320px);
+    @include size(300px 370px);
     background-color: $bg-contribute;
   }
   .mail {
