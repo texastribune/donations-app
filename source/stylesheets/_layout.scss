@@ -22,3 +22,15 @@ nav {
     }
   }
 }
+
+// Main area below the nav
+.main {
+  @include outer-container;
+  .main-left {
+    @include span-columns(8);
+  }
+  .main-right {
+    @include span-columns(4);
+  }
+}
+
