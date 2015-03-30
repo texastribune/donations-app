@@ -1,0 +1,351 @@
+-
+  name: "Enthusiast"
+  amount: "$2 - $4 Monthly or $25 - $50 Annually"
+  all_content_benefits:
+    -
+      benefit:
+        description: "Monthly Member Report from Evan Smith"
+  all_access_benefits:
+    -
+      benefit:
+        description: "Invitations to Tribune social events"
+    -
+      benefit:
+        description: "Discounts to The Texas Tribune festival"
+-
+  name: "Activist"
+  amount: "$5 - $8 Monthly or $51 - $99 Annually"
+  most_popular: true
+  all_above: true
+  all_content_benefits:
+    -
+      benefit:
+        description: "Monthly Member Report from Evan Smith"
+    -
+      benefit:
+        description: "The Texas Tribune Yearbook"
+  all_access_benefits:
+    -
+      benefit:
+        description: "Invitations to Tribune social events"
+    -
+      benefit:
+        description: "Discounts to The Texas Tribune festival"
+    -
+      benefit:
+        description: "Co-Member"
+  all_recognition_benefits:
+    -
+      benefit:
+        description: "Name included on the Donor Wall"
+  extra_content_benefits:
+    -
+      benefit:
+        description: "The Texas Tribune Yearbook"
+  extra_access_benefits:
+    -
+      benefit:
+        description: "Co-Member"
+  extra_recognition_benefits:
+    -
+      benefit:
+        description: "Name included on the Donor Wall"
+-
+  name: "Advocate"
+  amount: "$9 - $21 Monthly or $100 - $249 Annually"
+  all_above: true
+  all_content_benefits:
+    -
+      benefit:
+        description: "Monthly Member Report from Evan Smith"
+    -
+      benefit:
+        description: "The Texas Tribune Yearbook"
+  all_access_benefits:
+    -
+      benefit:
+        description: "Invitations to Tribune social events"
+    -
+      benefit:
+        description: "Discounts to The Texas Tribune festival"
+    -
+      benefit:
+        description: "Co-Member"
+    -
+      benefit:
+        description: "Invitation to the 'State of the State' cocktail party"
+  all_recognition_benefits:
+    -
+      benefit:
+        description: "Name included on the Donor Wall"
+  extra_access_benefits:
+    -
+      benefit:
+        description: "Invitation to the 'State of the State' cocktail party"
+-
+  name: "Diplomat"
+  amount: "$22 - $42 Monthly or $250 - $499 Annually"
+  all_above: true
+  all_content_benefits:
+    -
+      benefit:
+        description: "Monthly Member Report from Evan Smith"
+    -
+      benefit:
+        description: "The Texas Tribune Yearbook"
+    -
+      benefit:
+        description: "Premium subscription to The Washington Post"
+  all_access_benefits:
+    -
+      benefit:
+        description: "Invitations to Tribune social events"
+    -
+      benefit:
+        description: "Discounts to The Texas Tribune festival"
+    -
+      benefit:
+        description: "Co-Member"
+    -
+      benefit:
+        description: "Invitation to the 'State of the State' cocktail party"
+    -
+      benefit:
+        description: "Reserved seating at select Tribune events"
+  all_recognition_benefits:
+    -
+      benefit:
+        description: "Name included on the Donor Wall"
+  extra_content_benefits:
+    -
+      benefit:
+        description: "Premium subscription to The Washington Post"
+  extra_access_benefits:
+    -
+      benefit:
+        description: "Reserved seating at select Tribune events"
+-
+  name: "Benefactor"
+  amount: "$43 - $83 Monthly or $500 - $1,000 Annually"
+  all_above: true
+  all_content_benefits:
+    -
+      benefit:
+        description: "Monthly Member Report from Evan Smith"
+    -
+      benefit:
+        description: "The Texas Tribune Yearbook"
+    -
+      benefit:
+        description: "Premium subscription to The Washington Post"
+    -
+      benefit:
+        description: "The Blast, a behind-the-scenes afternoon missive from John Reynolds"
+  all_access_benefits:
+    -
+      benefit:
+        description: "Invitations to Tribune social events"
+    -
+      benefit:
+        description: "Discounts to The Texas Tribune festival"
+    -
+      benefit:
+        description: "Co-Member"
+    -
+      benefit:
+        description: "Invitation to the 'State of the State' cocktail party"
+    -
+      benefit:
+        description: "Reserved seating at select Tribune events"
+    -
+      benefit:
+        description: "Exclusive invitations to social events and premieres"
+  all_recognition_benefits:
+    -
+      benefit:
+        description: "Name included on the Donor Wall"
+    -
+      benefit:
+        description: "Donor board recognition at Tribune conversation series events"
+  extra_content_benefits:
+    -
+      benefit:
+        description: "The Blast, a behind-the-scenes afternoon missive from John Reynolds"
+  extra_access_benefits:
+    -
+      benefit:
+        description: "Exclusive invitations to social events and premieres"
+  extra_recognition_benefits:
+    -
+      benefit:
+        description: "Donor board recognition at Tribune conversation series events"
+-
+  name: "Editor's Circle"
+  amount: "$1,001 - $2,499 Annually"
+  commitment: true
+  all_above: true
+  circle: true
+  all_content_benefits:
+    -
+      benefit:
+        description: "Monthly Member Report from Evan Smith"
+    -
+      benefit:
+        description: "The Texas Tribune Yearbook"
+    -
+      benefit:
+        description: "Premium subscription to The Washington Post"
+    -
+      benefit:
+        description: "The Blast, a behind-the-scenes afternoon missive from John Reynolds"
+  all_access_benefits:
+    -
+      benefit:
+        description: "Invitations to Tribune social events"
+    -
+      benefit:
+        description: "Discounts to The Texas Tribune festival"
+    -
+      benefit:
+        description: "Co-Member"
+    -
+      benefit:
+        description: "Invitation to the 'State of the State' cocktail party"
+    -
+      benefit:
+        description: "Reserved seating at select Tribune events"
+    -
+      benefit:
+        description: "Exclusive invitations to social events and premieres"
+    -
+      benefit:
+        description: "Invitations to exclusive social events during The Texas Tribune festival"
+  all_recognition_benefits:
+    -
+      benefit:
+        description: "Name included on the Donor Wall"
+    -
+      benefit:
+        description: "Donor board recognition at Tribune conversation series events"
+  extra_access_benefits:
+    -
+      benefit:
+        description: "Invitations to exclusive social events during The Texas Tribune festival"
+-
+  name: "Leadership Circle"
+  amount: "$2,500 - $4,999 Annually"
+  commitment: true
+  all_above: true
+  all_content_benefits:
+    -
+      benefit:
+        description: "Monthly Member Report from Evan Smith"
+    -
+      benefit:
+        description: "The Texas Tribune Yearbook"
+    -
+      benefit:
+        description: "Premium subscription to The Washington Post"
+    -
+      benefit:
+        description: "The Blast, a behind-the-scenes afternoon missive from John Reynolds"
+  all_access_benefits:
+    -
+      benefit:
+        description: "Invitations to Tribune social events"
+    -
+      benefit:
+        description: "Discounts to The Texas Tribune festival"
+    -
+      benefit:
+        description: "Co-Member"
+    -
+      benefit:
+        description: "Invitation to the 'State of the State' cocktail party"
+    -
+      benefit:
+        description: "Reserved seating at select Tribune events"
+    -
+      benefit:
+        description: "Exclusive invitations to social events and premieres"
+    -
+      benefit:
+        description: "Invitations to exclusive social events during The Texas Tribune festival"
+    -
+      benefit:
+        description: "Opportunity to promote the nonprofit of your choice on the Tribune site for a year"
+  all_recognition_benefits:
+    -
+      benefit:
+        description: "Name included on the Donor Wall"
+    -
+      benefit:
+        description: "Donor board recognition at Tribune conversation series events"
+  extra_access_benefits:
+    -
+      benefit:
+        description: "Opportunity to promote the nonprofit of your choice on the Tribune site for a year"
+-
+  name: "Chairman's Circle"
+  amount: "$5,000+ Annually"
+  commitment: true
+  all_above: true
+  all_content_benefits:
+    -
+      benefit:
+        description: "Monthly Member Report from Evan Smith"
+    -
+      benefit:
+        description: "The Texas Tribune Yearbook"
+    -
+      benefit:
+        description: "Premium subscription to The Washington Post"
+    -
+      benefit:
+        description: "The Blast, a behind-the-scenes afternoon missive from John Reynolds"
+  all_access_benefits:
+    -
+      benefit:
+        description: "Invitations to Tribune social events"
+    -
+      benefit:
+        description: "Discounts to The Texas Tribune festival"
+    -
+      benefit:
+        description: "Co-Member"
+    -
+      benefit:
+        description: "Invitation to the 'State of the State' cocktail party"
+    -
+      benefit:
+        description: "Reserved seating at select Tribune events"
+    -
+      benefit:
+        description: "Exclusive invitations to social events and premieres"
+    -
+      benefit:
+        description: "Invitations to exclusive social events during The Texas Tribune festival"
+    -
+      benefit:
+        description: "Opportunity to promote the nonprofit of your choice on the Tribune site for a year"
+    -
+      benefit:
+        description: "Invitation to small VIP Tribune gatherings"
+    -
+      benefit:
+        description: "Reserved seating and parking at Tribune conversation series at the Austin Club"
+  all_recognition_benefits:
+    -
+      benefit:
+        description: "Name included on the Donor Wall"
+    -
+      benefit:
+        description: "Donor board recognition at Tribune conversation series events"
+  extra_access_benefits:
+    -
+      benefit:
+        description: "Invitation to small VIP Tribune gatherings"
+    -
+      benefit:
+        description: "Reserved seating and parking at Tribune conversation series at the Austin Club"
+
