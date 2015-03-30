@@ -8,15 +8,15 @@
 }
 
 .splash-landing {
-  background-image: url("http://lorempixel.com/output/people-q-c-798-495-10.jpg");
+  background-image: url("../images/people-q-c-640-480-10.jpg");
 }
 
 .splash-levels {
-  background-image: url("http://lorempixel.com/output/people-q-c-798-495-2.jpg");
+  background-image: url("../images/people-q-c-640-480-2.jpg");
 }
 
 .splash-circle {
-  background-image: url("http://lorempixel.com/output/city-q-c-798-495-5.jpg");
+  background-image: url("../images/city-q-c-640-480-5.jpg");
 }
 
 
@@ -34,10 +34,24 @@
   .contribute {
     @include size(300px 370px);
     background-color: $bg-contribute;
+    text-align: center;
   }
   .mail {
     @include size(300px 50px);
     background-color: gray;
     margin-top: 20px;
   }
+}
+
+// Buttons
+.button {
+  background-color: black;
+  border: none;
+  color: white;
+  font-family: $helvetica;
+  font-size: 1.5em;
+  padding: 0.8em;
+  text-align: center;
+  text-transform: uppercase;
+  width: 250px;
 }
