@@ -50,6 +50,10 @@
     @include size(300px 50px);
     background-color: gray;
     margin-top: 20px;
+    padding: 0.8em;
+    h4, p {
+      margin: 0;
+    }
   }
 }
 
