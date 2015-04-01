@@ -25,7 +25,56 @@ title: Support Us
 
 <div class="main">
   <div class="main-left">
+    <h2>We are a nonpartisan, nonprofit news organization.</h2>
   </div>
   <div class="main-right">
+    <% data.levels.each do |level| %>
+    <div class="level">
+      <h3><%= level.name %></h3>
+      <h4><%= level.amount %></h4>
+      <% if level.all_above %>
+        <p>All the above, plus:</p>
+        <!-- list extra benefits for level by category -->
+        <% if level.extra_content_benefits %>
+          <h5>Content Benefits</h5>
+          <% level.extra_content_benefits.each do |benefit| %>
+            <p><%= benefit %></p>
+          <% end %>
+        <% end %>
+        <% if level.extra_access_benefits %>
+          <h5>Access Benefits</h5>
+          <% level.extra_access_benefits.each do |benefit| %>
+            <p><%= benefit %></p>
+          <% end %>
+        <% end %>
+        <% if level.extra_recognition_benefits %>
+          <h5>Recognition Benefits</h5>
+          <% level.extra_recognition_benefits.each do |benefit| %>
+            <p><%= benefit %></p>
+          <% end %>
+        <% end %>
+      <% else %> <!-- if not level.all_above -->
+        <!-- list all benefits by category -->
+        <% if level.all_content_benefits %>
+          <h5>Content Benefits</h5>
+          <% level.all_content_benefits.each do |benefit| %>
+            <p><%= benefit %></p>
+          <% end %>
+        <% end %>
+        <% if level.all_access_benefits %>
+          <h5>Access Benefits</h5>
+          <% level.all_access_benefits.each do |benefit| %>
+            <p><%= benefit %></p>
+          <% end %>
+        <% end %>
+        <% if level.all_recognition_benefits %>
+          <h5>Recognition Benefits</h5>
+          <% level.all_recognition_benefits.each do |benefit| %>
+            <p><%= benefit %></p>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    <% end %>
   </div>
 </div>
