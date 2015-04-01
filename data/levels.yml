@@ -177,6 +177,7 @@
   amount: "$2,500 - $4,999 Annually"
   commitment: true
   all_above: true
+  circle: true
   all_content_benefits:
     -
       "Monthly Member Report from Evan Smith"
@@ -216,6 +217,7 @@
   amount: "$5,000+ Annually"
   commitment: true
   all_above: true
+  circle: true
   all_content_benefits:
     -
       "Monthly Member Report from Evan Smith"

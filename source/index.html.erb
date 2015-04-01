@@ -30,8 +30,17 @@ title: Support Us
   <div class="main-right">
     <% data.levels.each do |level| %>
     <div class="level">
+      <% if level.most_popular %>
+        <h5>Most Popular</h5>
+      <% end %>
+      <% if level.circle %>
+        <h5>Circle Membership</h5>
+      <% end %>
       <h3><%= level.name %></h3>
       <h4><%= level.amount %></h4>
+      <% if level.commitment %>
+        <p>Three-Year Commitment</p>
+      <% end %>
       <% if level.all_above %>
         <p>All the above, plus:</p>
         <!-- list extra benefits for level by category -->
@@ -75,6 +84,7 @@ title: Support Us
         <% end %>
       <% end %>
     </div>
+    <hr />
     <% end %>
   </div>
 </div>
