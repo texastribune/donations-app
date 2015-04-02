@@ -16,9 +16,6 @@ h2 {
 
 h3 {
   font-size: 2em;
-  &.splash-support {
-    color: $yellow-tribune;
-  }
 }
 
 h4 {
@@ -30,13 +27,17 @@ h5 {
   text-transform: uppercase;
 }
 
-p {
-  &.splash-info {
-    color: white;
-  }
+
+// Splash typography
+.splash-info {
+  color: white;
 }
 
 .splash-header {
   border-bottom: 3px solid $yellow-tribune;
   color: white;
+}
+
+.splash-support {
+  color: $yellow-tribune;
 }

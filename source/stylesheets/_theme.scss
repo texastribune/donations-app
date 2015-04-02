@@ -44,12 +44,30 @@
 
 // Buttons
 .button {
-  background-color: black;
-  border: none;
-  color: white;
   font-family: $helvetica;
   font-size: 1.5em;
   padding: 0.8em;
   text-align: center;
+}
+
+.button-flat {
+  background-color: black;
+  border: none;
+  color: white;
   text-transform: uppercase;
+}
+
+.button-border {
+  background-color: transparent;
+  border-width: 3px;
+  border-style: solid;
+  padding: 0.5em 2em;
+  &.dark {
+    color: black;
+    border-color: black;
+  }
+  &.light {
+    color: white;
+    border-color: white;
+  }
 }

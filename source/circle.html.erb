@@ -7,13 +7,14 @@ title: Membership Levels
     <div class="splash-greeting">
       <h1 class="splash-header">Join Our Circle</h1>
       <p class="splash-info"><%= data.info %></p>
-      <h3 class="splash-support"><%= data.support %></h3>
+      <h4 class="splash-support"><%= data.support %></h4>
     </div><!-- splash-greeting -->
     <% data.levels.each do |level| %>
       <% if level.circle %>
         <div class="circle-box">
           <h3><%= level.name %></h3>
           <h4><%= level.amount %></h4>
+          <button class="button button-border dark">Support</button>
         </div>
       <% end %>
     <% end %>
