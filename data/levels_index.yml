@@ -1,16 +1,4 @@
 -
-  name: "Student"
-  amount: "$10 Annually"
-  all_above: false
-  all_content_benefits:
-    -
-      "Monthly Member Report from Evan Smith"
-  all_access_benefits:
-    -
-      "Invitations to Tribune social events"
-    -
-      "Discounts to The Texas Tribune festival"
--
   name: "Enthusiast"
   amount: "$2 - $4 Monthly or $25 - $50 Annually"
   all_above: false
@@ -270,4 +258,16 @@
       "Invitation to small VIP Tribune gatherings"
     -
       "Reserved seating and parking at Tribune conversation series at the Austin Club"
+-
+  name: "Student"
+  amount: "$10 Annually"
+  all_above: false
+  all_content_benefits:
+    -
+      "Monthly Member Report from Evan Smith"
+  all_access_benefits:
+    -
+      "Invitations to Tribune social events"
+    -
+      "Discounts to The Texas Tribune festival"
 

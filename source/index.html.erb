@@ -28,7 +28,7 @@ title: Support Us
     <h3>We are a nonpartisan, nonprofit news organization.</h3>
   </div>
   <div class="main-right">
-    <% data.levels.each do |level| %>
+    <% data.levels_index.each do |level| %>
     <div class="level">
       <% if level.most_popular %>
         <h5>Most Popular</h5>
@@ -86,15 +86,5 @@ title: Support Us
     </div>
     <hr />
     <% end %>
-    <!-- student level is special -->
-    <div class="level">
-      <h3>Student</h3>
-      <h4>$10 Annually</h4>
-      <h5>Content Benefits</h5>
-        <p>Monthly Member Report from Evan Smith</p>
-      <h5>Access Benefits</h5>
-        <p>Invitations to Tribune social events</p>
-        <p>Discounts to The Texas Tribune Festival</p>
-    </div>
   </div>
 </div>

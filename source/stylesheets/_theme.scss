@@ -79,7 +79,11 @@
   td.name, td.amount {
     width: 320px;
   }
+  td.amount {
+    color: darkgray;
+  }
   td.join, td.renew {
+    color: darkgray;
     width: 100px;
   }
 }
