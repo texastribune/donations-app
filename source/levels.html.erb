@@ -13,3 +13,57 @@ title: Membership Levels
 </div><!-- splash-levels -->
 
 <%= partial "nav" %>
+
+<div class="main">
+  <h2>We are a nonpartisan, nonprofit news organization.</h2>
+  <table>
+    <% data.levels.each do |level| %>
+    <tbody>
+      <tr>
+        <td>
+          <h3><%= level.name %></h3>
+          <% if level.most_popular %>
+            <h5>Most Popular</h5>
+          <% end %>
+        </td>
+        <td><%= level.amount %></td>
+        <td>Join</td>
+        <td>Renew</td>
+      </tr>
+      <tr>
+        <td>
+          <h5>About the Benefits</h5>
+          <tbody>
+            <tr>
+              <td>
+                <% if level.all_content_benefits %>
+                  <h6>Content Benefits</h6>
+                  <% level.all_content_benefits.each do |benefit| %>
+                    <p><%= benefit %></p>
+                  <% end %>
+                <% end %>
+              </td>
+              <td>
+                <% if level.all_access_benefits %>
+                  <h6>Access Benefits</h6>
+                  <% level.all_access_benefits.each do |benefit| %>
+                    <p><%= benefit %></p>
+                  <% end %>
+                <% end %>
+              </td>
+              <td>
+                <% if level.all_recognition_benefits %>
+                  <h6>Recognition Benefits</h6>
+                  <% level.all_recognition_benefits.each do |benefit| %>
+                    <p><%= benefit %></p>
+                  <% end %>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
+</div>
