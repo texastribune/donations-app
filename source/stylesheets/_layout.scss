@@ -7,6 +7,29 @@
   }
 }
 
+
+// Splash at top of pages
+.splash-wrapper {
+  @include outer-container;
+  max-width: 68em;
+}
+
+.splash-landing {
+  .splash-greeting {
+    @include span-columns(7);
+    @include media($mobile) {
+      @include span-columns(12);
+    }
+  }
+  .box-contribute {
+    @include span-columns(5);
+    @include media($mobile) {
+      @include span-columns(12);
+    }
+  }
+}
+
+
 nav {
   ul {
     background-color: $bg-nav;
@@ -23,14 +46,21 @@ nav {
   }
 }
 
+
 // Main area below the nav
 .main {
   @include outer-container;
   .main-left {
     @include span-columns(8);
+    @include media($mobile) {
+      @include span-columns(12);
+    }
   }
   .main-right {
     @include span-columns(4);
+    @include media($mobile) {
+      @include span-columns(12);
+    }
   }
 }
 

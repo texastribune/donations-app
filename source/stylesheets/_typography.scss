@@ -5,6 +5,9 @@ html {
 
 h1 {
   font-size: 6em;
+  @include media($tablet) {
+    font-size: 5em;
+  }
 }
 
 h2 {
@@ -13,6 +16,9 @@ h2 {
 
 h3 {
   font-size: 2em;
+  &.splash-support {
+    color: $yellow-tribune;
+  }
 }
 
 h4 {
@@ -22,6 +28,12 @@ h4 {
 h5 {
   font-size: 1em;
   text-transform: uppercase;
+}
+
+p {
+  &.splash-info {
+    color: white;
+  }
 }
 
 .splash-header {

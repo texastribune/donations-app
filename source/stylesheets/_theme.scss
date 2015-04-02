@@ -1,10 +1,9 @@
 // Splash
 .splash {
-  @include display(flex);
-  @include justify-content(center);
-  @include align-items(center);
   background-size: cover;
-  height: 550px;
+  @include media($mobile) {
+    background-image: none;
+  }
 }
 
 .splash-landing {
@@ -20,41 +19,19 @@
 }
 
 .splash-greeting {
-  max-width: 790px;
+  @include span-columns(12);
   text-align: center;
-}
-
-.splash-info {
-  color: white;
-}
-
-.splash-support {
-  color: $yellow-tribune;
-}
-
-.align-right {
-  text-align: right;
-}
-
-
-// Widgets
-.support-container {
-  @include span-columns(9);
-    @include shift(3);
-  .splash-greeting {
-    @include span-columns(7);
+  @include media($mobile) {
+    background-color: gray;
   }
 }
 
 .box-contribute {
-  @include span-columns(5);
   .contribute {
-    @include size(300px 370px);
     background-color: $bg-contribute;
     text-align: center;
   }
   .mail {
-    @include size(300px 50px);
     background-color: gray;
     margin-top: 20px;
     padding: 0.8em;
@@ -63,6 +40,7 @@
     }
   }
 }
+
 
 // Buttons
 .button {
@@ -74,5 +52,4 @@
   padding: 0.8em;
   text-align: center;
   text-transform: uppercase;
-  width: 250px;
 }
