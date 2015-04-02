@@ -71,3 +71,23 @@
     border-color: white;
   }
 }
+
+
+// Levels grid
+.show-hide {
+  float: left;
+  .plus {
+    font-size: 1.8em;
+    padding: 0.2em;
+  }
+}
+
+.popout {
+  display: none;
+}
+
+.grid-body {
+  border-bottom: 2px solid gray;
+}
+
+
