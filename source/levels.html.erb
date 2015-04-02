@@ -15,12 +15,12 @@ title: Membership Levels
 <%= partial "nav" %>
 
 <div class="main">
-  <h2>We are a nonpartisan, nonprofit news organization.</h2>
+  <h3>We are a nonpartisan, nonprofit news organization.</h3>
   <table>
     <% data.levels.each do |level| %>
     <tbody class="grid-body">
       <tr>
-        <td>
+        <td class="name">
           <div class="show-hide">
             <span class="plus">+</span>
             <!-- <span class="minus">-</span> -->
@@ -30,9 +30,9 @@ title: Membership Levels
             <h5>Most Popular</h5>
           <% end %>
         </td>
-        <td><%= level.amount %></td>
-        <td>Join</td>
-        <td>Renew</td>
+        <td class="amount"><%= level.amount %></td>
+        <td class="join">Join</td>
+        <td class="renew">Renew</td>
       </tr>
       <tr class="popout">
         <td>

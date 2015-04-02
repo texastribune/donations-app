@@ -74,6 +74,16 @@
 
 
 // Levels grid
+.grid-body {
+  border-bottom: 2px solid gray;
+  td.name, td.amount {
+    width: 320px;
+  }
+  td.join, td.renew {
+    width: 100px;
+  }
+}
+
 .show-hide {
   float: left;
   .plus {
@@ -84,10 +94,6 @@
 
 .popout {
   display: none;
-}
-
-.grid-body {
-  border-bottom: 2px solid gray;
 }
 
 
