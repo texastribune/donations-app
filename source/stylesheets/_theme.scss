@@ -29,10 +29,11 @@
 .box-contribute {
   .contribute {
     background-color: $bg-contribute;
+    padding: 1em;
     text-align: center;
   }
-  .mail {
-    background-color: gray;
+  .renew {
+    background-color: $bg-contribute;
     margin-top: 20px;
     padding: 0.8em;
     h4, p {
