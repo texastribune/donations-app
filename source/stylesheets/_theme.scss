@@ -47,15 +47,14 @@
 .button {
   font-family: $helvetica;
   font-size: 1.5em;
-  padding: 0.8em;
+  padding: 0.5em 2em;
   text-align: center;
 }
 
 .button-flat {
-  background-color: black;
+  background-color: $yellow-tribune;
   border: none;
-  color: white;
-  text-transform: uppercase;
+  color: black;
 }
 
 .button-border {
