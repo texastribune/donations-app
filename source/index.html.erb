@@ -28,6 +28,15 @@ title: Become a Member
 <div class="main">
   <div class="main-left">
     <h3>We are a nonpartisan, nonprofit news organization.</h3>
+    <hr>
+    <h3>Have a question?</h3>
+    <% data.contacts.each do |contact| %>
+      <h5><%= contact.about %></h5>
+      <h4><%= contact.name %></h4>
+      <p><%= contact.title %></p>
+      <p><%= contact.phone %></p>
+      <p><a href="mailto:<%=contact.email %>"><%= contact.email %></a></p>
+    <% end %>
   </div>
   <div class="main-right">
     <% data.levels_index.each do |level| %>
