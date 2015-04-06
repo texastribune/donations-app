@@ -1,0 +1,103 @@
+// Splash
+.splash {
+  background-size: cover;
+  @include media($mobile) {
+    background-image: none;
+  }
+}
+
+.splash-landing {
+  background-image: url("../images/people-q-c-640-480-10.jpg");
+}
+
+.splash-levels {
+  background-image: url("../images/people-q-c-640-480-2.jpg");
+}
+
+.splash-circle {
+  background-image: url("../images/city-q-c-640-480-5.jpg");
+}
+
+.splash-greeting {
+  @include span-columns(12);
+  text-align: center;
+  @include media($mobile) {
+    background-color: gray;
+  }
+}
+
+.box-contribute {
+  .contribute {
+    background-color: $bg-contribute;
+    padding: 1em;
+    text-align: center;
+  }
+  .renew {
+    background-color: $bg-contribute;
+    margin-top: 20px;
+    padding: 0.8em;
+    h4, p {
+      margin: 0;
+    }
+  }
+}
+
+
+// Buttons
+.button {
+  font-family: $helvetica;
+  font-size: 1.5em;
+  padding: 0.5em 2em;
+  text-align: center;
+}
+
+.button-flat {
+  background-color: $yellow-tribune;
+  border: none;
+  color: black;
+}
+
+.button-border {
+  background-color: transparent;
+  border-width: 3px;
+  border-style: solid;
+  padding: 0.5em 2em;
+  &.dark {
+    color: black;
+    border-color: black;
+  }
+  &.light {
+    color: white;
+    border-color: white;
+  }
+}
+
+
+// Levels grid
+.grid-body {
+  border-bottom: 2px solid gray;
+  td.name, td.amount {
+    width: 320px;
+  }
+  td.amount {
+    color: darkgray;
+  }
+  td.join, td.renew {
+    color: darkgray;
+    width: 100px;
+  }
+}
+
+.show-hide {
+  float: left;
+  .plus {
+    font-size: 1.8em;
+    padding: 0.2em;
+  }
+}
+
+.popout {
+  display: none;
+}
+
+

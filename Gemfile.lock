@@ -7,6 +7,9 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    bourbon (4.0.2)
+      sass (~> 3.3)
+      thor
     celluloid (0.16.0)
       timers (~> 4.0.0)
     chunky_png (1.3.4)
@@ -39,6 +42,7 @@ GEM
     hitimes (1.2.2)
     hooks (0.4.0)
       uber (~> 0.0.4)
+    htmlcompressor (0.1.1)
     http_parser.rb (0.6.0)
     i18n (0.7.0)
     json (1.8.2)
@@ -58,6 +62,8 @@ GEM
       middleman-sprockets (>= 3.1.2)
       sass (>= 3.4.0, < 4.0)
       uglifier (~> 2.5)
+    middleman-bourbon (0.0.2)
+      bourbon (>= 2.1.0)
     middleman-core (3.3.10)
       activesupport (~> 4.1.0)
       bundler (~> 1.1)
@@ -75,6 +81,9 @@ GEM
       middleman-core (>= 3.0.2)
       multi_json (~> 1.0)
       rack-livereload
+    middleman-minify-html (3.4.0)
+      htmlcompressor (~> 0.1.0)
+      middleman-core (>= 3.2)
     middleman-sprockets (3.4.2)
       middleman-core (>= 3.3)
       sprockets (~> 2.12.1)
@@ -82,6 +91,9 @@ GEM
       sprockets-sass (~> 1.3.0)
     minitest (5.5.1)
     multi_json (1.11.0)
+    neat (1.6.0)
+      bourbon (>= 3.1)
+      sass (>= 3.3)
     padrino-helpers (0.12.5)
       i18n (~> 0.6, >= 0.6.7)
       padrino-support (= 0.12.5)
@@ -124,6 +136,9 @@ PLATFORMS
 
 DEPENDENCIES
   middleman (~> 3.3.5)
+  middleman-bourbon
   middleman-livereload (~> 3.1.0)
+  middleman-minify-html
+  neat
   tzinfo-data
   wdm (~> 0.1.0)

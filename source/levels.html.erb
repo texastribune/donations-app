@@ -1,0 +1,75 @@
+---
+title: Explore Benefits
+---
+
+<div class="splash splash-levels">
+  <div class="splash-wrapper">
+    <div class="splash-greeting">
+      <h1 class="splash-header">Membership Levels</h1>
+      <p class="splash-info"><%= data.info %></p>
+      <h4 class="splash-support"><%= data.support %></h4>
+    </div><!-- splash-greeting -->
+  </div><!-- splash-wrapper -->
+</div><!-- splash-levels -->
+
+<%= partial "nav" %>
+
+<div class="main">
+  <h3>We are a nonpartisan, nonprofit news organization.</h3>
+  <table>
+    <% data.levels.each do |level| %>
+    <tbody class="grid-body">
+      <tr>
+        <td class="name">
+          <div class="show-hide">
+            <span class="plus">+</span>
+            <!-- <span class="minus">-</span> -->
+          </div>
+          <h3><%= level.name %></h3>
+          <% if level.most_popular %>
+            <h5>Most Popular</h5>
+          <% end %>
+        </td>
+        <td class="amount"><%= level.amount %></td>
+        <td class="join">Join</td>
+        <td class="renew">Renew</td>
+      </tr>
+      <tr class="popout">
+        <td>
+          <h5>About the Benefits</h5>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <% if level.all_content_benefits %>
+                    <h6>Content Benefits</h6>
+                    <% level.all_content_benefits.each do |benefit| %>
+                      <p><%= benefit %></p>
+                    <% end %>
+                  <% end %>
+                </td>
+                <td>
+                  <% if level.all_access_benefits %>
+                    <h6>Access Benefits</h6>
+                    <% level.all_access_benefits.each do |benefit| %>
+                      <p><%= benefit %></p>
+                    <% end %>
+                  <% end %>
+                </td>
+                <td>
+                  <% if level.all_recognition_benefits %>
+                    <h6>Recognition Benefits</h6>
+                    <% level.all_recognition_benefits.each do |benefit| %>
+                      <p><%= benefit %></p>
+                    <% end %>
+                  <% end %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
+</div>

@@ -1,0 +1,81 @@
+.masthead {
+  @include outer-container;
+  img {
+    padding: 1em 0;
+    @include span-columns(5);
+      @include shift(1);
+  }
+}
+
+
+// Splash at top of pages
+.splash-wrapper {
+  @include outer-container;
+  max-width: 68em;
+}
+
+.splash-landing {
+  .splash-greeting {
+    @include span-columns(7);
+    @include media($mobile) {
+      @include span-columns(12);
+    }
+  }
+  .box-contribute {
+    @include span-columns(5);
+    @include media($mobile) {
+      @include span-columns(12);
+    }
+  }
+}
+
+
+nav {
+  ul {
+    background-color: $bg-nav;
+    margin: 0;
+    li {
+      display: inline-block;
+      padding: 1.2em;
+      a {
+        color: $link-nav;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+
+// Main area below the nav
+.main {
+  @include outer-container;
+  padding: 3em 0;
+  .main-left {
+    @include span-columns(8);
+    @include media($mobile) {
+      @include span-columns(12);
+    }
+  }
+  .main-right {
+    @include span-columns(4);
+    @include media($mobile) {
+      @include span-columns(12);
+    }
+  }
+}
+
+
+// Circles page
+.circle-box {
+  @include span-columns(4);
+  background-color: white;
+  padding: 0.8em;
+  @include media($mobile) {
+    @include span-columns(12);
+  }
+}
+
+
+
+

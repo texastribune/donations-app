@@ -1,0 +1,57 @@
+html {
+  font-family: $helvetica;
+  font-size: 14px;
+}
+
+h1 {
+  font-size: 6em;
+  @include media($tablet) {
+    font-size: 5em;
+  }
+}
+
+h2 {
+  font-size: 3em;
+  margin: 0;
+}
+
+h3 {
+  font-size: 2em;
+  margin: 0;
+}
+
+h4 {
+  font-size: 1.2em;
+}
+
+h5 {
+  font-size: 1em;
+  margin: 0.2em;
+  text-transform: uppercase;
+}
+
+
+// Splash typography
+.splash-info {
+  color: white;
+}
+
+.splash-header {
+  border-bottom: 3px solid $yellow-tribune;
+  color: white;
+}
+
+.splash-support {
+  color: $yellow-tribune;
+}
+
+
+// Index levels
+.level {
+  h4 {
+    color: $teal-tribune;
+  }
+  h5 {
+    color: darkgray;
+  }
+}
