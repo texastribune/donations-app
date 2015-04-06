@@ -1,10 +1,93 @@
 ---
-title: Welcome to Middleman
+title: Become a Member
 ---
 
-<div class="welcome">
-  <h1>Middleman is Watching</h1>
-  <p class="doc">
-    <%= link_to "Read Online Documentation", "http://middlemanapp.com/" %>
-  </p><!-- .doc -->
-</div><!-- .welcome -->
+<div class="splash splash-landing">
+  <div class="splash-wrapper">
+    <div class="splash-greeting">
+      <h1 class="splash-header">Support Us</h1>
+      <p class="splash-info"><%= data.info %></p>
+      <h4 class="splash-support"><%= data.support %></h4>
+    </div>
+    <div class="box-contribute">
+      <div class="contribute">
+        <h5>Your Level:</h5>
+        <h2>Activist</h2>
+        <p><em>Explore benefits &amp; membership levels ></em></p>
+        <button type="submit" class="button button-flat">Contribute Now ></button>
+      </div>
+      <div class="renew">
+        <h4>Already a member?</h4>
+        <p>Renew your membership here ></p>
+      </div>
+    </div><!-- box-contribute -->
+  </div><!-- splash-wrapper -->
+</div><!-- splash-landing -->
+
+<%= partial "nav" %>
+
+<div class="main">
+  <div class="main-left">
+    <h3>We are a nonpartisan, nonprofit news organization.</h3>
+  </div>
+  <div class="main-right">
+    <% data.levels_index.each do |level| %>
+    <div class="level">
+      <% if level.most_popular %>
+        <h5>Most Popular</h5>
+      <% end %>
+      <% if level.circle %>
+        <h5>Circle Membership</h5>
+      <% end %>
+      <h3><%= level.name %></h3>
+      <h4><%= level.amount %></h4>
+      <% if level.commitment %>
+        <p>Three-Year Commitment</p>
+      <% end %>
+      <% if level.all_above %>
+        <p>All the above, plus:</p>
+        <!-- list extra benefits for level by category -->
+        <% if level.extra_content_benefits %>
+          <h5>Content Benefits</h5>
+          <% level.extra_content_benefits.each do |benefit| %>
+            <p><%= benefit %></p>
+          <% end %>
+        <% end %>
+        <% if level.extra_access_benefits %>
+          <h5>Access Benefits</h5>
+          <% level.extra_access_benefits.each do |benefit| %>
+            <p><%= benefit %></p>
+          <% end %>
+        <% end %>
+        <% if level.extra_recognition_benefits %>
+          <h5>Recognition Benefits</h5>
+          <% level.extra_recognition_benefits.each do |benefit| %>
+            <p><%= benefit %></p>
+          <% end %>
+        <% end %>
+      <% else %> <!-- if not level.all_above -->
+        <!-- list all benefits by category -->
+        <% if level.all_content_benefits %>
+          <h5>Content Benefits</h5>
+          <% level.all_content_benefits.each do |benefit| %>
+            <p><%= benefit %></p>
+          <% end %>
+        <% end %>
+        <% if level.all_access_benefits %>
+          <h5>Access Benefits</h5>
+          <% level.all_access_benefits.each do |benefit| %>
+            <p><%= benefit %></p>
+          <% end %>
+        <% end %>
+        <% if level.all_recognition_benefits %>
+          <h5>Recognition Benefits</h5>
+          <% level.all_recognition_benefits.each do |benefit| %>
+            <p><%= benefit %></p>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    <hr />
+    <% end %>
+  </div>
+</div>
