@@ -126,7 +126,7 @@
     border-bottom: 2px solid $yellow-tribune;
     color: white;
   }
-  h4 {
+  h4, p {
     color: $yellow-tribune;
   }
 }
@@ -143,5 +143,9 @@
   h5 {
     color: darkgray;
   }
+}
+
+.circle-box-benefits {
+  height: 80px;
 }
 
