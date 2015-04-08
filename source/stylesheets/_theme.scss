@@ -88,9 +88,13 @@
   }
 }
 
-.show-hide {
-  float: left;
-  .plus {
+.open-close {
+  cursor: pointer;
+  .minus {
+    display: none;
+  }
+  .plus, .minus {
+    float: left;
     font-size: 1.8em;
     padding: 0.2em;
   }
@@ -98,6 +102,18 @@
 
 .popout {
   display: none;
+}
+
+.opened {
+  .popout {
+    display: table-row;
+  }
+  .plus {
+    display: none;
+  }
+  .minus {
+    display: block;
+  }
 }
 
 

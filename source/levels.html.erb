@@ -19,11 +19,9 @@ title: Explore Benefits
     <% data.levels.each do |level| %>
     <tbody class="grid-body">
       <tr>
-        <td class="name">
-          <div class="show-hide">
-            <span class="plus">+</span>
-            <!-- <span class="minus">-</span> -->
-          </div>
+        <td class="name open-close">
+          <span class="plus">+</span>
+          <span class="minus">-</span>
           <h3><%= level.name %></h3>
           <% if level.most_popular %>
             <h5>Most Popular</h5>
@@ -35,40 +33,38 @@ title: Explore Benefits
       </tr>
       <tr class="popout">
         <td>
-          <h5>About the Benefits</h5>
-          <table>
-            <tbody>
-              <tr>
-                <td>
-                  <% if level.all_content_benefits %>
-                    <h6>Content Benefits</h6>
-                    <% level.all_content_benefits.each do |benefit| %>
-                      <p><%= benefit %></p>
-                    <% end %>
-                  <% end %>
-                </td>
-                <td>
-                  <% if level.all_access_benefits %>
-                    <h6>Access Benefits</h6>
-                    <% level.all_access_benefits.each do |benefit| %>
-                      <p><%= benefit %></p>
-                    <% end %>
-                  <% end %>
-                </td>
-                <td>
-                  <% if level.all_recognition_benefits %>
-                    <h6>Recognition Benefits</h6>
-                    <% level.all_recognition_benefits.each do |benefit| %>
-                      <p><%= benefit %></p>
-                    <% end %>
-                  <% end %>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <% if level.all_content_benefits %>
+            <h6>Content Benefits</h6>
+            <% level.all_content_benefits.each do |benefit| %>
+              <p><%= benefit %></p>
+            <% end %>
+          <% end %>
+        </td>
+        <td>
+          <% if level.all_access_benefits %>
+            <h6>Access Benefits</h6>
+            <% level.all_access_benefits.each do |benefit| %>
+              <p><%= benefit %></p>
+            <% end %>
+          <% end %>
+        </td>
+        <td>
+          <% if level.all_recognition_benefits %>
+            <h6>Recognition Benefits</h6>
+            <% level.all_recognition_benefits.each do |benefit| %>
+              <p><%= benefit %></p>
+            <% end %>
+          <% end %>
         </td>
       </tr>
     </tbody>
     <% end %>
   </table>
 </div>
+
+<script>
+  // toggles benefit info in grid
+  $('.open-close').on('click', function() {
+    $(this).closest('.grid-body').toggleClass('opened');
+  });
+</script>
