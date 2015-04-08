@@ -15,14 +15,16 @@ title: Membership Levels
           <div class="circle-box-top">
             <h3><%= level.name %></h3>
             <h4><%= level.amount %></h4>
-            <h4><em>Three-Year Commitment</em></h4>
+            <p><em>Three-Year Commitment</em></p>
           </div>
           <div class="circle-box-bottom">
             <h4>All previous level benefits ></h4>
             <h5>Access Benefits</h5>
+            <div class="circle-box-benefits">
             <% level.extra_access_benefits.each do |benefit| %>
               <p><%= benefit %></p>
             <% end %>
+            </div>
             <button class="button button-flat">Join ></button>
             <button class="button button-flat">Renew ></button>
           </div>
