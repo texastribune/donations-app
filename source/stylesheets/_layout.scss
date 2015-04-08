@@ -70,8 +70,6 @@ nav {
 // Circles page
 .circle-box {
   @include span-columns(4);
-  background-color: white;
-  padding: 0.8em;
   @include media($mobile) {
     @include span-columns(12);
   }

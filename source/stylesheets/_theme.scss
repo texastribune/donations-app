@@ -117,3 +117,31 @@
 }
 
 
+// Circle member page
+.circle-box-top {
+  background-color: black;
+  padding: 1em 2.2em;
+  text-align: center;
+  h3 {
+    border-bottom: 2px solid $yellow-tribune;
+    color: white;
+  }
+  h4 {
+    color: $yellow-tribune;
+  }
+}
+
+.circle-box-bottom {
+  background-color: white;
+  color: black;
+  padding: 1em;
+  text-align: left;
+  .button {
+    font-size: 1em;
+    font-weight: 600;
+  }
+  h5 {
+    color: darkgray;
+  }
+}
+
