@@ -5,6 +5,7 @@ html {
 
 h1 {
   font-size: 6em;
+  margin: 0;
   @include media($tablet) {
     font-size: 5em;
   }
