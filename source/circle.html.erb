@@ -37,9 +37,18 @@ title: Membership Levels
 
 <div class="main">
   <div class="main-left">
-    <h3>Nonpartisan. Nonprofit. News.</h3>
+    <h3><%= data.tagline %></h3>
   </div>
   <div class="main-right">
     <h4>Have a question?</h4>
+    <% data.contacts.each do |contact| %>
+      <h5><%= contact.about %></h5>
+      <h4><%= contact.name %></h4>
+      <p><%= contact.title %></p>
+      <p><%= contact.phone %></p>
+      <p><a href="mailto:<%=contact.email %>"><%= contact.email %></a></p>
+    <% end %>
+    <hr>
+    <h4>Ready to share?</h4>
   </div>
 </div>
