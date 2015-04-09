@@ -27,18 +27,22 @@
 }
 
 .box-contribute {
+  a {
+    color: black;
+    text-decoration: none;
+  }
   .contribute {
     background-color: $bg-contribute;
     padding: 1em;
     text-align: center;
+    h5, h2, p {
+      text-align: left;
+    }
   }
   .renew {
     background-color: $bg-contribute;
     margin-top: 20px;
     padding: 0.8em;
-    h4, p {
-      margin: 0;
-    }
   }
 }
 

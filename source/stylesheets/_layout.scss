@@ -12,6 +12,7 @@
 .splash-wrapper {
   @include outer-container;
   max-width: 68em;
+  padding: 6em 0;
 }
 
 .splash-landing {
