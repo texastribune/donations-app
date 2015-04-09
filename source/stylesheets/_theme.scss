@@ -97,11 +97,22 @@
     width: 320px;
   }
   td.amount {
-    color: $gray-medium;
+    color: $teal-tribune;
+    width: 370px;
   }
-  td.join, td.renew {
+  td.join-renew {
+    width: 200px;
+    a {
+      color: $teal-tribune;
+      text-decoration: none;
+    }
+    span {
+      padding-right: 5px;
+    }
+  }
+  h6 {
     color: $gray-medium;
-    width: 100px;
+    text-transform: uppercase;
   }
 }
 
@@ -113,7 +124,9 @@
   .plus, .minus {
     float: left;
     font-size: 1.8em;
+    height: 25px;
     padding: 0.2em;
+    width: 25px;
   }
 }
 
