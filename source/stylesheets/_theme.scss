@@ -33,10 +33,13 @@
   }
   .contribute {
     background-color: $bg-contribute;
-    padding: 1em;
+    padding: 2em;
     text-align: center;
     h5, h2, p {
       text-align: left;
+    }
+    h5 {
+      color: $gray-medium;
     }
   }
   .renew {
@@ -44,6 +47,14 @@
     margin-top: 20px;
     padding: 0.8em;
   }
+}
+
+#contribution-amount {
+  background-color: $gray-light;
+  border: none;
+  font-size: 1em;
+  padding: 1em;
+  text-align: right;
 }
 
 
@@ -84,10 +95,10 @@
     width: 320px;
   }
   td.amount {
-    color: darkgray;
+    color: $gray-medium;
   }
   td.join, td.renew {
-    color: darkgray;
+    color: $gray-medium;
     width: 100px;
   }
 }
@@ -145,7 +156,7 @@
     font-weight: 600;
   }
   h5 {
-    color: darkgray;
+    color: $gray-medium;
   }
 }
 
