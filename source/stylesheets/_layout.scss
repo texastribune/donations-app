@@ -22,7 +22,7 @@
       @include span-columns(12);
     }
   }
-  .box-contribute {
+  .express-checkout {
     @include span-columns(4);
     @include media($mobile) {
       @include span-columns(12);
@@ -69,6 +69,32 @@ nav {
     }
   }
 }
+
+// Bottom express checkout
+.bottom-checkout {
+  @include outer-container;
+  background: gray;
+  max-width: none;
+  padding: 3em 1em;
+  .express-checkout {
+    @include span-columns(6);
+    .contribute {
+      background: transparent;
+      .button {
+        margin-top: 1em;
+      }
+    }
+  }
+}
+
+#contribute-buttons-bottom {
+  display: inline;
+}
+
+.ui-buttonset {
+  margin: 1em 0;
+}
+
 
 // Index levels
 .level {

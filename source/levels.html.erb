@@ -20,11 +20,11 @@ title: Explore Benefits
     <tbody class="grid-body">
       <tr>
         <td class="name open-close">
-          <span class="plus">+</span>
-          <span class="minus">-</span>
-          <h3><%= level.name %></h3>
+          <i class="fa fa-plus-square-o"></i>
+          <i class="fa fa-minus-square"></i>
+          <h3> <%= level.name %></h3>
           <% if level.most_popular %>
-            <h5>Most Popular</h5>
+            <h5 class="benefit-flag">Most Popular</h5>
           <% end %>
         </td>
         <td class="amount"><%= level.amount %></td>

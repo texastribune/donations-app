@@ -26,7 +26,7 @@
   }
 }
 
-.box-contribute {
+.express-checkout {
   a {
     color: black;
     text-decoration: none;
@@ -155,17 +155,14 @@
 
 .open-close {
   cursor: pointer;
-  .minus {
+  .fa-minus-square {
     display: none;
   }
-  .plus, .minus {
-    border: 2px solid $yellow-tribune;
+  .fa-plus-square-o, .fa-minus-square {
     color: $yellow-tribune;
     float: left;
-    font-size: 1.8em;
-    height: 25px;
+    font-size: 1.5em;
     text-align: center;
-    width: 25px;
   }
 }
 
@@ -177,10 +174,10 @@
   .popout {
     display: table-row;
   }
-  .plus {
+  .fa-plus-square-o {
     display: none;
   }
-  .minus {
+  .fa-minus-square {
     display: block;
   }
 }
