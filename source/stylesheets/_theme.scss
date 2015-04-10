@@ -35,7 +35,7 @@
     background-color: $bg-contribute;
     padding: 2em;
     text-align: center;
-    h5, h2, p {
+    h5, h3, p {
       text-align: left;
     }
     h5 {
@@ -54,6 +54,10 @@
   }
 }
 
+#contribute-buttons {
+  margin: 1em 0;
+}
+
 #spinner {
   background-color: $gray-light;
   border: none;
@@ -69,7 +73,7 @@
 .button {
   font-family: $helvetica;
   font-size: 1.5em;
-  padding: 0.5em 2em;
+  padding: 0.5em 1.8em;
   text-align: center;
 }
 
