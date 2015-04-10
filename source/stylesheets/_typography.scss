@@ -4,7 +4,7 @@ html {
 }
 
 h1 {
-  font-size: 6em;
+  font-size: 8em;
   margin: 0;
   @include media($tablet) {
     font-size: 5em;
@@ -49,6 +49,8 @@ p {
 .splash-header {
   border-bottom: 3px solid $yellow-tribune;
   color: white;
+  font-family: "league-gothic";
+  font-weight: 200;
 }
 
 .splash-support {
