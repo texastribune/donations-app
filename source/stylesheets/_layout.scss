@@ -97,6 +97,18 @@ nav.desktop-nav {
 }
 
 
+// Levels page
+.levels {
+  h3 {
+    padding: 1em 0;
+  }
+  .facebook, .twitter, .email {
+    display: inline;
+    margin: 0;
+  }
+}
+
+
 // Index levels
 .level {
   margin: 0 0 1em 0;
