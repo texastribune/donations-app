@@ -64,6 +64,17 @@ a {
 }
 
 
+.bottom-checkout {
+  h2 {
+    border-bottom: 5px solid $yellow-tribune;
+    color: white;
+    font-family: 'league-gothic';
+    font-size: 4em;
+    font-weight: 200;
+  }
+}
+
+
 // Index levels
 .level {
   h4.amount {

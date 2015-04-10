@@ -9,11 +9,11 @@ title: Become a Member
       <p class="splash-info"><%= data.info %></p>
       <h4 class="splash-support"><%= data.support %></h4>
     </div>
-    <div class="box-contribute">
+    <div class="express-checkout">
       <div class="contribute">
         <form id="contribution-form" action="#" method="get">
           $<input name="amount" value="8" type="number" id="spinner">
-          <div id="contribute-buttons">
+          <div id="contribute-buttons-top">
               <input type="radio" value="year" id="yearly" name="frequency">
               <label for="yearly"><i class="fa fa-check"></i>Annually</label>
               <input checked="checked" type="radio" value="month" id="monthly" name="frequency">
@@ -29,7 +29,7 @@ title: Become a Member
         <h4>Already a member?</h4>
         <a href="#"><p><strong>Renew your membership here <i class="fa fa-angle-right"></i></strong></p></a>
       </div>
-    </div><!-- box-contribute -->
+    </div><!-- express-checkout -->
   </div><!-- splash-wrapper -->
   <%= partial "nav" %>
 </div><!-- splash-landing -->
@@ -50,7 +50,7 @@ title: Become a Member
       <% end %>
     <hr>
     <%= partial "share" %>
-  </div>
+  </div><!-- main-left -->
   <div class="main-right">
     <% data.levels_index.each do |level| %>
     <div class="level">
@@ -111,12 +111,36 @@ title: Become a Member
     <hr>
     <% end %>
   </div>
+</div><!-- main-right -->
+<div class="bottom-checkout">
+  <div class="express-checkout">
+    <h2>Ready to Support?</h2>
+    <div class="contribute">
+      <form id="contribution-form-bottom" action="#" method="get">
+        $<input name="amount" value="8" type="number" id="spinner">
+        <div id="contribute-buttons-bottom">
+            <input type="radio" value="year" id="yearly-bottom" name="frequency-bottom">
+            <label for="yearly-bottom"><i class="fa fa-check"></i>Annually</label>
+            <input checked="checked" type="radio" value="month" id="monthly-bottom" name="frequency-bottom">
+            <label for="monthly-bottom"><i class="fa fa-check"></i>Monthly</label>
+        </div>
+        <button type="submit" class="button button-flat">Join Now <i class="fa fa-angle-right"></i></button>
+      </form>
+    </div>
+    <a href="#">
+      <div class="button button-flat">Or renew your membership <i class="fa fa-angle-right"></i>
+      </div>
+    </a>
+  </div><!-- express-checkout -->
 </div>
 
 <script>
   // Initialize number input spinner for express checkout
   $("#spinner").spinner();
 
-  // Initialize radio buttonset for monthly/annually
-  $("#contribute-buttons").buttonset();
+  // Initialize top radio buttonset for monthly/annually
+  $("#contribute-buttons-top").buttonset();
+
+  // Initialize bottom radio buttonset for monthly/annually
+  $("#contribute-buttons-bottom").buttonset();
 </script>
