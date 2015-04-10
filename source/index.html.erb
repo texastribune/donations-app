@@ -13,11 +13,11 @@ title: Become a Member
       <div class="contribute">
         <form id="contribution-form" action="#" method="get">
           $<input name="amount" value="8" type="number" id="spinner">
-          <div>
-            <input type="checkbox" value="year">
-            <label>Annually</label>
-            <input type="checkbox" value="month" checked="checked">
-            <label>Monthly</label>
+          <div id="contribute-buttons">
+              <input type="radio" value="year" id="yearly" name="frequency">
+              <label for="yearly">Annually</label>
+              <input checked="checked" type="radio" value="month" id="monthly" name="frequency">
+              <label for="monthly">Monthly</label>
           </div>
           <h5>Your Level:</h5>
           <h2>Activist</h2>
@@ -110,5 +110,7 @@ title: Become a Member
 </div>
 
 <script>
-$( "#spinner" ).spinner();
+  $("#spinner").spinner();
+
+  $("#contribute-buttons").buttonset();
 </script>
