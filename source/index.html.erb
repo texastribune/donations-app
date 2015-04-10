@@ -55,18 +55,18 @@ title: Become a Member
     <% data.levels_index.each do |level| %>
     <div class="level">
       <% if level.most_popular %>
-        <h5>Most Popular</h5>
+        <h5 class="benefit-flag"><i class="fa fa-star"></i> Most Popular</h5>
       <% end %>
       <% if level.circle %>
-        <h5>Circle Membership</h5>
+        <h5 class="benefit-flag"><i class="fa fa-support"></i> Circle Membership</h5>
       <% end %>
       <h3><%= level.name %></h3>
-      <h4><%= level.amount %></h4>
+      <h4 class="amount"><%= level.amount %></h4>
       <% if level.commitment %>
         <p>Three-Year Commitment</p>
       <% end %>
       <% if level.all_above %>
-        <p>All the above, plus:</p>
+        <h4 class="all-above">All the above, plus:</h4>
         <!-- list extra benefits for level by category -->
         <% if level.extra_content_benefits %>
           <h5>Content Benefits</h5>
@@ -108,7 +108,7 @@ title: Become a Member
         <% end %>
       <% end %>
     </div>
-    <hr />
+    <hr>
     <% end %>
   </div>
 </div>
