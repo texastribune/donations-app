@@ -39,13 +39,17 @@ title: Become a Member
     <h3><%= data.tagline %></h3>
     <hr>
     <h3>Have a question?</h3>
-    <% data.contacts.each do |contact| %>
-      <h5><%= contact.about %></h5>
-      <h4><%= contact.name %></h4>
-      <p><%= contact.title %></p>
-      <p><%= contact.phone %></p>
-      <p><a href="mailto:<%=contact.email %>"><%= contact.email %> <i class="fa fa-angle-right"></i></a></p>
-    <% end %>
+      <% data.contacts.each do |contact| %>
+        <div class="contact-info">
+          <h5><%= contact.about %></h5>
+          <h4><%= contact.name %></h4>
+          <p><%= contact.title %></p>
+          <p><%= contact.phone %></p>
+          <p><a href="mailto:<%=contact.email %>"><%= contact.email %> <i class="fa fa-angle-right"></i></a></p>
+        </div>
+      <% end %>
+    <hr>
+    <h3>Ready to share?</h3>
   </div>
   <div class="main-right">
     <% data.levels_index.each do |level| %>
