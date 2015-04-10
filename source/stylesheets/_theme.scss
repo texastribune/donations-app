@@ -20,9 +20,22 @@
 
 .splash-greeting {
   @include span-columns(12);
+  padding: 1.5em;
   text-align: center;
+  .splash-info {
+    padding: 1em 0;
+  }
+  .splash-info, .splash-support {
+    font-size: 1.2em;
+  }
   @include media($mobile) {
     background-color: gray;
+  }
+}
+
+.index {
+  .splash-greeting {
+    text-align: right;
   }
 }
 
