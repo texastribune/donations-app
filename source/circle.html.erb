@@ -18,15 +18,15 @@ title: Membership Levels
             <p><em>Three-Year Commitment</em></p>
           </div>
           <div class="circle-box-bottom">
-            <h4>All previous level benefits ></h4>
+            <h4>All previous level benefits <i class="fa fa-angle-right"></i></h4>
             <h5>Access Benefits</h5>
             <div class="circle-box-benefits">
             <% level.extra_access_benefits.each do |benefit| %>
               <p><%= benefit %></p>
             <% end %>
             </div>
-            <button class="button button-flat">Join ></button>
-            <button class="button button-flat">Renew ></button>
+            <button class="button button-flat">Join <i class="fa fa-angle-right"></i></button>
+            <button class="button button-flat">Renew <i class="fa fa-angle-right"></i></button>
           </div>
         </div>
       <% end %>
@@ -46,7 +46,7 @@ title: Membership Levels
       <h4><%= contact.name %></h4>
       <p><%= contact.title %></p>
       <p><%= contact.phone %></p>
-      <p><a href="mailto:<%=contact.email %>"><%= contact.email %></a></p>
+      <p><a href="mailto:<%=contact.email %>"><%= contact.email %> <i class="fa fa-angle-right"></i></a></p>
     <% end %>
     <hr>
     <h4>Ready to share?</h4>
