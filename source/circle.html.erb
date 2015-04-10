@@ -42,11 +42,13 @@ title: Membership Levels
   <div class="main-right">
     <h4>Have a question?</h4>
     <% data.contacts.each do |contact| %>
-      <h5><%= contact.about %></h5>
-      <h4><%= contact.name %></h4>
-      <p><%= contact.title %></p>
-      <p><%= contact.phone %></p>
-      <p><a href="mailto:<%=contact.email %>"><%= contact.email %> <i class="fa fa-angle-right"></i></a></p>
+      <div class="contact-info">
+        <h5><%= contact.about %></h5>
+        <h4><%= contact.name %></h4>
+        <p><%= contact.title %></p>
+        <p><%= contact.phone %></p>
+        <p><a href="mailto:<%=contact.email %>"><%= contact.email %> <i class="fa fa-angle-right"></i></a></p>
+      </div>
     <% end %>
     <hr>
     <h4>Ready to share?</h4>
