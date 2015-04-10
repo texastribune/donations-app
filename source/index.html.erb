@@ -117,7 +117,7 @@ title: Become a Member
     <h2>Ready to Support?</h2>
     <div class="contribute">
       <form id="contribution-form-bottom" action="#" method="get">
-        $<input name="amount" value="8" type="number" id="spinner">
+        $<input name="amount" value="8" type="number" id="spinner-bottom">
         <div id="contribute-buttons-bottom">
             <input type="radio" value="year" id="yearly-bottom" name="frequency-bottom">
             <label for="yearly-bottom"><i class="fa fa-check"></i>Annually</label>
@@ -135,8 +135,11 @@ title: Become a Member
 </div>
 
 <script>
-  // Initialize number input spinner for express checkout
+  // Initialize top number input spinner for express checkout
   $("#spinner").spinner();
+
+  // Initialize bottom number input spinner for express checkout
+  $("#spinner-bottom").spinner();
 
   // Initialize top radio buttonset for monthly/annually
   $("#contribute-buttons-top").buttonset();
