@@ -144,6 +144,9 @@
 // Levels grid
 .grid-body {
   border-bottom: 2px solid gray;
+  td {
+    padding: 1em 0;
+  }
   td.name, td.amount {
     width: 320px;
   }
@@ -176,12 +179,24 @@
     color: $yellow-tribune;
     float: left;
     font-size: 1.5em;
+    padding: 0.3em;
     text-align: center;
   }
 }
 
 .popout {
   display: none;
+  td {
+    padding: 1em 2em 2em 0;
+    vertical-align: sub;
+  }
+  h6 {
+    border-bottom: 3px solid $yellow-tribune;
+    padding: 0 0 0.5em 0;
+  }
+  p {
+    padding-top: 1em;
+  }
 }
 
 .opened {
