@@ -23,7 +23,7 @@
     }
   }
   .box-contribute {
-    @include span-columns(5);
+    @include span-columns(4);
     @include media($mobile) {
       @include span-columns(12);
     }
