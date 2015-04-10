@@ -21,13 +21,13 @@ title: Become a Member
           </div>
           <h5>Your Level:</h5>
           <h3>Activist</h3>
-          <a href="/levels.html"><p><strong><em>Explore benefits &amp; membership levels ></em></strong></p></a>
-          <button type="submit" class="button button-flat">Contribute Now ></button>
+          <a href="/levels.html"><p><strong><em>Explore benefits &amp; membership levels <i class="fa fa-angle-right"></i></em></strong></p></a>
+          <button type="submit" class="button button-flat">Contribute Now <i class="fa fa-angle-right"></i></button>
         </form>
       </div>
       <div class="renew">
         <h4>Already a member?</h4>
-        <a href="#"><p><strong>Renew your membership here ></strong></p></a>
+        <a href="#"><p><strong>Renew your membership here <i class="fa fa-angle-right"></i></strong></p></a>
       </div>
     </div><!-- box-contribute -->
   </div><!-- splash-wrapper -->
@@ -44,7 +44,7 @@ title: Become a Member
       <h4><%= contact.name %></h4>
       <p><%= contact.title %></p>
       <p><%= contact.phone %></p>
-      <p><a href="mailto:<%=contact.email %>"><%= contact.email %></a></p>
+      <p><a href="mailto:<%=contact.email %>"><%= contact.email %> <i class="fa fa-angle-right"></i></a></p>
     <% end %>
   </div>
   <div class="main-right">
@@ -110,7 +110,9 @@ title: Become a Member
 </div>
 
 <script>
+  // Initialize number input spinner for express checkout
   $("#spinner").spinner();
 
+  // Initialize radio buttonset for monthly/annually
   $("#contribute-buttons").buttonset();
 </script>

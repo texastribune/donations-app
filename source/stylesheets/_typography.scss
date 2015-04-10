@@ -27,7 +27,8 @@ h4 {
 }
 
 h5 {
-  font-size: 1em;
+  color: $gray-medium;
+  font-size: 0.8em;
   margin: 0.2em;
   text-transform: uppercase;
 }
@@ -39,6 +40,11 @@ h6 {
 
 p {
   margin: 0;
+}
+
+a {
+  color: $teal-tribune;
+  text-decoration: none;
 }
 
 // Splash typography
