@@ -98,6 +98,23 @@
   }
 }
 
+.facebook, .twitter, .email {
+  color: white;
+  margin: 0.5em;
+}
+
+.facebook {
+  background: #2B4185;
+}
+
+.twitter {
+  background: #4298ED;
+}
+
+.email {
+  background: $yellow-tribune;
+}
+
 // Contact Info
 .contact-info {
   margin: 2em 0;
