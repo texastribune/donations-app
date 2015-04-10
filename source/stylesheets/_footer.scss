@@ -1,0 +1,34 @@
+.footer {
+  @include outer-container;
+  background: black;
+  max-width: none;
+  .left-nav {
+    @include span-columns(3);
+  }
+  .right-nav {
+    @include span-columns(9);
+  }
+  ul {
+    li {
+      border-right: 1px solid white;
+      display: inline-block;
+      &.copyright {
+        border: none;
+        color: $gray-medium;
+        a {
+          color: $gray-medium;
+        }
+      }
+      &.donate {
+        border: none;
+        a {
+          color: $teal-tribune;
+        }
+      }
+      a {
+        color: white;
+        padding: 0.5em;
+      }
+    }
+  }
+}
