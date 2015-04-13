@@ -18,7 +18,7 @@ title: Explore Benefits
   <h3>Explore the benefits:</h3>
   <table>
     <% data.levels.each do |level| %>
-    <tbody class="grid-body">
+    <tbody class="grid-body <% if level.most_popular %>opened<% end %>">
       <tr>
         <td class="name open-close">
           <i class="fa fa-plus-square-o"></i>
