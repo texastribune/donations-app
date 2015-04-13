@@ -28,9 +28,6 @@
   .splash-info, .splash-support {
     font-size: 1.2em;
   }
-  @include media($mobile) {
-    background-color: gray;
-  }
 }
 
 .index {
@@ -39,10 +36,11 @@
   }
 }
 
+
+// Express Checkout
 .express-checkout {
   a {
     color: black;
-    text-decoration: none;
   }
   .contribute {
     background-color: $bg-contribute;
@@ -53,6 +51,7 @@
     }
     h5 {
       color: $gray-medium;
+      padding-top: 0.5em;
     }
     .button {
       margin-top: 1em;
@@ -84,6 +83,13 @@
 #monthly-bottom {
   clear: both;
   float: right;
+}
+
+// Turn off native spinner
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 #spinner, #spinner-bottom {
@@ -127,6 +133,8 @@
   }
 }
 
+
+// Social
 .facebook, .twitter, .email {
   color: white;
   margin: 0.5em;
@@ -143,6 +151,7 @@
 .email {
   background: $yellow-tribune;
 }
+
 
 // Contact Info
 .contact-info {
@@ -169,7 +178,6 @@
   td.join-renew {
     a {
       color: $teal-tribune;
-      text-decoration: none;
     }
     span {
       padding-right: 5px;
@@ -240,9 +248,11 @@
   h3 {
     border-bottom: 2px solid $yellow-tribune;
     color: white;
+    padding: 0.2em 0;
   }
   h4, p {
     color: $yellow-tribune;
+    padding: 0.2em 0;
   }
 }
 
@@ -261,13 +271,5 @@
 }
 
 .circle-box-benefits {
-  height: 80px;
-}
-
-
-// Turn off native spinner
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+  height: 60px;
 }

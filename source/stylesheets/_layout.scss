@@ -32,6 +32,7 @@
 }
 
 
+// Desktop nav
 nav.desktop-nav {
   border-bottom: 5px solid $yellow-tribune;
   text-align: center;
@@ -53,7 +54,7 @@ nav.desktop-nav {
 }
 
 
-// Main area below the nav
+// Main area below nav
 .main {
   @include outer-container;
   padding: 3em 0;
@@ -71,6 +72,7 @@ nav.desktop-nav {
   }
 }
 
+
 // Bottom express checkout
 .bottom-checkout {
   @include outer-container;
@@ -79,6 +81,9 @@ nav.desktop-nav {
   padding: 3em 1em;
   .express-checkout {
     @include span-columns(5);
+    @include media($mobile) {
+      @include span-columns(12);
+    }
     .contribute {
       background: transparent;
       span.dollar {
@@ -104,18 +109,6 @@ nav.desktop-nav {
 }
 
 
-// Levels page
-.levels {
-  h3 {
-    padding: 1em 0;
-  }
-  .facebook, .twitter, .email {
-    display: inline;
-    margin: 0;
-  }
-}
-
-
 // Index levels
 .level {
   margin: 0 0 1em 0;
@@ -129,6 +122,18 @@ hr {
 }
 
 
+// Levels page
+.levels {
+  h3 {
+    padding: 1em 0;
+  }
+  .facebook, .twitter, .email {
+    display: inline;
+    margin: 0;
+  }
+}
+
+
 // Circles page
 .circle-box {
   @include span-columns(4);
@@ -136,7 +141,3 @@ hr {
     @include span-columns(12);
   }
 }
-
-
-
-

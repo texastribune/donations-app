@@ -63,18 +63,8 @@
 .ui-widget .ui-widget {
   font-size: 1em;
 }
-.ui-widget input,
-.ui-widget select,
-.ui-widget textarea,
-.ui-widget button {
+.ui-widget input {
   font-size: 1em;
-}
-.ui-widget-content {
-  background: #ffffff url("images/ui-bg_flat_75_ffffff_40x100.png") 50% 50% repeat-x;
-  color: #222222;
-}
-.ui-widget-content a {
-  color: #222222;
 }
 
 
@@ -99,33 +89,10 @@
     font-weight: normal;
     color: #555555;
   }
-  .ui-state-default a,
-  .ui-state-default a:link,
-  .ui-state-default a:visited {
-    color: #555555;
-    text-decoration: none;
-  }
-  .ui-state-hover a,
-  .ui-state-hover a:hover,
-  .ui-state-hover a:link,
-  .ui-state-hover a:visited,
-  .ui-state-focus a,
-  .ui-state-focus a:hover,
-  .ui-state-focus a:link,
-  .ui-state-focus a:visited {
-    color: #212121;
-    text-decoration: none;
-  }
   .ui-state-active {
     border: 1px solid #aaaaaa;
     background: $yellow-tribune;
     font-weight: normal;
     color: #212121;
-  }
-  .ui-state-active a,
-  .ui-state-active a:link,
-  .ui-state-active a:visited {
-    color: #212121;
-    text-decoration: none;
   }
 }
