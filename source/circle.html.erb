@@ -25,8 +25,8 @@ title: Membership Levels
               <p><%= benefit %></p>
             <% end %>
             </div>
-            <button class="button button-flat">Join <i class="fa fa-angle-right"></i></button>
-            <button class="button button-flat">Renew <i class="fa fa-angle-right"></i></button>
+            <a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=<%= level.givalike_amount %>"><button class="button button-flat">Join <i class="fa fa-angle-right"></i></button></a>
+            <a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=<%= level.givalike_amount %>"><button style="float: right;" class="button button-flat">Renew <i class="fa fa-angle-right"></i></button></a>
           </div>
         </div>
       <% end %>
@@ -40,7 +40,9 @@ title: Membership Levels
     <h2><%= data.tagline %></h2>
   </div>
   <div class="main-right">
-    <h4>Have a question?</h4>
+    <%= partial "give_more" %>
+    <hr>
+    <h3>Have a question?</h3>
     <% data.contacts.each do |contact| %>
       <% if contact.circle %>
         <div class="contact-info">
