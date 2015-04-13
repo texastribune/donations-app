@@ -173,6 +173,12 @@
     }
     span {
       padding-right: 5px;
+      &:first-child {
+        float: left;
+      }
+      &:last-child {
+        float: right;
+      }
     }
   }
   h3 {
