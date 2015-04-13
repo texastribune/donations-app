@@ -149,7 +149,8 @@
       "Donor board recognition at Tribune conversation series events"
 -
   name: "Editor&rsquo;s Circle"
-  amount: "$1,001 - $2,499 Annually"
+  amount: "$1,000 Annually"
+  givalike_amount: 1000
   commitment: true
   all_above: true
   circle: true
@@ -187,7 +188,8 @@
       "Invitations to exclusive social events during The Texas Tribune festival"
 -
   name: "Leadership Circle"
-  amount: "$2,500 - $4,999 Annually"
+  amount: "$2,500 Annually"
+  givalike_amount: 2500
   commitment: true
   all_above: true
   circle: true
@@ -227,7 +229,8 @@
       "Opportunity to promote the nonprofit of your choice on the Tribune site for a year"
 -
   name: "Chairman&rsquo;s Circle"
-  amount: "$5,000+ Annually"
+  amount: "$5,000 + Annually"
+  givalike_amount: 5000
   commitment: true
   all_above: true
   circle: true
