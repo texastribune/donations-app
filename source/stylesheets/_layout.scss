@@ -74,16 +74,23 @@ nav.desktop-nav {
 // Bottom express checkout
 .bottom-checkout {
   @include outer-container;
-  background: gray;
+  background: #a74c1d;
   max-width: none;
   padding: 3em 1em;
   .express-checkout {
-    @include span-columns(6);
+    @include span-columns(5);
     .contribute {
       background: transparent;
-      .button {
-        margin-top: 1em;
+      span.dollar {
+        color: white;
+        padding: 0 0.2em;
       }
+      label {
+        float: right;
+      }
+    }
+    .ui-spinner {
+      float: left;
     }
   }
 }

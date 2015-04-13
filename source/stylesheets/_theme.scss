@@ -54,6 +54,14 @@
     h5 {
       color: $gray-medium;
     }
+    .button {
+      margin-top: 1em;
+      width: 100%;
+    }
+    span.dollar {
+      float: left;
+      font-size: 3em;
+    }
   }
   .renew {
     background-color: $bg-contribute;
@@ -65,6 +73,7 @@
     font-family: $helvetica;
     padding: 0.2em;
     text-transform: uppercase;
+    width: 120px;
   }
 }
 
@@ -72,11 +81,17 @@
   margin: 1em 0;
 }
 
-#spinner {
+#monthly-bottom {
+  clear: both;
+  float: right;
+}
+
+#spinner, #spinner-bottom {
   background-color: $gray-light;
   border: none;
   color: $gray-medium;
   font-size: 1em;
+  height: 60px;
   margin: 0;
   padding: 1em 2em 1em 1em;
   text-align: right;
@@ -86,7 +101,7 @@
 // Buttons
 .button {
   font-family: $helvetica;
-  font-size: 1.5em;
+  font-size: 1.2em;
   padding: 0.5em 1.8em;
   text-align: center;
 }
@@ -146,16 +161,12 @@
   border-bottom: 2px solid gray;
   td {
     padding: 1em 0;
-  }
-  td.name, td.amount {
-    width: 320px;
+    width: 300px;
   }
   td.amount {
     color: $teal-tribune;
-    width: 370px;
   }
   td.join-renew {
-    width: 200px;
     a {
       color: $teal-tribune;
       text-decoration: none;
