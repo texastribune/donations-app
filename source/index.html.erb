@@ -12,7 +12,7 @@ title: Become a Member
     <div class="express-checkout">
       <div class="contribute">
         <form id="contribution-form" action="#" method="get">
-          $<input name="amount" value="8" type="number" id="spinner">
+          <span class="dollar">$</span><input name="amount" value="8" type="number" id="spinner">
           <div id="contribute-buttons-top">
               <input type="radio" value="year" id="yearly" name="frequency">
               <label for="yearly"><i class="fa fa-check"></i>Annually</label>
@@ -114,10 +114,10 @@ title: Become a Member
 </div><!-- main-right -->
 <div class="bottom-checkout">
   <div class="express-checkout">
-    <h2>Ready to Support?</h2>
     <div class="contribute">
+      <h2>Ready to Support?</h2>
       <form id="contribution-form-bottom" action="#" method="get">
-        $<input name="amount" value="8" type="number" id="spinner-bottom">
+        <span class="dollar">$</span><input name="amount" value="8" type="number" id="spinner-bottom">
         <div id="contribute-buttons-bottom">
             <input type="radio" value="year" id="yearly-bottom" name="frequency-bottom">
             <label for="yearly-bottom"><i class="fa fa-check"></i>Annually</label>
@@ -125,12 +125,12 @@ title: Become a Member
             <label for="monthly-bottom"><i class="fa fa-check"></i>Monthly</label>
         </div>
         <button type="submit" class="button button-flat">Join Now <i class="fa fa-angle-right"></i></button>
+        <a href="#">
+          <div class="button button-flat">Or renew your membership <i class="fa fa-angle-right"></i>
+          </div>
+        </a>
       </form>
     </div>
-    <a href="#">
-      <div class="button button-flat">Or renew your membership <i class="fa fa-angle-right"></i>
-      </div>
-    </a>
   </div><!-- express-checkout -->
 </div>
 
