@@ -2,6 +2,7 @@
   name: "Student"
   amount: "$10 Annually"
   all_above: false
+  student: true
   all_content_benefits:
     -
       "Monthly Member Report from Evan Smith"
