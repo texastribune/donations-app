@@ -1,5 +1,5 @@
 ---
-title: Membership Levels
+title: Circle Membership
 ---
 
 <div class="splash splash-circle">
@@ -18,11 +18,22 @@ title: Membership Levels
             <p><em>Three-Year Commitment</em></p>
           </div>
           <div class="circle-box-bottom">
-            <h4>All previous level benefits <i class="fa fa-angle-right"></i></h4>
-            <h5>Access Benefits</h5>
+            <h4>All previous level benefits, plus:</h4>
             <div class="circle-box-benefits">
-            <% level.extra_access_benefits.each do |benefit| %>
-              <p><%= benefit %></p>
+            <% if level.extra_access_benefits %>
+              <% level.extra_access_benefits.each do |benefit| %>
+                <p><%= benefit %></p>
+              <% end %>
+            <% end %>
+            <% if level.extra_content_benefits %>
+              <% level.extra_content_benefits.each do |benefit| %>
+                <p><%= benefit %></p>
+              <% end %>
+            <% end %>
+            <% if level.extra_recognition_benefits %>
+              <% level.extra_recognition_benefits.each do |benefit| %>
+                <p><%= benefit %></p>
+              <% end %>
             <% end %>
             </div>
             <a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=<%= level.givalike_amount %>"><button class="button button-flat">Join <i class="fa fa-angle-right"></i></button></a>
