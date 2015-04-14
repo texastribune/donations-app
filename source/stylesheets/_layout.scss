@@ -128,9 +128,13 @@ hr {
   h3 {
     padding: 1em 0;
   }
-  .facebook, .twitter, .email {
+  .social {
     display: inline;
     margin: 0;
+    @include media($tablet) {
+      display: block;
+      margin: 0.5em 0;
+    }
   }
 }
 
