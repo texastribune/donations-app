@@ -310,3 +310,22 @@ input[type=number]::-webkit-outer-spin-button {
 .circle-box-benefits {
   height: 60px;
 }
+
+.thanks-wrapper {
+  background-image: url("../images/footer-thanks.jpg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 350px;
+  text-align: center;
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  .thank-you {
+    border: 3px solid white;
+    color: white;
+    display: inline-block;
+    padding: 1em 2em;
+    text-transform: uppercase;
+  }
+}
