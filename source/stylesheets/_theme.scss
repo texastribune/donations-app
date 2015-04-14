@@ -68,8 +68,10 @@
       width: 100%;
     }
     span.dollar {
+      color: #b7b7b7;
       float: left;
-      font-size: 3em;
+      font-family: "league-gothic";
+      font-size: 4em;
     }
   }
   .renew {
@@ -124,11 +126,11 @@ input[type=number]::-webkit-outer-spin-button {
   background-color: $gray-light;
   border: none;
   color: $gray-medium;
-  font-size: 1em;
-  height: 60px;
+  font-family: "league-gothic";
+  font-size: 3.5em;
   margin: 0;
-  padding: 1em 2em 1em 1em;
-  text-align: right;
+  padding-left: 2em;
+  width: 200px;
 }
 
 
