@@ -1,7 +1,8 @@
 // Breakpoints
 $desktop: new-breakpoint(min-width 768px 12);
 $tablet: new-breakpoint(max-width 767px);
-$mobile: new-breakpoint(max-width 480px);
+$mobile: new-breakpoint(max-width 520px);
+
 
 // Colors
 $yellow-tribune: #ffc200;
@@ -15,7 +16,11 @@ $bg-nav: #000000;
 
 $link-nav: white;
 
-// Typography
 
 // Mixins
+@mixin hide-for-mobile {
+  @include media($mobile) {
+    display: none;
+  }
+}
 

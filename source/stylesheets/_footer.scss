@@ -4,9 +4,13 @@
   max-width: none;
   .left-nav {
     @include span-columns(3);
+    @include media($mobile) {
+      @include span-columns(12);
+    }
   }
   .right-nav {
     @include span-columns(9);
+    @include hide-for-mobile;
   }
   ul {
     li {
