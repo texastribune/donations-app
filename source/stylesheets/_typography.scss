@@ -81,6 +81,11 @@ a {
 
 // Index levels
 .level {
+  h3, p {
+    @include media($mobile) {
+      color: white;
+    }
+  }
   h4.amount {
     color: $teal-tribune;
   }

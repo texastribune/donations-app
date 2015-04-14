@@ -1,0 +1,29 @@
+<div class="bottom-checkout">
+  <div class="express-checkout">
+    <div class="contribute">
+      <h2>Ready to Support?</h2>
+      <form id="contribution-form-bottom" action="#" method="get">
+        <span class="dollar">$</span><input name="amount" value="8" type="number" id="spinner-bottom">
+        <div id="contribute-buttons-bottom">
+            <input type="radio" value="year" id="yearly-bottom" name="frequency-bottom">
+            <label for="yearly-bottom"><i class="fa fa-check"></i>Annually</label>
+            <input checked="checked" type="radio" value="month" id="monthly-bottom" name="frequency-bottom">
+            <label for="monthly-bottom"><i class="fa fa-check"></i>Monthly</label>
+        </div>
+        <button type="submit" class="button button-flat">Join Now <i class="fa fa-angle-right"></i></button>
+        <a href="#">
+          <div class="button button-flat">Or renew your membership <i class="fa fa-angle-right"></i>
+          </div>
+        </a>
+      </form>
+    </div>
+  </div><!-- express-checkout -->
+</div><!-- bottom-checkout -->
+
+<script>
+  // Initialize bottom number input spinner for express checkout
+  $("#spinner-bottom").spinner();
+
+  // Initialize bottom radio buttonset for monthly/annually
+  $("#contribute-buttons-bottom").buttonset();
+</script>

@@ -33,9 +33,16 @@
   }
 }
 
+
+// Index page
 .index {
   .splash-greeting {
     text-align: right;
+  }
+  .main-right {
+    @include media($mobile) {
+      background-color: black;
+    }
   }
 }
 
@@ -77,6 +84,24 @@
     text-transform: uppercase;
     width: 120px;
   }
+}
+
+.index {
+  .bottom-checkout {
+    background-image: url("../images/footer-contribute1.jpg");
+  }
+}
+
+.levels {
+  .bottom-checkout {
+    background-image: url("../images/footer-contribute2.jpg");
+  }
+}
+
+.bottom-checkout {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #contribute-buttons {
