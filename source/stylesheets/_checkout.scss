@@ -1,0 +1,96 @@
+// Express Checkout
+.express-checkout {
+  a {
+    color: black;
+  }
+  .contribute {
+    background-color: $bg-contribute;
+    padding: 2em;
+    text-align: center;
+    h5, h3, p {
+      text-align: left;
+    }
+    h5 {
+      padding-top: 0.5em;
+    }
+    .button {
+      margin-top: 1em;
+      width: 100%;
+    }
+    span.dollar {
+      color: #b7b7b7;
+      float: left;
+      font-family: "league-gothic";
+      font-size: 4em;
+    }
+  }
+  .renew {
+    background-color: $bg-contribute;
+    margin-top: 20px;
+    padding: 0.8em;
+    h4 {
+      font-size: 14px;
+      font-weight: 200;
+    }
+    p {
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 0px;
+    }
+  }
+  label {
+    color: #b2b2b2;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: black;
+    letter-spacing: 2px;
+    padding: 0.2em;
+    text-transform: uppercase;
+    width: 120px;
+  }
+}
+
+.index {
+  .bottom-checkout {
+    background-image: url("../images/footer-contribute1.jpg");
+  }
+}
+
+.levels {
+  .bottom-checkout {
+    background-image: url("../images/footer-contribute2.jpg");
+  }
+}
+
+.bottom-checkout {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#contribute-buttons {
+  margin: 1em 0;
+}
+
+#monthly-bottom {
+  clear: both;
+  float: right;
+}
+
+// Turn off native spinner
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#spinner, #spinner-bottom {
+  background-color: $gray-light;
+  border: none;
+  color: $gray-medium;
+  font-family: "league-gothic";
+  font-size: 3.5em;
+  margin: 0;
+  padding-left: 2em;
+  width: 200px;
+}

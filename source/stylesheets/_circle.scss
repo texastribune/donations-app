@@ -1,0 +1,57 @@
+// Circle member page
+.circle-box-top {
+  background-color: black;
+  padding: 1em 2.2em;
+  text-align: center;
+  h3 {
+    border-bottom: 2px solid $yellow-tribune;
+    color: white;
+    padding: 0.2em 0;
+  }
+  h4, p {
+    color: $yellow-tribune;
+    padding: 0.2em 0;
+  }
+}
+
+.circle-box-bottom {
+  background-color: white;
+  color: black;
+  padding: 1em;
+  text-align: left;
+  .button {
+    font-size: 1em;
+    font-weight: 600;
+    padding: 1em 1.8em;
+    width: 45%;
+  }
+  h5 {
+    color: $gray-medium;
+  }
+}
+
+.circle-box-benefits {
+  height: 60px;
+}
+
+.thanks-wrapper {
+  background-image: url("../images/footer-thanks.jpg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 350px;
+  text-align: center;
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  .thank-you {
+    border: 3px solid white;
+    color: white;
+    display: inline-block;
+    font-size: 0.9em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding: 1em 2em;
+    text-transform: uppercase;
+  }
+}
