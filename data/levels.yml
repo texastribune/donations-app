@@ -143,6 +143,7 @@
 -
   name: "Editor&rsquo;s Circle"
   amount_annual: 1000
+  amount_month: 84
   commitment: true
   all_above: true
   circle: true
@@ -177,6 +178,7 @@
 -
   name: "Leadership Circle"
   amount_annual: 2500
+  amount_month: 209
   commitment: true
   all_above: true
   circle: true
@@ -213,6 +215,7 @@
 -
   name: "Chairman&rsquo;s Circle"
   amount_annual: 5000
+  amount_month: 417
   commitment: true
   all_above: true
   circle: true
