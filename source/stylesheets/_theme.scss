@@ -10,17 +10,18 @@ hr {
   }
 }
 
-.splash-landing {
+.index .splash {
   background-color: #8a9b8a;
   background-image: url("../images/hero-support.jpg");
 }
 
-.splash-levels {
+
+.levels .splash {
   background-color: #180e14;
   background-image: url("../images/hero-benefits.jpg");
 }
 
-.splash-circle {
+.circle .splash {
   background-color: #110c12;
   background-image: url("../images/hero-circles.jpg");
 }
@@ -65,6 +66,20 @@ hr {
   &.light {
     color: $white;
     border-color: $white;
+  }
+}
+
+
+// Benefit flag
+h5.benefit-flag {
+  background: $yellow-tribune;
+  color: black;
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 0.8em;
+  padding: 0.5em 1.2em 0.5em 0.5em;
+  i {
+    color: white;
   }
 }
 

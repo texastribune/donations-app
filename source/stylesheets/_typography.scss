@@ -75,31 +75,3 @@ a {
 .splash-info, .splash-support {
   font-size: 1.2em;
 }
-
-
-// Express checkout
-.bottom-checkout {
-  h2 {
-    border-bottom: 3px solid $yellow-tribune;
-    color: white;
-    font-family: $league-gothic;
-    font-size: 4em;
-    font-weight: 200;
-    margin-bottom: 0.5em;
-    text-align: left;
-  }
-}
-
-
-// Benefit flag
-h5.benefit-flag {
-  background: $yellow-tribune;
-  color: black;
-  display: inline-block;
-  font-weight: bold;
-  margin-bottom: 0.8em;
-  padding: 0.5em 1.2em 0.5em 0.5em;
-  i {
-    color: white;
-  }
-}

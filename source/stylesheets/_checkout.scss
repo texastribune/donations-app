@@ -93,6 +93,15 @@ input[type=number]::-webkit-outer-spin-button {
   background: #a74c1d;
   max-width: none;
   padding: 3em 1em;
+  h2 {
+    border-bottom: 3px solid $yellow-tribune;
+    color: white;
+    font-family: $league-gothic;
+    font-size: 4em;
+    font-weight: 200;
+    margin-bottom: 0.5em;
+    text-align: left;
+  }
   .express-checkout {
     @include span-columns(5);
     @include media($mobile) {
