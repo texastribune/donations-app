@@ -70,6 +70,26 @@ hr {
 }
 
 
+// Info box
+.outer-info {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  text-align: center;
+  .inner-info {
+    background-color: transparent;
+    border: 3px solid $white;
+    color: $white;
+    display: inline-block;
+    font-size: 0.9em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding: 1em 2em;
+    text-transform: uppercase;
+  }
+}
+
+
 // Benefit flag
 h5.benefit-flag {
   background: $yellow-tribune;
