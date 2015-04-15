@@ -35,15 +35,13 @@
 }
 
 .thanks-wrapper {
-  background-image: url("../images/footer-thanks.jpg");
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 350px;
-  text-align: center;
+  @include background-sizing;
   @include display(flex);
   @include align-items(center);
   @include justify-content(center);
+  background-image: url("../images/footer-thanks.jpg");
+  height: 350px;
+  text-align: center;
   .thank-you {
     border: 3px solid white;
     color: white;

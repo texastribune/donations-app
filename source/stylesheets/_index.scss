@@ -9,3 +9,22 @@
     }
   }
 }
+
+// Levels boxes
+.level {
+  h3, p {
+    @include media($mobile) {
+      color: white;
+    }
+  }
+  h4.amount {
+    color: $teal-tribune;
+  }
+  h4.all-above {
+    color: black;
+    margin-top: 0.5em;
+  }
+  h5 {
+    margin-top: 1em;
+  }
+}

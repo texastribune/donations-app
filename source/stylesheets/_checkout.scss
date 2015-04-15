@@ -50,31 +50,12 @@
   }
 }
 
-.index {
-  .bottom-checkout {
-    background-image: url("../images/footer-contribute1.jpg");
-  }
-}
-
-.levels {
-  .bottom-checkout {
-    background-image: url("../images/footer-contribute2.jpg");
-  }
-}
-
-.bottom-checkout {
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
+.ui-buttonset {
+  margin: 1em 0;
 }
 
 #contribute-buttons {
   margin: 1em 0;
-}
-
-#monthly-bottom {
-  clear: both;
-  float: right;
 }
 
 // Turn off native spinner
@@ -93,4 +74,55 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
   padding-left: 2em;
   width: 200px;
+}
+
+
+// Bottom express checkout
+.index {
+  .bottom-checkout {
+    background-image: url("../images/footer-contribute1.jpg");
+    @include background-sizing;
+  }
+}
+
+.levels {
+  .bottom-checkout {
+    background-image: url("../images/footer-contribute2.jpg");
+    @include background-sizing;
+  }
+}
+
+.bottom-checkout {
+  @include outer-container;
+  background: #a74c1d;
+  max-width: none;
+  padding: 3em 1em;
+  .express-checkout {
+    @include span-columns(5);
+    @include media($mobile) {
+      @include span-columns(12);
+    }
+    .contribute {
+      background: transparent;
+      span.dollar {
+        color: white;
+        padding: 0 0.2em;
+      }
+      label {
+        float: right;
+      }
+    }
+    .ui-spinner {
+      float: left;
+    }
+  }
+}
+
+#contribute-buttons-bottom {
+  display: inline;
+}
+
+#monthly-bottom {
+  clear: both;
+  float: right;
 }

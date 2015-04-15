@@ -4,7 +4,7 @@ hr {
 
 // Splash
 .splash {
-  background-size: cover;
+  @include background-sizing;
   @include media($mobile) {
     background-image: none;
   }
@@ -31,9 +31,6 @@ hr {
   text-align: center;
   .splash-info {
     padding: 1em 0;
-  }
-  .splash-info, .splash-support {
-    font-size: 1.2em;
   }
 }
 
@@ -99,8 +96,5 @@ hr {
   }
   h4, p {
     padding: 0 0 0.2em 0;
-  }
-  h4 {
-    font-weight: bold;
   }
 }
