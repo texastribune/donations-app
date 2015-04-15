@@ -1,0 +1,56 @@
+// Levels grid
+.grid-body {
+  @include outer-container;
+  border-bottom: 2px solid gray;
+  td {
+    padding: 1em 0;
+    @include span-columns(4);
+    @include media($mobile) {
+      @include span-columns(12);
+    }
+  }
+  h3 {
+    display: inline;
+  }
+}
+
+.open-close {
+  cursor: pointer;
+  .fa-minus-square {
+    display: none;
+  }
+  .fa-plus-square-o, .fa-minus-square {
+    color: $yellow-tribune;
+    float: left;
+    font-size: 1.5em;
+    padding: 0.3em;
+    text-align: center;
+  }
+}
+
+.popout {
+  display: none;
+  td {
+    padding: 1em 2em 2em 0;
+    vertical-align: sub;
+  }
+  h5 {
+    border-bottom: 2px solid $yellow-tribune;
+    padding: 0 0 0.5em 0;
+  }
+  p {
+    padding-top: 1em;
+  }
+}
+
+.opened {
+  .popout {
+    display: table-row;
+  }
+  .fa-plus-square-o {
+    display: none;
+  }
+  .fa-minus-square {
+    display: block;
+  }
+}

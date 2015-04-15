@@ -3,10 +3,18 @@
 
 @import 'normalize';
 
+// general
 @import 'settings';
 @import 'layout';
-
 @import 'typography';
-@import 'theme';
-@import 'jqueryui';
 @import 'footer';
+
+// pages
+@import 'theme';
+@import 'index';
+@import 'circle';
+@import 'levels';
+@import 'checkout';
+
+// third-party
+@import 'jqueryui';

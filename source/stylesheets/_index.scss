@@ -1,0 +1,11 @@
+// Index page
+.index {
+  .splash-greeting {
+    text-align: right;
+  }
+  .main-right {
+    @include media($mobile) {
+      background-color: black;
+    }
+  }
+}
