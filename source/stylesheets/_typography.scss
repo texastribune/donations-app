@@ -30,7 +30,9 @@ h4 {
 
 h5 {
   color: $gray-medium;
-  font-size: 0.8em;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 2px;
   margin: 0.2em 0;
   text-transform: uppercase;
 }
@@ -101,9 +103,6 @@ a {
     margin-top: 0.5em;
   }
   h5 {
-    color: #b2b2b2;
-    font-weight: black;
-    letter-spacing: 1px;
     margin-top: 1em;
   }
 }
@@ -112,6 +111,7 @@ h5.benefit-flag {
   background: $yellow-tribune;
   color: black;
   display: inline-block;
+  font-weight: bold;
   margin-bottom: 0.8em;
   padding: 0.5em 1.2em 0.5em 0.5em;
   i {
