@@ -1,3 +1,7 @@
+hr {
+  border: 1px solid $gray-light;
+}
+
 // Splash
 .splash {
   background-size: cover;
@@ -60,7 +64,6 @@
       text-align: left;
     }
     h5 {
-      color: $gray-medium;
       padding-top: 0.5em;
     }
     .button {
@@ -158,6 +161,10 @@ input[type=number]::-webkit-outer-spin-button {
   background-color: $yellow-tribune;
   border: none;
   color: black;
+  &:hover {
+    background-color: $teal-tribune;
+    color: white;
+  }
 }
 
 .button-border {
@@ -207,9 +214,6 @@ input[type=number]::-webkit-outer-spin-button {
   h4 {
     font-weight: bold;
   }
-  p.title {
-    font-style: italic;
-  }
 }
 
 
@@ -226,10 +230,6 @@ input[type=number]::-webkit-outer-spin-button {
   }
   h3 {
     display: inline;
-  }
-  h6 {
-    color: $gray-medium;
-    text-transform: uppercase;
   }
 }
 
@@ -253,8 +253,8 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 1em 2em 2em 0;
     vertical-align: sub;
   }
-  h6 {
-    border-bottom: 3px solid $yellow-tribune;
+  h5 {
+    border-bottom: 2px solid $yellow-tribune;
     padding: 0 0 0.5em 0;
   }
   p {
@@ -325,6 +325,9 @@ input[type=number]::-webkit-outer-spin-button {
     border: 3px solid white;
     color: white;
     display: inline-block;
+    font-size: 0.9em;
+    font-weight: bold;
+    letter-spacing: 2px;
     padding: 1em 2em;
     text-transform: uppercase;
   }
