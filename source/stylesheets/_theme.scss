@@ -46,10 +46,10 @@ hr {
 .button-flat {
   background-color: $yellow-tribune;
   border: none;
-  color: black;
+  color: $black;
   &:hover {
     background-color: $teal-tribune;
-    color: white;
+    color: $white;
   }
 }
 
@@ -59,28 +59,28 @@ hr {
   border-style: solid;
   padding: 0.5em 2em;
   &.dark {
-    color: black;
-    border-color: black;
+    color: $black;
+    border-color: $black;
   }
   &.light {
-    color: white;
-    border-color: white;
+    color: $white;
+    border-color: $white;
   }
 }
 
 
 // Social
 .social {
-  color: white;
+  color: $white;
   margin: 0.5em;
 }
 
 .facebook {
-  background: #2B4185;
+  background: #2b4185;
 }
 
 .twitter {
-  background: #4298ED;
+  background: #4298ed;
 }
 
 .email {
