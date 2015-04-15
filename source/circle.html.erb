@@ -14,7 +14,7 @@ title: Circle Membership
         <div class="circle-box">
           <div class="circle-box-top">
             <h3><%= level.name %></h3>
-            <h4><%= level.amount %></h4>
+            <h4>$<%= level.amount_annual %> Annually</h4>
             <p><em>Three-Year Commitment</em></p>
           </div>
           <div class="circle-box-bottom">
@@ -36,8 +36,8 @@ title: Circle Membership
               <% end %>
             <% end %>
             </div>
-            <a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=<%= level.givalike_amount %>"><button class="button button-flat">Join <i class="fa fa-angle-right"></i></button></a>
-            <a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=<%= level.givalike_amount %>"><button style="float: right;" class="button button-flat">Renew <i class="fa fa-angle-right"></i></button></a>
+            <a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=<%= level.amount_annual %>"><button class="button button-flat">Join <i class="fa fa-angle-right"></i></button></a>
+            <a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=<%= level.amount_annual %>"><button style="float: right;" class="button button-flat">Renew <i class="fa fa-angle-right"></i></button></a>
           </div>
         </div>
       <% end %>

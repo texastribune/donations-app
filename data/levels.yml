@@ -1,6 +1,6 @@
 -
   name: "Student"
-  amount: "$10 Annually"
+  amount_annual: 10
   all_above: false
   student: true
   all_content_benefits:
@@ -8,7 +8,10 @@
       "Evan Smith's Monthly Report on all things Tribune"
 -
   name: "Enthusiast"
-  amount: "$4 Monthly or $35 Annually"
+  amount_annual: 35
+  range_annual: "$35 - $59"
+  amount_month: 4
+  range_month: "$3 - $5"
   all_above: false
   all_content_benefits:
     -
@@ -21,7 +24,10 @@
       "Your name as a Tribune member on our website"
 -
   name: "Activist"
-  amount: "$9 Monthly or $60 Annually"
+  amount_annual: 60
+  range_annual: "$60 - $149"
+  amount_month: 9
+  range_month: "$5 - $12"
   most_popular: true
   all_above: true
   all_content_benefits:
@@ -40,11 +46,18 @@
       "Discounts to The Texas Tribune festival"
 -
   name: "Advocate"
-  amount: "$17 Monthly or $150 Annually"
+  amount_annual: 150
+  range_annual: "$150 - $249"
+  amount_month: 17
+  range_month: "$13 - $21"
   all_above: true
   all_content_benefits:
     -
       "Evan Smith's Monthly Report on all things Tribune"
+    -
+      "Discounted subscription to Texas Weekly, our insider newsletter"
+    -
+      "12-month premium subscription to The Washington Post digital"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
@@ -52,29 +65,33 @@
       "Discounts to The Texas Tribune festival"
     -
       "Dual membership"
-    -
-      "Discounted subscription to Texas Weekly, our insider newsletter"
-    -
-      "12-month premium subscription to The Washington Post digital"
   all_recognition_benefits:
     -
       "Your name as a Tribune member on our website"
   extra_access_benefits:
     -
       "Dual membership"
+  extra_content_benefits:
     -
       "Discounted subscription to Texas Weekly, our insider newsletter"
     -
       "12-month premium subscription to The Washington Post digital"
 -
   name: "Diplomat"
-  amount: "$31 Monthly or $250 Annually"
+  amount_annual: 250
+  range_annual: "$250 - $499"
+  amount_month: 31
+  range_month: "$21 - $42"
   all_above: true
   all_content_benefits:
     -
       "Evan Smith's Monthly Report on all things Tribune"
     -
       "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
+    -
+      "Discounted subscription to Texas Weekly, our insider newsletter"
+    -
+      "12-month premium subscription to The Washington Post digital"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
@@ -82,10 +99,6 @@
       "Discounts to The Texas Tribune festival"
     -
       "Dual membership"
-    -
-      "Discounted subscription to Texas Weekly, our insider newsletter"
-    -
-      "12-month premium subscription to The Washington Post digital"
   all_recognition_benefits:
     -
       "Your name as a Tribune member on our website"
@@ -94,7 +107,10 @@
       "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
 -
   name: "Benefactor"
-  amount: "$63 Monthly or $500 Annually"
+  amount_annual: 500
+  range_annual: "$500 - $1000"
+  amount_month: 63
+  range_month: "$42 - $83"
   all_above: true
   all_content_benefits:
     -
@@ -102,7 +118,9 @@
     -
       "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
     -
-      "Exclusive previews of key projects and developments"
+      "Discounted subscription to Texas Weekly, our insider newsletter"
+    -
+      "12-month premium subscription to The Washington Post digital"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
@@ -111,24 +129,20 @@
     -
       "Dual membership"
     -
-      "Discounted subscription to Texas Weekly, our insider newsletter"
-    -
-      "12-month premium subscription to The Washington Post digital"
-    -
       "An invitation for two to the State of the State cocktail reception"
+    -
+      "Exclusive previews of key projects and developments"
   all_recognition_benefits:
     -
       "Your name as a Tribune member on our website"
-  extra_content_benefits:
-    -
-      "Exclusive previews of key projects and developments"
   extra_access_benefits:
     -
       "An invitation for two to the State of the State cocktail reception"
+    -
+      "Exclusive previews of key projects and developments"
 -
   name: "Editor&rsquo;s Circle"
-  amount: "$1,000 Annually"
-  givalike_amount: 1000
+  amount_annual: 1000
   commitment: true
   all_above: true
   circle: true
@@ -138,7 +152,9 @@
     -
       "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
     -
-      "Exclusive previews of key projects and developments"
+      "Discounted subscription to Texas Weekly, our insider newsletter"
+    -
+      "12-month premium subscription to The Washington Post digital"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
@@ -147,11 +163,9 @@
     -
       "Dual membership"
     -
-      "Discounted subscription to Texas Weekly, our insider newsletter"
-    -
-      "12-month premium subscription to The Washington Post digital"
-    -
       "An invitation for two to the State of the State cocktail reception"
+    -
+      "Exclusive previews of key projects and developments"
   all_recognition_benefits:
     -
       "Your name as a Tribune member on our website"
@@ -162,8 +176,7 @@
       "Donor board recognition at events"
 -
   name: "Leadership Circle"
-  amount: "$2,500 Annually"
-  givalike_amount: 2500
+  amount_annual: 2500
   commitment: true
   all_above: true
   circle: true
@@ -173,7 +186,9 @@
     -
       "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
     -
-      "Exclusive previews of key projects and developments"
+      "Discounted subscription to Texas Weekly, our insider newsletter"
+    -
+      "12-month premium subscription to The Washington Post digital"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
@@ -182,11 +197,9 @@
     -
       "Dual membership"
     -
-      "Discounted subscription to Texas Weekly, our insider newsletter"
-    -
-      "12-month premium subscription to The Washington Post digital"
-    -
       "An invitation for two to the State of the State cocktail reception"
+    -
+      "Exclusive previews of key projects and developments"
     -
       "Invitations to small VIP Tribune gatherings"
   all_recognition_benefits:
@@ -199,8 +212,7 @@
       "Invitations to small VIP Tribune gatherings"
 -
   name: "Chairman&rsquo;s Circle"
-  amount: "$5,000 + Annually"
-  givalike_amount: 5000
+  amount_annual: 5000
   commitment: true
   all_above: true
   circle: true
@@ -209,8 +221,6 @@
       "Evan Smith's Monthly Report on all things Tribune"
     -
       "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
-    -
-      "Exclusive previews of key projects and developments"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
@@ -224,6 +234,8 @@
       "12-month premium subscription to The Washington Post digital"
     -
       "An invitation for two to the State of the State cocktail reception"
+    -
+      "Exclusive previews of key projects and developments"
     -
       "Invitations to small VIP Tribune gatherings"
     -
