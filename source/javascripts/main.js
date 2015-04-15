@@ -1,0 +1,106 @@
+$(document).ready(function() {
+  $('.video').magnificPopup({
+    type: 'iframe',
+    iframe: {
+      markup: '<div class="mfp-iframe-scaler">'+
+                  '<div class="mfp-close"></div>'+
+                  '<iframe class="mfp-iframe" frameborder="0" allowfullscreen></iframe>'+
+                '</div>',
+      patterns: {
+        youtube: {
+          index: 'youtube.com/',
+          id: 'v=',
+          src: '//www.youtube.com/embed/%id%?autoplay=1&controls=2&enablejsapi=1&modestbranding=1&rel=0&showinfo=0'
+        }
+      },
+      srcAction: 'iframe_src'
+    }
+  });
+
+  $('.ui-spinner').bind('keyup mouseup', function() {
+    // Check if last val is equal val on event
+    if ($('#spinner').data('lastVal') != $('#spinner').val()) {
+      // if not, update to new val
+      $('#spinner').data('lastVal', $('#spinner').val());
+      // determine and display correct level for new val
+      displayLevel();
+    }
+  });
+
+  // Initialize top number input spinner for express checkout
+  $("#spinner").spinner();
+
+  // Initialize top radio buttonset for monthly/annually
+  $("#contribute-buttons-top").buttonset();
+
+  // For express checkout
+
+  // Grab input amount
+  var get_amount = function() {
+    var amount;
+    amount = $('#spinner').val();
+  };
+
+  // Grab selected frequency
+  var get_frequency = function() {
+    if ($("label[for='monthly']").hasClass('ui-state-active')) {
+      is_monthly = true;
+    } else {
+      is_monthly = false;
+    }
+  };
+
+  // Determine level to display and update text
+  var displayLevel = function() {
+    get_frequency();
+    var input_amount = $('#spinner').val();
+    var level_label = $('#level-display');
+    if (is_monthly) {
+      // detemine level and update text based on monthly frequency
+      if (input_amount > 3 && input_amount <= 5) {
+        level_label.text('Enthusiast');
+      } else if (input_amount > 5 && input_amount <= 12) {
+        level_label.text('Activist');
+      } else if (input_amount > 12 && input_amount <= 21) {
+        level_label.text('Advocate');
+      } else if (input_amount > 21 && input_amount <= 42) {
+        level_label.text('Diplomat');
+      } else if (input_amount > 42 && input_amount <= 83) {
+        level_label.text('Benefactor');
+      };
+    } else {
+      // detemine level and update text based on yearly frequency
+      if (input_amount > 35 && input_amount <= 59) {
+        level_label.text('Enthusiast');
+      } else if (input_amount > 60 && input_amount <= 149) {
+        level_label.text('Activist');
+      } else if (input_amount > 150 && input_amount <= 249) {
+        level_label.text('Advocate');
+      } else if (input_amount > 250 && input_amount <= 499) {
+        level_label.text('Diplomat');
+      } else if (input_amount > 500 && input_amount <= 1000) {
+        level_label.text('Benefactor');
+      };
+    }
+  };
+
+  // Get the amount and frequency so we have it to work with
+  $('#spinner').on('click', function(e) {
+    get_amount();
+    get_frequency();
+  });
+
+  // if 'Annually' is clicked, multiply val by 12
+  $("label[for='yearly']").on('click', function() {
+    var currentVal = parseInt($('#spinner').val());
+    currentVal *= 12;
+    $('#spinner').attr('value', currentVal);
+  });
+
+  // if 'Monthly' is clicked, divide val by 12
+  $("label[for='monthly']").on('click', function() {
+    var currentVal = parseInt($('#spinner').val());
+    var newVal = Math.ceil(currentVal /= 12);
+    $('#spinner').attr('value', newVal);
+  });
+});
