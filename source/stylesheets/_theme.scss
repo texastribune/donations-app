@@ -207,6 +207,12 @@ input[type=number]::-webkit-outer-spin-button {
   h4, p {
     padding: 0 0 0.2em 0;
   }
+  h4 {
+    font-weight: bold;
+  }
+  p.title {
+    font-style: italic;
+  }
 }
 
 
@@ -219,26 +225,6 @@ input[type=number]::-webkit-outer-spin-button {
     @include span-columns(4);
     @include media($mobile) {
       @include span-columns(12);
-    }
-  }
-  td.amount {
-    color: $teal-tribune;
-  }
-  td.join-renew {
-    a {
-      color: $teal-tribune;
-      @include media($mobile) {
-        color: $gray-medium;
-      }
-    }
-    span {
-      padding-right: 5px;
-      &:first-child {
-        float: left;
-      }
-      &:last-child {
-        float: right;
-      }
     }
   }
   h3 {

@@ -47,8 +47,13 @@ nav.desktop-nav {
       padding: 1.2em;
       a {
         color: $link-nav;
+        font-size: 11px;
+        letter-spacing: 2px;
         text-decoration: none;
         text-transform: uppercase;
+        &:hover {
+          color: $yellow-tribune;
+        }
       }
     }
   }
@@ -113,9 +118,6 @@ nav.desktop-nav {
 // Index levels
 .level {
   margin: 0 0 1em 0;
-  h5 {
-    margin-top: 0.8em;
-  }
 }
 
 hr {
@@ -125,6 +127,9 @@ hr {
 
 // Levels page
 .levels {
+  table {
+    min-width: 940px;
+  }
   h3 {
     padding: 1em 0;
   }

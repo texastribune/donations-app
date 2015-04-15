@@ -38,12 +38,12 @@ title: Become a Member
   <div class="main-left">
     <h2><%= data.tagline %></h2>
     <hr>
-    <h3>Have a question?</h3>
+    <h3>Have a Question?</h3>
       <% data.contacts.each do |contact| %>
         <div class="contact-info">
           <h5><%= contact.about %></h5>
           <h4><%= contact.name %></h4>
-          <p><%= contact.title %></p>
+          <p class="title"><%= contact.title %></p>
           <p><%= contact.phone %></p>
           <p><a href="mailto:<%=contact.email %>"><%= contact.email %> <i class="fa fa-angle-right"></i></a></p>
         </div>
@@ -64,7 +64,8 @@ title: Become a Member
             <h5 class="benefit-flag"><i class="fa fa-support"></i> Circle Membership</h5>
           <% end %>
           <h3><%= level.name %></h3>
-          <h4 class="amount"><%= level.amount %></h4>
+          <h4 class="amount">
+            <% if level.amount_month %><a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=<%= level.amount_month %>&amp;monthly=1">$<%= level.amount_month %> Monthly</a> <span style="color: black;">or</span> <% end %><a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=<%= level.amount_annual %>">$<%= level.amount_annual %> Annually</a></h4>
           <% if level.commitment %>
             <p>Three-Year Commitment</p>
           <% end %>

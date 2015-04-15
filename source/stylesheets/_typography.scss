@@ -13,6 +13,8 @@ h1 {
 
 h2 {
   font-size: 3em;
+  font-weight: bold;
+  letter-spacing: -1px;
   margin: 0;
 }
 
@@ -29,7 +31,7 @@ h4 {
 h5 {
   color: $gray-medium;
   font-size: 0.8em;
-  margin: 0.2em;
+  margin: 0.2em 0;
   text-transform: uppercase;
 }
 
@@ -39,7 +41,7 @@ h6 {
 }
 
 p {
-  font-size: 0.9em;
+  font-size: 1em;
   margin: 0;
 }
 
@@ -51,6 +53,7 @@ a {
 // Splash typography
 .splash-info {
   color: white;
+  font-weight: 200;
 }
 
 .splash-header {
@@ -62,7 +65,7 @@ a {
 
 .splash-support {
   color: $yellow-tribune;
-  font-weight: medium;
+  font-weight: 400;
 }
 
 
@@ -98,6 +101,7 @@ a {
     color: #b2b2b2;
     font-weight: black;
     letter-spacing: 1px;
+    margin-top: 1em;
   }
 }
 
