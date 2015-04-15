@@ -1,11 +1,11 @@
 // Circle member page
 .circle-box-top {
-  background-color: black;
+  background-color: $black;
   padding: 1em 2.2em;
   text-align: center;
   h3 {
     border-bottom: 2px solid $yellow-tribune;
-    color: white;
+    color: $white;
     padding: 0.2em 0;
   }
   h4, p {
@@ -15,8 +15,8 @@
 }
 
 .circle-box-bottom {
-  background-color: white;
-  color: black;
+  background-color: $white;
+  color: $black;
   padding: 1em;
   text-align: left;
   .button {
@@ -43,8 +43,8 @@
   height: 350px;
   text-align: center;
   .thank-you {
-    border: 3px solid white;
-    color: white;
+    border: 3px solid $white;
+    color: $white;
     display: inline-block;
     font-size: 0.9em;
     font-weight: bold;

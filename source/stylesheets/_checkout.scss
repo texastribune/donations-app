@@ -1,7 +1,7 @@
 // Express Checkout
 .express-checkout {
   a {
-    color: black;
+    color: $black;
   }
   .contribute {
     background-color: $bg-contribute;
@@ -42,7 +42,7 @@
     color: #b2b2b2;
     cursor: pointer;
     font-size: 12px;
-    font-weight: black;
+    font-weight: $black;
     letter-spacing: 2px;
     padding: 0.2em;
     text-transform: uppercase;
@@ -50,11 +50,7 @@
   }
 }
 
-.ui-buttonset {
-  margin: 1em 0;
-}
-
-#contribute-buttons {
+.ui-buttonset, #contribute-buttons {
   margin: 1em 0;
 }
 
@@ -105,7 +101,7 @@ input[type=number]::-webkit-outer-spin-button {
     .contribute {
       background: transparent;
       span.dollar {
-        color: white;
+        color: $white;
         padding: 0 0.2em;
       }
       label {
