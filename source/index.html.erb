@@ -21,13 +21,13 @@ title: Become a Member
           </div>
           <h5>Your Level:</h5>
           <h3 id="level-display">Activist</h3>
-          <a href="/levels.html"><p><strong><em>Explore benefits &amp; membership levels <i class="fa fa-angle-right"></i></em></strong></p></a>
+          <a href="/levels.html"><p class="italic"><strong><em>Explore benefits &amp; membership levels <i class="fa fa-angle-right"></i></em></strong></p></a>
           <button type="submit" class="button button-flat">Contribute Now <i class="fa fa-angle-right"></i></button>
         </form>
       </div>
       <div class="renew">
         <h4>Already a member?</h4>
-        <a href="#"><p><strong>Renew your membership here <i class="fa fa-angle-right"></i></strong></p></a>
+        <a href="https://givalike.org/public/quickgive.aspx?cid=227"><p><strong>Renew your membership here <i class="fa fa-angle-right"></i></strong></p></a>
       </div>
     </div><!-- express-checkout -->
   </div><!-- splash-wrapper -->
@@ -67,7 +67,7 @@ title: Become a Member
           <h4 class="amount">
             <% if level.amount_month %><a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=<%= level.amount_month %>&amp;monthly=1">$<%= level.amount_month %> Monthly</a> <span style="color: black;">or</span> <% end %><a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=<%= level.amount_annual %>">$<%= level.amount_annual %> Annually</a></h4>
           <% if level.commitment %>
-            <p>Three-Year Commitment</p>
+            <p class="italic">Three-Year Commitment</p>
           <% end %>
           <% if level.all_above %>
             <h4 class="all-above">All the above, plus:</h4>

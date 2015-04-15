@@ -53,13 +53,13 @@ title: Circle Membership
   <div class="main-right">
     <%= partial "give_more" %>
     <hr>
-    <h3>Have a question?</h3>
+    <h3>Have a Question?</h3>
     <% data.contacts.each do |contact| %>
       <% if contact.circle %>
         <div class="contact-info">
           <h5><%= contact.about %></h5>
           <h4><%= contact.name %></h4>
-          <p><%= contact.title %></p>
+          <p class="title"><%= contact.title %></p>
           <p><%= contact.phone %></p>
           <p><a href="mailto:<%=contact.email %>"><%= contact.email %> <i class="fa fa-angle-right"></i></a></p>
         </div>
