@@ -79,42 +79,6 @@ nav.desktop-nav {
 }
 
 
-// Bottom express checkout
-.bottom-checkout {
-  @include outer-container;
-  background: #a74c1d;
-  max-width: none;
-  padding: 3em 1em;
-  .express-checkout {
-    @include span-columns(5);
-    @include media($mobile) {
-      @include span-columns(12);
-    }
-    .contribute {
-      background: transparent;
-      span.dollar {
-        color: white;
-        padding: 0 0.2em;
-      }
-      label {
-        float: right;
-      }
-    }
-    .ui-spinner {
-      float: left;
-    }
-  }
-}
-
-#contribute-buttons-bottom {
-  display: inline;
-}
-
-.ui-buttonset {
-  margin: 1em 0;
-}
-
-
 // Index levels
 .level {
   margin: 0 0 1em 0;

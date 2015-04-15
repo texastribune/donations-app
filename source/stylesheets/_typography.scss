@@ -1,5 +1,5 @@
 html {
-  font-family: 'Roboto', sans-serif;
+  font-family: $roboto;
   font-size: 14px;
 }
 
@@ -25,6 +25,7 @@ h3 {
 
 h4 {
   font-size: 1em;
+  font-weight: bold;
   margin: 0;
 }
 
@@ -56,16 +57,9 @@ a {
 }
 
 // Splash typography
-.splash-info {
-  color: white;
-  font-weight: 200;
-}
-
 .splash-header {
   border-bottom: 3px solid $yellow-tribune;
-  color: white;
-  font-family: "league-gothic";
-  font-weight: 200;
+  font-family: $league-gothic;
 }
 
 .splash-support {
@@ -73,13 +67,22 @@ a {
   font-weight: 400;
 }
 
+.splash-info, .splash-header {
+  color: white;
+  font-weight: 200;
+}
+
+.splash-info, .splash-support {
+  font-size: 1.2em;
+}
+
 
 // Express checkout
 .bottom-checkout {
   h2 {
-    border-bottom: 5px solid $yellow-tribune;
+    border-bottom: 3px solid $yellow-tribune;
     color: white;
-    font-family: 'league-gothic';
+    font-family: $league-gothic;
     font-size: 4em;
     font-weight: 200;
     margin-bottom: 0.5em;
@@ -88,25 +91,7 @@ a {
 }
 
 
-// Index levels
-.level {
-  h3, p {
-    @include media($mobile) {
-      color: white;
-    }
-  }
-  h4.amount {
-    color: $teal-tribune;
-  }
-  h4.all-above {
-    color: black;
-    margin-top: 0.5em;
-  }
-  h5 {
-    margin-top: 1em;
-  }
-}
-
+// Benefit flag
 h5.benefit-flag {
   background: $yellow-tribune;
   color: black;

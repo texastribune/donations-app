@@ -16,11 +16,21 @@ $bg-nav: #000000;
 
 $link-nav: white;
 
+// Fonts
+$league-gothic: 'league-gothic', sans-serif;
+$roboto: 'Roboto', sans-serif;
+
 
 // Mixins
 @mixin hide-for-mobile {
   @include media($mobile) {
     display: none;
   }
+}
+
+@mixin background-sizing {
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
 }
 
