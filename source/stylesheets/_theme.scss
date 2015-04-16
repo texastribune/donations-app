@@ -11,18 +11,15 @@ hr {
 }
 
 .index .splash {
-  background-color: #8a9b8a;
   background-image: url("../images/hero-support.jpg");
 }
 
 
 .levels .splash {
-  background-color: #180e14;
   background-image: url("../images/hero-benefits.jpg");
 }
 
 .circle .splash {
-  background-color: #110c12;
   background-image: url("../images/hero-circles.jpg");
 }
 
@@ -84,9 +81,39 @@ hr {
     font-size: 0.9em;
     font-weight: bold;
     letter-spacing: 2px;
+    outline: none;
     padding: 1em 2em;
     text-transform: uppercase;
   }
+}
+
+
+// For videos
+.outer-info {
+  &.video-wrapper {
+    margin-bottom: 1em;
+  }
+  &#video-top {
+    background-image: url("../images/undrinkable_lead.jpg");
+    height: 350px;
+  }
+  &.secondary-video {
+    height: 200px;
+  }
+  &#video-two {
+    background-image: url("../images/undrinkable_image_2.jpg");
+  }
+}
+.inner-info:hover {
+  background-color: $teal-tribune;
+  border: none;
+}
+
+.see-support {
+  background-color: #ffc200;
+  font-size: 1.2em; 
+  font-weight: bold;  
+  padding: 0.5em 1em;
 }
 
 

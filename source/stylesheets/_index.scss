@@ -28,17 +28,3 @@
     margin-top: 1em;
   }
 }
-
-// For videos
-.index {
-  .outer-info {
-    &#video-top {
-      background-image: url("../images/undrinkable_lead.jpg");
-      height: 400px;
-    }
-  }
-  .inner-info:hover {
-    background-color: $teal-tribune;
-    border: none;
-  }
-}
