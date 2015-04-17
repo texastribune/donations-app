@@ -12,7 +12,7 @@
 .splash-wrapper {
   @include outer-container;
   max-width: 68em;
-  padding: 6em 0;
+  padding: 6em 1em;
   @include media($mobile) {
     padding: 0;
   }
@@ -23,6 +23,9 @@
     .splash-greeting {
       @include span-columns(6);
         @include shift(1);
+      @include media($tablet) {
+        @include shift(0);
+      }
       @include media($mobile) {
         @include span-columns(12);
         @include shift(0);
@@ -30,6 +33,9 @@
     }
     .express-checkout {
       @include span-columns(4);
+      @include media($tablet) {
+        @include span-columns(6);
+      }
       @include media($mobile) {
         @include span-columns(12);
       }
@@ -95,6 +101,9 @@ nav.mobile-nav {
   }
   .main-left {
     @include span-columns(8);
+    @include media($tablet) {
+      @include span-columns(6);
+    }
     @include media($mobile) {
       @include span-columns(12);
       padding: 0 1em;
@@ -102,6 +111,9 @@ nav.mobile-nav {
   }
   .main-right {
     @include span-columns(4);
+    @include media($tablet) {
+      @include span-columns(6);
+    }
     @include media($mobile) {
       @include span-columns(12);
     }

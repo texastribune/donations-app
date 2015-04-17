@@ -39,6 +39,9 @@ hr {
   font-weight: bold;
   padding: 0.5em 1.8em;
   text-align: center;
+  &:focus {
+    outline: none;
+  }
 }
 
 .button-flat, .button-flat a {
