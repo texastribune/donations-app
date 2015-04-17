@@ -161,6 +161,9 @@ h5.benefit-flag {
 .social {
   color: $white;
   margin: 0.5em;
+  &:hover {
+    opacity: 0.9;
+  }
 }
 
 .facebook {

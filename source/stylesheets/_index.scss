@@ -35,6 +35,9 @@
     color: $teal-tribune;
     span {
       color: $black;
+      @include media($mobile) {
+        color: $white;
+      }
     }
   }
   h4.all-above {
@@ -47,7 +50,7 @@
   h5 {
     margin-top: 1em;
   }
-  h3, p, h4.all-above, span {
+  h3, p, h4.all-above {
     @include media($mobile) {
       color: $white;
     }
