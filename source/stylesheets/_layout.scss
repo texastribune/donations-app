@@ -38,18 +38,14 @@
 }
 
 
-// Desktop nav
-nav.desktop-nav {
-  border-bottom: 5px solid $yellow-tribune;
+// Navigation
+// General nav
+.nav {
   text-align: center;
-  @include hide-for-mobile;
   ul {
     background-color: $bg-nav;
     margin: 0;
-    opacity: 0.8;
-    padding: 0;
     li {
-      display: inline-block;
       padding: 1.2em;
       a {
         color: $link-nav;
@@ -61,6 +57,30 @@ nav.desktop-nav {
           color: $yellow-tribune;
         }
       }
+    }
+  }
+}
+
+// Desktop nav
+nav.desktop-nav {
+  border-bottom: 5px solid $yellow-tribune;
+  @include hide-for-mobile;
+  ul {
+    opacity: 0.8;
+    padding: 0;
+    li {
+      display: inline-block;
+    }
+  }
+}
+
+// Mobile nav
+nav.mobile-nav {
+  @include show-for-mobile;
+  ul {
+    padding: 0 1em;
+    li {
+      border-bottom: 2px solid $yellow-tribune;
     }
   }
 }
