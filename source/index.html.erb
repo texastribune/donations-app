@@ -53,7 +53,9 @@ title: Become a Member
     <%= partial "share" %>
   </div><!-- main-left -->
   <div class="main-right">
-    <a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=10">Interested in becoming a student member? <i class="fa fa-angle-right"></i></a>
+    <div class="student-member">
+      <a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=10">Interested in becoming a student member? <i class="fa fa-angle-right"></i></a>
+    </div>
     <hr>
     <% data.levels.each do |level| %>
       <% unless level.student %>
@@ -119,4 +121,22 @@ title: Become a Member
     <%= partial "give_more" %>
   </div>
 </div><!-- main-right -->
+<!-- videos/contacts show below levels on mobile -->
+<div class="main-mobile">
+  <h2><%= data.tagline %></h2>
+  <%= partial "videos" %>
+  <hr>
+  <h3>Have a Question?</h3>
+    <% data.contacts.each do |contact| %>
+      <div class="contact-info">
+        <h5><%= contact.about %></h5>
+        <h4><%= contact.name %></h4>
+        <p class="italic"><%= contact.title %></p>
+        <p><%= contact.phone %></p>
+        <p><a href="mailto:<%=contact.email %>"><%= contact.email %> <i class="fa fa-angle-right"></i></a></p>
+      </div>
+    <% end %>
+  <hr>
+  <%= partial "share" %>
+</div><!-- main-mobile -->
 <%= partial "bottom_checkout" %>

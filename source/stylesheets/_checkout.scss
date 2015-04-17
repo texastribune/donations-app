@@ -7,8 +7,12 @@
     background-color: $bg-contribute;
     padding: 2em;
     text-align: center;
+    @include media($mobile) {
+      background-color: transparent;
+    }
     h5, h3, p {
       text-align: left;
+      @include hide-for-mobile;
     }
     h5 {
       padding-top: 0.5em;
@@ -28,6 +32,7 @@
     background-color: $bg-contribute;
     margin-top: 20px;
     padding: 0.8em;
+    @include hide-for-mobile;
     h4 {
       font-size: 14px;
       font-weight: 200;

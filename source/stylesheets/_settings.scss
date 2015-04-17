@@ -31,6 +31,13 @@ $roboto: 'Roboto', sans-serif;
   }
 }
 
+@mixin show-for-mobile {
+  display: none;
+  @include media($mobile) {
+    display: block;
+  }
+}
+
 @mixin background-sizing {
   background-size: cover;
   background-position: 50%;

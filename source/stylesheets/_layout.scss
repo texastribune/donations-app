@@ -13,6 +13,9 @@
   @include outer-container;
   max-width: 68em;
   padding: 6em 0;
+  @include media($mobile) {
+    padding: 0;
+  }
 }
 
 .index {
@@ -39,6 +42,7 @@
 nav.desktop-nav {
   border-bottom: 5px solid $yellow-tribune;
   text-align: center;
+  @include hide-for-mobile;
   ul {
     background-color: $bg-nav;
     margin: 0;
@@ -66,11 +70,12 @@ nav.desktop-nav {
 .main {
   @include outer-container;
   padding: 3em 0;
+  @include media($mobile) {
+    padding: 0;
+  }
   .main-left {
     @include span-columns(8);
-    @include media($mobile) {
-      @include span-columns(12);
-    }
+    @include hide-for-mobile;
   }
   .main-right {
     @include span-columns(4);
@@ -80,10 +85,17 @@ nav.desktop-nav {
   }
 }
 
+.main-mobile {
+  @include show-for-mobile;
+}
+
 
 // Index levels
 .level {
   margin: 0 0 1em 0;
+  @include media($mobile) {
+    padding: 1em;
+  }
 }
 
 hr {
