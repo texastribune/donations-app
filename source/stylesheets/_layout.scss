@@ -87,6 +87,7 @@ nav.desktop-nav {
 
 .main-mobile {
   @include show-for-mobile;
+  padding: 0 1em;
 }
 
 

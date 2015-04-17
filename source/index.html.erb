@@ -19,11 +19,16 @@ title: Become a Member
               <input checked="checked" type="radio" value="month" id="monthly" name="frequency">
               <label for="monthly"><i class="fa fa-check"></i>Monthly</label>
           </div>
-          <h5>Your Level:</h5>
-          <h3 id="level-display">Activist</h3>
-          <a href="/levels.html"><p class="italic"><strong><em>Explore benefits &amp; membership levels <i class="fa fa-angle-right"></i></em></strong></p></a>
+          <div class="level-display">
+            <h5>Your Level:</h5>
+            <h3 id="level-display">Activist</h3>
+            <a href="/levels.html"><p class="italic"><strong><em>Explore benefits &amp; membership levels <i class="fa fa-angle-right"></i></em></strong></p></a>
+          </div>
           <button type="submit" class="button button-flat">Contribute Now <i class="fa fa-angle-right"></i></button>
         </form>
+        <div class="button button-flat renew-button">
+          <a href="https://givalike.org/public/quickgive.aspx?cid=227"><p><strong>Or renew your membership <i class="fa fa-angle-right"></i></strong></p></a>
+        </div>
       </div>
       <div class="renew">
         <h4>Already a member?</h4>
@@ -39,7 +44,7 @@ title: Become a Member
     <h2><%= data.tagline %></h2>
     <%= partial "videos" %>
     <hr>
-    <h3>Have a Question?</h3>
+    <h3 class="section-header">Have a Question?</h3>
       <% data.contacts.each do |contact| %>
         <div class="contact-info">
           <h5><%= contact.about %></h5>
@@ -68,7 +73,7 @@ title: Become a Member
           <% end %>
           <h3><%= level.name %></h3>
           <h4 class="amount">
-            <% if level.amount_month %><a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=<%= level.amount_month %>&amp;monthly=1">$<%= level.amount_month %> Monthly</a> <span style="color: black;">or</span> <% end %><a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=<%= level.amount_annual %>">$<%= level.amount_annual %> Annually</a></h4>
+            <% if level.amount_month %><a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=<%= level.amount_month %>&amp;monthly=1">$<%= level.amount_month %> Monthly</a> <span>or</span> <% end %><a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=<%= level.amount_annual %>">$<%= level.amount_annual %> Annually</a></h4>
           <% if level.commitment %>
             <p class="italic">Three-Year Commitment</p>
           <% end %>
@@ -123,10 +128,10 @@ title: Become a Member
 </div><!-- main-right -->
 <!-- videos/contacts show below levels on mobile -->
 <div class="main-mobile">
-  <h2><%= data.tagline %></h2>
+  <h2 class="tagline"><%= data.tagline %></h2>
   <%= partial "videos" %>
   <hr>
-  <h3>Have a Question?</h3>
+  <h3 class="section-header">Have a Question?</h3>
     <% data.contacts.each do |contact| %>
       <div class="contact-info">
         <h5><%= contact.about %></h5>

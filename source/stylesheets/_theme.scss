@@ -41,7 +41,7 @@ hr {
   text-align: center;
 }
 
-.button-flat {
+.button-flat, .button-flat a {
   background-color: $yellow-tribune;
   border: none;
   color: $black;
@@ -123,6 +123,21 @@ hr {
 }
 
 
+// Give more cta
+.give-more {
+  padding: 1em 1em 3em 0;
+  @include media($mobile) {
+    padding: 1em 1em 3em 1em;
+    h3 {
+      color: $yellow-tribune;
+    }
+    p {
+      color: $white;
+    }
+  }
+}
+
+
 // Benefit flag
 h5.benefit-flag {
   background: $yellow-tribune;
@@ -138,6 +153,10 @@ h5.benefit-flag {
 
 
 // Social
+.social-wrapper {
+  margin-bottom: 3em;
+}
+
 .social {
   color: $white;
   margin: 0.5em;
@@ -159,10 +178,20 @@ h5.benefit-flag {
 // Contact Info
 .contact-info {
   margin: 2em 0;
+  @include media($mobile) {
+    margin: 2em 1em;
+  }
   h5 {
     padding: 0 0 1em 0;
   }
   h4, p {
     padding: 0 0 0.2em 0;
+  }
+}
+
+.section-header {
+  margin: 2em 0 1em 0;
+  @include media($mobile) {
+    margin: 2em 0 1em 0.5em;
   }
 }

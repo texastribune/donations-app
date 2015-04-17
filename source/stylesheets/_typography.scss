@@ -79,3 +79,10 @@ a {
   font-size: 1.2em;
   @include hide-for-mobile;
 }
+
+
+.tagline {
+  @include media($mobile) {
+    margin: 1em 2em 0.5em 1em;
+  }
+}

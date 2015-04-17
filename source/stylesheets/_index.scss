@@ -11,26 +11,31 @@
       background-color: $black;
     }
     .student-member {
-      padding: 1em 0.8em 0.5em 0.8em;
+      @include media($mobile) {
+        padding: 1em 0.8em 0.5em 0.8em;
+      }
     }
   }
 }
 
 // Levels boxes
 .level {
-  h3, p {
-    @include media($mobile) {
-      color: $white;
-    }
-  }
   h4.amount {
     color: $teal-tribune;
   }
   h4.all-above {
     color: $black;
     margin-top: 0.5em;
+    @include media($mobile) {
+      padding-top: 1em;
+    }
   }
   h5 {
     margin-top: 1em;
+  }
+  h3, p, h4.all-above, span {
+    @include media($mobile) {
+      color: $white;
+    }
   }
 }
