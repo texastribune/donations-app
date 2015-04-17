@@ -2,10 +2,16 @@
 .index {
   .splash-greeting {
     text-align: right;
+    @include media($mobile) {
+      text-align: center;
+    }
   }
   .main-right {
     @include media($mobile) {
       background-color: $black;
+    }
+    .student-member {
+      padding: 1em 0.8em 0.5em 0.8em;
     }
   }
 }

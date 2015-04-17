@@ -60,6 +60,9 @@ a {
 .splash-header {
   border-bottom: 3px solid $yellow-tribune;
   font-family: $league-gothic;
+  @include media($mobile) {
+    border-bottom: none;
+  }
 }
 
 .splash-support {
@@ -74,4 +77,5 @@ a {
 
 .splash-info, .splash-support {
   font-size: 1.2em;
+  @include hide-for-mobile;
 }
