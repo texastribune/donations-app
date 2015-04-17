@@ -33,6 +33,9 @@
 .level {
   h4.amount {
     color: $teal-tribune;
+    span {
+      color: $black;
+    }
   }
   h4.all-above {
     color: $black;
