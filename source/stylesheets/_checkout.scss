@@ -9,10 +9,13 @@
     text-align: center;
     @include media($mobile) {
       background-color: transparent;
+      padding-top: 0;
     }
-    h5, h3, p {
-      text-align: left;
+    .level-display {
       @include hide-for-mobile;
+      h5, h3, p {
+        text-align: left;
+      }
     }
     h5 {
       padding-top: 0.5em;
@@ -20,6 +23,9 @@
     .button {
       margin-top: 1em;
       width: 100%;
+      &.renew-button {
+        @include show-for-mobile;
+      }
     }
     span.dollar {
       color: #b7b7b7;
