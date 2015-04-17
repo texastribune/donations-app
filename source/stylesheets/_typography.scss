@@ -83,6 +83,6 @@ a {
 
 .tagline {
   @include media($mobile) {
-    margin: 1em 2em 0.5em 1em;
+    margin: 1em 2em 0.5em 0.2em;
   }
 }

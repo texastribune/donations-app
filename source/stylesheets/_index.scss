@@ -6,6 +6,9 @@
       text-align: center;
     }
   }
+  .main-left {
+    @include hide-for-mobile;
+  }
   .main-right {
     @include media($mobile) {
       background-color: $black;
@@ -14,6 +17,14 @@
       @include media($mobile) {
         padding: 1em 0.8em 0.5em 0.8em;
       }
+    }
+  }
+  .give-more {
+    h3 {
+      color: $yellow-tribune;
+    }
+    p {
+      color: $white;
     }
   }
 }

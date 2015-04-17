@@ -128,11 +128,9 @@ hr {
   padding: 1em 1em 3em 0;
   @include media($mobile) {
     padding: 1em 1em 3em 1em;
+    text-align: center;
     h3 {
-      color: $yellow-tribune;
-    }
-    p {
-      color: $white;
+      padding: 0.5em 0;
     }
   }
 }
