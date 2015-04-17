@@ -2,7 +2,7 @@
   <div class="express-checkout">
     <div class="contribute">
       <h2>Ready to Support?</h2>
-      <form id="contribution-form-bottom" action="#" method="get">
+      <form id="contribution-form-bottom" action="https://givalike.org/public/quickgive.aspx?cid=227" method="get">
         <span class="dollar">$</span><input name="amount" value="9" type="number" id="spinner-bottom">
         <div id="contribute-buttons-bottom">
             <input type="radio" value="year" id="yearly-bottom" name="frequency-bottom">
@@ -11,7 +11,7 @@
             <label for="monthly-bottom"><i class="fa fa-check"></i>Monthly</label>
         </div>
         <button type="submit" class="button button-flat">Join Now <i class="fa fa-angle-right"></i></button>
-        <a href="#">
+        <a href="https://givalike.org/public/quickgive.aspx?cid=227">
           <div class="button button-flat">Or renew your membership <i class="fa fa-angle-right"></i>
           </div>
         </a>
@@ -51,5 +51,39 @@
     currentVal = parseInt($('#spinner-bottom').val());
     newVal = Math.ceil(currentVal / 12);
     $('#spinner-bottom').attr('value', newVal);
+  });
+
+  // When user submits a contribution
+ // Pass appropriate querystring params to Givalike
+ $('#contribution-form-bottom').submit(function(e) {
+
+    // Don't submit the form as is
+    e.preventDefault();
+
+    // Base Givalike url
+    var url = "https://givalike.org/public/quickgive.aspx?cid=227";
+
+    // Grab contribution amount
+    var amount = $('#spinner-bottom').val();
+
+    // Get frequency and set if monthly or not
+    get_frequency();
+    if (is_monthly) {
+      monthly = 1;
+    } else {
+      monthly = 0;
+    }
+
+    // Add params to url
+    url += '&amount=';
+    url += amount;
+
+    url += '&monthly=';
+    url += monthly;
+
+    $('#contribution-form-bottom').get(0).setAttribute('action', url);
+
+    // Go to Givalike
+    $(location).attr('href',url);
   });
 </script>
