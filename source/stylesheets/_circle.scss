@@ -3,6 +3,10 @@
   .splash-wrapper {
     padding: 1em;
   }
+  .secondary-video {
+    @include span-columns(4);
+    @include display(flex);
+  }
 }
 
 .circle-box {
