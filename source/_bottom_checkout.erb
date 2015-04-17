@@ -3,12 +3,16 @@
     <div class="contribute">
       <h2>Ready to Support?</h2>
       <form id="contribution-form-bottom" action="https://givalike.org/public/quickgive.aspx?cid=227" method="get">
-        <span class="dollar">$</span><input name="amount" value="9" type="number" id="spinner-bottom">
-        <div id="contribute-buttons-bottom">
-            <input type="radio" value="year" id="yearly-bottom" name="frequency-bottom">
-            <label for="yearly-bottom"><i class="fa fa-check"></i>Annually</label>
-            <input checked="checked" type="radio" value="month" id="monthly-bottom" name="frequency-bottom">
-            <label for="monthly-bottom"><i class="fa fa-check"></i>Monthly</label>
+        <div class="left-wrapper">
+          <span class="dollar">$</span><input name="amount" value="9" min="3" max="5000" type="number" id="spinner-bottom">
+        </div>
+        <div class="right-wrapper">
+          <div id="contribute-buttons-bottom">
+              <input type="radio" value="year" id="yearly-bottom" name="frequency-bottom">
+              <label for="yearly-bottom"><i class="fa fa-check"></i>Annually</label>
+              <input checked="checked" type="radio" value="month" id="monthly-bottom" name="frequency-bottom">
+              <label for="monthly-bottom"><i class="fa fa-check"></i>Monthly</label>
+          </div>
         </div>
         <button type="submit" class="button button-flat">Join Now <i class="fa fa-angle-right"></i></button>
         <a href="https://givalike.org/public/quickgive.aspx?cid=227">

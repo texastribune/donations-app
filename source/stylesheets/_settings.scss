@@ -1,7 +1,7 @@
 // Breakpoints
-$desktop: new-breakpoint(min-width 768px 12);
-$tablet: new-breakpoint(max-width 767px);
-$mobile: new-breakpoint(max-width 480px);
+$desktop: new-breakpoint(min-width 800px 12);
+$tablet: new-breakpoint(max-width 799px);
+$mobile: new-breakpoint(max-width 520px);
 
 
 // Colors
