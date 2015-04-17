@@ -48,13 +48,13 @@ title: Circle Membership
 
 <div class="main">
   <div class="main-left">
-    <h2><%= data.tagline %></h2>
+    <h2 class="tagline"><%= data.tagline %></h2>
     <%= partial "videos" %>
   </div>
   <div class="main-right">
     <%= partial "give_more" %>
     <hr>
-    <h3>Have a Question?</h3>
+    <h3 class="section-header">Have a Question?</h3>
     <% data.contacts.each do |contact| %>
       <% if contact.circle %>
         <div class="contact-info">

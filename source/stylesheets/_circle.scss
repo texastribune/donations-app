@@ -1,4 +1,16 @@
 // Circle member page
+.circle {
+  .splash-wrapper {
+    padding: 1em;
+  }
+}
+
+.circle-box {
+  @include media($mobile) {
+    margin-bottom: 2em;
+  }
+}
+
 .circle-box-top {
   background-color: $black;
   padding: 1em 2.2em;
@@ -39,4 +51,10 @@
   @include background-sizing;
   background-image: url("../images/footer-thanks.jpg");
   height: 350px;
+  .inner-info {
+    &:hover {
+      background-color: transparent;
+      border: 3px solid $white;
+    }
+  }
 }

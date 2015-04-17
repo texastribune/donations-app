@@ -95,7 +95,10 @@ nav.mobile-nav {
   }
   .main-left {
     @include span-columns(8);
-    @include hide-for-mobile;
+    @include media($mobile) {
+      @include span-columns(12);
+      padding: 0 1em;
+    }
   }
   .main-right {
     @include span-columns(4);
@@ -128,6 +131,9 @@ hr {
 .levels {
   table {
     min-width: 940px;
+    @include media($mobile) {
+      min-width: 0;
+    }
   }
   h3 {
     padding: 1em 0;
