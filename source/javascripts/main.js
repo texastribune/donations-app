@@ -95,4 +95,39 @@ $(document).ready(function() {
     newVal = Math.ceil(currentVal / 12);
     $('#spinner').attr('value', newVal);
   });
+
+ // When user submits a contribution
+ // Pass appropriate querystring params to Givalike
+ $('#top-contribute').submit(function(e) {
+
+    // Don't submit the form as is
+    e.preventDefault();
+
+    // Base Givalike url
+    var url = "https://givalike.org/public/quickgive.aspx?cid=227";
+
+    // Grab contribution amount
+    var amount = $('#spinner').val();
+
+    // Get frequency and set if monthly or not
+    get_frequency();
+    if (is_monthly) {
+      monthly = 1;
+    } else {
+      monthly = 0;
+    }
+
+    // Add params to url
+    url += '&amount=';
+    url += amount;
+
+    url += '&monthly=';
+    url += monthly;
+
+    $('#top-contribute').get(0).setAttribute('action', url);
+
+    // Go to Givalike
+    $(location).attr('href',url);
+  });
+
 });
