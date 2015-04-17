@@ -26,4 +26,30 @@
 
   // Initialize bottom radio buttonset for monthly/annually
   $("#contribute-buttons-bottom").buttonset();
+
+  // Determine if contribution frequency is monthly
+  var get_frequency = function() {
+    if ($("label[for='monthly-bottom']").hasClass('ui-state-active')) {
+      is_monthly = true;
+    } else {
+      is_monthly = false;
+    }
+  };
+
+  // if 'Annually' is clicked, multiply val by 12
+  $("label[for='yearly-bottom']").on('click', function() {
+    var currentVal, newVal;
+    currentVal = parseInt($('#spinner-bottom').val());
+    currentVal *= 12;
+    newVal = currentVal;
+    $('#spinner-bottom').attr('value', newVal);
+  });
+
+  // if 'Monthly' is clicked, divide val by 12
+  $("label[for='monthly-bottom']").on('click', function() {
+    var currentVal, newVal;
+    currentVal = parseInt($('#spinner-bottom').val());
+    newVal = Math.ceil(currentVal / 12);
+    $('#spinner-bottom').attr('value', newVal);
+  });
 </script>

@@ -24,7 +24,7 @@ $(document).ready(function() {
   $("#contribute-buttons-top").buttonset();
 
 
-  // For express checkout
+  // For top express checkout
 
   // Determine if contribution frequency is monthly
   var get_frequency = function() {
@@ -74,8 +74,6 @@ $(document).ready(function() {
 
     // Check if last val is equal val on event
     if ($('#spinner').data('lastVal') != input_amount) {
-      // if not, update to new val
-      $('#spinner').data('lastVal', input_amount);
       // determine and display correct level for new val
       displayLevel();
     }
