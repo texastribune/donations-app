@@ -17,31 +17,16 @@ $(document).ready(function() {
     }
   });
 
-  $('.ui-spinner').bind('keyup mouseup', function() {
-    // Check if last val is equal val on event
-    if ($('#spinner').data('lastVal') != $('#spinner').val()) {
-      // if not, update to new val
-      $('#spinner').data('lastVal', $('#spinner').val());
-      // determine and display correct level for new val
-      displayLevel();
-    }
-  });
-
   // Initialize top number input spinner for express checkout
   $("#spinner").spinner();
 
   // Initialize top radio buttonset for monthly/annually
   $("#contribute-buttons-top").buttonset();
 
+
   // For express checkout
 
-  // Grab input amount
-  var get_amount = function() {
-    var amount;
-    amount = $('#spinner').val();
-  };
-
-  // Grab selected frequency
+  // Determine if contribution frequency is monthly
   var get_frequency = function() {
     if ($("label[for='monthly']").hasClass('ui-state-active')) {
       is_monthly = true;
@@ -50,7 +35,7 @@ $(document).ready(function() {
     }
   };
 
-  // Determine level to display and update text
+  // Determine level to display and update text if needed
   var displayLevel = function() {
     get_frequency();
     var input_amount = $('#spinner').val();
@@ -67,7 +52,7 @@ $(document).ready(function() {
         level_label.text('Diplomat');
       } else if (input_amount > 42 && input_amount <= 83) {
         level_label.text('Benefactor');
-      };
+      }
     } else {
       // detemine level and update text based on yearly frequency
       if (input_amount > 35 && input_amount <= 59) {
@@ -80,27 +65,36 @@ $(document).ready(function() {
         level_label.text('Diplomat');
       } else if (input_amount > 500 && input_amount <= 1000) {
         level_label.text('Benefactor');
-      };
+      }
     }
   };
 
-  // Get the amount and frequency so we have it to work with
-  $('#spinner').on('click', function(e) {
-    get_amount();
-    get_frequency();
+  $('.ui-spinner').bind('keyup mouseup', function() {
+    var input_amount = $('#spinner').val();
+
+    // Check if last val is equal val on event
+    if ($('#spinner').data('lastVal') != input_amount) {
+      // if not, update to new val
+      $('#spinner').data('lastVal', input_amount);
+      // determine and display correct level for new val
+      displayLevel();
+    }
   });
 
   // if 'Annually' is clicked, multiply val by 12
   $("label[for='yearly']").on('click', function() {
-    var currentVal = parseInt($('#spinner').val());
+    var currentVal, newVal;
+    currentVal = parseInt($('#spinner').val());
     currentVal *= 12;
-    $('#spinner').attr('value', currentVal);
+    newVal = currentVal;
+    $('#spinner').attr('value', newVal);
   });
 
   // if 'Monthly' is clicked, divide val by 12
   $("label[for='monthly']").on('click', function() {
-    var currentVal = parseInt($('#spinner').val());
-    var newVal = Math.ceil(currentVal /= 12);
+    var currentVal, newVal;
+    currentVal = parseInt($('#spinner').val());
+    newVal = Math.ceil(currentVal / 12);
     $('#spinner').attr('value', newVal);
   });
 });
