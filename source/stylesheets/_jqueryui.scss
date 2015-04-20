@@ -5,6 +5,7 @@
   overflow: hidden;
   padding: 0;
   vertical-align: middle;
+  width: 80%;
 }
 .ui-spinner-input {
   border: none;
@@ -43,13 +44,17 @@
 /* vertically center icon */
 .ui-spinner .ui-icon {
   font-size: 2em;
-  top: 50%;
 }
 .ui-spinner-up {
   top: 0;
 }
 .ui-spinner-down {
   bottom: 0;
+  .ui-icon {
+    position: absolute;
+    right: 9px;
+    top: -4px;
+  }
 }
 
 .ui-widget {
@@ -81,7 +86,7 @@
   .ui-state-default {
     background: white;
     border: 2px solid #ebebeb;
-    font-weight: normal;
+    font-weight: 800;
     color: #555555;
   }
   .ui-state-active {
@@ -89,5 +94,11 @@
     border: 2px solid darken($yellow-tribune, 5%);
     font-weight: normal;
     color: #212121;
+  }
+}
+
+.ui-button-text {
+  .fa {
+    display: inline;
   }
 }
