@@ -5,7 +5,10 @@
   student: true
   all_content_benefits:
     -
-      "Evan Smith's Monthly Report on all things Tribune"
+      "Evan Smith’s Monthly Member Newsletter"
+  all_recognition_benefits:
+    -
+      "Your name as a Tribune member on our website"
 -
   name: "Enthusiast"
   amount_annual: 35
@@ -15,7 +18,7 @@
   all_above: false
   all_content_benefits:
     -
-      "Evan Smith's Monthly Report on all things Tribune"
+      "Evan Smith’s Monthly Member Newsletter"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
@@ -32,18 +35,18 @@
   all_above: true
   all_content_benefits:
     -
-      "Evan Smith's Monthly Report on all things Tribune"
+      "Evan Smith’s Monthly Member Newsletter"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
     -
-      "Discounts to The Texas Tribune festival"
+      "Discounted tickets to the Texas Tribune Festival"
   all_recognition_benefits:
     -
       "Your name as a Tribune member on our website"
   extra_access_benefits:
     -
-      "Discounts to The Texas Tribune festival"
+      "Discounted tickets to the Texas Tribune Festival"
 -
   name: "Advocate"
   amount_annual: 150
@@ -53,7 +56,7 @@
   all_above: true
   all_content_benefits:
     -
-      "Evan Smith's Monthly Report on all things Tribune"
+      "Evan Smith’s Monthly Member Newsletter"
     -
       "Discounted subscription to Texas Weekly, our insider newsletter"
     -
@@ -62,9 +65,9 @@
     -
       "Invitations to Tribune social events"
     -
-      "Discounts to The Texas Tribune festival"
+      "Discounted tickets to the Texas Tribune Festival"
     -
-      "Dual membership"
+      "Membership benefits for two"
   all_recognition_benefits:
     -
       "Your name as a Tribune member on our website"
@@ -85,7 +88,7 @@
   all_above: true
   all_content_benefits:
     -
-      "Evan Smith's Monthly Report on all things Tribune"
+      "Evan Smith’s Monthly Member Newsletter"
     -
       "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
     -
@@ -96,9 +99,9 @@
     -
       "Invitations to Tribune social events"
     -
-      "Discounts to The Texas Tribune festival"
+      "Discounted tickets to the Texas Tribune Festival"
     -
-      "Dual membership"
+      "Membership benefits for two"
   all_recognition_benefits:
     -
       "Your name as a Tribune member on our website"
@@ -114,7 +117,7 @@
   all_above: true
   all_content_benefits:
     -
-      "Evan Smith's Monthly Report on all things Tribune"
+      "Evan Smith’s Monthly Member Newsletter"
     -
       "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
     -
@@ -125,9 +128,9 @@
     -
       "Invitations to Tribune social events"
     -
-      "Discounts to The Texas Tribune festival"
+      "Discounted tickets to the Texas Tribune Festival"
     -
-      "Dual membership"
+      "Membership benefits for two"
     -
       "An invitation for two to the State of the State cocktail reception"
     -
@@ -149,7 +152,7 @@
   circle: true
   all_content_benefits:
     -
-      "Evan Smith's Monthly Report on all things Tribune"
+      "Evan Smith’s Monthly Member Newsletter"
     -
       "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
     -
@@ -160,9 +163,9 @@
     -
       "Invitations to Tribune social events"
     -
-      "Discounts to The Texas Tribune festival"
+      "Discounted tickets to the Texas Tribune Festival"
     -
-      "Dual membership"
+      "Membership benefits for two"
     -
       "An invitation for two to the State of the State cocktail reception"
     -
@@ -184,7 +187,7 @@
   circle: true
   all_content_benefits:
     -
-      "Evan Smith's Monthly Report on all things Tribune"
+      "Evan Smith’s Monthly Member Newsletter"
     -
       "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
     -
@@ -195,9 +198,9 @@
     -
       "Invitations to Tribune social events"
     -
-      "Discounts to The Texas Tribune festival"
+      "Discounted tickets to the Texas Tribune Festival"
     -
-      "Dual membership"
+      "Membership benefits for two"
     -
       "An invitation for two to the State of the State cocktail reception"
     -
@@ -221,16 +224,16 @@
   circle: true
   all_content_benefits:
     -
-      "Evan Smith's Monthly Report on all things Tribune"
+      "Evan Smith’s Monthly Member Newsletter"
     -
       "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
     -
-      "Discounts to The Texas Tribune festival"
+      "Discounted tickets to the Texas Tribune Festival"
     -
-      "Dual membership"
+      "Membership benefits for two"
     -
       "Discounted subscription to Texas Weekly, our insider newsletter"
     -
