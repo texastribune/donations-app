@@ -43,6 +43,17 @@
     /*padding: 0.8em;*/
     position: relative;
     @include hide-for-mobile;
+    &:hover {
+      cursor: pointer;
+      .renew-left {
+        background-color: $teal-tribune;
+        img {
+          @include transform(rotate(180deg));
+          background-color: $teal-tribune;
+          color: $white;
+        }
+      }
+    }
     .renew-left {
       background-color: $yellow-tribune; 
       display: inline-block; 

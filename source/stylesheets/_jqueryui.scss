@@ -29,6 +29,9 @@
   display: block;
   overflow: hidden;
   right: 0;
+  &:hover {
+    color: $white;
+  };
 }
 /* more specificity required here to override default borders */
 .ui-spinner a.ui-spinner-button {
@@ -76,14 +79,14 @@
 ----------------------------------*/
 .ui-buttonset {
   .ui-state-default {
-    border: 1px solid #d3d3d3;
     background: white;
+    border: 2px solid #ebebeb;
     font-weight: normal;
     color: #555555;
   }
   .ui-state-active {
-    border: 1px solid #aaaaaa;
     background: $yellow-tribune;
+    border: 2px solid darken($yellow-tribune, 5%);
     font-weight: normal;
     color: #212121;
   }
