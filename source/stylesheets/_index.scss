@@ -20,11 +20,13 @@
     }
   }
   .give-more {
-    h3 {
-      color: $yellow-tribune;
-    }
-    p {
-      color: $white;
+    @include media($mobile) {
+      h3 {
+        color: $yellow-tribune;
+      }
+      p {
+        color: $white;
+      }
     }
   }
 }
