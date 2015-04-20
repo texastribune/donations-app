@@ -52,9 +52,7 @@ title: Circle Membership
     <%= partial "videos" %>
   </div>
   <div class="main-right">
-    <%= partial "give_more" %>
-    <hr>
-    <h3 class="section-header">Have a Question?</h3>
+    <h3>Have a Question?</h3>
     <% data.contacts.each do |contact| %>
       <% if contact.circle %>
         <div class="contact-info">
@@ -66,6 +64,8 @@ title: Circle Membership
         </div>
       <% end %>
     <% end %>
+    <hr>
+    <%= partial "give_more" %>
     <hr>
     <%= partial "share" %>
   </div>

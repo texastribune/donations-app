@@ -28,10 +28,13 @@
       }
     }
     span.dollar {
-      color: #b7b7b7;
+      color: $black;
       float: left;
       font-family: "league-gothic";
       font-size: 4em;
+      @include media($mobile) {
+        color: $white;
+      }
     }
   }
   .renew {
