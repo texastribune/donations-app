@@ -18,7 +18,8 @@
       }
     }
     h5 {
-      padding-top: 0.5em;
+      clear: both;
+      padding-top: 1.5em;
     }
     .button {
       margin-top: 1em;
@@ -32,6 +33,7 @@
       float: left;
       font-family: "league-gothic";
       font-size: 4em;
+      padding: 0 0.2em;
       @include media($mobile) {
         color: $white;
       }
@@ -80,12 +82,23 @@
   label {
     color: #b2b2b2;
     cursor: pointer;
-    font-size: 12px;
+    float: left;
+    font-size: 0.8em;
     font-weight: $black;
     letter-spacing: 2px;
-    padding: 0.2em;
+    padding: 0.5em;
     text-transform: uppercase;
-    width: 120px;
+    width: 48%;
+    &[for='yearly'] {
+      float: left;
+    }
+    &[for='monthly'] {
+      float: right;
+    }
+    @include media($mobile) {
+      font-size: 1.2em;
+      padding: 0.5em 1em 0.5em 2em;
+    }
   }
 }
 
@@ -108,7 +121,14 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: 3.5em;
   margin: 0;
   text-align: center;
-  width: 200px;
+}
+
+#spinner {
+  width: 100%;
+}
+
+#spinner-bottom {
+  width: 250px;
 }
 
 
@@ -189,8 +209,4 @@ input[type=number]::-webkit-outer-spin-button {
       }
     }
   }
-}
-
-#spinner-bottom {
-  width: 250px;
 }
