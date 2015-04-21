@@ -5,7 +5,7 @@
   student: true
   all_content_benefits:
     -
-      "Evan Smith’s Monthly Member Newsletter"
+      "Monthly membership report from CEO and Editor-in-Chief Evan Smith"
   all_recognition_benefits:
     -
       "Your name as a Tribune member on our website"
@@ -18,13 +18,16 @@
   all_above: false
   all_content_benefits:
     -
-      "Evan Smith’s Monthly Member Newsletter"
+      "Monthly membership report from CEO and Editor-in-Chief Evan Smith"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
   all_recognition_benefits:
     -
       "Your name as a Tribune member on our website"
+  extra_access_benefits:
+    -
+      "Invitations to Tribune social events"
 -
   name: "Activist"
   amount_annual: 60
@@ -35,7 +38,7 @@
   all_above: true
   all_content_benefits:
     -
-      "Evan Smith’s Monthly Member Newsletter"
+      "Monthly membership report from CEO and Editor-in-Chief Evan Smith"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
@@ -56,11 +59,7 @@
   all_above: true
   all_content_benefits:
     -
-      "Evan Smith’s Monthly Member Newsletter"
-    -
-      "Discounted subscription to Texas Weekly, our insider newsletter"
-    -
-      "12-month premium subscription to The Washington Post digital"
+      "Monthly membership report from CEO and Editor-in-Chief Evan Smith"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
@@ -73,12 +72,7 @@
       "Your name as a Tribune member on our website"
   extra_access_benefits:
     -
-      "Dual membership"
-  extra_content_benefits:
-    -
-      "Discounted subscription to Texas Weekly, our insider newsletter"
-    -
-      "12-month premium subscription to The Washington Post digital"
+      "Membership benefits for two"
 -
   name: "Diplomat"
   amount_annual: 250
@@ -88,13 +82,9 @@
   all_above: true
   all_content_benefits:
     -
-      "Evan Smith’s Monthly Member Newsletter"
+      "Monthly membership report from CEO and Editor-in-Chief Evan Smith"
     -
       "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
-    -
-      "Discounted subscription to Texas Weekly, our insider newsletter"
-    -
-      "12-month premium subscription to The Washington Post digital"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
@@ -117,13 +107,9 @@
   all_above: true
   all_content_benefits:
     -
-      "Evan Smith’s Monthly Member Newsletter"
+      "Monthly membership report from CEO and Editor-in-Chief Evan Smith"
     -
       "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
-    -
-      "Discounted subscription to Texas Weekly, our insider newsletter"
-    -
-      "12-month premium subscription to The Washington Post digital"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
@@ -153,13 +139,9 @@
   circle: true
   all_content_benefits:
     -
-      "Evan Smith’s Monthly Member Newsletter"
+      "Monthly membership report from CEO and Editor-in-Chief Evan Smith"
     -
       "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
-    -
-      "Discounted subscription to Texas Weekly, our insider newsletter"
-    -
-      "12-month premium subscription to The Washington Post digital"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
@@ -188,13 +170,9 @@
   circle: true
   all_content_benefits:
     -
-      "Evan Smith’s Monthly Member Newsletter"
+      "Monthly membership report from CEO and Editor-in-Chief Evan Smith"
     -
       "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
-    -
-      "Discounted subscription to Texas Weekly, our insider newsletter"
-    -
-      "12-month premium subscription to The Washington Post digital"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
@@ -207,7 +185,7 @@
     -
       "Exclusive previews of key projects and developments"
     -
-      "Invitations to small VIP Tribune gatherings"
+      "Reserved seating at select Tribune events"
   all_recognition_benefits:
     -
       "Your name as a Tribune member on our website"
@@ -215,7 +193,7 @@
       "Donor board recognition at events"
   extra_access_benefits:
     -
-      "Invitations to small VIP Tribune gatherings"
+      "Reserved seating at select Tribune events"
 -
   name: "Chairman&rsquo;s Circle"
   amount_annual: 5000
@@ -225,7 +203,7 @@
   circle: true
   all_content_benefits:
     -
-      "Evan Smith’s Monthly Member Newsletter"
+      "Monthly membership report from CEO and Editor-in-Chief Evan Smith"
     -
       "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
   all_access_benefits:
@@ -236,17 +214,11 @@
     -
       "Membership benefits for two"
     -
-      "Discounted subscription to Texas Weekly, our insider newsletter"
-    -
-      "12-month premium subscription to The Washington Post digital"
-    -
       "An invitation for two to the State of the State cocktail reception"
     -
       "Exclusive previews of key projects and developments"
     -
       "Invitations to small VIP Tribune gatherings"
-    -
-      "Opportunity for annual conversation on the state of the state with CEO &amp; Editor-in-Chief Evan Smith"
   all_recognition_benefits:
     -
       "Your name as a Tribune member on our website"
@@ -254,5 +226,4 @@
       "Donor board recognition at events"
   extra_access_benefits:
     -
-      "Opportunity for annual conversation on the state of the state with CEO &amp; Editor-in-Chief Evan Smith"
-
+      "Invitations to small VIP Tribune gatherings"
