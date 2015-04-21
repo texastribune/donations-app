@@ -113,7 +113,7 @@
   }
 }
 
-.ui-buttonset, #contribute-buttons {
+#contribute-buttons-top {
   margin: 1em 0;
 }
 
@@ -140,6 +140,9 @@ input[type=number]::-webkit-outer-spin-button {
 
 #spinner-bottom {
   width: 250px;
+  @include media($tablet) {
+    width: 100%;
+  }
 }
 
 
@@ -173,7 +176,10 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: left;
   }
   .express-checkout {
-    @include span-columns(7);
+    @include span-columns(6);
+    @media (max-width: 1020px) {
+      @include span-columns(8);
+    }
     @include media($tablet) {
       @include span-columns(10)
     }
@@ -184,33 +190,49 @@ input[type=number]::-webkit-outer-spin-button {
       background: transparent;
       .left-wrapper {
         float: left;
-        width: 80%;
+        width: 75%;
         @include media($tablet) {
           width: 100%;
         }
         .ui-spinner {
           float: left;
         }
+        @include media($tablet) {
+          .ui-spinner {
+            width: 80%;
+
+          }
+        }
       }
       .right-wrapper {
         float: right;
-        width: 20%;
+        width: 25%;
         .ui-buttonset {
           display: inline-block;
           width: 100%;
         }
         @include media($tablet) {
-          clear: both;
-          float: none;
           width: 100%;
         }
       }
       label {
         display: inline-block;
         width: 100%;
+        &[for='yearly-bottom'] {
+          margin-bottom: 1em;
+        }
         @include media($tablet) {
           display: inline;
-          width: 50%;
+          width: 48%;
+          font-size: 1.2em;
+          margin: 1em 0 0 0;
+          padding: 0.5em 1em 0.5em 0;
+          &[for='yearly-bottom'] {
+            float: left;
+          }
+          &[for='monthly-bottom'] {
+            float: right;
+          }
         }
       }
       span.dollar {
