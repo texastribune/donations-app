@@ -1,4 +1,25 @@
 // Express Checkout
+.top-checkout {
+  &.express-checkout {
+    label {
+      width: 48%;
+      &[for='yearly'] {
+        float: left;
+      }
+      &[for='monthly'] {
+        float: right;
+      }
+      @include media($mobile) {
+        font-size: 1.2em;
+        padding: 0.5em 1em 0.5em 2em;
+      }
+    }
+    .ui-spinner {
+      width: 80%;
+    }
+  }
+}
+
 .express-checkout {
   a {
     color: $black;
@@ -88,17 +109,7 @@
     letter-spacing: 2px;
     padding: 0.5em;
     text-transform: uppercase;
-    width: 48%;
-    &[for='yearly'] {
-      float: left;
-    }
-    &[for='monthly'] {
-      float: right;
-    }
-    @include media($mobile) {
-      font-size: 1.2em;
-      padding: 0.5em 1em 0.5em 2em;
-    }
+    width: 120px;
   }
 }
 
