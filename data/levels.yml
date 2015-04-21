@@ -147,6 +147,7 @@
   name: "Editor&rsquo;s Circle"
   amount_annual: 1000
   amount_month: 84
+  benefactor_plus: true
   commitment: true
   all_above: true
   circle: true
