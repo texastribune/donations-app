@@ -40,8 +40,8 @@ title: Circle Membership
               <% end %>
             <% end %>
             </div>
-            <a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=<%= level.amount_annual %>"><button class="button button-flat">Join <i class="fa fa-angle-right"></i></button></a>
-            <a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=<%= level.amount_annual %>"><button style="float: right;" class="button button-flat">Renew <i class="fa fa-angle-right"></i></button></a>
+            <a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=<%= level.amount_annual %>"><button class="button button-flat">Join <i class="fa fa-chevron-right"></i></button></a>
+            <a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=<%= level.amount_annual %>"><button style="float: right;" class="button button-flat">Renew <i class="fa fa-chevron-right"></i></button></a>
           </div>
         </div>
       <% end %>
@@ -56,7 +56,7 @@ title: Circle Membership
     <%= partial "videos" %>
   </div>
   <div class="main-right">
-    <h3>Have a Question?</h3>
+    <h3 class="section-header">Have a Question?</h3>
     <% data.contacts.each do |contact| %>
       <% if contact.circle %>
         <div class="contact-info">

@@ -1,3 +1,11 @@
+.levels {
+  .main {
+    @include media($mobile) {
+      padding: 0 1em;
+    }
+  }
+}
+
 // Levels grid
 .grid-body {
   @include outer-container;
