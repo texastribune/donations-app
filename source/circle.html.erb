@@ -18,7 +18,11 @@ title: Circle Membership
             <p><em>Three-Year Commitment</em></p>
           </div>
           <div class="circle-box-bottom">
-            <h4>All previous level benefits, plus:</h4>
+            <% if level.benefactor_plus %>
+              <h4>All Benefactor level benefits, plus:</h4>
+            <% else %>
+              <h4>All previous level benefits, plus:</h4>
+            <% end %>
             <div class="circle-box-benefits">
             <% if level.extra_access_benefits %>
               <% level.extra_access_benefits.each do |benefit| %>
