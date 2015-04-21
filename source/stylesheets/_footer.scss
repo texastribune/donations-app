@@ -2,15 +2,25 @@
   @include outer-container;
   background: $black;
   max-width: none;
+  padding: 0.5em 0;
   .left-nav {
     @include span-columns(3);
-    @include media($mobile) {
+    @media (max-width: 720px) {
       @include span-columns(12);
+    }
+    ul {
+      float: left;
     }
   }
   .right-nav {
     @include span-columns(9);
-    @include hide-for-mobile;
+    @media (max-width: 720px) {
+      display: none;
+    }
+    ul {
+      float: right;
+      margin-right: 1.5em;
+    }
   }
   ul {
     li {
@@ -19,8 +29,10 @@
       &.copyright {
         border: none;
         color: $gray-medium;
+        font-size: 0.6em;
         a {
           color: $gray-medium;
+          font-size: 1.2em;
         }
       }
       &.donate {
@@ -31,6 +43,7 @@
       }
       a {
         color: $white;
+        font-size: 0.7em;
         padding: 0.5em;
       }
     }

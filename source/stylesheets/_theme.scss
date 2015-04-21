@@ -109,6 +109,7 @@ hr {
   }
   &.secondary-video {
     height: 200px;
+    @include hide-for-mobile;
   }
   &#video-two {
     background-image: url("../images/undrinkable_image_2.jpg");
@@ -120,6 +121,12 @@ hr {
     background-image: url("../images/undrinkable_image_4.jpg");
   }
 }
+
+.watch-more {
+  text-align: center;
+  @include show-for-mobile;
+}
+
 .inner-info:hover {
   background-color: $teal-tribune;
   border: none;
@@ -204,7 +211,7 @@ h5.benefit-flag {
 }
 
 .section-header {
-  margin: 2em 0 1em 0;
+  margin: 1em 0;
   @include media($mobile) {
     margin: 2em 0 1em 0.5em;
   }

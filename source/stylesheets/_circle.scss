@@ -3,14 +3,15 @@
   .splash-wrapper {
     padding: 1em;
   }
-  .secondary-video {
-    @include span-columns(4);
-    @include display(flex);
+  .main {
+    @include media($mobile) {
+      padding: 0 1em;
+    }
   }
 }
 
 .circle-box {
-  @include media($mobile) {
+  @media (max-width: 855px) {
     margin-bottom: 2em;
   }
 }
@@ -26,7 +27,11 @@
   }
   h4, p {
     color: $yellow-tribune;
-    padding: 0.2em 0;
+    margin: 0.5em 0;
+  }
+  h4 {
+    font-size: 1.2em;
+    font-weight: 400;
   }
 }
 
@@ -38,8 +43,14 @@
   .button {
     font-size: 1em;
     font-weight: 600;
-    padding: 1em 1.8em;
-    width: 45%;
+    padding: 1em 1.5em;
+    width: 48%;
+    .fa {
+      font-size: 0.8em;
+    }
+  }
+  h4 {
+    margin-bottom: 0.5em;
   }
   h5 {
     color: $gray-medium;
@@ -56,9 +67,15 @@
   background-image: url("../images/footer-thanks.jpg");
   height: 350px;
   .inner-info {
+    @include media($mobile) {
+      margin: 0 1em;
+    }
     &:hover {
       background-color: transparent;
       border: 3px solid $white;
+    }
+    hr {
+      @include hide-for-mobile;
     }
   }
 }
