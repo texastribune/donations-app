@@ -16,6 +16,11 @@
     @include media($mobile) {
       @include span-columns(12);
     }
+    &.name {
+      p {
+        color: $gray-medium;
+      }
+    }
   }
   h3 {
     display: inline;
