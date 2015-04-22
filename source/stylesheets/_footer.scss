@@ -5,7 +5,7 @@
   padding: 0.5em 0;
   .left-nav {
     @include span-columns(3);
-    @media (max-width: 720px) {
+    @media (max-width: 985px) {
       @include span-columns(12);
     }
     ul {
@@ -14,7 +14,7 @@
   }
   .right-nav {
     @include span-columns(9);
-    @media (max-width: 720px) {
+    @media (max-width: 985px) {
       display: none;
     }
     ul {
@@ -29,10 +29,8 @@
       &.copyright {
         border: none;
         color: $gray-medium;
-        font-size: 0.6em;
         a {
           color: $gray-medium;
-          font-size: 1.2em;
         }
       }
       &.donate {
@@ -43,7 +41,6 @@
       }
       a {
         color: $white;
-        font-size: 0.7em;
         padding: 0.5em;
       }
     }
