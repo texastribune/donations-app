@@ -68,10 +68,17 @@
     &:hover {
       cursor: pointer;
       .renew-left {
+        @include transition-property(background-color);
+        @include transition-duration(0.5s);
+        @include transition-timing-function(ease-in);
         background-color: $teal-tribune;
         img {
+          @include transition-property(background-color);
+          @include transition-property(transform);
+          @include transition-duration(0.5s);
+          @include transition-timing-function(ease-in);
           @include transform(rotate(180deg));
-          background-color: $teal-tribune;
+          background-color: inherit;
           color: $white;
         }
       }
