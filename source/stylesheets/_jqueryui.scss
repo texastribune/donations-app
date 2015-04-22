@@ -87,12 +87,18 @@
     border: 2px solid #ebebeb;
     font-weight: 800;
     color: #555555;
+    i.fa {
+      display: none;
+    }
   }
   .ui-state-active {
-    background: $yellow-tribune;
-    border: 2px solid darken($yellow-tribune, 5%);
+    background: $gray-light;
+    border: 2px solid darken($gray-light, 5%);
     font-weight: normal;
     color: #212121;
+    i.fa {
+      display: inline;
+    }
   }
 }
 

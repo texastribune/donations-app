@@ -12,13 +12,17 @@
   .main-right {
     @include media($mobile) {
       background-color: $black;
+      padding: 0 1em;
+      hr {
+        border: 1px solid darken($gray-medium, 50%);
+      }
+    }
     }
     .student-member {
       @include media($mobile) {
         padding: 1em 0.8em 0.5em 0.8em;
       }
     }
-  }
   .give-more {
     @include media($mobile) {
       h3 {
