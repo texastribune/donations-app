@@ -51,6 +51,12 @@ end
 # Gzip files
 activate :gzip
 
+# Compress images
+activate :imageoptim do |options|
+  options.pngout = false
+  options.svgo = false
+end
+
 # For s3 sync for deploying with middleman build
 activate :s3_sync do |config|
   config.bucket = 'support.texastribune.org'
