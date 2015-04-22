@@ -104,21 +104,24 @@ hr {
     margin-bottom: 1em;
   }
   &#video-top {
-    background-image: url("../images/undrinkable_lead.jpg");
+    background-image: url("../images/TT-ShaleLife-crop-duster-still.jpg");
+    background-size: cover;
     height: 350px;
   }
   &.secondary-video {
+    background-size: cover;
     height: 200px;
     @include hide-for-mobile;
   }
   &#video-two {
-    background-image: url("../images/undrinkable_image_2.jpg");
+    background-image: url("../images/TT-ATwistedSystem-Crystal-still.jpg");
   }
   &#video-three {
-    background-image: url("../images/undrinkable_image_3.jpg");
+    background-image: url("../images/TT-5thAnniversary-still.jpg");
   }
   &#video-four {
-    background-image: url("../images/undrinkable_image_4.jpg");
+    background-image: url("../images/TT-Event-Transportation-Sherman-still.jpg");
+    background-position: 50%;
   }
 }
 
