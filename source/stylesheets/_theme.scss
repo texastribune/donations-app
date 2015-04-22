@@ -49,6 +49,9 @@ hr {
   border: none;
   color: $black;
   &:hover {
+    @include transition-property(background-color);
+    @include transition-duration(0.2s);
+    @include transition-timing-function(ease-in);
     background-color: $teal-tribune;
     color: $white;
   }
@@ -131,6 +134,9 @@ hr {
 }
 
 .inner-info:hover {
+  @include transition-property(background-color);
+  @include transition-duration(0.5s);
+  @include transition-timing-function(ease-in);
   background-color: $teal-tribune;
   border: none;
 }
