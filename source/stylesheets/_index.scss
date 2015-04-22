@@ -10,26 +10,9 @@
     @include hide-for-mobile;
   }
   .main-right {
-    @include media($mobile) {
-      background-color: $black;
-      padding: 0 1em;
-      hr {
-        border: 1px solid darken($gray-medium, 50%);
-      }
-    }
-    }
     .student-member {
       @include media($mobile) {
         padding: 1em 0.8em 0.5em 0.8em;
-      }
-    }
-  .give-more {
-    @include media($mobile) {
-      h3 {
-        color: $yellow-tribune;
-      }
-      p {
-        color: $white;
       }
     }
   }
@@ -41,9 +24,6 @@
     color: $teal-tribune;
     span {
       color: $black;
-      @include media($mobile) {
-        color: $white;
-      }
     }
     a {
       text-decoration: underline;
@@ -58,11 +38,6 @@
   }
   h5 {
     margin-top: 1em;
-  }
-  h3, p, h4.all-above {
-    @include media($mobile) {
-      color: $white;
-    }
   }
   p {
     margin: 0.3em 0;
