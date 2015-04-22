@@ -1,7 +1,7 @@
 .masthead {
   @include outer-container;
   img {
-    padding: 1em 0;
+    padding: 1em 0 1em 2em;
     @include span-columns(5);
   }
 }
