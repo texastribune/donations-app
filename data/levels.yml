@@ -14,7 +14,7 @@
   amount_annual: 35
   range_annual: "$35 - $59"
   amount_month: 4
-  range_month: "$3 - $5"
+  range_month: "$3 - $4"
   all_above: false
   all_content_benefits:
     -
@@ -55,7 +55,7 @@
   amount_annual: 150
   range_annual: "$150 - $249"
   amount_month: 17
-  range_month: "$13 - $21"
+  range_month: "$13 - $20"
   all_above: true
   all_content_benefits:
     -
@@ -78,7 +78,7 @@
   amount_annual: 250
   range_annual: "$250 - $499"
   amount_month: 31
-  range_month: "$21 - $42"
+  range_month: "$21 - $41"
   all_above: true
   all_content_benefits:
     -

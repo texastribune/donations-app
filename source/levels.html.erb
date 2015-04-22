@@ -24,6 +24,9 @@ title: Explore Benefits
           <i class="fa fa-plus-square-o"></i>
           <i class="fa fa-minus-square"></i>
           <h3> <%= level.name %></h3>
+          <% if level.circle %>
+            <p>Three-year commitment</p>
+          <% end %>
           <% if level.most_popular %>
             <h5 class="benefit-flag"><i class="fa fa-star"></i> Most Popular</h5>
           <% end %>
