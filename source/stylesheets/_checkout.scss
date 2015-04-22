@@ -10,8 +10,7 @@
         float: right;
       }
       @include media($mobile) {
-        font-size: 1.2em;
-        padding: 0.5em 1em 0.5em 2em;
+        font-size: 1em;
       }
     }
     .ui-spinner {
@@ -225,9 +224,8 @@ input[type=number]::-webkit-outer-spin-button {
         @include media($tablet) {
           display: inline;
           width: 48%;
-          font-size: 1.2em;
+          font-size: 1em;
           margin: 1em 0 0 0;
-          padding: 0.5em 1em 0.5em 1.2em;
           &[for='yearly-bottom'] {
             float: left;
           }
