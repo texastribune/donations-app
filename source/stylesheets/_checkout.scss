@@ -227,13 +227,18 @@ input[type=number]::-webkit-outer-spin-button {
           width: 48%;
           font-size: 1.2em;
           margin: 1em 0 0 0;
-          padding: 0.5em 1em 0.5em 0;
+          padding: 0.5em 1em 0.5em 1.2em;
           &[for='yearly-bottom'] {
             float: left;
           }
           &[for='monthly-bottom'] {
             float: right;
           }
+        }
+      }
+      @include media($tablet) {
+        button[type='submit'] {
+          margin: 0;
         }
       }
       span.dollar {
