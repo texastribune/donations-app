@@ -78,10 +78,15 @@ hr {
 
 // Info box
 // Used for thank you on circle and watch now for videos
+.flexbox {
+  .outer-info {
+    @include display(flex);
+    @include align-items(center);
+    @include justify-content(center);
+  }
+}
+
 .outer-info {
-  @include display(flex);
-  @include align-items(center);
-  @include justify-content(center);
   text-align: center;
   .inner-info {
     background-color: transparent;
@@ -105,6 +110,22 @@ hr {
       @include medium-transition(background-color);
       background-color: $teal-tribune;
       border: none;
+    }
+  }
+}
+
+// ie9 fallback for no flexbox
+.no-flexbox {
+  .outer-info {
+    display: block;
+    padding-top: 6em;
+    position: relative;
+    &.thanks {
+      padding: 6em 8em 0 8em;
+    }
+    .inner-info {
+      display: block;
+      margin: 0 auto;
     }
   }
 }
