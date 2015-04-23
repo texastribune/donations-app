@@ -160,7 +160,7 @@ input[type=number]::-webkit-outer-spin-button {
 // Bottom express checkout
 .index {
   .bottom-checkout {
-    background-image: url("//s3.amazonaws.com/static.texastribune.org/media/membership/support-us-footer-bg002.jpg");
+    background-image: url("../images/support-us-footer-bg.jpg");
     @include background-sizing;
   }
 }
