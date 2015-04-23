@@ -115,7 +115,7 @@ hr {
 }
 
 // ie9 fallback for no flexbox
-.no-flexbox {
+.ie9 {
   .outer-info {
     display: block;
     padding-top: 6em;
