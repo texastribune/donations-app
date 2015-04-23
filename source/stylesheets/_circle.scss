@@ -4,6 +4,7 @@
     padding: 1em;
   }
   .splash {
+    background-color: lighten($black, 25%);
     background-image: url("../images/hero-circles.jpg");
   }
   .main {
@@ -74,6 +75,7 @@
 
 .thanks {
   @include background-sizing;
+  background-color: lighten($black, 20%);
   background-image: url("../images/footer-thanks.jpg");
   height: 350px;
   .inner-info {

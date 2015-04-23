@@ -132,11 +132,13 @@ hr {
     margin-bottom: 1em;
   }
   &#video-top {
+    background-color: lighten($black, 20%);
     background-image: url("../images/TT-5thAnniversary-still.jpg");
     background-size: cover;
     height: 350px;
   }
   &.secondary-video {
+    background-color: lighten($black, 20%);
     background-size: cover;
     height: 200px;
     @include hide-for-mobile;
