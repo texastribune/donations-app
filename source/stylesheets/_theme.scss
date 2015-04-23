@@ -175,10 +175,15 @@ hr {
     padding-bottom: 1em;
   }
   @include media($mobile) {
+    background-color: $black;
     padding: 1em 1em 3em 1em;
     text-align: center;
     h3 {
+      color: $yellow-tribune;
       padding: 0.5em 0;
+    }
+    p {
+      color: $white;
     }
   }
 }
