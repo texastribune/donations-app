@@ -3,6 +3,9 @@
   .splash-wrapper {
     padding: 1em;
   }
+  .splash {
+    background-image: url("../images/hero-circles.jpg");
+  }
   .main {
     @include media($mobile) {
       padding: 0 1em;
@@ -11,8 +14,15 @@
 }
 
 .circle-box {
+  @include span-columns(4);
   @media (max-width: 855px) {
     margin-bottom: 2em;
+    @include span-columns(6);
+      @include shift(3);
+  }
+  @include media($mobile) {
+    @include span-columns(12);
+      @include shift(0);
   }
 }
 

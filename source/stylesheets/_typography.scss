@@ -1,3 +1,4 @@
+// General typography styles
 html {
   font-family: $helvetica;
   font-size: 14px;
@@ -54,35 +55,4 @@ p {
 a {
   color: $teal-tribune;
   text-decoration: none;
-}
-
-// Splash typography
-.splash-header {
-  border-bottom: 3px solid $yellow-tribune;
-  font-family: $league-gothic;
-  @include media($mobile) {
-    border-bottom: none;
-  }
-}
-
-.splash-support {
-  color: $yellow-tribune;
-  font-weight: 400;
-}
-
-.splash-info, .splash-header {
-  color: white;
-  font-weight: 200;
-}
-
-.splash-info, .splash-support {
-  font-size: 1.2em;
-  @include hide-for-mobile;
-}
-
-
-.tagline {
-  @include media($mobile) {
-    margin: 0.5em 2em 0.5em 0;
-  }
 }

@@ -1,10 +1,32 @@
 // Index page
 .index {
-  .splash-greeting {
-    text-align: right;
-    @include media($mobile) {
-      text-align: center;
+  .splash {
+    background-image: url("//s3.amazonaws.com/static.texastribune.org/media/membership/support-us-header-bg002.jpg");
+    .splash-greeting {
+      text-align: right;
+      @include span-columns(6);
+        @include shift(1);
+      @include media($tablet) {
+        @include shift(0);
+      }
+      @include media($mobile) {
+        @include span-columns(12);
+        @include shift(0);
+        text-align: center;
+      }
     }
+    .express-checkout {
+      @include span-columns(4);
+      @include media($tablet) {
+        @include span-columns(6);
+      }
+      @include media($mobile) {
+        @include span-columns(12);
+      }
+    }
+  }
+  hr {
+    margin-bottom: 1em;
   }
   .main-left {
     @include hide-for-mobile;
@@ -18,8 +40,10 @@
   }
 }
 
+
 // Levels boxes
 .level {
+  margin: 0 0 1em 0;
   h4.amount {
     color: $teal-tribune;
     span {
@@ -41,5 +65,8 @@
   }
   p {
     margin: 0.3em 0;
+  }
+  @include media($mobile) {
+    padding: 1em;
   }
 }
