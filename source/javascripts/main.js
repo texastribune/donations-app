@@ -71,6 +71,7 @@ $(document).ready(function() {
 
   $('.ui-spinner').bind('keyup mouseup', function() {
     $('#spinner').css("color", "#000000");
+    $('#spinner-bottom').css("color", "#000000");
     var input_amount = $('#spinner').val();
 
     // Check if last val is equal val on event
