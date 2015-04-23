@@ -78,15 +78,10 @@ hr {
 
 // Info box
 // Used for thank you on circle and watch now for videos
-.flexbox {
-  .outer-info {
-    @include display(flex);
-    @include align-items(center);
-    @include justify-content(center);
-  }
-}
-
 .outer-info {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
   text-align: center;
   .inner-info {
     background-color: transparent;
