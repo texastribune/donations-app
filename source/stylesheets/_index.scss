@@ -1,6 +1,7 @@
 // Index page
 .index {
   .splash {
+    background-color: lighten($black, 20%);
     background-image: url("../images/support-us-header-bg.jpg");
     .splash-greeting {
       text-align: right;
