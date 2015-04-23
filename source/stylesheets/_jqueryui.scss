@@ -30,9 +30,11 @@
   overflow: hidden;
   right: 0;
   &:hover {
+    @include fast-transition(color);
     color: $white;
   };
 }
+
 /* more specificity required here to override default borders */
 .ui-spinner a.ui-spinner-button {
   border-top: none;
@@ -40,6 +42,7 @@
   border-right: none;
   cursor: pointer;
 }
+
 /* vertically center icon */
 .ui-spinner .ui-icon {
   font-size: 2em;
@@ -83,8 +86,8 @@
 ----------------------------------*/
 .ui-buttonset {
   .ui-state-default {
-    background: white;
-    border: 2px solid #ebebeb;
+    background: $white;
+    border: 2px solid $gray-light;
     font-weight: 800;
     color: #555555;
     i.fa {

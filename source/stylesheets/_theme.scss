@@ -63,9 +63,7 @@
   border: none;
   color: $black;
   &:hover {
-    @include transition-property(background-color);
-    @include transition-duration(0.2s);
-    @include transition-timing-function(ease-in);
+    @include fast-transition(background-color);
     background-color: $teal-tribune;
     color: $white;
   }
@@ -104,9 +102,7 @@ hr {
       width: 50px;
     }
     &:hover {
-      @include transition-property(background-color);
-      @include transition-duration(0.5s);
-      @include transition-timing-function(ease-in);
+      @include medium-transition(background-color);
       background-color: $teal-tribune;
       border: none;
     }

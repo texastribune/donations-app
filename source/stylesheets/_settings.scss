@@ -43,3 +43,16 @@ $league-gothic: 'league-gothic', sans-serif;
   background-repeat: no-repeat;
 }
 
+@mixin fast-transition($property) {
+  @include transition-property($property);
+  @include transition-duration(0.2s);
+  @include transition-timing-function(ease-in);
+}
+
+@mixin medium-transition($property) {
+  @include transition-property($property);
+  @include transition-duration(0.5s);
+  @include transition-timing-function(ease-in);
+}
+
+
