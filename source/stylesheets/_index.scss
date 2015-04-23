@@ -1,7 +1,7 @@
 // Index page
 .index {
   .splash {
-    background-image: url("//s3.amazonaws.com/static.texastribune.org/media/membership/support-us-header-bg002.jpg");
+    background-image: url("../images/support-us-header-bg.jpg");
     .splash-greeting {
       text-align: right;
       @include span-columns(6);
