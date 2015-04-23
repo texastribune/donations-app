@@ -1,15 +1,37 @@
+// Levels page
 .levels {
   .main {
     @include media($mobile) {
       padding: 0 1em;
     }
   }
+  .splash {
+    background-image: url("//s3.amazonaws.com/static.texastribune.org/media/membership/member-grid-header-bg002.jpg");
+  }
+  table {
+    min-width: 940px;
+    @include media($mobile) {
+      min-width: 0;
+    }
+  }
+  h3 {
+    padding: 0 0 0.5em 0;
+  }
+  .social {
+    display: inline;
+    margin: 0;
+    @include media($tablet) {
+      display: block;
+      margin: 0.5em 0;
+    }
+  }
 }
+
 
 // Levels grid
 .grid-body {
   @include outer-container;
-  border-bottom: 2px solid gray;
+  border-bottom: 2px solid $gray-medium;
   td {
     padding: 1em 0;
     @include span-columns(4);
@@ -31,6 +53,8 @@
   }
 }
 
+
+// For opening grid level to show benefits
 .open-close {
   cursor: pointer;
   .fa-minus-square {

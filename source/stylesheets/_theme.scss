@@ -1,26 +1,9 @@
-hr {
-  border: 1px solid $gray-light;
-}
-
-// Splash
+// Splash banner
 .splash {
   @include background-sizing;
   @include media($mobile) {
     background-image: none;
   }
-}
-
-.index .splash {
-  background-image: url("//s3.amazonaws.com/static.texastribune.org/media/membership/support-us-header-bg002.jpg");
-}
-
-
-.levels .splash {
-  background-image: url("//s3.amazonaws.com/static.texastribune.org/media/membership/member-grid-header-bg002.jpg");
-}
-
-.circle .splash {
-  background-image: url("../images/hero-circles.jpg");
 }
 
 .splash-greeting {
@@ -29,6 +12,37 @@ hr {
   text-align: center;
   .splash-info {
     padding: 1em 0;
+  }
+}
+
+.splash-header {
+  border-bottom: 3px solid $yellow-tribune;
+  font-family: $league-gothic;
+  @include media($mobile) {
+    border-bottom: none;
+  }
+}
+
+.splash-support {
+  color: $yellow-tribune;
+  font-weight: 400;
+}
+
+.splash-info, .splash-header {
+  color: white;
+  font-weight: 200;
+}
+
+.splash-info, .splash-support {
+  font-size: 1.2em;
+  @include hide-for-mobile;
+}
+
+
+// nonprofit nonpartisan tagline
+.tagline {
+  @include media($mobile) {
+    margin: 0.5em 2em 0.5em 0;
   }
 }
 
@@ -57,23 +71,15 @@ hr {
   }
 }
 
-.button-border {
-  background-color: transparent;
-  border-width: 3px;
-  border-style: solid;
-  padding: 0.5em 2em;
-  &.dark {
-    color: $black;
-    border-color: $black;
-  }
-  &.light {
-    color: $white;
-    border-color: $white;
-  }
+
+// General hr style
+hr {
+  border: 1px solid $gray-light;
 }
 
 
 // Info box
+// Used for thank you on circle and watch now for videos
 .outer-info {
   @include display(flex);
   @include align-items(center);
@@ -96,6 +102,13 @@ hr {
       margin: 0 1em;
       vertical-align: middle;
       width: 50px;
+    }
+    &:hover {
+      @include transition-property(background-color);
+      @include transition-duration(0.5s);
+      @include transition-timing-function(ease-in);
+      background-color: $teal-tribune;
+      border: none;
     }
   }
 }
@@ -133,16 +146,8 @@ hr {
   @include show-for-mobile;
 }
 
-.inner-info:hover {
-  @include transition-property(background-color);
-  @include transition-duration(0.5s);
-  @include transition-timing-function(ease-in);
-  background-color: $teal-tribune;
-  border: none;
-}
-
 .see-support {
-  background-color: #ffc200;
+  background-color: $yellow-tribune;
   font-size: 1.2em; 
   font-weight: bold;  
   padding: 0.5em 1em;
@@ -151,10 +156,10 @@ hr {
 
 // Give more cta
 .give-more {
+  padding: 1em 1em 3em 0;
   h3 {
     padding-bottom: 1em;
   }
-  padding: 1em 1em 3em 0;
   @include media($mobile) {
     padding: 1em 1em 3em 1em;
     text-align: center;

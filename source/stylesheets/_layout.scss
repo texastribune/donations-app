@@ -1,3 +1,4 @@
+// Masthead with logo
 .masthead {
   @include outer-container;
   img {
@@ -10,7 +11,7 @@
 }
 
 
-// Splash at top of pages
+// Splash banner at top of pages
 .splash-wrapper {
   @include outer-container;
   max-width: 68em;
@@ -20,34 +21,9 @@
   }
 }
 
-.index {
-  .splash {
-    .splash-greeting {
-      @include span-columns(6);
-        @include shift(1);
-      @include media($tablet) {
-        @include shift(0);
-      }
-      @include media($mobile) {
-        @include span-columns(12);
-        @include shift(0);
-      }
-    }
-    .express-checkout {
-      @include span-columns(4);
-      @include media($tablet) {
-        @include span-columns(6);
-      }
-      @include media($mobile) {
-        @include span-columns(12);
-      }
-    }
-  }
-}
-
 
 // Navigation
-// General nav
+// General nav styles
 .nav {
   text-align: center;
   ul {
@@ -111,7 +87,7 @@ nav.mobile-nav {
 }
 
 
-// Main area below nav
+// Main area
 .main {
   @include outer-container;
   padding: 3em 0;
@@ -139,56 +115,8 @@ nav.mobile-nav {
   }
 }
 
+// Used on index only to change order of content displayed
 .main-mobile {
   @include show-for-mobile;
   padding: 0 1em;
-}
-
-
-// Index levels
-.level {
-  margin: 0 0 1em 0;
-  @include media($mobile) {
-    padding: 1em;
-  }
-}
-
-hr {
-  margin-bottom: 1em;
-}
-
-
-// Levels page
-.levels {
-  table {
-    min-width: 940px;
-    @include media($mobile) {
-      min-width: 0;
-    }
-  }
-  h3 {
-    padding: 0 0 0.5em 0;
-  }
-  .social {
-    display: inline;
-    margin: 0;
-    @include media($tablet) {
-      display: block;
-      margin: 0.5em 0;
-    }
-  }
-}
-
-
-// Circles page
-.circle-box {
-  @include span-columns(4);
-  @media (max-width: 855px) {
-    @include span-columns(6);
-      @include shift(3);
-  }
-  @include media($mobile) {
-    @include span-columns(12);
-      @include shift(0);
-  }
 }
