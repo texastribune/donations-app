@@ -52,15 +52,6 @@ $league-gothic: 'league-gothic', sans-serif;
   background-repeat: no-repeat;
 }
 
-@mixin video-background {
-  background-size: cover;
-  height: 200px;
-  position: absolute;
-  width: 100%;
-  z-index: 0;
-  @include filter(brightness(0.5));
-}
-
 @mixin fast-transition($property) {
   @include transition-property($property);
   @include transition-duration(0.2s);
