@@ -38,6 +38,7 @@
         text-decoration: none;
         text-transform: uppercase;
         &:hover {
+          @include fast-transition(color);
           color: $yellow-tribune;
         }
       }
