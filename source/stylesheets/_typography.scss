@@ -4,8 +4,15 @@ html {
   font-size: 14px;
 }
 
+// size if league gothic loads
+.wf-leaguegothic-i4-active {
+  h1 {
+    font-size: 9em;
+  }
+}
+
 h1 {
-  font-size: 9em;
+  font-size: 5em;
   margin: 0;
   @include media($tablet) {
     font-size: 5em;
