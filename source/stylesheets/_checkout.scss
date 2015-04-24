@@ -16,12 +16,14 @@ input[type=number]::-webkit-outer-spin-button {
     background-color: $bg-contribute;
     padding: 2em;
     text-align: center;
-    @include media($mobile) {
+    @media (max-width: 620px) {
       background-color: transparent;
       padding-top: 0;
     }
     .level-display {
-      @include hide-for-mobile;
+      @media (max-width: 620px) {
+        display: none;
+      }
       h5, h3, p {
         text-align: left;
       }
@@ -51,7 +53,7 @@ input[type=number]::-webkit-outer-spin-button {
       font-family: "league-gothic";
       font-size: 3.5em;
       padding: 0 0.2em;
-      @include media($mobile) {
+      @media (max-width: 620px) {
         color: $white;
       }
     }
@@ -60,7 +62,9 @@ input[type=number]::-webkit-outer-spin-button {
     background-color: $bg-contribute;
     margin-top: 20px;
     position: relative;
-    @include hide-for-mobile;
+    @media (max-width: 620px) {
+      display: none;
+    }
     &:hover {
       cursor: pointer;
       .renew-left {
