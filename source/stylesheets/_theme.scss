@@ -142,35 +142,22 @@ hr {
     background-size: cover;
     height: 200px;
   }
-  .inner-info {
-    z-index: 10;
-  }
 }
 
 .outer-video-wrapper {
-  position: relative;
   @include hide-for-mobile;
 }
 
-.video-bg {
-  background-size: cover;
-  height: 200px;
-  position: absolute;
-  width: 100%;
-  z-index: 0;
-  @include filter(brightness(0.7));
-}
-
 #video-two {
-  background-image: url("../images/TT-Event-Transportation-Sherman-still.jpg");
+  background-image: url("../images/TT-Event-Transportation-Sherman-still-dark.jpg");
 }
 
 #video-three {
-  background-image: url("../images/TT-ShaleLife-crop-duster-still.jpg");
+  background-image: url("../images/TT-ShaleLife-crop-duster-still-dark.jpg");
 }
 
 #video-four {
-  background-image: url("../images/TT-ATwistedSystem-Crystal-still.jpg");
+  background-image: url("../images/TT-ATwistedSystem-Crystal-still-dark.jpg");
 }
 
 .watch-more {
