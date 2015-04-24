@@ -39,7 +39,10 @@ input[type=number]::-webkit-outer-spin-button {
       margin-top: 1em;
       width: 100%;
       &.renew-button {
-        @include show-for-mobile;
+        display: none;
+        @media (max-width: 620px) {
+          display: block;
+        }
       }
     }
     .wf-leaguegothic-i4-active {
