@@ -186,6 +186,9 @@ input[type=number]::-webkit-outer-spin-button {
   @include outer-container;
   max-width: none;
   padding: 3em 1em;
+  @include media($tablet) {
+    padding: 3em 0 2em 0;
+  }
   h2 {
     border-bottom: 3px solid $yellow-tribune;
     color: white;
