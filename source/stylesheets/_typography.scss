@@ -8,6 +8,9 @@ html {
 .wf-leaguegothic-i4-active {
   h1 {
     font-size: 9em;
+    @media (max-width: 870px) {
+      font-size: 8em;
+    }
     @include media($tablet) {
       font-size: 5em;
     }
