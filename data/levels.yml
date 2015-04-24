@@ -101,7 +101,7 @@
 -
   name: "Benefactor"
   amount_annual: 500
-  range_annual: "$500 - $1000"
+  range_annual: "$500 - $1,000"
   amount_month: 63
   range_month: "$42 - $83"
   all_above: true
@@ -132,6 +132,7 @@
 -
   name: "Editor&rsquo;s Circle"
   amount_annual: 1000
+  amount_annual_comma: "1,000"
   amount_month: 84
   benefactor_plus: true
   commitment: true
@@ -164,6 +165,7 @@
 -
   name: "Leadership Circle"
   amount_annual: 2500
+  amount_annual_comma: "2,500"
   amount_month: 209
   commitment: true
   all_above: true
@@ -197,6 +199,7 @@
 -
   name: "Chairman&rsquo;s Circle"
   amount_annual: 5000
+  amount_annual_comma: "5,000"
   amount_month: 417
   commitment: true
   all_above: true
