@@ -1,8 +1,8 @@
 ---
-title: Membership Levels
+title: Circle Membership
 ---
 
-<div class="splash splash-circle">
+<div class="splash">
   <div class="splash-wrapper">
     <div class="splash-greeting">
       <h1 class="splash-header">Join Our Circle</h1>
@@ -12,22 +12,68 @@ title: Membership Levels
     <% data.levels.each do |level| %>
       <% if level.circle %>
         <div class="circle-box">
-          <h3><%= level.name %></h3>
-          <h4><%= level.amount %></h4>
-          <button class="button button-border dark">Support</button>
+          <div class="circle-box-top">
+            <h3><%= level.name %></h3>
+            <h4>$<%= level.amount_annual %> Annually</h4>
+            <p><em>Three-Year Commitment</em></p>
+          </div>
+          <div class="circle-box-bottom">
+            <% if level.benefactor_plus %>
+              <h4>All Benefactor level benefits, plus:</h4>
+            <% else %>
+              <h4>All previous level benefits, plus:</h4>
+            <% end %>
+            <div class="circle-box-benefits">
+            <% if level.extra_access_benefits %>
+              <% level.extra_access_benefits.each do |benefit| %>
+                <p><%= benefit %></p>
+              <% end %>
+            <% end %>
+            <% if level.extra_content_benefits %>
+              <% level.extra_content_benefits.each do |benefit| %>
+                <p><%= benefit %></p>
+              <% end %>
+            <% end %>
+            <% if level.extra_recognition_benefits %>
+              <% level.extra_recognition_benefits.each do |benefit| %>
+                <p><%= benefit %></p>
+              <% end %>
+            <% end %>
+            </div>
+            <a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=<%= level.amount_annual %>"><button class="button button-flat">Join <i class="fa fa-chevron-right"></i></button></a>
+            <a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=<%= level.amount_annual %>"><button style="float: right;" class="button button-flat">Renew <i class="fa fa-chevron-right"></i></button></a>
+          </div>
         </div>
       <% end %>
     <% end %>
   </div><!-- splash-wrapper -->
+  <%= partial "desktop_nav" %>
 </div><!-- splash-circle -->
-
-<%= partial "nav" %>
 
 <div class="main">
   <div class="main-left">
-    <h3>We are a nonpartisan, nonprofit news organization.</h3>
+    <h2 class="tagline"><%= data.tagline %></h2>
+    <%= partial "videos" %>
   </div>
   <div class="main-right">
-    <h4>Have a question?</h4>
+    <h3 class="section-header">Have a Question?</h3>
+    <% data.contacts.each do |contact| %>
+      <% if contact.circle %>
+        <div class="contact-info">
+          <h5><%= contact.about %></h5>
+          <h4><%= contact.name %></h4>
+          <p class="italic"><%= contact.title %></p>
+          <p><%= contact.phone %></p>
+          <p><a href="mailto:<%=contact.email %>"><%= contact.email %> <i class="fa fa-angle-right"></i></a></p>
+        </div>
+      <% end %>
+    <% end %>
+    <hr>
+    <%= partial "give_more" %>
+    <hr>
+    <%= partial "share" %>
   </div>
+</div>
+<div class="thanks outer-info">
+  <div class="inner-info"><hr>Thank you for supporting The Texas Tribune<hr></div>
 </div>

@@ -1,1 +1,2 @@
-//= require_tree .
+//= require jquery.magnific-popup.js
+//= require main.js

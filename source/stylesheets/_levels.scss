@@ -1,0 +1,94 @@
+// Levels page
+.levels {
+  .main {
+    @include media($mobile) {
+      padding: 0 1em;
+    }
+  }
+  .splash {
+    background-color: lighten($black, 20%);
+    background-image: url("//s3.amazonaws.com/static.texastribune.org/media/membership/member-grid-header-bg002.jpg");
+  }
+  table {
+    min-width: 940px;
+    @include media($mobile) {
+      min-width: 0;
+    }
+  }
+  h3 {
+    padding: 0 0 0.5em 0;
+  }
+  .social {
+    display: inline;
+    margin: 0;
+    @include media($tablet) {
+      display: block;
+      margin: 0.5em 0;
+    }
+  }
+}
+
+
+// Levels grid
+.grid-body {
+  @include outer-container;
+  border-bottom: 2px solid $gray-medium;
+  td {
+    padding: 1em 0;
+    @include span-columns(4);
+    @include media($mobile) {
+      @include span-columns(12);
+    }
+    &.name {
+      p {
+        color: $gray-medium;
+      }
+    }
+  }
+  h5.benefit-flag {
+    margin-left: 1em;
+    vertical-align: super;
+  }
+  h3 {
+    display: inline;
+  }
+}
+
+
+// For opening grid level to show benefits
+.open-close {
+  cursor: pointer;
+  .fa-minus-square {
+    display: none;
+  }
+  .fa-plus-square-o, .fa-minus-square {
+    color: $yellow-tribune;
+    float: left;
+    font-size: 1.5em;
+    padding: 0.3em;
+    text-align: center;
+  }
+}
+
+.popout {
+  td {
+    padding: 1em 2em 2em 0;
+    vertical-align: sub;
+  }
+  h5 {
+    border-bottom: 2px solid $yellow-tribune;
+    padding: 0 0 0.5em 0;
+  }
+  p {
+    padding-top: 1em;
+  }
+}
+
+.opened {
+  .fa-plus-square-o {
+    display: none;
+  }
+  .fa-minus-square {
+    display: block;
+  }
+}

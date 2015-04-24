@@ -47,3 +47,22 @@ configure :build do
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
 end
+
+# Gzip files
+activate :gzip
+
+# Compress images
+activate :imageoptim do |options|
+  options.pngout = false
+  options.svgo = false
+end
+
+# For s3 sync for deploying with middleman build
+activate :s3_sync do |config|
+  config.bucket = 'support.texastribune.org'
+  config.region = 'us-east-1'
+  config.aws_access_key_id = ENV['AWS_ACCESS_KEY']
+  config.aws_secret_access_key = ENV['AWS_ACCESS_SECRET']
+  # Set this to true to deploy to s3
+  config.after_build = false
+end

@@ -1,0 +1,261 @@
+// Express Checkout
+
+// Turn off native spinner to use jquery ui
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+// General checkout styles
+.express-checkout {
+  a {
+    color: $black;
+  }
+  .contribute {
+    background-color: $bg-contribute;
+    padding: 2em;
+    text-align: center;
+    @include media($mobile) {
+      background-color: transparent;
+      padding-top: 0;
+    }
+    .level-display {
+      @include hide-for-mobile;
+      h5, h3, p {
+        text-align: left;
+      }
+    }
+    h5 {
+      clear: both;
+      padding-top: 1.5em;
+    }
+    .button {
+      margin-top: 1em;
+      width: 100%;
+      &.renew-button {
+        @include show-for-mobile;
+      }
+    }
+    span.dollar {
+      color: $black;
+      float: left;
+      font-family: "league-gothic";
+      font-size: 4em;
+      padding: 0 0.2em;
+      @include media($mobile) {
+        color: $white;
+      }
+    }
+  }
+  .renew {
+    background-color: $bg-contribute;
+    margin-top: 20px;
+    position: relative;
+    @include hide-for-mobile;
+    &:hover {
+      cursor: pointer;
+      .renew-left {
+        @include transition-property(background-color);
+        @include transition-duration(0.5s);
+        @include transition-timing-function(ease-in);
+        background-color: $teal-tribune;
+        img {
+          @include transition-property(background-color);
+          @include transition-property(transform);
+          @include transition-duration(0.5s);
+          @include transition-timing-function(ease-in);
+          @include transform(rotate(180deg));
+          background-color: inherit;
+          color: $white;
+        }
+      }
+    }
+    .renew-left {
+      background-color: $yellow-tribune; 
+      display: inline-block; 
+      padding: 1em;
+      width: 62px;
+      img {
+        background-color: inherit;
+      }
+    }
+    .renew-right {
+      display: inline-block; 
+      padding-left: 10px;
+    }
+    h4 {
+      font-size: 14px;
+      font-weight: 200;
+    }
+    p {
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 0px;
+    }
+  }
+  label {
+    color: #b2b2b2;
+    cursor: pointer;
+    float: left;
+    font-size: 0.8em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding: 0.5em;
+    text-transform: uppercase;
+    width: 120px;
+  }
+}
+
+
+// Top checkout styles
+.top-checkout {
+  &.express-checkout {
+    label {
+      width: 48%;
+      &[for='yearly'] {
+        float: left;
+      }
+      &[for='monthly'] {
+        float: right;
+      }
+      @include media($mobile) {
+        font-size: 1em;
+      }
+    }
+    .ui-spinner {
+      width: 80%;
+    }
+  }
+}
+
+#contribute-buttons-top {
+  margin: 1em 0;
+}
+
+
+// Amount input spinner styles
+#spinner, #spinner-bottom {
+  background-color: $gray-light;
+  border: none;
+  color: $gray-medium;
+  font-family: "league-gothic";
+  font-size: 3.5em;
+  margin: 0;
+  text-align: center;
+}
+
+#spinner {
+  width: 100%;
+}
+
+#spinner-bottom {
+  width: 250px;
+  @include media($tablet) {
+    width: 100%;
+  }
+}
+
+
+// Bottom express checkout
+.index {
+  .bottom-checkout {
+    background-color: lighten($black, 20%);
+    background-image: url("../images/support-us-footer-bg.jpg");
+    @include background-sizing;
+  }
+}
+
+.levels {
+  .bottom-checkout {
+    background-color: lighten($black, 20%);
+    background-image: url("//s3.amazonaws.com/static.texastribune.org/media/membership/member-grid-footer-bg002.jpg");
+    @include background-sizing;
+  }
+}
+
+.bottom-checkout {
+  @include outer-container;
+  max-width: none;
+  padding: 3em 1em;
+  h2 {
+    border-bottom: 3px solid $yellow-tribune;
+    color: white;
+    font-family: $league-gothic;
+    font-size: 4em;
+    font-weight: 200;
+    margin-bottom: 0.5em;
+    text-align: left;
+  }
+  .express-checkout {
+    @include span-columns(6);
+    @media (max-width: 1020px) {
+      @include span-columns(8);
+    }
+    @include media($tablet) {
+      @include span-columns(10)
+    }
+    @include media($mobile) {
+      @include span-columns(12);
+    }
+    .contribute {
+      background: transparent;
+      .left-wrapper {
+        float: left;
+        width: 75%;
+        @include media($tablet) {
+          width: 100%;
+        }
+        .ui-spinner {
+          float: left;
+        }
+        @include media($tablet) {
+          .ui-spinner {
+            width: 80%;
+
+          }
+        }
+      }
+      .right-wrapper {
+        float: right;
+        width: 25%;
+        .ui-buttonset {
+          display: inline-block;
+          width: 100%;
+        }
+        @include media($tablet) {
+          width: 100%;
+        }
+      }
+      label {
+        display: inline-block;
+        width: 100%;
+        &[for='yearly-bottom'] {
+          margin-bottom: 1em;
+        }
+        @include media($tablet) {
+          display: inline;
+          width: 48%;
+          font-size: 1em;
+          margin: 1em 0 0 0;
+          &[for='yearly-bottom'] {
+            float: left;
+          }
+          &[for='monthly-bottom'] {
+            float: right;
+          }
+        }
+      }
+      @include media($tablet) {
+        button[type='submit'] {
+          margin: 0;
+        }
+      }
+      span.dollar {
+        color: $white;
+        padding: 0 0.2em;
+        width: 20%;
+      }
+    }
+  }
+}

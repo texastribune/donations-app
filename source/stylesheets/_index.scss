@@ -1,0 +1,78 @@
+// Index page
+.index {
+  .splash {
+    background-color: lighten($black, 20%);
+    background-image: url("../images/support-us-header-bg.jpg");
+    .splash-greeting {
+      text-align: right;
+      @include span-columns(6);
+        @include shift(1);
+      @include media($tablet) {
+        @include shift(0);
+      }
+      @include media($mobile) {
+        @include span-columns(12);
+        @include shift(0);
+        text-align: center;
+      }
+    }
+    .express-checkout {
+      @include span-columns(4);
+      @include media($tablet) {
+        @include span-columns(6);
+      }
+      @include media($mobile) {
+        @include span-columns(12);
+      }
+    }
+  }
+  hr {
+    margin-bottom: 1em;
+  }
+  .main-left {
+    @include hide-for-mobile;
+  }
+  .main-right {
+    .student-member {
+      @include media($mobile) {
+        padding: 1em 0.8em 0.5em 0.8em;
+      }
+    }
+    @include media($mobile) {
+      hr:last-of-type {
+        display: none;
+      }
+    }
+  }
+}
+
+
+// Levels boxes
+.level {
+  margin: 0 0 1em 0;
+  h4.amount {
+    color: $teal-tribune;
+    span {
+      color: $black;
+    }
+    a {
+      text-decoration: underline;
+    }
+  }
+  h4.all-above {
+    color: $black;
+    margin-top: 0.5em;
+    @include media($mobile) {
+      padding-top: 1em;
+    }
+  }
+  h5 {
+    margin-top: 1em;
+  }
+  p {
+    margin: 0.3em 0;
+  }
+  @include media($mobile) {
+    padding: 1em;
+  }
+}

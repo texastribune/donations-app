@@ -1,0 +1,10 @@
+<nav class="nav desktop-nav">
+  <ul>
+    <li <% if current_page.data.title == 'Become a Member' %>class="active"<% end %>><%= link_to 'Become<br> a Member<i class="fa fa-caret-down"></i>', '/index.html' %></li>
+    <li <% if current_page.data.title == 'Explore Benefits' %>class="active"<% end %>><%= link_to 'Explore<br> Benefits<i class="fa fa-caret-down"></i>', '/levels.html' %></li>
+    <li <% if current_page.data.title == 'Circle Membership' %>class="active"<% end %>><%= link_to 'Circle<br> Membership<i class="fa fa-caret-down"></i>', '/circle.html' %></li>
+    <li><a href="https://www.texastribune.org/support-us/donors-and-members/">Donor and<br> Member Wall</a></li>
+    <li><a href="https://www.texastribune.org/support-us/corporate-sponsors/">Corporate<br> Sponsors</a></li>
+    <li><a href="https://www.texastribune.org/support-us/frequently-asked-questions/">Frequently<br> Asked Questions</a></li>
+  </ul>
+</nav>

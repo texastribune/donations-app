@@ -3,8 +3,19 @@
 
 @import 'normalize';
 
+// general
 @import 'settings';
 @import 'layout';
-
 @import 'typography';
+@import 'footer';
+
+// pages
 @import 'theme';
+@import 'index';
+@import 'circle';
+@import 'levels';
+@import 'checkout';
+
+// third-party
+@import 'jqueryui';
+@import 'magnific-popup';
