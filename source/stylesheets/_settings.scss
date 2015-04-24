@@ -37,6 +37,15 @@ $league-gothic: 'league-gothic', sans-serif;
   }
 }
 
+// for visually hiding but remaining accessible
+@mixin visually-hidden {
+  position: absolute; 
+  overflow: hidden; 
+  clip: rect(0 0 0 0); 
+  height: 1px; width: 1px; 
+  margin: -1px; padding: 0; border: 0; 
+}
+
 @mixin background-sizing {
   background-size: cover;
   background-position: 50%;
@@ -56,3 +65,11 @@ $league-gothic: 'league-gothic', sans-serif;
 }
 
 
+// Helper classes
+.visually-hidden {
+  position: absolute; 
+  overflow: hidden; 
+  clip: rect(0 0 0 0); 
+  height: 1px; width: 1px; 
+  margin: -1px; padding: 0; border: 0;
+}
