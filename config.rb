@@ -1,19 +1,3 @@
-###
-# Compass
-###
-
-# Change Compass configuration
-# compass_config do |config|
-#   config.output_style = :compact
-# end
-
-###
-# Helpers
-###
-
-# Automatic image dimensions on image_tag helper
-# activate :automatic_image_sizes
-
 # Reload the browser automatically whenever files change
 configure :development do
   activate :livereload
@@ -38,14 +22,8 @@ configure :build do
   # Minify Javascript on build
   activate :minify_javascript
 
-  # Enable cache buster
-  # activate :asset_hash
-
-  # Use relative URLs
-  # activate :relative_assets
-
-  # Or use a different image path
-  # set :http_prefix, "/Content/images/"
+  # Enable cache buster asset hashing of files
+  activate :asset_hash
 end
 
 # Gzip files
@@ -66,3 +44,6 @@ activate :s3_sync do |config|
   # Set this to true to deploy to s3
   config.after_build = false
 end
+
+# add default caching policy to all files
+default_caching_policy max_age:(60 * 60 * 24 * 365)
