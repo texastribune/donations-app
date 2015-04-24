@@ -129,7 +129,7 @@ hr {
 // For videos
 .outer-info {
   &.video-wrapper {
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
   }
   &#video-top {
     background-color: lighten($black, 20%);
@@ -141,7 +141,6 @@ hr {
     background-color: lighten($black, 20%);
     background-size: cover;
     height: 200px;
-    @include hide-for-mobile;
   }
   .inner-info {
     z-index: 10;
@@ -150,20 +149,27 @@ hr {
 
 .outer-video-wrapper {
   position: relative;
+  @include hide-for-mobile;
+}
+
+.video-bg {
+  background-size: cover;
+  height: 200px;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+  @include filter(brightness(0.5));
 }
 
 #video-two {
-  @include video-background;
   background-image: url("../images/TT-Event-Transportation-Sherman-still.jpg");
 }
 
 #video-three {
-  @include video-background;
   background-image: url("../images/TT-ShaleLife-crop-duster-still.jpg");
 }
 
 #video-four {
-  @include video-background;
   background-image: url("../images/TT-ATwistedSystem-Crystal-still.jpg");
 }
 
