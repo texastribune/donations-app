@@ -1,103 +1,251 @@
-// Splash
+// Splash banner
 .splash {
-  background-size: cover;
+  @include background-sizing;
   @include media($mobile) {
     background-image: none;
   }
 }
 
-.splash-landing {
-  background-image: url("../images/people-q-c-640-480-10.jpg");
-}
-
-.splash-levels {
-  background-image: url("../images/people-q-c-640-480-2.jpg");
-}
-
-.splash-circle {
-  background-image: url("../images/city-q-c-640-480-5.jpg");
-}
-
 .splash-greeting {
   @include span-columns(12);
+  padding: 1.5em;
   text-align: center;
-  @include media($mobile) {
-    background-color: gray;
+  .splash-info {
+    padding: 1em 0;
   }
 }
 
-.box-contribute {
-  .contribute {
-    background-color: $bg-contribute;
-    padding: 1em;
-    text-align: center;
+.splash-header {
+  border-bottom: 3px solid $yellow-tribune;
+  font-family: $league-gothic;
+  @include media($mobile) {
+    border-bottom: none;
   }
-  .renew {
-    background-color: $bg-contribute;
-    margin-top: 20px;
-    padding: 0.8em;
-    h4, p {
-      margin: 0;
-    }
+}
+
+.splash-support {
+  color: $yellow-tribune;
+  font-weight: 400;
+}
+
+.splash-info, .splash-header {
+  color: white;
+  font-weight: 200;
+}
+
+.splash-info, .splash-support {
+  font-size: 1.2em;
+  @include hide-for-mobile;
+}
+
+
+// nonprofit nonpartisan tagline
+.tagline {
+  @include media($mobile) {
+    margin: 0.5em 2em 0.5em 0;
   }
 }
 
 
 // Buttons
 .button {
-  font-family: $helvetica;
-  font-size: 1.5em;
-  padding: 0.5em 2em;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 0.5em 1.8em;
   text-align: center;
+  &:focus {
+    outline: none;
+  }
 }
 
-.button-flat {
+.button-flat, .button-flat a {
   background-color: $yellow-tribune;
   border: none;
+  color: $black;
+  &:hover {
+    @include fast-transition(background-color);
+    background-color: $teal-tribune;
+    color: $white;
+  }
+}
+
+
+// General hr style
+hr {
+  border: 1px solid $gray-light;
+}
+
+
+// Info box
+// Used for thank you on circle and watch now for videos
+.outer-info {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  text-align: center;
+  .inner-info {
+    background-color: transparent;
+    border: 3px solid $white;
+    color: $white;
+    display: inline-block;
+    font-size: 0.9em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    outline: none;
+    padding: 1em 2em;
+    text-transform: uppercase;
+    hr {
+      border-top: 1px solid $white;
+      display: inline-block;
+      margin: 0 1em;
+      vertical-align: middle;
+      width: 50px;
+    }
+    &:hover {
+      @include medium-transition(background-color);
+      background-color: $teal-tribune;
+      border: none;
+    }
+  }
+}
+
+// ie9 fallback for no flexbox
+.ie9 {
+  .outer-info {
+    display: block;
+    padding-top: 6em;
+    position: relative;
+    &.thanks {
+      padding: 6em 8em 0 8em;
+    }
+    .inner-info {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
+
+
+// For videos
+.outer-info {
+  &.video-wrapper {
+    margin-bottom: 1em;
+  }
+  &#video-top {
+    background-color: lighten($black, 20%);
+    background-image: url("../images/TT-5thAnniversary-still.jpg");
+    background-size: cover;
+    height: 350px;
+  }
+  &.secondary-video {
+    background-color: lighten($black, 20%);
+    background-size: cover;
+    height: 200px;
+    @include hide-for-mobile;
+  }
+  &#video-two {
+    background-image: url("../images/TT-Event-Transportation-Sherman-still.jpg");
+    background-position: 50%;
+  }
+  &#video-three {
+    background-image: url("../images/TT-ShaleLife-crop-duster-still.jpg");
+  }
+  &#video-four {
+    background-image: url("../images/TT-ATwistedSystem-Crystal-still.jpg");
+  }
+}
+
+.watch-more {
+  text-align: center;
+  @include show-for-mobile;
+}
+
+.video-label {
+  background-color: $yellow-tribune;
+  font-size: 1.2em; 
+  font-weight: bold;  
+  padding: 0.5em 1em;
+}
+
+
+// Give more cta
+.give-more {
+  padding: 1em 1em 3em 0;
+  h3 {
+    padding-bottom: 1em;
+  }
+  @include media($mobile) {
+    background-color: $black;
+    padding: 1em 1em 3em 1em;
+    text-align: center;
+    h3 {
+      color: $yellow-tribune;
+      padding: 0.5em 0;
+    }
+    p {
+      color: $white;
+    }
+  }
+}
+
+
+// Benefit flag
+h5.benefit-flag {
+  background: $yellow-tribune;
   color: black;
-}
-
-.button-border {
-  background-color: transparent;
-  border-width: 3px;
-  border-style: solid;
-  padding: 0.5em 2em;
-  &.dark {
-    color: black;
-    border-color: black;
-  }
-  &.light {
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 0.8em;
+  padding: 0.5em 1.2em 0.5em 0.5em;
+  i {
     color: white;
-    border-color: white;
   }
 }
 
 
-// Levels grid
-.grid-body {
-  border-bottom: 2px solid gray;
-  td.name, td.amount {
-    width: 320px;
-  }
-  td.amount {
-    color: darkgray;
-  }
-  td.join, td.renew {
-    color: darkgray;
-    width: 100px;
+// Social
+.social-wrapper {
+  margin-bottom: 3em;
+}
+
+.social {
+  color: $white;
+  margin: 0.5em 0.5em 0.5em 0;
+  &:hover {
+    opacity: 0.9;
   }
 }
 
-.show-hide {
-  float: left;
-  .plus {
-    font-size: 1.8em;
-    padding: 0.2em;
+.facebook {
+  background: #2b4185;
+}
+
+.twitter {
+  background: #4298ed;
+}
+
+.email {
+  background: $yellow-tribune;
+}
+
+
+// Contact Info
+.contact-info {
+  margin: 2em 0;
+  @include media($mobile) {
+    margin: 2em 1em;
+  }
+  h5 {
+    padding: 0 0 1em 0;
+  }
+  h4, p {
+    padding: 0 0 0.2em 0;
   }
 }
 
-.popout {
-  display: none;
+.section-header {
+  margin: 1em 0;
+  @include media($mobile) {
+    margin: 2em 0 1em 0.5em;
+  }
 }
-
-

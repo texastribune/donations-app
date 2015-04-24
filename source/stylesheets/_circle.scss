@@ -1,0 +1,93 @@
+// Circle member page
+.circle {
+  .splash-wrapper {
+    padding: 1em;
+  }
+  .splash {
+    background-color: lighten($black, 25%);
+    background-image: url("../images/hero-circles.jpg");
+  }
+  .main {
+    @include media($mobile) {
+      padding: 0 1em;
+    }
+  }
+}
+
+.circle-box {
+  @include span-columns(4);
+  @media (max-width: 855px) {
+    margin-bottom: 2em;
+    @include span-columns(6);
+      @include shift(3);
+  }
+  @include media($mobile) {
+    @include span-columns(12);
+      @include shift(0);
+  }
+}
+
+.circle-box-top {
+  background-color: $black;
+  padding: 1em 2.2em;
+  text-align: center;
+  h3 {
+    border-bottom: 2px solid $yellow-tribune;
+    color: $white;
+    padding: 0.2em 0;
+  }
+  h4, p {
+    color: $yellow-tribune;
+    margin: 0.5em 0;
+  }
+  h4 {
+    font-size: 1.2em;
+    font-weight: 400;
+  }
+}
+
+.circle-box-bottom {
+  background-color: $white;
+  color: $black;
+  padding: 1em;
+  text-align: left;
+  .button {
+    font-size: 1em;
+    font-weight: 600;
+    padding: 1em 1.5em;
+    width: 48%;
+    .fa {
+      font-size: 0.8em;
+    }
+  }
+  h4 {
+    margin-bottom: 0.5em;
+  }
+  h5 {
+    color: $gray-medium;
+  }
+}
+
+.circle-box-benefits {
+  height: 60px;
+}
+
+
+.thanks {
+  @include background-sizing;
+  background-color: lighten($black, 20%);
+  background-image: url("../images/footer-thanks.jpg");
+  height: 350px;
+  .inner-info {
+    @include media($mobile) {
+      margin: 0 1em;
+    }
+    &:hover {
+      background-color: transparent;
+      border: 3px solid $white;
+    }
+    hr {
+      @include hide-for-mobile;
+    }
+  }
+}

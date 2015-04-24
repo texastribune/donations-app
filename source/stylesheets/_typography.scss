@@ -1,10 +1,12 @@
+// General typography styles
 html {
   font-family: $helvetica;
   font-size: 14px;
 }
 
 h1 {
-  font-size: 6em;
+  font-size: 9em;
+  margin: 0;
   @include media($tablet) {
     font-size: 5em;
   }
@@ -12,46 +14,45 @@ h1 {
 
 h2 {
   font-size: 3em;
-  margin: 0;
+  font-weight: bold;
+  letter-spacing: -1px;
+  margin: 0 0 0.5em 0;
 }
 
 h3 {
-  font-size: 2em;
+  font-size: 1.8em;
   margin: 0;
 }
 
 h4 {
-  font-size: 1.2em;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0;
 }
 
 h5 {
-  font-size: 1em;
-  margin: 0.2em;
+  color: $gray-medium;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin: 0.2em 0;
   text-transform: uppercase;
 }
 
-
-// Splash typography
-.splash-info {
-  color: white;
+h6 {
+  font-size: 0.9em;
+  margin: 0;
 }
 
-.splash-header {
-  border-bottom: 3px solid $yellow-tribune;
-  color: white;
-}
-
-.splash-support {
-  color: $yellow-tribune;
-}
-
-
-// Index levels
-.level {
-  h4 {
-    color: $teal-tribune;
+p {
+  font-size: 1em;
+  margin: 0;
+  &.italic {
+    font-style: italic;
   }
-  h5 {
-    color: darkgray;
-  }
+}
+
+a {
+  color: $teal-tribune;
+  text-decoration: none;
 }

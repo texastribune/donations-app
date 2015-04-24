@@ -1,0 +1,21 @@
+-
+  about: "Membership"
+  name: "Mary Pharris"
+  title: "Assistant Director of Marketing"
+  phone: "512-716-8686"
+  email: "mpharris@texastribune.org"
+  circle: false
+-
+  about: "Foundations, Major Gifts & Circle Membership"
+  name: "Terry Quinn"
+  title: "Chief Development Officer"
+  phone: "512-716-8613"
+  email: "tquinn@texastribune.org"
+  circle: true
+-
+  about: "Corporate Sponsorships"
+  name: "April Hinkle"
+  title: "Chief Financial Officer"
+  phone: "512-716-8634"
+  email: "ahinkle@texastribune.org"
+  circle: true

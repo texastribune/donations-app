@@ -1,81 +1,122 @@
+// Masthead with logo
 .masthead {
   @include outer-container;
   img {
-    padding: 1em 0;
+    padding: 1em 0 1em 2em;
     @include span-columns(5);
-      @include shift(1);
+    @include media($mobile) {
+      @include span-columns(8);
+    }
   }
 }
 
 
-// Splash at top of pages
+// Splash banner at top of pages
 .splash-wrapper {
   @include outer-container;
   max-width: 68em;
-}
-
-.splash-landing {
-  .splash-greeting {
-    @include span-columns(7);
-    @include media($mobile) {
-      @include span-columns(12);
-    }
-  }
-  .box-contribute {
-    @include span-columns(5);
-    @include media($mobile) {
-      @include span-columns(12);
-    }
+  padding: 6em 1em;
+  @include media($mobile) {
+    padding: 0;
   }
 }
 
 
-nav {
+// Navigation
+// General nav styles
+.nav {
+  text-align: center;
   ul {
     background-color: $bg-nav;
     margin: 0;
     li {
-      display: inline-block;
       padding: 1.2em;
       a {
         color: $link-nav;
+        font-size: 11px;
+        letter-spacing: 2px;
         text-decoration: none;
         text-transform: uppercase;
+        &:hover {
+          color: $yellow-tribune;
+        }
       }
     }
   }
 }
 
+// Desktop nav
+nav.desktop-nav {
+  border-bottom: 5px solid $yellow-tribune;
+  @include hide-for-mobile;
+  ul {
+    opacity: 0.8;
+    padding: 0;
+    li {
+      display: inline-block;
+      position: relative;
+      i.fa {
+        display: none;
+      }
+      &.active {
+        i.fa {
+          bottom: -28px;
+          color: $yellow-tribune;
+          display: inline-block;
+          font-size: 40px;
+          left: 40%;
+          position: absolute;
+          @include media($tablet) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
 
-// Main area below the nav
+// Mobile nav
+nav.mobile-nav {
+  @include show-for-mobile;
+  ul {
+    padding: 0 1em;
+    li {
+      border-bottom: 2px solid $yellow-tribune;
+    }
+  }
+}
+
+
+// Main area
 .main {
   @include outer-container;
   padding: 3em 0;
+  @include media($mobile) {
+    padding: 0;
+  }
   .main-left {
     @include span-columns(8);
+    @include media($tablet) {
+      @include span-columns(6);
+    }
     @include media($mobile) {
       @include span-columns(12);
+      padding: 0 1em;
     }
   }
   .main-right {
     @include span-columns(4);
+    @include media($tablet) {
+      @include span-columns(6);
+    }
     @include media($mobile) {
       @include span-columns(12);
     }
   }
 }
 
-
-// Circles page
-.circle-box {
-  @include span-columns(4);
-  background-color: white;
-  padding: 0.8em;
-  @include media($mobile) {
-    @include span-columns(12);
-  }
+// Used on index only to change order of content displayed
+.main-mobile {
+  @include show-for-mobile;
+  padding: 0 1em;
 }
-
-
-
-

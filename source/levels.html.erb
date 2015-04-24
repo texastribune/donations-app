@@ -2,74 +2,83 @@
 title: Explore Benefits
 ---
 
-<div class="splash splash-levels">
+<div class="splash">
   <div class="splash-wrapper">
     <div class="splash-greeting">
-      <h1 class="splash-header">Membership Levels</h1>
+      <h1 class="splash-header">Membership Benefits</h1>
       <p class="splash-info"><%= data.info %></p>
       <h4 class="splash-support"><%= data.support %></h4>
     </div><!-- splash-greeting -->
   </div><!-- splash-wrapper -->
+  <%= partial "desktop_nav" %>
 </div><!-- splash-levels -->
 
-<%= partial "nav" %>
-
 <div class="main">
-  <h3>We are a nonpartisan, nonprofit news organization.</h3>
+  <h2 class="tagline"><%= data.tagline %></h2>
+  <h3>Explore the benefits:</h3>
   <table>
     <% data.levels.each do |level| %>
-    <tbody class="grid-body">
+    <tbody class="grid-body <% if level.most_popular %>opened<% end %>">
       <tr>
-        <td class="name">
-          <div class="show-hide">
-            <span class="plus">+</span>
-            <!-- <span class="minus">-</span> -->
-          </div>
-          <h3><%= level.name %></h3>
+        <td class="name open-close">
+          <i class="fa fa-plus-square-o"></i>
+          <i class="fa fa-minus-square"></i>
+          <h3> <%= level.name %></h3>
+          <% if level.circle %>
+            <p>Three-year commitment</p>
+          <% end %>
           <% if level.most_popular %>
-            <h5>Most Popular</h5>
+            <h5 class="benefit-flag"><i class="fa fa-star"></i> Most Popular</h5>
           <% end %>
         </td>
-        <td class="amount"><%= level.amount %></td>
-        <td class="join">Join</td>
-        <td class="renew">Renew</td>
+        <% if level.amount_month %><td class="amount-monthly"><a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=<%= level.amount_month %>&amp;monthly=1"><% if level.range_month %><%= level.range_month %><% else %>$<%= level.amount_month %><% end %> Monthly</a></td><% end %>
+        <td class="amount-yearly">
+          <a href="https://givalike.org/public/quickgive.aspx?cid=227&amp;amount=<%= level.amount_annual %>"><% if level. range_annual %><%= level.range_annual %><% else %>$<%= level.amount_annual %><% end %> Annually</a>
+        </td>
       </tr>
       <tr class="popout">
         <td>
-          <h5>About the Benefits</h5>
-          <table>
-            <tbody>
-              <tr>
-                <td>
-                  <% if level.all_content_benefits %>
-                    <h6>Content Benefits</h6>
-                    <% level.all_content_benefits.each do |benefit| %>
-                      <p><%= benefit %></p>
-                    <% end %>
-                  <% end %>
-                </td>
-                <td>
-                  <% if level.all_access_benefits %>
-                    <h6>Access Benefits</h6>
-                    <% level.all_access_benefits.each do |benefit| %>
-                      <p><%= benefit %></p>
-                    <% end %>
-                  <% end %>
-                </td>
-                <td>
-                  <% if level.all_recognition_benefits %>
-                    <h6>Recognition Benefits</h6>
-                    <% level.all_recognition_benefits.each do |benefit| %>
-                      <p><%= benefit %></p>
-                    <% end %>
-                  <% end %>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <% if level.all_content_benefits %>
+            <h5>Content Benefits</h5>
+            <% level.all_content_benefits.each do |benefit| %>
+              <p><%= benefit %></p>
+            <% end %>
+          <% end %>
+        </td>
+        <td>
+          <% if level.all_access_benefits %>
+            <h5>Access Benefits</h5>
+            <% level.all_access_benefits.each do |benefit| %>
+              <p><%= benefit %></p>
+            <% end %>
+          <% end %>
+        </td>
+        <td>
+          <% if level.all_recognition_benefits %>
+            <h5>Recognition Benefits</h5>
+            <% level.all_recognition_benefits.each do |benefit| %>
+              <p><%= benefit %></p>
+            <% end %>
+          <% end %>
         </td>
       </tr>
     </tbody>
     <% end %>
   </table>
+  <%= partial "share" %>
 </div>
+<%= partial "bottom_checkout" %>
+
+<script>
+  // visually hide popout elements on load
+  (function() {
+    $('.popout').addClass('visually-hidden');
+    $('.opened').find('.popout').toggleClass('visually-hidden');
+  })();
+
+  // toggles benefit info in grid
+  $('.open-close').on('click', function() {
+    $(this).closest('.grid-body').toggleClass('opened');
+    $(this).closest('.grid-body').find('.popout').toggleClass('visually-hidden');
+  });
+</script>

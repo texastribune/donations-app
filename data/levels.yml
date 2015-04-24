@@ -1,273 +1,229 @@
 -
   name: "Student"
-  amount: "$10 Annually"
+  amount_annual: 10
   all_above: false
+  student: true
   all_content_benefits:
     -
-      "Monthly Member Report from Evan Smith"
-  all_access_benefits:
+      "Monthly membership report from CEO and Editor-in-Chief Evan Smith"
+  all_recognition_benefits:
     -
-      "Invitations to Tribune social events"
-    -
-      "Discounts to The Texas Tribune festival"
+      "Your name as a Tribune member on our website"
 -
   name: "Enthusiast"
-  amount: "$2 - $4 Monthly or $25 - $50 Annually"
+  amount_annual: 35
+  range_annual: "$35 - $59"
+  amount_month: 4
+  range_month: "$3 - $4"
   all_above: false
   all_content_benefits:
     -
-      "Monthly Member Report from Evan Smith"
+      "Monthly membership report from CEO and Editor-in-Chief Evan Smith"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
+  all_recognition_benefits:
     -
-      "Discounts to The Texas Tribune festival"
+      "Your name as a Tribune member on our website"
+  extra_access_benefits:
+    -
+      "Invitations to Tribune social events"
 -
   name: "Activist"
-  amount: "$5 - $8 Monthly or $51 - $99 Annually"
+  amount_annual: 60
+  range_annual: "$60 - $149"
+  amount_month: 9
+  range_month: "$5 - $12"
   most_popular: true
   all_above: true
   all_content_benefits:
     -
-      "Monthly Member Report from Evan Smith"
-    -
-      "The Texas Tribune Yearbook"
+      "Monthly membership report from CEO and Editor-in-Chief Evan Smith"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
     -
-      "Discounts to The Texas Tribune festival"
-    -
-      "Co-Member"
+      "Discounted tickets to the Texas Tribune Festival"
   all_recognition_benefits:
     -
-      "Name included on the Donor Wall"
-  extra_content_benefits:
-    -
-      "The Texas Tribune Yearbook"
+      "Your name as a Tribune member on our website"
   extra_access_benefits:
     -
-      "Co-Member"
-  extra_recognition_benefits:
-    -
-      "Name included on the Donor Wall"
+      "Discounted tickets to the Texas Tribune Festival"
 -
   name: "Advocate"
-  amount: "$9 - $21 Monthly or $100 - $249 Annually"
+  amount_annual: 150
+  range_annual: "$150 - $249"
+  amount_month: 17
+  range_month: "$13 - $20"
   all_above: true
   all_content_benefits:
     -
-      "Monthly Member Report from Evan Smith"
-    -
-      "The Texas Tribune Yearbook"
+      "Monthly membership report from CEO and Editor-in-Chief Evan Smith"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
     -
-      "Discounts to The Texas Tribune festival"
+      "Discounted tickets to the Texas Tribune Festival"
     -
-      "Co-Member"
-    -
-      "Invitation to the 'State of the State' cocktail party"
+      "Membership benefits for two"
   all_recognition_benefits:
     -
-      "Name included on the Donor Wall"
+      "Your name as a Tribune member on our website"
   extra_access_benefits:
     -
-      "Invitation to the 'State of the State' cocktail party"
+      "Membership benefits for two"
 -
   name: "Diplomat"
-  amount: "$22 - $42 Monthly or $250 - $499 Annually"
+  amount_annual: 250
+  range_annual: "$250 - $499"
+  amount_month: 31
+  range_month: "$21 - $41"
   all_above: true
   all_content_benefits:
     -
-      "Monthly Member Report from Evan Smith"
+      "Monthly membership report from CEO and Editor-in-Chief Evan Smith"
     -
-      "The Texas Tribune Yearbook"
-    -
-      "Premium subscription to The Washington Post"
+      "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
     -
-      "Discounts to The Texas Tribune festival"
+      "Discounted tickets to the Texas Tribune Festival"
     -
-      "Co-Member"
-    -
-      "Invitation to the 'State of the State' cocktail party"
-    -
-      "Reserved seating at select Tribune events"
+      "Membership benefits for two"
   all_recognition_benefits:
     -
-      "Name included on the Donor Wall"
+      "Your name as a Tribune member on our website"
   extra_content_benefits:
     -
-      "Premium subscription to The Washington Post"
-  extra_access_benefits:
-    -
-      "Reserved seating at select Tribune events"
+      "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
 -
   name: "Benefactor"
-  amount: "$43 - $83 Monthly or $500 - $1,000 Annually"
+  amount_annual: 500
+  range_annual: "$500 - $1000"
+  amount_month: 63
+  range_month: "$42 - $83"
   all_above: true
   all_content_benefits:
     -
-      "Monthly Member Report from Evan Smith"
+      "Monthly membership report from CEO and Editor-in-Chief Evan Smith"
     -
-      "The Texas Tribune Yearbook"
-    -
-      "Premium subscription to The Washington Post"
-    -
-      "The Blast, a behind-the-scenes afternoon missive from John Reynolds"
+      "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
     -
-      "Discounts to The Texas Tribune festival"
+      "Discounted tickets to the Texas Tribune Festival"
     -
-      "Co-Member"
+      "Membership benefits for two"
     -
-      "Invitation to the 'State of the State' cocktail party"
+      "An invitation for two to the State of the State cocktail reception"
     -
-      "Reserved seating at select Tribune events"
-    -
-      "Exclusive invitations to social events and premieres"
+      "Exclusive previews of key projects and developments"
   all_recognition_benefits:
     -
-      "Name included on the Donor Wall"
-    -
-      "Donor board recognition at Tribune conversation series events"
-  extra_content_benefits:
-    -
-      "The Blast, a behind-the-scenes afternoon missive from John Reynolds"
+      "Your name as a Tribune member on our website"
   extra_access_benefits:
     -
-      "Exclusive invitations to social events and premieres"
-  extra_recognition_benefits:
+      "An invitation for two to the State of the State cocktail reception"
     -
-      "Donor board recognition at Tribune conversation series events"
+      "Exclusive previews of key projects and developments"
 -
   name: "Editor&rsquo;s Circle"
-  amount: "$1,001 - $2,499 Annually"
+  amount_annual: 1000
+  amount_month: 84
+  benefactor_plus: true
   commitment: true
   all_above: true
   circle: true
   all_content_benefits:
     -
-      "Monthly Member Report from Evan Smith"
+      "Monthly membership report from CEO and Editor-in-Chief Evan Smith"
     -
-      "The Texas Tribune Yearbook"
-    -
-      "Premium subscription to The Washington Post"
-    -
-      "The Blast, a behind-the-scenes afternoon missive from John Reynolds"
+      "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
     -
-      "Discounts to The Texas Tribune festival"
+      "Discounted tickets to the Texas Tribune Festival"
     -
-      "Co-Member"
+      "Membership benefits for two"
     -
-      "Invitation to the 'State of the State' cocktail party"
+      "An invitation for two to the State of the State cocktail reception"
     -
-      "Reserved seating at select Tribune events"
-    -
-      "Exclusive invitations to social events and premieres"
-    -
-      "Invitations to exclusive social events during The Texas Tribune festival"
+      "Exclusive previews of key projects and developments"
   all_recognition_benefits:
     -
-      "Name included on the Donor Wall"
+      "Your name as a Tribune member on our website"
     -
-      "Donor board recognition at Tribune conversation series events"
-  extra_access_benefits:
+      "Donor board recognition at events"
+  extra_recognition_benefits:
     -
-      "Invitations to exclusive social events during The Texas Tribune festival"
+      "Donor board recognition at events"
 -
   name: "Leadership Circle"
-  amount: "$2,500 - $4,999 Annually"
+  amount_annual: 2500
+  amount_month: 209
   commitment: true
   all_above: true
   circle: true
   all_content_benefits:
     -
-      "Monthly Member Report from Evan Smith"
+      "Monthly membership report from CEO and Editor-in-Chief Evan Smith"
     -
-      "The Texas Tribune Yearbook"
-    -
-      "Premium subscription to The Washington Post"
-    -
-      "The Blast, a behind-the-scenes afternoon missive from John Reynolds"
+      "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
     -
-      "Discounts to The Texas Tribune festival"
+      "Discounted tickets to the Texas Tribune Festival"
     -
-      "Co-Member"
+      "Membership benefits for two"
     -
-      "Invitation to the 'State of the State' cocktail party"
+      "An invitation for two to the State of the State cocktail reception"
+    -
+      "Exclusive previews of key projects and developments"
     -
       "Reserved seating at select Tribune events"
-    -
-      "Exclusive invitations to social events and premieres"
-    -
-      "Invitations to exclusive social events during The Texas Tribune festival"
-    -
-      "Opportunity to promote the nonprofit of your choice on the Tribune site for a year"
   all_recognition_benefits:
     -
-      "Name included on the Donor Wall"
+      "Your name as a Tribune member on our website"
     -
-      "Donor board recognition at Tribune conversation series events"
+      "Donor board recognition at events"
   extra_access_benefits:
     -
-      "Opportunity to promote the nonprofit of your choice on the Tribune site for a year"
+      "Reserved seating at select Tribune events"
 -
   name: "Chairman&rsquo;s Circle"
-  amount: "$5,000+ Annually"
+  amount_annual: 5000
+  amount_month: 417
   commitment: true
   all_above: true
   circle: true
   all_content_benefits:
     -
-      "Monthly Member Report from Evan Smith"
+      "Monthly membership report from CEO and Editor-in-Chief Evan Smith"
     -
-      "The Texas Tribune Yearbook"
-    -
-      "Premium subscription to The Washington Post"
-    -
-      "The Blast, a behind-the-scenes afternoon missive from John Reynolds"
+      "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
     -
-      "Discounts to The Texas Tribune festival"
+      "Discounted tickets to the Texas Tribune Festival"
     -
-      "Co-Member"
+      "Membership benefits for two"
     -
-      "Invitation to the 'State of the State' cocktail party"
+      "An invitation for two to the State of the State cocktail reception"
     -
-      "Reserved seating at select Tribune events"
+      "Exclusive previews of key projects and developments"
     -
-      "Exclusive invitations to social events and premieres"
-    -
-      "Invitations to exclusive social events during The Texas Tribune festival"
-    -
-      "Opportunity to promote the nonprofit of your choice on the Tribune site for a year"
-    -
-      "Invitation to small VIP Tribune gatherings"
-    -
-      "Reserved seating and parking at Tribune conversation series at the Austin Club"
+      "Invitations to small VIP Tribune gatherings"
   all_recognition_benefits:
     -
-      "Name included on the Donor Wall"
+      "Your name as a Tribune member on our website"
     -
-      "Donor board recognition at Tribune conversation series events"
+      "Donor board recognition at events"
   extra_access_benefits:
     -
-      "Invitation to small VIP Tribune gatherings"
-    -
-      "Reserved seating and parking at Tribune conversation series at the Austin Club"
-
+      "Invitations to small VIP Tribune gatherings"
