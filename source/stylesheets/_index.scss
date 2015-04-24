@@ -20,6 +20,9 @@
       @media (max-width: 620px) {
         padding: 2em 1em;
       }
+      @include media($mobile) {
+        padding: 0;
+      }
     }
     .express-checkout {
       @include span-columns(4);
