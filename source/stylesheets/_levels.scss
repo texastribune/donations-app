@@ -71,7 +71,6 @@
 }
 
 .popout {
-  display: none;
   td {
     padding: 1em 2em 2em 0;
     vertical-align: sub;
@@ -86,9 +85,6 @@
 }
 
 .opened {
-  .popout {
-    display: table-row;
-  }
   .fa-plus-square-o {
     display: none;
   }
