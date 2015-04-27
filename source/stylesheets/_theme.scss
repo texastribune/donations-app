@@ -124,6 +124,9 @@ hr {
     .inner-info {
       display: block;
       margin: 0 auto;
+      &.video {
+        width: 200px;
+      }
     }
   }
 }
