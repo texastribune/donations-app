@@ -2,6 +2,7 @@ $(document).ready(function() {
   // remove class if javascript is enabled
   $("body").removeClass("no-js");
 
+  // to pop out videos so they play in the browser for users with js
   $('.video').magnificPopup({
     type: 'iframe',
     iframe: {
@@ -20,14 +21,16 @@ $(document).ready(function() {
     }
   });
 
+
+  // For top express checkout
+
   // Initialize top number input spinner for express checkout
+  // Uses jquery ui to make it look pretty
   $("#spinner").spinner();
 
   // Initialize top radio buttonset for monthly/annually
+  // Uses jquery ui to make it look pretty
   $("#contribute-buttons-top").buttonset();
-
-
-  // For top express checkout
 
   // Determine if contribution frequency is monthly
   var get_frequency = function() {
@@ -157,7 +160,7 @@ $(document).ready(function() {
   $("#contribute-buttons-bottom").buttonset();
 
   // Determine if contribution frequency is monthly
-  var get_frequency = function() {
+  var get_frequency_bottom = function() {
     if ($("label[for='monthly-bottom']").hasClass('ui-state-active')) {
       is_monthly = true;
     } else {
@@ -196,7 +199,7 @@ $(document).ready(function() {
     var amount = $('#spinner-bottom').val();
 
     // Get frequency and set if monthly or not
-    get_frequency();
+    get_frequency_bottom();
     if (is_monthly) {
       monthly = 1;
     } else {
