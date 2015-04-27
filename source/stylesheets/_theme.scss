@@ -94,6 +94,9 @@ hr {
     outline: none;
     padding: 1em 2em;
     text-transform: uppercase;
+    a {
+      color: $white;
+    }
     hr {
       border-top: 1px solid $white;
       display: inline-block;
