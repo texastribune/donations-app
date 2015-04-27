@@ -277,3 +277,17 @@ input[type=number]::-webkit-outer-spin-button {
     }
   }
 }
+
+
+// Hide js elements if user doesn't have js
+.no-js {
+  .dollar, #spinner, #contribute-buttons-top, .level-display {
+    display: none;
+  }
+  .bottom-checkout {
+    .left-wrapper, .right-wrapper {
+      display: none;
+    }
+  }
+}
+
