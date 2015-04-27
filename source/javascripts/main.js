@@ -55,19 +55,31 @@ $(document).ready(function() {
         level_label.text('Diplomat');
       } else if (input_amount > 42 && input_amount <= 83) {
         level_label.text('Benefactor');
+      } else if (input_amount > 83 && input_amount <= 208) {
+        level_label.text("Editor's Circle");
+      } else if (input_amount > 208 && input_amount <= 416) {
+        level_label.text('Leadership Circle');
+      } else if (input_amount > 416) {
+        level_label.text("Chairman's Circle");
       }
     } else {
       // detemine level and update text based on yearly frequency
       if (input_amount > 35 && input_amount <= 59) {
         level_label.text('Enthusiast');
-      } else if (input_amount > 60 && input_amount <= 149) {
+      } else if (input_amount > 59 && input_amount <= 149) {
         level_label.text('Activist');
-      } else if (input_amount > 150 && input_amount <= 249) {
+      } else if (input_amount > 149 && input_amount <= 249) {
         level_label.text('Advocate');
-      } else if (input_amount > 250 && input_amount <= 499) {
+      } else if (input_amount > 249 && input_amount <= 499) {
         level_label.text('Diplomat');
-      } else if (input_amount > 500 && input_amount <= 1000) {
+      } else if (input_amount > 499 && input_amount <= 999) {
         level_label.text('Benefactor');
+      } else if (input_amount > 999 && input_amount <= 2499) {
+        level_label.text("Editor's Circle");
+      } else if (input_amount > 2499 && input_amount <= 4999) {
+        level_label.text('Leadership Circle');
+      } else if (input_amount > 4999) {
+        level_label.text("Chairman's Circle");
       }
     }
   };
@@ -137,7 +149,7 @@ $(document).ready(function() {
 
 
   // For bottom express checkout
-  
+
   // Initialize bottom number input spinner for express checkout
   $("#spinner-bottom").spinner();
 
