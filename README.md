@@ -1,5 +1,4 @@
 # donations-app
-===============
 
 ## Getting Started
 
