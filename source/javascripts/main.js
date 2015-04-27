@@ -1,4 +1,7 @@
 $(document).ready(function() {
+  // remove class if javascript is enabled
+  $("body").removeClass("no-js");
+
   $('.video').magnificPopup({
     type: 'iframe',
     iframe: {

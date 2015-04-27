@@ -92,3 +92,9 @@
     display: block;
   }
 }
+
+.no-js {
+  .fa-plus-square-o, .fa-minus-square {
+    display: none;
+  }
+}
