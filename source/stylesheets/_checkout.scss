@@ -16,14 +16,19 @@ input[type=number]::-webkit-outer-spin-button {
     background-color: $bg-contribute;
     padding: 2em;
     text-align: center;
-    @include media($mobile) {
+    @media (max-width: 620px) {
       background-color: transparent;
       padding-top: 0;
     }
     .level-display {
-      @include hide-for-mobile;
+      @media (max-width: 620px) {
+        display: none;
+      }
       h5, h3, p {
         text-align: left;
+      }
+      p {
+        font-size: 0.9em;
       }
     }
     h5 {
@@ -34,16 +39,24 @@ input[type=number]::-webkit-outer-spin-button {
       margin-top: 1em;
       width: 100%;
       &.renew-button {
-        @include show-for-mobile;
+        display: none;
+        @media (max-width: 620px) {
+          display: block;
+        }
+      }
+    }
+    .wf-leaguegothic-i4-active {
+      span.dollar {
+        font-size: 4em;
       }
     }
     span.dollar {
       color: $black;
       float: left;
       font-family: "league-gothic";
-      font-size: 4em;
+      font-size: 3.5em;
       padding: 0 0.2em;
-      @include media($mobile) {
+      @media (max-width: 620px) {
         color: $white;
       }
     }
@@ -52,7 +65,9 @@ input[type=number]::-webkit-outer-spin-button {
     background-color: $bg-contribute;
     margin-top: 20px;
     position: relative;
-    @include hide-for-mobile;
+    @media (max-width: 620px) {
+      display: none;
+    }
     &:hover {
       cursor: pointer;
       .renew-left {
@@ -178,6 +193,9 @@ input[type=number]::-webkit-outer-spin-button {
   @include outer-container;
   max-width: none;
   padding: 3em 1em;
+  @include media($tablet) {
+    padding: 3em 0 2em 0;
+  }
   h2 {
     border-bottom: 3px solid $yellow-tribune;
     color: white;
@@ -259,3 +277,27 @@ input[type=number]::-webkit-outer-spin-button {
     }
   }
 }
+
+
+// Hide js elements if user doesn't have js
+body.no-js {
+  .dollar, #spinner, #contribute-buttons-top, .level-display {
+    display: none;
+  }
+  .bottom-checkout {
+    .left-wrapper, .right-wrapper {
+      display: none;
+    }
+  }
+  .top-checkout {
+    @media (min-width: 620px) {
+      .contribute {
+        margin-top: 2em;
+        .button {
+            margin-top: 0;
+        }
+      }
+    }
+  }
+}
+
