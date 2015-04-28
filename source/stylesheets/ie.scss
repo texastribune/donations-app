@@ -1,0 +1,50 @@
+// ie fallbacks for no flexbox
+.ie9, .ie8 {
+  .outer-info {
+    display: block;
+    padding-top: 6em;
+    position: relative;
+    &.thanks {
+      padding: 6em 8em 0 8em;
+    }
+    .inner-info {
+      display: block;
+      margin: 0 auto;
+      &.video {
+        width: 200px;
+      }
+    }
+  }
+}
+
+
+// IE8 styles
+.ie8 {
+  .main-left, .footer, .nav, nav.left-nav, nav.right-nav, .thanks {
+    clear: both;
+  }
+  .splash {
+    background-color: lighten($black, 20%);
+    background-image: none;
+  }
+  .nav {
+    padding-top: 30px;
+  }
+  .main-left {
+    width: 60%;
+  }
+  .bottom-checkout {
+    background-color: lighten($black, 20%);
+    background-image: none;
+    clear: both;
+    height: 300px;
+  }
+  .circle-box {
+    width: 30%;
+  }
+  .express-checkout.top-checkout {
+    label {
+      width: 40%;
+    }
+  }
+}

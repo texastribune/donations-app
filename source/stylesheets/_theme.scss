@@ -112,25 +112,6 @@ hr {
   }
 }
 
-// ie9 fallback for no flexbox
-.ie9 {
-  .outer-info {
-    display: block;
-    padding-top: 6em;
-    position: relative;
-    &.thanks {
-      padding: 6em 8em 0 8em;
-    }
-    .inner-info {
-      display: block;
-      margin: 0 auto;
-      &.video {
-        width: 200px;
-      }
-    }
-  }
-}
-
 
 // For videos
 .outer-info {
