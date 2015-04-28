@@ -20,12 +20,11 @@
 
 // IE8 styles
 .ie8 {
-  .main-left, .footer, .nav, nav.left-nav, nav.right-nav, .thanks {
+  .main-left, .footer, .nav, nav.left-nav, nav.right-nav, .thanks, .bottom-checkout {
     clear: both;
   }
   .splash {
-    background-color: lighten(#000000, 20%);
-    background-image: none;
+    height: 100%;
   }
   .nav {
     padding-top: 30px;
@@ -34,9 +33,6 @@
     width: 60%;
   }
   .bottom-checkout {
-    background-color: lighten(#000000, 20%);
-    background-image: none;
-    clear: both;
     height: 300px;
   }
   .circle-box {
