@@ -7,22 +7,35 @@
       text-align: right;
       @include span-columns(6);
         @include shift(1);
-      @include media($tablet) {
-        @include shift(0);
+      @media (max-width: 840px) {
+        @include span-columns(6);
+          @include shift(0);
+      }
+      @media (max-width: 620px) {
+        @include span-columns(12);
+        text-align: center;
+      }
+    }
+    .splash-wrapper {
+      @media (max-width: 620px) {
+        padding: 2em 1em;
       }
       @include media($mobile) {
-        @include span-columns(12);
-        @include shift(0);
-        text-align: center;
+        padding: 0;
       }
     }
     .express-checkout {
       @include span-columns(4);
-      @include media($tablet) {
+      @media (max-width: 840px) {
         @include span-columns(6);
+      }
+      @media (max-width: 620px) {
+        @include span-columns(8);
+          @include shift(2);
       }
       @include media($mobile) {
         @include span-columns(12);
+          @include shift(0);
       }
     }
   }

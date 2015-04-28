@@ -4,12 +4,22 @@ html {
   font-size: 14px;
 }
 
-h1 {
-  font-size: 9em;
-  margin: 0;
-  @include media($tablet) {
-    font-size: 5em;
+// size if league gothic loads
+.wf-leaguegothic-i4-active {
+  h1 {
+    font-size: 9em;
+    @media (max-width: 870px) {
+      font-size: 8em;
+    }
+    @include media($tablet) {
+      font-size: 5em;
+    }
   }
+}
+
+h1 {
+  font-size: 5em;
+  margin: 0;
 }
 
 h2 {
@@ -55,4 +65,8 @@ p {
 a {
   color: $teal-tribune;
   text-decoration: none;
+}
+
+i.fa-chevron-right {
+  font-size: 0.8em;
 }

@@ -49,13 +49,28 @@
 }
 .ui-spinner-up {
   top: 0;
+  .ui-icon {
+    position: absolute;
+    top: -4px;
+    right: 10px;
+  }
 }
+
 .ui-spinner-down {
   bottom: 0;
   .ui-icon {
     position: absolute;
     right: 9px;
-    top: -4px;
+    top: -8px;
+  }
+}
+
+// adjust position as long as league gothic loads
+.wf-leaguegothic-i4-active {
+  .ui-spinner-down {
+    .ui-icon {
+      top: -4px;
+    }
   }
 }
 

@@ -1,6 +1,6 @@
 <!doctype html>
-<!--[if IE 8]> <html class="no-js ie8"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="no-js ie9"> <!![endif]-->
+<!--[if IE 8]> <html class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <html>
   <head>
     <meta charset="utf-8">
@@ -11,6 +11,7 @@
 
     <!-- Use title if it's in the page YAML frontmatter -->
     <title><%= current_page.data.title %> | The Texas Tribune</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
 
     <meta property="og:url" content="http://support.texastribune.org/">
     <meta property="og:image" content="http://s3.amazonaws.com/support.texastribune.org/images/SMD15-web-ad-300x250.png">
@@ -27,10 +28,9 @@
     <script>try{Typekit.load();}catch(e){}</script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <%= javascript_include_tag  "jquery_ui" %>
     <%= javascript_include_tag  "all" %>
   </head>
-  <body class="<%= page_classes %>">
+  <body class="<%= page_classes %> no-js">
     <%= partial "header" %>
 
     <%= yield %>

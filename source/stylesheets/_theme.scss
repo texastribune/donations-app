@@ -94,6 +94,9 @@ hr {
     outline: none;
     padding: 1em 2em;
     text-transform: uppercase;
+    a {
+      color: $white;
+    }
     hr {
       border-top: 1px solid $white;
       display: inline-block;
@@ -109,27 +112,11 @@ hr {
   }
 }
 
-// ie9 fallback for no flexbox
-.ie9 {
-  .outer-info {
-    display: block;
-    padding-top: 6em;
-    position: relative;
-    &.thanks {
-      padding: 6em 8em 0 8em;
-    }
-    .inner-info {
-      display: block;
-      margin: 0 auto;
-    }
-  }
-}
-
 
 // For videos
 .outer-info {
   &.video-wrapper {
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
   }
   &#video-top {
     background-color: lighten($black, 20%);
@@ -141,18 +128,23 @@ hr {
     background-color: lighten($black, 20%);
     background-size: cover;
     height: 200px;
-    @include hide-for-mobile;
   }
-  &#video-two {
-    background-image: url("../images/TT-Event-Transportation-Sherman-still.jpg");
-    background-position: 50%;
-  }
-  &#video-three {
-    background-image: url("../images/TT-ShaleLife-crop-duster-still.jpg");
-  }
-  &#video-four {
-    background-image: url("../images/TT-ATwistedSystem-Crystal-still.jpg");
-  }
+}
+
+.outer-video-wrapper {
+  @include hide-for-mobile;
+}
+
+#video-two {
+  background-image: url("../images/TT-Event-Transportation-Sherman-still-dark.jpg");
+}
+
+#video-three {
+  background-image: url("../images/TT-ShaleLife-crop-duster-still-dark.jpg");
+}
+
+#video-four {
+  background-image: url("../images/TT-ATwistedSystem-Crystal-still-dark.jpg");
 }
 
 .watch-more {
