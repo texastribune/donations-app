@@ -24,7 +24,7 @@
     clear: both;
   }
   .splash {
-    background-color: lighten($black, 20%);
+    background-color: lighten(#000000, 20%);
     background-image: none;
   }
   .nav {
@@ -34,7 +34,7 @@
     width: 60%;
   }
   .bottom-checkout {
-    background-color: lighten($black, 20%);
+    background-color: lighten(#000000, 20%);
     background-image: none;
     clear: both;
     height: 300px;
