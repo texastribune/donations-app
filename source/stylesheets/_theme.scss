@@ -123,6 +123,9 @@ hr {
     background-image: url("../images/TT-5thAnniversary-still.jpg");
     background-size: cover;
     height: 350px;
+    @include media($mobile) {
+      height: 200px;
+    }
   }
   &.secondary-video {
     background-color: lighten($black, 20%);
