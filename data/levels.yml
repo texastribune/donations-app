@@ -60,6 +60,8 @@
   all_content_benefits:
     -
       "Monthly membership report from CEO and Editor-in-Chief Evan Smith"
+    -
+      "Exclusive access to promotional offers such as discounts to Texas Weekly, our insider news suite, which includes a 12-month subscription to The Washington Post Digital edition"
   all_access_benefits:
     -
       "Invitations to Tribune social events"
@@ -67,12 +69,19 @@
       "Discounted tickets to the Texas Tribune Festival"
     -
       "Membership benefits for two"
+    -
+      "Special offers from The Tribune (and our partners) such as discounted tickets to conferences and events"
   all_recognition_benefits:
     -
       "Your name as a Tribune member on our website"
+  extra_content_benefits:
+    -
+      "Exclusive access to promotional offers such as discounts to Texas Weekly, our insider news suite, which includes a 12-month subscription to The Washington Post Digital edition"
   extra_access_benefits:
     -
       "Membership benefits for two"
+    -
+      "Special offers from The Tribune (and our partners) such as discounted tickets to conferences and events"
 -
   name: "Diplomat"
   amount_annual: 250
@@ -84,6 +93,8 @@
     -
       "Monthly membership report from CEO and Editor-in-Chief Evan Smith"
     -
+      "Exclusive access to promotional offers such as discounts to Texas Weekly, our insider news suite, which includes a 12-month subscription to The Washington Post Digital edition"
+    -
       "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
   all_access_benefits:
     -
@@ -92,6 +103,8 @@
       "Discounted tickets to the Texas Tribune Festival"
     -
       "Membership benefits for two"
+    -
+      "Special offers from The Tribune (and our partners) such as discounted tickets to conferences and events"
   all_recognition_benefits:
     -
       "Your name as a Tribune member on our website"
@@ -109,6 +122,8 @@
     -
       "Monthly membership report from CEO and Editor-in-Chief Evan Smith"
     -
+      "Exclusive access to promotional offers such as discounts to Texas Weekly, our insider news suite, which includes a 12-month subscription to The Washington Post Digital edition"
+    -
       "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
   all_access_benefits:
     -
@@ -117,6 +132,8 @@
       "Discounted tickets to the Texas Tribune Festival"
     -
       "Membership benefits for two"
+    -
+      "Special offers from The Tribune (and our partners) such as discounted tickets to conferences and events"
     -
       "An invitation for two to the State of the State cocktail reception"
     -
@@ -142,6 +159,8 @@
     -
       "Monthly membership report from CEO and Editor-in-Chief Evan Smith"
     -
+      "Exclusive access to promotional offers such as discounts to Texas Weekly, our insider news suite, which includes a 12-month subscription to The Washington Post Digital edition"
+    -
       "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
   all_access_benefits:
     -
@@ -150,6 +169,8 @@
       "Discounted tickets to the Texas Tribune Festival"
     -
       "Membership benefits for two"
+    -
+      "Special offers from The Tribune (and our partners) such as discounted tickets to conferences and events"
     -
       "An invitation for two to the State of the State cocktail reception"
     -
@@ -174,6 +195,8 @@
     -
       "Monthly membership report from CEO and Editor-in-Chief Evan Smith"
     -
+      "Exclusive access to promotional offers such as discounts to Texas Weekly, our insider news suite, which includes a 12-month subscription to The Washington Post Digital edition"
+    -
       "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
   all_access_benefits:
     -
@@ -182,6 +205,8 @@
       "Discounted tickets to the Texas Tribune Festival"
     -
       "Membership benefits for two"
+    -
+      "Special offers from The Tribune (and our partners) such as discounted tickets to conferences and events"
     -
       "An invitation for two to the State of the State cocktail reception"
     -
@@ -208,6 +233,8 @@
     -
       "Monthly membership report from CEO and Editor-in-Chief Evan Smith"
     -
+      "Exclusive access to promotional offers such as discounts to Texas Weekly, our insider news suite, which includes a 12-month subscription to The Washington Post Digital edition"
+    -
       "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
   all_access_benefits:
     -
@@ -216,6 +243,8 @@
       "Discounted tickets to the Texas Tribune Festival"
     -
       "Membership benefits for two"
+    -
+      "Special offers from The Tribune (and our partners) such as discounted tickets to conferences and events"
     -
       "An invitation for two to the State of the State cocktail reception"
     -
