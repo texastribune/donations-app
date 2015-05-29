@@ -2,7 +2,7 @@
 .levels {
   .main {
     @include media($mobile) {
-      padding: 0 1em;
+      padding: 1em;
     }
   }
   .splash {
@@ -25,6 +25,9 @@
       display: block;
       margin: 0.5em 0;
     }
+  }
+  .tagline {
+    display: none;
   }
 }
 
