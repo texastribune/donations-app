@@ -204,7 +204,9 @@ $(document).ready(function() {
     e.preventDefault();
 
     // Base Givalike url
-    var url = "https://givalike.org/public/quickgive.aspx?cid=227";
+    var url = "https://givalike.org/public/quickgive.aspx?cid=";
+
+    var form_cid = 227;
 
     // Grab contribution amount
     var amount = $('#spinner-bottom').val();
@@ -216,6 +218,16 @@ $(document).ready(function() {
     } else {
       monthly = 0;
     }
+
+    // if circle, send to different form
+    if (is_monthly && amount > 83) {
+      form_cid = 231;
+    } else if (!is_monthly && amount > 999) {
+      form_cid = 231;
+    }
+
+    // Add cid and params to url
+    url += form_cid;
 
     // Add params to url
     url += '&amount=';
