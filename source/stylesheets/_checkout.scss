@@ -18,7 +18,7 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
     @media (max-width: 620px) {
       background-color: transparent;
-      padding-top: 0;
+      padding: 0;
     }
     .level-display {
       @media (max-width: 620px) {
@@ -38,12 +38,6 @@ input[type=number]::-webkit-outer-spin-button {
     .button {
       margin-top: 1em;
       width: 100%;
-      &.renew-button {
-        display: none;
-        @media (max-width: 620px) {
-          display: block;
-        }
-      }
     }
     .wf-leaguegothic-i4-active {
       span.dollar {
@@ -61,52 +55,17 @@ input[type=number]::-webkit-outer-spin-button {
       }
     }
   }
-  .renew {
-    background-color: $bg-contribute;
-    margin-top: 20px;
-    position: relative;
+  .renew-donate {
     @media (max-width: 620px) {
-      display: none;
+      margin-top: 1em;
     }
-    &:hover {
-      cursor: pointer;
-      .renew-left {
-        @include transition-property(background-color);
-        @include transition-duration(0.5s);
-        @include transition-timing-function(ease-in);
-        background-color: $teal-tribune;
-        img {
-          @include transition-property(background-color);
-          @include transition-property(transform);
-          @include transition-duration(0.5s);
-          @include transition-timing-function(ease-in);
-          @include transform(rotate(180deg));
-          background-color: inherit;
-          color: $white;
-        }
-      }
+    .button {
+      margin: 1em 0;
+      padding: 0.5em 1.5em;
+      width: 48%;
     }
-    .renew-left {
-      background-color: $yellow-tribune; 
-      display: inline-block; 
-      padding: 1em;
-      width: 62px;
-      img {
-        background-color: inherit;
-      }
-    }
-    .renew-right {
-      display: inline-block; 
-      padding-left: 10px;
-    }
-    h4 {
-      font-size: 14px;
-      font-weight: 200;
-    }
-    p {
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 0px;
+    .button-right {
+      float: right;
     }
   }
   label {
@@ -119,6 +78,9 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 0.5em;
     text-transform: uppercase;
     width: 120px;
+  }
+  @include media($mobile) {
+    padding: 0.5em 1.5em;
   }
 }
 
