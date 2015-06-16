@@ -1,0 +1,14 @@
+---
+title: Frequently Asked Questions
+---
+
+<%= partial "desktop_nav" %>
+<div class="main">
+  <div class="main-left">
+    <h3>Frequently Asked Questions</h3>
+    <% data.faq.each do |q| %>
+      <h4><%= q.question %></h4>
+      <p><%= q.answer %></p>
+    <% end %>
+  </div>
+</div>
