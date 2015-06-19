@@ -2,7 +2,17 @@
 title: Frequently Asked Questions
 ---
 
-<%= partial "desktop_nav" %>
+<div class="splash">
+  <div class="splash-wrapper">
+    <div class="splash-greeting">
+      <h1 class="splash-header">Frequently Asked Questions</h1>
+      <p class="splash-info"><%= data.info %></p>
+      <h4 class="splash-support"><%= data.support %></h4>
+    </div><!-- splash-greeting -->
+  </div><!-- splash-wrapper -->
+  <%= partial "desktop_nav" %>
+</div><!-- splash-levels -->
+
 <div class="main" style="padding: 2em;">
   <h3>Frequently Asked Questions</h3>
   <% data.faq.each do |q| %>

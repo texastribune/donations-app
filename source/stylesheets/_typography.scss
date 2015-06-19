@@ -15,6 +15,11 @@ html {
       font-size: 5em;
     }
   }
+  .faq h1 {
+    @media (min-width: 871px) {
+      font-size: 7.2em;
+    }
+  }
 }
 
 h1 {
