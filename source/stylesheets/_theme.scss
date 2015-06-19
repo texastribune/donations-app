@@ -39,6 +39,14 @@
 }
 
 
+.faq {
+  .splash {
+    background-color: lighten($black, 20%);
+    background-image: url("../images/FAQ-header-bg.jpg");
+  }
+}
+
+
 // nonprofit nonpartisan tagline
 .tagline {
   @include media($mobile) {
@@ -157,8 +165,8 @@ hr {
 
 .video-label {
   background-color: $yellow-tribune;
-  font-size: 1.2em; 
-  font-weight: bold;  
+  font-size: 1.2em;
+  font-weight: bold;
   padding: 0.5em 1em;
 }
 
