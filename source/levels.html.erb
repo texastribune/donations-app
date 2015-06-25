@@ -6,15 +6,15 @@ title: Explore Benefits
   <div class="splash-wrapper">
     <div class="splash-greeting">
       <h1 class="splash-header">Membership Benefits</h1>
-      <p class="splash-info"><%= data.info %></p>
-      <h4 class="splash-support"><%= data.support %></h4>
+      <p class="splash-info"><%= data.Info[0]['about_trib'] %></p>
+      <h4 class="splash-support"><%= data.Info[0]['support_cta'] %></h4>
     </div><!-- splash-greeting -->
   </div><!-- splash-wrapper -->
   <%= partial "desktop_nav" %>
 </div><!-- splash-levels -->
 
 <div class="main">
-  <h2 class="tagline"><%= data.tagline %></h2>
+  <h2 class="tagline"><%= data.Info[0]['tagline'] %></h2>
   <h3>Explore the benefits:</h3>
   <table>
     <% data.levels.each do |level| %>
