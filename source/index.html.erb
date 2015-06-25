@@ -20,13 +20,13 @@ title: Become a Member
     <%= partial "videos" %>
     <hr>
     <h3 class="section-header">Have a Question?</h3>
-      <% data.contacts.each do |contact| %>
+      <% data.Contacts.each do |contact| %>
         <div class="contact-info">
-          <h5><%= contact.about %></h5>
-          <h4><%= contact.name %></h4>
-          <p class="italic"><%= contact.title %></p>
-          <p><%= contact.phone %></p>
-          <p><a href="mailto:<%=contact.email %>"><%= contact.email %> <i class="fa fa-chevron-right"></i></a></p>
+          <h5><%= contact['department'] %></h5>
+          <h4><%= contact['name'] %></h4>
+          <p class="italic"><%= contact['title'] %></p>
+          <p><%= contact['phone'] %></p>
+          <p><a href="mailto:<%=contact['email'] %>"><%= contact['email'] %> <i class="fa fa-chevron-right"></i></a></p>
         </div>
       <% end %>
     <hr>
