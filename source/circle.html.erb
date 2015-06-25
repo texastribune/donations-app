@@ -6,8 +6,8 @@ title: Circle Membership
   <div class="splash-wrapper">
     <div class="splash-greeting">
       <h1 class="splash-header">Join Our Circle</h1>
-      <p class="splash-info"><%= data.info %></p>
-      <h4 class="splash-support"><%= data.support %></h4>
+      <p class="splash-info"><%= data.Info[0]['about_trib'] %></p>
+      <h4 class="splash-support"><%= data.Info[0]['support_cta'] %></h4>
     </div><!-- splash-greeting -->
     <% data.levels.each do |level| %>
       <% if level.circle %>
@@ -52,7 +52,7 @@ title: Circle Membership
 
 <div class="main">
   <div class="main-left">
-    <h2 class="tagline"><%= data.tagline %></h2>
+    <h2 class="tagline"><%= data.Info[0]['tagline'] %></h2>
     <%= partial "videos" %>
   </div>
   <div class="main-right">
