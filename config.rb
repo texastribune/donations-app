@@ -6,6 +6,8 @@ end
 # Activate extension for Bourbon Sass mixins
 activate :bourbon
 
+activate :google_drive, load_sheets: ENV['GOOGLE_DRIVE_KEY']
+
 set :css_dir, 'stylesheets'
 
 set :js_dir, 'javascripts'

@@ -15,8 +15,8 @@ title: Frequently Asked Questions
 
 <div class="main">
   <h3>Frequently Asked Questions</h3>
-  <% data.faq.each do |q| %>
-    <h4><%= q.question %></h4>
-    <p><%= q.answer %></p>
+  <% data.FAQ.each do |q| %>
+    <h4><%= q['question'] %></h4>
+    <p><%= q['answer'] %></p>
   <% end %>
 </div>
