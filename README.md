@@ -16,6 +16,8 @@ Install the necessary gems from the Gemfile by running:
 
 ## Development
 
+You'll need to set the GOOGLE_DRIVE_KEY environment variable to load data from Google docs. Check in the wiki for this key to set it in your environment.
+
 Middleman is configured to live reload as changes are made to files. To start up the Middleman server, run:
 
     bundle exec middleman

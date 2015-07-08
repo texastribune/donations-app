@@ -19,3 +19,6 @@
 
 # Ignore Gemfile.lock
 Gemfile.lock
+
+# Ignore google drive cache
+google_drive_cache/
