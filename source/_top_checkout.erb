@@ -1,6 +1,6 @@
 <div class="top-checkout express-checkout">
   <div class="contribute">
-    <form id="top-contribute" action="https://givalike.org/public/quickgive.aspx?cid=227" method="post">
+    <form id="top-contribute" action="http://docker.local:5000/charge" method="post">
       <span class="dollar">$</span><input name="amount" value="9" min="3" max="5000" type="number" id="spinner">
       <div id="contribute-buttons-top">
           <input type="radio" value="year" id="yearly" name="frequency">
@@ -14,6 +14,12 @@
         <a href="/levels.html"><p class="italic"><strong><em>Explore benefits &amp; membership levels <i class="fa fa-chevron-right"></i></em></strong></p></a>
       </div>
       <button type="submit" class="button button-flat">Join Now <i class="fa fa-chevron-right"></i></button>
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="pk_test_sSUhBbATSHteQVZZvz6R5aYe"
+            data-name="The Texas Tribune"
+            data-description="A Flask Charge"
+            data-zip-code="true"
+            data-amount="500"></script>
     </form>
   </div>
   <div class="renew-donate">
