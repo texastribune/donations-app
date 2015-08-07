@@ -22,3 +22,5 @@ Gemfile.lock
 
 # Ignore google drive cache
 google_drive_cache/
+.google_drive_oauth2.json
+.google_client_secrets.json
