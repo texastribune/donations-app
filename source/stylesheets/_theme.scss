@@ -87,6 +87,49 @@
   }
 }
 
+// Ugly Stripe styles; temporary if needed only
+.stripe-button-el {
+  background-image: none !important;
+  background-color: $yellow-tribune !important;
+  border-radius: 0 !important;
+  color: $black;
+  font-size: 1.2em !important;
+  font-weight: bold !important;
+  margin-top: 1em;
+  text-align: center;
+  width: 100%;
+  &:hover {
+    @include fast-transition(background-color);
+    background-color: $teal-tribune !important;
+    background-image: none !important;
+    color: $white !important;
+  }
+  @media (max-width: 620px) {
+    margin-bottom: 1em;
+  }
+  span {
+    background: none !important;
+    background-image: none !important;
+    background-color: $yellow-tribune !important;
+    border-radius: 0 !important;
+    color: $black !important;
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    padding: 0.5em 1.8em !important;
+    height: inherit !important;
+    line-height: inherit !important;
+    &:hover {
+      @include fast-transition(background-color);
+      background-color: $teal-tribune !important;
+      background-image: none !important;
+      color: $white !important;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
 
 // General hr style
 hr {
