@@ -16,6 +16,20 @@ Install the necessary gems from the Gemfile by running:
 
 You might find it helpful to use [rbenv](https://github.com/sstephenson/rbenv) to manage your Ruby environment.
 
+If you're working in an Ubuntu (Trusty) environment, the following is a list of prerequisites for the project:
+
+* ruby2.1 
+* ruby2.1-dev 
+* nodejs
+* rubygems
+* make
+* gcc
+* g++
+* build-essential
+* zlib1g-dev
+* libxml2-dev
+* libxslt1-dev
+
 ## Initial setup
 
 You'll need to configure your authentication with Google docs for the middleman-google_drive gem. See the Setup section in the README for the gem [here](https://github.com/voxmedia/middleman-google_drive).
