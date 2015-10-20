@@ -31,9 +31,9 @@ title: Explore Benefits
             <h5 class="benefit-flag"><i class="fa fa-star"></i> Most Popular</h5>
           <% end %>
         </td>
-        <% if level.amount_month %><td class="amount-monthly"><a href="/form?<% if level.circle %>&amp;installmentPeriod=36<% end %>&amp;amount=<%= level.amount_month %>&amp;installments=monthly"><% if level.range_month %><%= level.range_month %><% else %>$<%= level.amount_month %><% end %> Monthly</a></td><% end %>
+        <% if level.amount_month %><td class="amount-monthly"><a href="/form?&amp;amount=<%= level.amount_month %>&amp;installments=monthly<% if level.circle %>&amp;installmentPeriod=36<% end %>"><% if level.range_month %><%= level.range_month %><% else %>$<%= level.amount_month %><% end %> Monthly</a></td><% end %>
         <td class="amount-yearly">
-          <a href="/form?<% if level.circle %>&amp;installmentPeriod=3<% end %>&amp;amount=<%= level.amount_annual %>&amp;installments=yearly"><% if level.range_annual %><%= level.range_annual %><% else %><% if level.amount_annual_comma %>$<%= level.amount_annual_comma %><% else %>$<%= level.amount_annual %><% end %><% end %> Annually</a>
+          <a href="/form?&amp;amount=<%= level.amount_annual %>&amp;installments=yearly<% if level.circle %>&amp;installmentPeriod=3<% end %>"><% if level.range_annual %><%= level.range_annual %><% else %><% if level.amount_annual_comma %>$<%= level.amount_annual_comma %><% else %>$<%= level.amount_annual %><% end %><% end %> Annually</a>
         </td>
       </tr>
       <tr class="popout">
