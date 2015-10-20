@@ -117,7 +117,7 @@ $(document).ready(function() {
   });
 
  // When user submits a contribution
- // Pass appropriate querystring params to Givalike
+ // Pass appropriate querystring params to Stripe form
  $('#top-contribute').submit(function(e) {
 
     // Don't submit the form as is
@@ -200,7 +200,7 @@ $(document).ready(function() {
   });
 
   // When user submits a contribution
- // Pass appropriate querystring params to Givalike
+ // Pass appropriate querystring params to Stripe form
  $('#contribution-form-bottom').submit(function(e) {
 
     // Don't submit the form as is
