@@ -215,7 +215,7 @@ $(document).ready(function() {
     var amount = $('#spinner-bottom').val();
 
      // Get frequency and set if monthly or yearly
-    get_frequency();
+    get_frequency_bottom();
     if (is_monthly) {
       installmentPeriod = 'monthly';
     } else {
@@ -229,6 +229,9 @@ $(document).ready(function() {
       installments = 3;
     }
 
+    url += '&amount=';
+    url += amount;
+
     // Add installments if circle
     if (installments) {
       url += '&installments=';
@@ -240,7 +243,7 @@ $(document).ready(function() {
 
     $('#contribution-form-bottom').get(0).setAttribute('action', url);
 
-    // Go to Givalike
+    // Go to Stripe form
     $(location).attr('href',url);
   });
 
