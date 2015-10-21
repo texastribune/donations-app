@@ -39,11 +39,11 @@ $league-gothic: 'league-gothic', sans-serif;
 
 // for visually hiding but remaining accessible
 @mixin visually-hidden {
-  position: absolute; 
-  overflow: hidden; 
-  clip: rect(0 0 0 0); 
-  height: 1px; width: 1px; 
-  margin: -1px; padding: 0; border: 0; 
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px; width: 1px;
+  margin: -1px; padding: 0; border: 0;
 }
 
 @mixin background-sizing {
@@ -67,9 +67,17 @@ $league-gothic: 'league-gothic', sans-serif;
 
 // Helper classes
 .visually-hidden {
-  position: absolute; 
-  overflow: hidden; 
-  clip: rect(0 0 0 0); 
-  height: 1px; width: 1px; 
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px; width: 1px;
   margin: -1px; padding: 0; border: 0;
+}
+
+.hide-mobile {
+  @include hide-for-mobile;
+}
+
+.show-mobile {
+  @include show-for-mobile;
 }
