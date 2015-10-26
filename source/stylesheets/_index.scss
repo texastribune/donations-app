@@ -51,10 +51,8 @@
         padding: 1em 0.8em 0.5em 0.8em;
       }
     }
-    @include media($mobile) {
-      hr:last-of-type {
-        display: none;
-      }
+    hr:nth-last-of-type(3) {
+      @include hide-for-mobile;
     }
   }
 }
