@@ -177,12 +177,16 @@ input[type=number]::-webkit-outer-spin-button {
     }
     .contribute {
       background: transparent;
-      .donate-link p {
-        color: white;
-        font-size: 1.5em;
-        margin-top: 2em;
-        span {
-          text-decoration: underline;
+      .donate-link {
+        display: block;
+        p {
+          color: white;
+          font-size: 1.2em;
+          margin-top: 1em;
+          span {
+            color: white;
+            text-decoration: underline;
+          }
         }
       }
       .left-wrapper {
