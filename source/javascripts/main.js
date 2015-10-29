@@ -126,7 +126,9 @@ $(document).ready(function() {
     var installmentPeriod, installments;
 
     // Base url for form
-    var url = "https://support.texastribune.org/form?";
+    var url = "https://support.texastribune.org/";
+
+    var form = 'memberform?';
 
     // Grab contribution amount
     var amount = $('#spinner').val();
@@ -142,9 +144,13 @@ $(document).ready(function() {
     // Set up installments if circle
     if (is_monthly && amount > 83) {
       installments = 36;
+      form = 'circleform?';
     } else if (!is_monthly && amount > 999) {
       installments = 3;
+      form = 'circleform?';
     }
+
+    url += form;
 
     url += '&amount=';
     url += amount;
@@ -209,7 +215,9 @@ $(document).ready(function() {
     var installmentPeriod, installments;
 
     // Base url for form
-    var url = "https://support.texastribune.org/form?";
+    var url = "https://support.texastribune.org/";
+
+    var form = 'memberform?';
 
     // Grab contribution amount
     var amount = $('#spinner-bottom').val();
@@ -225,9 +233,13 @@ $(document).ready(function() {
     // Set up installments if circle
     if (is_monthly && amount > 83) {
       installments = 36;
+      form = 'circleform?';
     } else if (!is_monthly && amount > 999) {
       installments = 3;
+      form = 'circleform?';
     }
+
+    url += form;
 
     url += '&amount=';
     url += amount;
