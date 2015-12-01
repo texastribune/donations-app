@@ -48,7 +48,7 @@ title: Become a Member
           <% end %>
           <h3><%= level.name %></h3>
           <h4 class="amount">
-            <% if level.amount_month %><a href="https://checkout.texastribune.org/<% if level.circle %>circle<% else %>member<% end %>form?&amp;amount=<%= level.amount_month %><% if level.circle %>&amp;installments=36<% end %>&amp;installmentPeriod=monthly">$<%= level.amount_month %> Monthly</a> <span>or</span> <% end %><a href="/<% if level.circle %>circle<% else %>member<% end %>form?&amp;amount=<%= level.amount_annual %>&amp;installmentPeriod=yearly<% if level.circle %>&amp;installments=3<% end %>"><% if level.amount_annual_comma %>$<%= level.amount_annual_comma %><% else %>$<%= level.amount_annual %><% end %> Annually</a></h4>
+            <% if level.amount_month %><a href="https://checkout.texastribune.org/<% if level.circle %>circle<% else %>member<% end %>form?&amp;amount=<%= level.amount_month %><% if level.circle %>&amp;installments=36<% end %>&amp;installmentPeriod=monthly">$<%= level.amount_month %> Monthly</a> <span>or</span> <% end %><a href="https://checkout.texastribune.org/<% if level.circle %>circle<% else %>member<% end %>form?&amp;amount=<%= level.amount_annual %>&amp;installmentPeriod=yearly<% if level.circle %>&amp;installments=3<% end %>"><% if level.amount_annual_comma %>$<%= level.amount_annual_comma %><% else %>$<%= level.amount_annual %><% end %> Annually</a></h4>
           <% if level.commitment %>
             <p class="italic">Three-Year Commitment</p>
           <% end %>
