@@ -126,7 +126,7 @@ $(document).ready(function() {
     var installmentPeriod, installments;
 
     // Base url for form
-    var url = "https://support.texastribune.org/";
+    var url = "https://checkout.texastribune.org/";
 
     var form = 'memberform?';
 
@@ -215,7 +215,7 @@ $(document).ready(function() {
     var installmentPeriod, installments;
 
     // Base url for form
-    var url = "https://support.texastribune.org/";
+    var url = "https://checkout.texastribune.org/";
 
     var form = 'memberform?';
 

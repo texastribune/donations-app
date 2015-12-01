@@ -31,9 +31,9 @@ title: Explore Benefits
             <h5 class="benefit-flag"><i class="fa fa-star"></i> Most Popular</h5>
           <% end %>
         </td>
-        <% if level.amount_month %><td class="amount-monthly"><a href="/<% if level.circle %>circle<% else %>member<% end %>form?&amp;amount=<%= level.amount_month %><% if level.circle %>&amp;installments=36<% end %>&amp;installmentPeriod=monthly"><% if level.range_month %><%= level.range_month %><% else %>$<%= level.amount_month %><% end %> Monthly</a></td><% end %>
+        <% if level.amount_month %><td class="amount-monthly"><a href="https://checkout.texastribune.org/<% if level.circle %>circle<% else %>member<% end %>form?&amp;amount=<%= level.amount_month %><% if level.circle %>&amp;installments=36<% end %>&amp;installmentPeriod=monthly"><% if level.range_month %><%= level.range_month %><% else %>$<%= level.amount_month %><% end %> Monthly</a></td><% end %>
         <td class="amount-yearly">
-          <a href="/<% if level.circle %>circle<% else %>member<% end %>form?&amp;amount=<%= level.amount_annual %><% if level.circle %>&amp;installments=3<% end %>&amp;installmentPeriod=yearly"><% if level.range_annual %><%= level.range_annual %><% else %><% if level.amount_annual_comma %>$<%= level.amount_annual_comma %><% else %>$<%= level.amount_annual %><% end %><% end %> Annually</a>
+          <a href="https://checkout.texastribune.org/<% if level.circle %>circle<% else %>member<% end %>form?&amp;amount=<%= level.amount_annual %><% if level.circle %>&amp;installments=3<% end %>&amp;installmentPeriod=yearly"><% if level.range_annual %><%= level.range_annual %><% else %><% if level.amount_annual_comma %>$<%= level.amount_annual_comma %><% else %>$<%= level.amount_annual %><% end %><% end %> Annually</a>
         </td>
       </tr>
       <tr class="popout">
