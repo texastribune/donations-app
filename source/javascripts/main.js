@@ -117,47 +117,56 @@ $(document).ready(function() {
   });
 
  // When user submits a contribution
- // Pass appropriate querystring params to Givalike
+ // Pass appropriate querystring params to Stripe form
  $('#top-contribute').submit(function(e) {
 
     // Don't submit the form as is
     e.preventDefault();
 
-    // Base Givalike url
-    var url = "https://givalike.org/public/quickgive.aspx?cid=";
+    var installmentPeriod, installments;
 
-    var form_cid = 227;
+    // Base url for form
+    var url = "https://checkout.texastribune.org/";
+
+    var form = 'memberform?';
 
     // Grab contribution amount
     var amount = $('#spinner').val();
 
-    // Get frequency and set if monthly or not
+    // Get frequency and set if monthly or yearly
     get_frequency();
     if (is_monthly) {
-      monthly = 1;
+      installmentPeriod = 'monthly';
     } else {
-      monthly = 0;
+      installmentPeriod = 'yearly';
     }
 
-    // if circle, send to different form
+    // Set up installments if circle
     if (is_monthly && amount > 83) {
-      form_cid = 231;
+      installments = 36;
+      form = 'circleform?';
     } else if (!is_monthly && amount > 999) {
-      form_cid = 231;
+      installments = 3;
+      form = 'circleform?';
     }
 
-    // Add cid and params to url
-    url += form_cid;
+    url += form;
 
     url += '&amount=';
     url += amount;
 
-    url += '&monthly=';
-    url += monthly;
+    // Add installments if circle
+    if (installments) {
+      url += '&installments=';
+      url += installments;
+    }
+
+    url += '&installmentPeriod=';
+    url += installmentPeriod;
 
     $('#top-contribute').get(0).setAttribute('action', url);
 
-    // Go to Givalike
+    // Go to Stripe form
     $(location).attr('href',url);
   });
 
@@ -197,48 +206,56 @@ $(document).ready(function() {
   });
 
   // When user submits a contribution
- // Pass appropriate querystring params to Givalike
+ // Pass appropriate querystring params to Stripe form
  $('#contribution-form-bottom').submit(function(e) {
 
     // Don't submit the form as is
     e.preventDefault();
 
-    // Base Givalike url
-    var url = "https://givalike.org/public/quickgive.aspx?cid=";
+    var installmentPeriod, installments;
 
-    var form_cid = 227;
+    // Base url for form
+    var url = "https://checkout.texastribune.org/";
+
+    var form = 'memberform?';
 
     // Grab contribution amount
     var amount = $('#spinner-bottom').val();
 
-    // Get frequency and set if monthly or not
+     // Get frequency and set if monthly or yearly
     get_frequency_bottom();
     if (is_monthly) {
-      monthly = 1;
+      installmentPeriod = 'monthly';
     } else {
-      monthly = 0;
+      installmentPeriod = 'yearly';
     }
 
-    // if circle, send to different form
+    // Set up installments if circle
     if (is_monthly && amount > 83) {
-      form_cid = 231;
+      installments = 36;
+      form = 'circleform?';
     } else if (!is_monthly && amount > 999) {
-      form_cid = 231;
+      installments = 3;
+      form = 'circleform?';
     }
 
-    // Add cid and params to url
-    url += form_cid;
+    url += form;
 
-    // Add params to url
     url += '&amount=';
     url += amount;
 
-    url += '&monthly=';
-    url += monthly;
+    // Add installments if circle
+    if (installments) {
+      url += '&installments=';
+      url += installments;
+    }
+
+    url += '&installmentPeriod=';
+    url += installmentPeriod;
 
     $('#contribution-form-bottom').get(0).setAttribute('action', url);
 
-    // Go to Givalike
+    // Go to Stripe form
     $(location).attr('href',url);
   });
 
