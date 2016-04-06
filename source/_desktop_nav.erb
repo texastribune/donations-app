@@ -3,7 +3,8 @@
     <li <% if current_page.data.title == 'Become a Member' %>class="active"<% end %>><%= link_to 'Become<br> a Member<i class="fa fa-caret-down"></i>', '/index.html' %></li>
     <li <% if current_page.data.title == 'Explore Benefits' %>class="active"<% end %>><%= link_to 'Explore<br> Benefits<i class="fa fa-caret-down"></i>', '/levels.html' %></li>
     <li <% if current_page.data.title == 'Circle Membership' %>class="active"<% end %>><%= link_to 'Circle<br> Membership<i class="fa fa-caret-down"></i>', '/circle.html' %></li>
-    <li><a href="http://www.texastribune.org/support-us/donors-and-members/">Donor and<br> Member Wall</a></li>
+    <li <% if current_page.data.title == 'Donor and Member Wall' %>class="active"<% end %>><%= link_to 'Donor and<br> Member Wall<i class="fa fa-caret-down"></i>', '/donor-wall.html' %></li>
+<!--     <li><a href="http://www.texastribune.org/support-us/donors-and-members/">Donor and<br> Member Wall</a></li> -->
     <li><a href="http://www.texastribune.org/support-us/corporate-sponsors/">Corporate<br> Sponsors</a></li>
     <li <% if current_page.data.title == 'Frequently Asked Questions' %>class="active"<% end %>><%= link_to 'Frequently<br> Asked Questions<i class="fa fa-caret-down"></i>', '/faq.html' %></li>
   </ul>

@@ -1,0 +1,15 @@
+.donor-wall {
+  .splash {
+    background-color: lighten($black, 20%);
+    background-image: url("../images/FAQ-header-bg.jpg");
+  }
+  .main {
+    padding: 2em;
+    h4 {
+      margin-top: 2em;
+    }
+    p {
+      margin: 0.5em 0;
+    }
+  }
+}
