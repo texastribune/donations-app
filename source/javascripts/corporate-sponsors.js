@@ -25,19 +25,19 @@ function buildTable(data){
     yearButton = '<button class="year-btn year-'+ y +'">'+ displayYear +'</button>';
     $('.year-button').append(yearButton);
     // write table for each year to plug data into
-    year = '<table class="donor-table'+y+' table-year'+y+' donor-table">' + 
-              '<thead>' +
-                '<tr>'+
-                    '<th><div class="label">Sponsor</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
-                    '<th><div class="label">Digital revenue</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
-                    '<th><div class="label">Digital in-kind</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
-                    '<th><div class="label">Events revenue</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
-                    '<th><div class="label">Events in-kind</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
-                    '<th><div class="label">Total</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
-                  '</tr>'+
-                '</thead>'+
-              '<tbody></tbody>'+
-            '</table>';
+    year = '<table class="donor-table'+y+' table-year-'+y+' donor-table">' + 
+            '<thead>' +
+              '<tr>'+
+                  '<th><div class="label">Sponsor</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
+                  '<th><div class="label">Digital revenue</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
+                  '<th><div class="label">Digital in-kind</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
+                  '<th><div class="label">Events revenue</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
+                  '<th><div class="label">Events in-kind</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
+                  '<th><div class="label">Total</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
+                '</tr>'+
+              '</thead>'+
+            '<tbody></tbody>'+
+          '</table>';
     $('.year').append(year);
     // each loop to break into the year object
     $.each(objects, function(index, v) {
@@ -65,7 +65,7 @@ function buildTable(data){
       var total = v.total;
       // fill in each year's table with it's respective data
       tableRow = '<tr>'+
-                    '<td><a href="' + v.url + '">' + sponsor + '</a></td>'+
+                    '<td class="sponsor"><a href="' + v.url + '">' + sponsor + '</a></td>'+
                     '<td>' + digitalRevenue + '</td>'+
                     '<td>' + digitalInKind + '</td>'+
                     '<td>' + eventsRevenue + '</td>'+
@@ -76,9 +76,26 @@ function buildTable(data){
     });
   });
   // display all time table on load as default
-  $('.table-yearall-time').show();
-  $('.year-btn').click(function() {
-    $('.donor-table').hide();
+  $('.table-year-all-time').show();
 
+  $('.year-btn').click(function() {
+    var classes = this.classList;
+    var yearClass = classes[1];
+    $('.donor-table').hide();
+    $('.table-'+yearClass).show();
   });
 }
+
+function searchTable() {
+    var options = {
+    valueNames: [ 'sponsor' ]
+  };
+
+  var userList = new List('sponsor', options);
+}
+
+
+// $.when(buildTable()).done(
+//   console.log('done!'),
+//   searchTable()
+// );

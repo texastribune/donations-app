@@ -17,7 +17,7 @@ function buildWall(data) {
 		// second each loop to grab donations
 		$.each(objects, function(type, i) {
 			// console.log(i[0].amount);
-			console.log(i);
+			// console.log(i);
 		});
 	});
 }
