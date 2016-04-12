@@ -1,4 +1,5 @@
 //= require jquery_ui.js
+//= require jquery.lazyjson.min.js
 //= require jquery.magnific-popup.min.js
 //= require list.min.js
 //= require main.js

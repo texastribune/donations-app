@@ -1,7 +1,7 @@
-var $donorJSON = 'http://membership.texastribune.org/sponsors.json';
+var $sponsorJSON = 'http://membership.texastribune.org/sponsors.json';
 
 $.ajax({
-  url: $donorJSON,
+  url: $sponsorJSON,
   type: 'GET',
   dataType: 'json',
   success: buildTable
@@ -10,8 +10,10 @@ $.ajax({
 function buildTable(data){
   var tableRow = '';
   var year = '';
+  var yearList = [];
   // initial each loop to grab years
   $.each(data, function (y, objects) {
+    yearList.push(y);
     // create year button for each year
     var displayYear;
     // turn 'all-time' into 'All time' so editors are happy
@@ -75,4 +77,8 @@ function buildTable(data){
   });
   // display all time table on load as default
   $('.table-yearall-time').show();
+  $('.year-btn').click(function() {
+    $('.donor-table').hide();
+
+  });
 }
