@@ -15,6 +15,47 @@
 }
 
 .corporate-sponsors {
+  // .sort:hover {
+  //   text-decoration: none;
+  //   background-color:#1b8aba;
+  // }
+  // .sort:focus {
+  //   outline:none;
+  // }
+  // .sort:after {
+  //   display:inline-block;
+  //   width: 0;
+  //   height: 0;
+  //   border-left: 5px solid transparent;
+  //   border-right: 5px solid transparent;
+  //   border-bottom: 5px solid transparent;
+  //   content:"";
+  //   position: relative;
+  //   top:-10px;
+  //   right:-5px;
+  // }
+  // .sort.asc:after {
+  //   width: 0;
+  //   height: 0;
+  //   border-left: 5px solid transparent;
+  //   border-right: 5px solid transparent;
+  //   border-top: 5px solid #fff;
+  //   content:"";
+  //   position: relative;
+  //   top:4px;
+  //   right:-5px;
+  // }
+  // .sort.desc:after {
+  //   width: 0;
+  //   height: 0;
+  //   border-left: 5px solid transparent;
+  //   border-right: 5px solid transparent;
+  //   border-bottom: 5px solid #fff;
+  //   content:"";
+  //   position: relative;
+  //   top:-4px;
+  //   right:-5px;
+  // }
   .splash {
     background-color: lighten($black, 20%);
     background-image: url("../images/FAQ-header-bg.jpg");

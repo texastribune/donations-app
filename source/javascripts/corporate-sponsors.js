@@ -78,24 +78,18 @@ function buildTable(data){
   // display all time table on load as default
   $('.table-year-all-time').show();
 
+  // on year button click, only show table for that year
   $('.year-btn').click(function() {
     var classes = this.classList;
     var yearClass = classes[1];
     $('.donor-table').hide();
     $('.table-'+yearClass).show();
   });
-}
 
-function searchTable() {
-    var options = {
+  var options = {
     valueNames: [ 'sponsor' ]
   };
 
   var userList = new List('sponsor', options);
+  console.log(options);
 }
-
-
-// $.when(buildTable()).done(
-//   console.log('done!'),
-//   searchTable()
-// );
