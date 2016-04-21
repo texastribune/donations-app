@@ -13,11 +13,27 @@ title: Corporate Sponsors
   <%= partial "desktop_nav" %>
 </div><!-- splash-levels -->
 
-<div class="year-button"></div>
-<div class="year">
-	<input class="search" placeholder="Search" />
-	  <button class="sort" data-sort="name">
-	    Sort by name
-	  </button>
+<input class="awesomplete" data-list="mylist" />
+<ul id="mylist">
+</ul>
+<div class="search-results">
+	<table class="search-results-table">
+	    <thead>
+	      <tr>
+	          <th><div class="label">Sponsor</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>
+	          <th><div class="label">Digital revenue</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>
+	          <th><div class="label">Digital in-kind</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>
+	          <th><div class="label">Events revenue</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>
+	          <th><div class="label">Events in-kind</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>
+	          <th><div class="label">Total</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>
+	        </tr>
+	      </thead>
+	    <tbody>
+	    	<td class="sponsor-result"></td>
+	    	<tx class="digital-revenue-result"></tx>
+	    </tbody>
+	  </table>
 </div>
+<div class="year-button"></div>
+<div class="year"></div>
 <div class="donor-table"></div>

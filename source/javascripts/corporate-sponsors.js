@@ -11,6 +11,7 @@ function buildTable(data){
   var tableRow = '';
   var year = '';
   var yearList = [];
+  var corporateNames = [];
   // initial each loop to grab years
   $.each(data, function (y, objects) {
     yearList.push(y);
@@ -43,6 +44,7 @@ function buildTable(data){
     $.each(objects, function(index, v) {
       // if there's a NULL or 0 in the data- just display empty table cells
       var sponsor = v.sponsor;
+      corporateNames.push(v.sponsor);
       if (v.sponsor == 'NULL') {
         sponsor = '';
       }
@@ -73,6 +75,7 @@ function buildTable(data){
                     '<td>' + total + '</td>'+
                   '</tr>';
       $('.donor-table'+y).append(tableRow);
+      $('#mylist').append('<li>'+ sponsor +'</li>');
     });
   });
   // display all time table on load as default
@@ -85,11 +88,4 @@ function buildTable(data){
     $('.donor-table').hide();
     $('.table-'+yearClass).show();
   });
-
-  var options = {
-    valueNames: [ 'sponsor' ]
-  };
-
-  var userList = new List('sponsor', options);
-  console.log(options);
 }
