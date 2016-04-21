@@ -12,9 +12,12 @@ input[type=number]::-webkit-outer-spin-button {
   a {
     color: $black;
   }
+  .give-header {
+    padding-bottom: 0.5em;
+  }
   .contribute {
     background-color: $bg-contribute;
-    padding: 2em;
+    padding: 2em 3em;
     text-align: center;
     @media (max-width: 620px) {
       background-color: transparent;
@@ -28,7 +31,30 @@ input[type=number]::-webkit-outer-spin-button {
         text-align: left;
       }
       p {
-        font-size: 0.9em;
+        clear: both;
+        font-size: 1.2em;
+        padding: 1em 0 0.5em 0;
+      }
+    }
+    .level-inner {
+      float: left;
+      margin-right: 0.5em;
+      width: 30%;
+      h3 {
+        font-size: 1.5em;
+      }
+      h5, h3 {
+        text-align: center;
+      }
+      &.selected {
+        h3, h5 {
+          color: $black;
+        }
+      }
+    }
+    .unselected {
+      h3 {
+        color: $gray-medium;
       }
     }
     h5 {
@@ -110,9 +136,9 @@ input[type=number]::-webkit-outer-spin-button {
 
 // Amount input spinner styles
 #spinner, #spinner-bottom {
-  background-color: $gray-light;
-  border: none;
-  color: $gray-medium;
+  background-color: $white;
+  border: 2px solid $gray-medium;
+  color: $black;
   font-family: "league-gothic";
   font-size: 3.5em;
   margin: 0;

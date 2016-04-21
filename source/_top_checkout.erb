@@ -1,7 +1,8 @@
 <div class="top-checkout express-checkout">
   <div class="contribute">
+    <h3 class="give-header">I would like to give</h3>
     <form id="top-contribute" action="#" method="post">
-      <span class="dollar">$</span><input name="amount" value="9" min="3" max="5000" type="number" id="spinner">
+      <span class="dollar">$</span><input name="amount" value="9" min="3" max="5000" type="number" id="spinner" autofocus>
       <div id="contribute-buttons-top">
           <input type="radio" value="year" id="yearly" name="frequency">
           <label for="yearly"><i class="fa fa-check"></i>Annually</label>
@@ -9,9 +10,19 @@
           <label for="monthly"><i class="fa fa-check"></i>Monthly</label>
       </div>
       <div class="level-display">
-        <h5>Your Level:</h5>
-        <h3 id="level-display">Activist</h3>
-        <a href="/levels.html"><p class="italic"><strong><em>Explore benefits &amp; membership levels <i class="fa fa-chevron-right"></i></em></strong></p></a>
+        <div class="level-inner unselected">
+          <h5>Give Less:</h5>
+          <h3 id="level-previous">Enthusiast</h3>
+        </div>
+        <div class="level-inner selected">
+          <h5>This Level:</h5>
+          <h3 id="level-display">Activist</h3>
+        </div>
+        <div class="level-inner unselected">
+          <h5>Give More:</h5>
+          <h3 id="level-next">Advocate</h3>
+        </div>
+        <a href="/levels.html"><p class="italic"><strong><em>Explore all membership levels <i class="fa fa-chevron-right"></i></em></strong></p></a>
       </div>
       <button type="submit" class="button button-flat">Join or Renew <i class="fa fa-chevron-right"></i></button>
     </form>
