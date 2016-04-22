@@ -1,5 +1,13 @@
 var $donorJSON = 'http://membership.texastribune.org/donors.json';
 
+var ajax = new XMLHttpRequest();
+ajax.open("GET", 'http://membership.texastribune.org/donors.json', true);
+ajax.onload = function() {
+	var list = JSON.parse(ajax.responseText).map(function(i) { return i.name; });
+	new Awesomplete(Awesomplete.$("#ajax-example"),{ list: list });
+};
+ajax.send();
+
 // $.ajax({
 //   url: $donorJSON,
 //   type: 'GET',
@@ -31,5 +39,5 @@ var $donorJSON = 'http://membership.texastribune.org/donors.json';
 // 		// 	// console.log(i);
 // 		// });
 // 	});
-	
+
 // }
