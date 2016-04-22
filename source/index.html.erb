@@ -53,7 +53,11 @@ title: Become a Member
             <p class="italic">Three-Year Commitment</p>
           <% end %>
           <% if level.all_above %>
-            <h4 class="all-above">All the above, plus:</h4>
+            <% if level.extra_content_benefits or level.extra_access_benefits or level.extra_recognition_benefits %>
+              <h4 class="all-above">All the above, plus:</h4>
+            <% else %>
+              <h4 class="all-above">All the above benefits</h4>
+            <% end %>
             <!-- list extra benefits for level by category -->
             <% if level.extra_content_benefits %>
               <h5>Content Benefits</h5>

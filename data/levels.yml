@@ -5,10 +5,16 @@
   student: true
   all_content_benefits:
     -
-      "Quarterly membership report from CEO and Editor-in-Chief Evan Smith"
+      "Quarterly member report: your guide to what’s coming up and going on"
+  all_access_benefits:
+    -
+      "Invitations to Tribune member events"
   all_recognition_benefits:
     -
-      "Your name as a Tribune member on our website"
+      "Recognition on our site"
+  extra_access_benefits:
+    -
+      "Invitations to Tribune member events"
 -
   name: "Enthusiast"
   amount_annual: 35
@@ -18,16 +24,13 @@
   all_above: false
   all_content_benefits:
     -
-      "Quarterly membership report from CEO and Editor-in-Chief Evan Smith"
+      "Quarterly member report: your guide to what’s coming up and going on"
   all_access_benefits:
     -
-      "Invitations to Tribune social events"
+      "Invitations to Tribune member events"
   all_recognition_benefits:
     -
-      "Your name as a Tribune member on our website"
-  extra_access_benefits:
-    -
-      "Invitations to Tribune social events"
+      "Recognition on our site"
 -
   name: "Activist"
   amount_annual: 60
@@ -38,15 +41,15 @@
   all_above: true
   all_content_benefits:
     -
-      "Quarterly membership report from CEO and Editor-in-Chief Evan Smith"
+      "Quarterly member report: your guide to what’s coming up and going on"
   all_access_benefits:
     -
-      "Invitations to Tribune social events"
+      "Invitations to Tribune member events"
     -
       "Discounted tickets to the Texas Tribune Festival"
   all_recognition_benefits:
     -
-      "Your name as a Tribune member on our website"
+      "Recognition on our site"
   extra_access_benefits:
     -
       "Discounted tickets to the Texas Tribune Festival"
@@ -59,29 +62,29 @@
   all_above: true
   all_content_benefits:
     -
-      "Quarterly membership report from CEO and Editor-in-Chief Evan Smith"
+      "Quarterly member report: your guide to what’s coming up and going on"
     -
-      "Promotions such as discounts to Texas Weekly (which includes 12 months of The Washington Post Digital edition)"
+      "Promotions for discounts on Texas Weekly"
   all_access_benefits:
     -
-      "Invitations to Tribune social events"
+      "Invitations to Tribune member events"
     -
       "Discounted tickets to the Texas Tribune Festival"
     -
       "Membership benefits for two"
     -
-      "Special offers from The Tribune and our partners such as discounts to conferences"
+      "Special offers and invitations from Tribune partners to conferences and events"
   all_recognition_benefits:
     -
-      "Your name as a Tribune member on our website"
+      "Recognition on our site"
   extra_content_benefits:
     -
-      "Promotions such as discounts to Texas Weekly (which includes 12 months of The Washington Post Digital edition)"
+      "Promotions for discounts on Texas Weekly"
   extra_access_benefits:
     -
       "Membership benefits for two"
     -
-      "Special offers from The Tribune and our partners such as discounts to conferences"
+      "Special offers and invitations from Tribune partners to conferences and events"
 -
   name: "Diplomat"
   amount_annual: 250
@@ -91,26 +94,26 @@
   all_above: true
   all_content_benefits:
     -
-      "Quarterly membership report from CEO and Editor-in-Chief Evan Smith"
+      "Quarterly member report: your guide to what’s coming up and going on"
     -
-      "Promotions such as discounts to Texas Weekly (which includes 12 months of The Washington Post Digital edition)"
+      "Promotions for discounts on Texas Weekly"
     -
-      "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
+      "TribMonth, a monthly roundup of the Tribune’s best content selected by CEO Evan Smith"
   all_access_benefits:
     -
-      "Invitations to Tribune social events"
+      "Invitations to Tribune member events"
     -
       "Discounted tickets to the Texas Tribune Festival"
     -
       "Membership benefits for two"
     -
-      "Special offers from The Tribune and our partners such as discounts to conferences"
+      "Special offers and invitations from Tribune partners to conferences and events"
   all_recognition_benefits:
     -
-      "Your name as a Tribune member on our website"
+      "Recognition on our site"
   extra_content_benefits:
     -
-      "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
+      "TribMonth, a monthly roundup of the Tribune’s best content selected by CEO Evan Smith"
 -
   name: "Benefactor"
   amount_annual: 500
@@ -120,32 +123,32 @@
   all_above: true
   all_content_benefits:
     -
-      "Quarterly membership report from CEO and Editor-in-Chief Evan Smith"
+      "Quarterly member report: your guide to what’s coming up and going on"
     -
-      "Promotions such as discounts to Texas Weekly (which includes 12 months of The Washington Post Digital edition)"
+      "Promotions for discounts on Texas Weekly"
     -
-      "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
+      "TribMonth, a monthly roundup of the Tribune’s best content selected by CEO Evan Smith"
   all_access_benefits:
     -
-      "Invitations to Tribune social events"
+      "Invitations to Tribune member events"
     -
       "Discounted tickets to the Texas Tribune Festival"
     -
       "Membership benefits for two"
     -
-      "Special offers from The Tribune and our partners such as discounts to conferences"
+      "Special offers and invitations from Tribune partners to conferences and events"
     -
-      "An invitation for two to the State of the State cocktail reception"
+      "Gift membership at the Activist level for a friend"
     -
-      "Exclusive previews of key projects and developments"
+      "Exclusive preview of key projects and events"
   all_recognition_benefits:
     -
-      "Your name as a Tribune member on our website"
+      "Recognition on our site"
   extra_access_benefits:
     -
-      "An invitation for two to the State of the State cocktail reception"
+      "Gift membership at the Activist level for a friend"
     -
-      "Exclusive previews of key projects and developments"
+      "Exclusive preview of key projects and events"
 -
   name: "Editor&rsquo;s Circle"
   amount_annual: 1000
@@ -157,32 +160,50 @@
   circle: true
   all_content_benefits:
     -
-      "Quarterly membership report from CEO and Editor-in-Chief Evan Smith"
+      "Quarterly member report: your guide to what’s coming up and going on"
     -
-      "Promotions such as discounts to Texas Weekly (which includes 12 months of The Washington Post Digital edition)"
+      "Promotions for discounts on Texas Weekly"
     -
-      "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
+      "TribMonth, a monthly roundup of the Tribune’s best content selected by CEO Evan Smith"
+    -
+      "Special notifications and updates from Evan Smith, CEO"
   all_access_benefits:
     -
-      "Invitations to Tribune social events"
+      "Invitations to Tribune member events"
     -
       "Discounted tickets to the Texas Tribune Festival"
     -
       "Membership benefits for two"
     -
-      "Special offers from The Tribune and our partners such as discounts to conferences"
+      "Special offers and invitations from Tribune partners to conferences and events"
     -
-      "An invitation for two to the State of the State cocktail reception"
+      "Gift membership at the Activist level for a friend"
     -
-      "Exclusive previews of key projects and developments"
+      "Exclusive preview of key projects and events"
+    -
+      "Early registration to select Tribune events and VIP receptions"
+    -
+      "Invitations to exclusive events as part of The Texas Tribune Festival and year-round"
+    -
+      "Reserved seating at Tribune statewide events"
   all_recognition_benefits:
     -
-      "Your name as a Tribune member on our website"
+      "Recognition on our site"
     -
-      "Donor board recognition at events"
+      "Exclusive recognition as a Texas Tribune Circle member on our site"
+  extra_content_benefits:
+    -
+      "Special notifications and updates from Evan Smith, CEO"
+  extra_access_benefits:
+    -
+      "Early registration to select Tribune events and VIP receptions"
+    -
+      "Invitations to exclusive events as part of The Texas Tribune Festival and year-round"
+    -
+      "Reserved seating at Tribune statewide events"
   extra_recognition_benefits:
     -
-      "Donor board recognition at events"
+      "Exclusive recognition as a Texas Tribune Circle member on our site"
 -
   name: "Leadership Circle"
   amount_annual: 2500
@@ -193,34 +214,37 @@
   circle: true
   all_content_benefits:
     -
-      "Quarterly membership report from CEO and Editor-in-Chief Evan Smith"
+      "Quarterly member report: your guide to what’s coming up and going on"
     -
-      "Promotions such as discounts to Texas Weekly (which includes 12 months of The Washington Post Digital edition)"
+      "Promotions for discounts on Texas Weekly"
     -
-      "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
+      "TribMonth, a monthly roundup of the Tribune’s best content selected by CEO Evan Smith"
+    -
+      "Special notifications and updates from Evan Smith, CEO"
   all_access_benefits:
     -
-      "Invitations to Tribune social events"
+      "Invitations to Tribune member events"
     -
       "Discounted tickets to the Texas Tribune Festival"
     -
       "Membership benefits for two"
     -
-      "Special offers from The Tribune and our partners such as discounts to conferences"
+      "Special offers and invitations from Tribune partners to conferences and events"
     -
-      "An invitation for two to the State of the State cocktail reception"
+      "Gift membership at the Activist level for a friend"
     -
-      "Exclusive previews of key projects and developments"
+      "Exclusive preview of key projects and events"
     -
-      "Reserved seating at select Tribune events"
+      "Early registration to select Tribune events and VIP receptions"
+    -
+      "Invitations to exclusive events as part of The Texas Tribune Festival and year-round"
+    -
+      "Reserved seating at Tribune statewide events"
   all_recognition_benefits:
     -
-      "Your name as a Tribune member on our website"
+      "Recognition on our site"
     -
-      "Donor board recognition at events"
-  extra_access_benefits:
-    -
-      "Reserved seating at select Tribune events"
+      "Exclusive recognition as a Texas Tribune Circle member on our site"
 -
   name: "Chairman&rsquo;s Circle"
   amount_annual: 5000
@@ -231,33 +255,34 @@
   circle: true
   all_content_benefits:
     -
-      "Quarterly membership report from CEO and Editor-in-Chief Evan Smith"
+      "Quarterly member report: your guide to what’s coming up and going on"
     -
-      "Promotions such as discounts to Texas Weekly (which includes 12 months of The Washington Post Digital edition)"
+      "Promotions for discounts on Texas Weekly"
     -
-      "Trib Month, a monthly roundup of the Tribune's best material curated by Evan Smith"
+      "TribMonth, a monthly roundup of the Tribune’s best content selected by CEO Evan Smith"
+    -
+      "Special notifications and updates from Evan Smith, CEO"
   all_access_benefits:
     -
-      "Invitations to Tribune social events"
+      "Invitations to Tribune member events"
     -
       "Discounted tickets to the Texas Tribune Festival"
     -
       "Membership benefits for two"
     -
-      "Special offers from The Tribune and our partners such as discounts to conferences"
+      "Special offers and invitations from Tribune partners to conferences and events"
     -
-      "An invitation for two to the State of the State cocktail reception"
+      "Gift membership at the Activist level for a friend"
     -
-      "Exclusive previews of key projects and developments"
+      "Exclusive preview of key projects and events"
     -
-      "Reserved seating at select Tribune events"
+      "Reserved seating at Tribune statewide events"
     -
-      "Invitations to small VIP Tribune gatherings"
+      "Early registration to select Tribune events and VIP receptions"
+    -
+      "Invitations to exclusive events as part of The Texas Tribune Festival and year-round"
   all_recognition_benefits:
     -
-      "Your name as a Tribune member on our website"
+      "Recognition on our site"
     -
-      "Donor board recognition at events"
-  extra_access_benefits:
-    -
-      "Invitations to small VIP Tribune gatherings"
+      "Exclusive recognition as a Texas Tribune Circle member on our site"
