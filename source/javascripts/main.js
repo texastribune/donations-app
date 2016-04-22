@@ -99,34 +99,42 @@ $(document).ready(function() {
         previous_level_label.text('Student');
         level_label.text('Enthusiast');
         next_level_label.text('Activist');
+        give_more.text(60 - input_amount);
       } else if (input_amount > 59 && input_amount <= 149) {
         previous_level_label.text('Enthusiast');
         level_label.text('Activist');
         next_level_label.text('Advocate');
+        give_more.text(150 - input_amount);
       } else if (input_amount > 149 && input_amount <= 249) {
         previous_level_label.text('Activist');
         level_label.text('Advocate');
         next_level_label.text('Diplomat');
+        give_more.text(250 - input_amount);
       } else if (input_amount > 249 && input_amount <= 499) {
         previous_level_label.text('Advocate');
         level_label.text('Diplomat');
         next_level_label.text('Benefactor');
+        give_more.text(500 - input_amount);
       } else if (input_amount > 499 && input_amount <= 999) {
         previous_level_label.text('Diplomat');
         level_label.text('Benefactor');
         next_level_label.text("Editor's Circle");
+        give_more.text(1000 - input_amount);
       } else if (input_amount > 999 && input_amount <= 2499) {
         previous_level_label.text('Benefactor');
         level_label.text("Editor's Circle");
         next_level_label.text("Leadership Circle");
+        give_more.text(2500 - input_amount);
       } else if (input_amount > 2499 && input_amount <= 4999) {
         previous_level_label.text("Editor's Circle");
         level_label.text('Leadership Circle');
         next_level_label.text("Chairman's Circle");
+        give_more.text(5000 - input_amount);
       } else if (input_amount > 4999) {
         previous_level_label.text("Leadership Circle");
         level_label.text("Chairman's Circle");
         next_level_label.text("No higher level!");
+        give_more.text('0');
       }
     }
   };
@@ -150,6 +158,7 @@ $(document).ready(function() {
     currentVal *= 12;
     newVal = currentVal;
     $('#spinner').attr('value', newVal);
+    displayLevel();
   });
 
   // if 'Monthly' is clicked, divide val by 12
@@ -158,6 +167,7 @@ $(document).ready(function() {
     currentVal = parseInt($('#spinner').val());
     newVal = Math.ceil(currentVal / 12);
     $('#spinner').attr('value', newVal);
+    displayLevel();
   });
 
  // When user submits a contribution
