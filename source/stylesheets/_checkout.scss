@@ -14,6 +14,9 @@ input[type=number]::-webkit-outer-spin-button {
   }
   .give-header {
     padding-bottom: 0.5em;
+    @media (max-width: 620px) {
+      color: $white;
+    }
   }
   .contribute {
     background-color: $bg-contribute;
@@ -34,12 +37,16 @@ input[type=number]::-webkit-outer-spin-button {
         clear: both;
         font-size: 1.2em;
         padding: 1em 0 0.5em 0;
+        text-decoration: underline;
       }
     }
     .level-inner {
       float: left;
       margin-right: 0.5em;
       width: 30%;
+      @media (max-width: 850px) {
+        display: none;
+      }
       h3 {
         font-size: 1.5em;
       }
