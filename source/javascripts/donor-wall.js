@@ -40,28 +40,17 @@ function buildWall(data) {
 					'</tbody>' +
 				'</table>';
 	var $processWall = $(wall);
-	$.each(data, function (index, objects) {
-		var sponsorName = objects.name;
-		var slugName = slug(sponsorName);
-		var $sponsorRow = '<tr>'+
+	$.map(data, function(val, i) {
+		var sponsorName = val.name,
+			slugName = slug(sponsorName);
+			$sponsorRow = '<tr>'+
 							'<td>'+ sponsorName +'</td>' +
 							'<td class="amount '+ slugName +'"></td>'+
-						'</tr>';
-		var $processSponsorRow = $($sponsorRow);
-		$processWall.find('tbody').html($processSponsorRow);
-		// $($wall + 'tbody').append($sponsorRow);
-		// $('tbody').append(sponsorRow);
-		// console.log(objects.donations);
-		// console.log(index);
-		// second each loop to grab donations
-		$.each(objects.donations, function(type, i) {
-			if (i.year == 'all-time') {
-				$processSponsorRow.find('.'+slugName).html(i.amount); 
-				// $($sponsorRow +'.'+slugName).append(i.amount);
-				// $('.' + slugName).append(i.amount); 
-			}
-		});
+						  '</tr>';
+			var $processSponsorRow = $($sponsorRow);
+			$processWall.find('tbody').append($processSponsorRow);
 	});
+
 	$('.donor-wall-table').html($processWall);
 	console.log($processWall);
 
