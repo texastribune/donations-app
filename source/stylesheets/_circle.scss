@@ -31,21 +31,21 @@
 }
 
 .circle-box-top {
-  background-color: $black;
+  background-color: $white;
   padding: 1em 2.2em;
   text-align: center;
   h3 {
     border-bottom: 2px solid $yellow-tribune;
-    color: $white;
+    color: $black;
     padding: 0.2em 0;
   }
   h4, p {
-    color: $yellow-tribune;
+    color: $black;
+    font-weight: 700;
     margin: 0.5em 0;
   }
   h4 {
     font-size: 1.2em;
-    font-weight: 400;
   }
 }
 
