@@ -14,13 +14,11 @@ title: Circle Membership
         <div class="circle-box">
           <div class="circle-box-top">
             <h3><%= level.name %></h3>
-            <h4>$<%= level.amount_annual_comma %> Annually</h4>
-            <h4>or $<%= level.amount_month %> Monthly</h4>
             <p><em>Three-Year Commitment</em></p>
           </div>
           <div class="circle-box-bottom">
-            <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_annual %>&amp;installmentPeriod=yearly&amp;installments=3"><button class="button button-flat">Join <i class="fa fa-chevron-right"></i></button></a>
-            <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_annual %>&amp;installmentPeriod=yearly&amp;installments=3"><button style="float: right;" class="button button-flat">Renew <i class="fa fa-chevron-right"></i></button></a>
+            <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_annual %>&amp;installmentPeriod=yearly&amp;installments=3"><button class="button button-flat">$<%= level.amount_annual_comma %> <br>Annually</button></a>
+            <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_month %>&amp;installmentPeriod=monthly&amp;installments=3"><button style="float: right;" class="button button-flat">$<%= level.amount_month %> <br>Monthly</button></a>
           </div>
         </div>
       <% end %>
