@@ -138,7 +138,7 @@ hr {
   }
   &#video-top {
     background-color: lighten($black, 20%);
-    background-image: url("../images/TT-5thAnniversary-still.jpg");
+    background-image: url("../images/ESmith_mission_img.jpg");
     background-size: cover;
     height: 350px;
     @include media($mobile) {
@@ -161,11 +161,11 @@ hr {
 }
 
 #video-three {
-  background-image: url("../images/godandgov-jesus-statue.jpg");
+  background-image: url("../images/godandgov.jpg");
 }
 
 #video-four {
-  background-image: url("../images/TT-ATwistedSystem-Crystal-still-dark.jpg");
+  background-image: url("../images/CapitolAnimation.jpg");
 }
 
 .watch-more {
