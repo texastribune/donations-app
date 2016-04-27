@@ -12,10 +12,19 @@ input[type=number]::-webkit-outer-spin-button {
   a {
     color: $black;
   }
+  .give-header {
+    padding-bottom: 0.5em;
+    @media (max-width: 620px) {
+      color: $white;
+    }
+  }
   .contribute {
     background-color: $bg-contribute;
-    padding: 2em;
+    padding: 2em 3em;
     text-align: center;
+    @media (max-width: 680px) {
+      padding: 2em;
+    }
     @media (max-width: 620px) {
       background-color: transparent;
       padding: 0;
@@ -24,11 +33,39 @@ input[type=number]::-webkit-outer-spin-button {
       @media (max-width: 620px) {
         display: none;
       }
-      h5, h3, p {
+      h5, h3 {
         text-align: left;
       }
       p {
-        font-size: 0.9em;
+        clear: both;
+        font-size: 1.2em;
+        padding: 1em 0 0.5em 0;
+        text-align: center;
+        text-decoration: underline;
+      }
+    }
+    .level-inner {
+      float: left;
+      margin-right: 0.5em;
+      width: 45%;
+      @media (max-width: 850px) {
+        display: none;
+      }
+      h3 {
+        font-size: 1.5em;
+      }
+      h5, h3 {
+        text-align: center;
+      }
+      &.selected {
+        h3, h5 {
+          color: $black;
+        }
+      }
+    }
+    .unselected {
+      h3 {
+        color: $gray-medium;
       }
     }
     h5 {
@@ -46,10 +83,10 @@ input[type=number]::-webkit-outer-spin-button {
     }
     span.dollar {
       color: $black;
-      float: left;
       font-family: "league-gothic";
       font-size: 3.5em;
       padding: 0 0.2em;
+      vertical-align: middle;
       @media (max-width: 620px) {
         color: $white;
       }
@@ -98,7 +135,7 @@ input[type=number]::-webkit-outer-spin-button {
       }
     }
     .ui-spinner {
-      width: 80%;
+      width: 200px;
     }
   }
 }
@@ -110,9 +147,9 @@ input[type=number]::-webkit-outer-spin-button {
 
 // Amount input spinner styles
 #spinner, #spinner-bottom {
-  background-color: $gray-light;
-  border: none;
-  color: $gray-medium;
+  background-color: $white;
+  border: 2px solid $gray-medium;
+  color: $black;
   font-family: "league-gothic";
   font-size: 3.5em;
   margin: 0;

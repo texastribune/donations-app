@@ -14,34 +14,11 @@ title: Circle Membership
         <div class="circle-box">
           <div class="circle-box-top">
             <h3><%= level.name %></h3>
-            <h4>$<%= level.amount_annual_comma %> Annually</h4>
             <p><em>Three-Year Commitment</em></p>
           </div>
           <div class="circle-box-bottom">
-            <% if level.benefactor_plus %>
-              <h4>All Benefactor level benefits, plus:</h4>
-            <% else %>
-              <h4>All previous level benefits, plus:</h4>
-            <% end %>
-            <div class="circle-box-benefits">
-            <% if level.extra_access_benefits %>
-              <% level.extra_access_benefits.each do |benefit| %>
-                <p><%= benefit %></p>
-              <% end %>
-            <% end %>
-            <% if level.extra_content_benefits %>
-              <% level.extra_content_benefits.each do |benefit| %>
-                <p><%= benefit %></p>
-              <% end %>
-            <% end %>
-            <% if level.extra_recognition_benefits %>
-              <% level.extra_recognition_benefits.each do |benefit| %>
-                <p><%= benefit %></p>
-              <% end %>
-            <% end %>
-            </div>
-            <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_annual %>&amp;installmentPeriod=yearly&amp;installments=3"><button class="button button-flat">Join <i class="fa fa-chevron-right"></i></button></a>
-            <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_annual %>&amp;installmentPeriod=yearly&amp;installments=3"><button style="float: right;" class="button button-flat">Renew <i class="fa fa-chevron-right"></i></button></a>
+            <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_annual %>&amp;installmentPeriod=yearly&amp;installments=3"><button class="button button-flat">$<%= level.amount_annual_comma %> <br>Annually</button></a>
+            <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_month %>&amp;installmentPeriod=monthly&amp;installments=3"><button style="float: right;" class="button button-flat">$<%= level.amount_month %> <br>Monthly</button></a>
           </div>
         </div>
       <% end %>
@@ -52,6 +29,18 @@ title: Circle Membership
 
 <div class="main">
   <div class="main-left">
+    <h3 class="section-header">Circle Membership</h3>
+    <p>Circle Membership is a three-year commitment to provide backing for the vital work of our journalists. Circle Members believe in supporting our mission as a public service — free of charge on our website, in free syndication and at our numerous free public events — so all Texans have access to nonpartisan news and information.</p>
+    <h3 class="section-header">Benefits</h3>
+    <h4>All Benefactor level benefits, plus:</h4>
+    <h5 class="benefits-header">Content Benefits</h5>
+      <p>Special notifications and updates from Evan Smith, CEO</p>
+    <h5 class="benefits-header">Access Benefits</h5>
+      <p>Early registration to select Tribune events and VIP receptions</p>
+      <p>Invitations to exclusive events as part of The Texas Tribune Festival and year-round</p>
+      <p>Reserved seating at Tribune statewide events</p>
+    <h5 class="benefits-header">Recognition Benefits</h5>
+      <p>Exclusive recognition as a Texas Tribune Circle member on our site</p>
     <h2 class="tagline"><%= data.Info[0]['tagline'] %></h2>
     <%= partial "videos" %>
   </div>
