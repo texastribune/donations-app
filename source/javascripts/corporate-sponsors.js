@@ -13,69 +13,70 @@ function buildTable(data){
   var yearList = [];
   var corporateNames = [];
   // initial each loop to grab years
-  $.each(data, function (y, objects) {
-    yearList.push(y);
-    // create year button for each year
+  $.map(data, function(val, i) {
+    yearList.push(i);
     var displayYear;
-    // turn 'all-time' into 'All time' so editors are happy
-    if(y === 'all-time') {
+
+    if (i === 'all-time') {
       displayYear = 'All time';
     } else {
-      displayYear = y;
+      displayYear = i;
     }
-    yearButton = '<button class="year-btn year-'+ y +'">'+ displayYear +'</button>';
+
+    yearButton = '<button class="year-btn year-'+ i +'">'+ displayYear +'</button>';
     $('.year-button').append(yearButton);
-    // write table for each year to plug data into
-    year = '<table class="donor-table'+y+' table-year-'+y+' donor-table">' + 
-            '<thead>' +
-              '<tr>'+
-                  '<th><div class="label">Sponsor</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
-                  '<th><div class="label">Digital revenue</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
-                  '<th><div class="label">Digital in-kind</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
-                  '<th><div class="label">Events revenue</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
-                  '<th><div class="label">Events in-kind</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
-                  '<th><div class="label">Total</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
-                '</tr>'+
-              '</thead>'+
-            '<tbody></tbody>'+
-          '</table>';
+
+    year = '<table class="donor-table'+i+' table-year-'+i+' donor-table">' + 
+              '<thead>' +
+                '<tr>'+
+                    '<th><div class="label">Sponsor</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
+                    '<th><div class="label">Digital revenue</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
+                    '<th><div class="label">Digital in-kind</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
+                    '<th><div class="label">Events revenue</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
+                    '<th><div class="label">Events in-kind</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
+                    '<th><div class="label">Total</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
+                  '</tr>'+
+                '</thead>'+
+              '<tbody></tbody>'+
+            '</table>';
+
     $('.year').append(year);
-    // each loop to break into the year object
-    $.each(objects, function(index, v) {
-      // if there's a NULL or 0 in the data- just display empty table cells
-      var sponsor = v.sponsor;
-      corporateNames.push(v.sponsor);
-      if (v.sponsor == 'NULL') {
-        sponsor = '';
-      }
-      var digitalRevenue = v.digital_revenue;
-      if (v.digital_revenue == '$0'){
-        digitalRevenue = '';
-      }
-      var digitalInKind = v.digital_in_kind;
-      if (v.digital_in_kind == '$0'){
-        digitalInKind = '';
-      }
-      var eventsRevenue = v.events_revenue;
-      if (v.events_revenue == '$0'){
-        eventsRevenue = '';
-      }
-      var eventsInKind = v.events_in_kind;
-      if (v.events_in_kind == '$0'){
-        eventsInKind = '';
-      }
-      var total = v.total;
-      // fill in each year's table with it's respective data
-      tableRow = '<tr>'+
-                    '<td class="sponsor"><a href="' + v.url + '">' + sponsor + '</a></td>'+
-                    '<td>' + digitalRevenue + '</td>'+
-                    '<td>' + digitalInKind + '</td>'+
-                    '<td>' + eventsRevenue + '</td>'+
-                    '<td>' + eventsInKind + '</td>'+
-                    '<td>' + total + '</td>'+
-                  '</tr>';
-      $('.donor-table'+y).append(tableRow);
-      $('#mylist').append('<li>'+ sponsor +'</li>');
+    $.map(val, function(donation, index) {
+      console.log(donation.sponsor);
+          // if there's a NULL or 0 in the data- just display empty table cells
+          var sponsor = donation.sponsor;
+          corporateNames.push(donation.sponsor);
+          if (donation.sponsor == 'NULL') {
+            sponsor = '';
+          }
+          var digitalRevenue = donation.digital_revenue;
+          if (donation.digital_revenue == '$0'){
+            digitalRevenue = '';
+          }
+          var digitalInKind = donation.digital_in_kind;
+          if (donation.digital_in_kind == '$0'){
+            digitalInKind = '';
+          }
+          var eventsRevenue = donation.events_revenue;
+          if (donation.events_revenue == '$0'){
+            eventsRevenue = '';
+          }
+          var eventsInKind = donation.events_in_kind;
+          if (donation.events_in_kind == '$0'){
+            eventsInKind = '';
+          }
+          var total = donation.total;
+
+          // fill in each year's table with it's respective data
+          tableRow = '<tr>'+
+                        '<td class="sponsor"><a href="' + donation.url + '">' + sponsor + '</a></td>'+
+                        '<td>' + digitalRevenue + '</td>'+
+                        '<td>' + digitalInKind + '</td>'+
+                        '<td>' + eventsRevenue + '</td>'+
+                        '<td>' + eventsInKind + '</td>'+
+                        '<td>' + total + '</td>'+
+                      '</tr>';
+          $('.donor-table'+i).append(tableRow);
     });
   });
   // display all time table on load as default
