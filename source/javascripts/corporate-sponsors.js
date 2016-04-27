@@ -39,7 +39,7 @@ function buildTable(data){
 
     year = '<table class="donor-table'+i+' table-year-'+i+' donor-table">' + 
               '<thead>' +
-                '<tr>'+
+                '<tr class="labels">'+
                     '<th><div class="label">Sponsor</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
                     '<th><div class="label">Digital revenue</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
                     '<th><div class="label">Digital in-kind</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
@@ -115,5 +115,6 @@ function buildTable(data){
     var slugValue = slug(value);
     $('tr').hide();
     $('.'+slugValue).show();
+    $('.labels').show();
   });
 }
