@@ -117,4 +117,8 @@ function buildTable(data){
     $('.'+slugValue).show();
     $('.labels').show();
   });
+
+  $('#reset').click(function() {
+    $('tr').show();
+  });
 }
