@@ -7,6 +7,15 @@ $.ajax({
   success: buildTable
 });
 
+function slug(str) {
+    var $slug = '';
+    var trimmed = $.trim(str);
+    $slug = trimmed.replace(/[^a-z0-9-]/gi, '-').
+    replace(/-+/g, '-').
+    replace(/^-|-$/g, '');
+    return $slug.toLowerCase();
+}
+
 function buildTable(data){
   var tableRow = '';
   var year = '';
@@ -46,6 +55,7 @@ function buildTable(data){
     // loops through each donation for $(this) year
     $.map(val, function(donation, index) {
       var sponsor = donation.sponsor;
+      var sponsorSlug = slug(sponsor);
       // only adds corporateNames to the list once
       if (i === 'all-time') {
         corporateNames.push(sponsor);
@@ -73,7 +83,7 @@ function buildTable(data){
       var total = donation.total;
 
       // fill in each year's table with it's respective data
-      tableRow = '<tr>'+
+      tableRow = '<tr class="'+ sponsorSlug +'">'+
                     '<td class="sponsor"><a href="' + donation.url + '">' + sponsor + '</a></td>'+
                     '<td>' + digitalRevenue + '</td>'+
                     '<td>' + digitalInKind + '</td>'+
@@ -99,4 +109,11 @@ function buildTable(data){
   }); 
 
   new Awesomplete(Awesomplete.$("#corporate-search"),{ list: corporateNames });
+
+  $('#go').click(function() {
+    var value = $('#corporate-search').val();
+    var slugValue = slug(value);
+    $('tr').hide();
+    $('.'+slugValue).show();
+  });
 }
