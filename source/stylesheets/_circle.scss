@@ -12,6 +12,9 @@
       padding: 0 1em;
     }
   }
+  .tagline {
+    margin: 1em 0 0.5em 0;
+  }
 }
 
 .circle-box {
@@ -28,48 +31,40 @@
 }
 
 .circle-box-top {
-  background-color: $black;
+  background-color: $white;
   padding: 1em 2.2em;
   text-align: center;
   h3 {
     border-bottom: 2px solid $yellow-tribune;
-    color: $white;
+    color: $black;
     padding: 0.2em 0;
   }
-  h4, p {
-    color: $yellow-tribune;
+  p {
+    color: $black;
+    font-weight: 700;
     margin: 0.5em 0;
-  }
-  h4 {
-    font-size: 1.2em;
-    font-weight: 400;
   }
 }
 
 .circle-box-bottom {
   background-color: $white;
   color: $black;
-  padding: 1em;
+  padding: 0 1em 1em 1em;
   text-align: left;
   .button {
     font-size: 1em;
     font-weight: 600;
-    padding: 1em 1.5em;
+    padding: 0.8em;
     width: 48%;
     .fa {
       font-size: 0.8em;
     }
   }
-  h4 {
-    margin-bottom: 0.5em;
-  }
-  h5 {
-    color: $gray-medium;
-  }
 }
 
-.circle-box-benefits {
-  height: 60px;
+
+.benefits-header {
+  padding: 1em 0 0.5em 0;
 }
 
 

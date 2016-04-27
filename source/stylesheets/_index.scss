@@ -6,7 +6,7 @@
     .splash-greeting {
       text-align: right;
       @include span-columns(6);
-        @include shift(1);
+        @include shift(0);
       @media (max-width: 840px) {
         @include span-columns(6);
           @include shift(0);
@@ -25,7 +25,7 @@
       }
     }
     .express-checkout {
-      @include span-columns(4);
+      @include span-columns(6);
       @media (max-width: 840px) {
         @include span-columns(6);
       }
