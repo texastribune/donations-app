@@ -69,7 +69,7 @@ function buildWall(data) {
 		$('#year-select').append($objectList);
 	});
 	// creates Awesomplete instance
-	new Awesomplete(Awesomplete.$("#ajax-example"),{ list: nameList });
+	new Awesomplete(Awesomplete.$("#donor-search"),{ list: nameList });
 	// sticks table on the page once it's already been put together
 	$('.donor-wall-table').html($processWall);
 }

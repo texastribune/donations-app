@@ -43,11 +43,15 @@ function buildTable(data){
             '</table>';
 
     $('.year').append(year);
+    // loops through each donation for $(this) year
     $.map(val, function(donation, index) {
-      // if there's a NULL or 0 in the data- just display empty table cells
       var sponsor = donation.sponsor;
-      corporateNames.push(sponsor);
-      if (donation.sponsor == 'NULL') {
+      // only adds corporateNames to the list once
+      if (i === 'all-time') {
+        corporateNames.push(sponsor);
+      }
+      // if there's a NULL or 0 in the data- just display empty table cells
+      if (sponsor == 'NULL') {
         sponsor = '';
       }
       var digitalRevenue = donation.digital_revenue;
@@ -83,6 +87,7 @@ function buildTable(data){
   // display all time table on load as default
   $('.table-year-all-time').show();
 
+  // year dropdown functionality
   $('.year-select').change(function() {
     var yearSelect = $(this).val();
     var yearClass = '.table-year-'+yearSelect;
@@ -93,11 +98,5 @@ function buildTable(data){
     $(yearClass).show();
   }); 
 
-  // on year button click, only show table for that year
-  $('.year-btn').click(function() {
-    var classes = this.classList;
-    var yearClass = classes[1];
-    $('.donor-table').hide();
-    $('.table-'+yearClass).show();
-  });
+  new Awesomplete(Awesomplete.$("#corporate-search"),{ list: corporateNames });
 }
