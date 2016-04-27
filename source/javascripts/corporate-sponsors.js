@@ -23,8 +23,8 @@ function buildTable(data){
       displayYear = i;
     }
 
-    yearButton = '<button class="year-btn year-'+ i +'">'+ displayYear +'</button>';
-    $('.year-button').append(yearButton);
+    yearOption = '<option class="year-option year-'+ i +'">'+ displayYear +'</option>';
+    $('.year-select').append(yearOption);
 
     year = '<table class="donor-table'+i+' table-year-'+i+' donor-table">' + 
               '<thead>' +
@@ -42,45 +42,54 @@ function buildTable(data){
 
     $('.year').append(year);
     $.map(val, function(donation, index) {
-      console.log(donation.sponsor);
-          // if there's a NULL or 0 in the data- just display empty table cells
-          var sponsor = donation.sponsor;
-          corporateNames.push(donation.sponsor);
-          if (donation.sponsor == 'NULL') {
-            sponsor = '';
-          }
-          var digitalRevenue = donation.digital_revenue;
-          if (donation.digital_revenue == '$0'){
-            digitalRevenue = '';
-          }
-          var digitalInKind = donation.digital_in_kind;
-          if (donation.digital_in_kind == '$0'){
-            digitalInKind = '';
-          }
-          var eventsRevenue = donation.events_revenue;
-          if (donation.events_revenue == '$0'){
-            eventsRevenue = '';
-          }
-          var eventsInKind = donation.events_in_kind;
-          if (donation.events_in_kind == '$0'){
-            eventsInKind = '';
-          }
-          var total = donation.total;
+      // if there's a NULL or 0 in the data- just display empty table cells
+      var sponsor = donation.sponsor;
+      corporateNames.push(donation.sponsor);
+      if (donation.sponsor == 'NULL') {
+        sponsor = '';
+      }
+      var digitalRevenue = donation.digital_revenue;
+      if (donation.digital_revenue == '$0'){
+        digitalRevenue = '';
+      }
+      var digitalInKind = donation.digital_in_kind;
+      if (donation.digital_in_kind == '$0'){
+        digitalInKind = '';
+      }
+      var eventsRevenue = donation.events_revenue;
+      if (donation.events_revenue == '$0'){
+        eventsRevenue = '';
+      }
+      var eventsInKind = donation.events_in_kind;
+      if (donation.events_in_kind == '$0'){
+        eventsInKind = '';
+      }
+      var total = donation.total;
 
-          // fill in each year's table with it's respective data
-          tableRow = '<tr>'+
-                        '<td class="sponsor"><a href="' + donation.url + '">' + sponsor + '</a></td>'+
-                        '<td>' + digitalRevenue + '</td>'+
-                        '<td>' + digitalInKind + '</td>'+
-                        '<td>' + eventsRevenue + '</td>'+
-                        '<td>' + eventsInKind + '</td>'+
-                        '<td>' + total + '</td>'+
-                      '</tr>';
-          $('.donor-table'+i).append(tableRow);
+      // fill in each year's table with it's respective data
+      tableRow = '<tr>'+
+                    '<td class="sponsor"><a href="' + donation.url + '">' + sponsor + '</a></td>'+
+                    '<td>' + digitalRevenue + '</td>'+
+                    '<td>' + digitalInKind + '</td>'+
+                    '<td>' + eventsRevenue + '</td>'+
+                    '<td>' + eventsInKind + '</td>'+
+                    '<td>' + total + '</td>'+
+                  '</tr>';
+      $('.donor-table'+i).append(tableRow);
     });
   });
   // display all time table on load as default
   $('.table-year-all-time').show();
+
+  $('.year-select').change(function() {
+    var yearSelect = $(this).val();
+    var yearClass = '.table-year-'+yearSelect;
+    $('.donor-table').hide();
+    if (yearSelect === 'All time') {
+      yearClass = '.table-year-all-time';
+    }
+    $(yearClass).show();
+  }); 
 
   // on year button click, only show table for that year
   $('.year-btn').click(function() {
