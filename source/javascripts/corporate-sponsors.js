@@ -10,11 +10,9 @@ $.ajax({
 function buildTable(data){
   var tableRow = '';
   var year = '';
-  var yearList = [];
   var corporateNames = [];
   // initial each loop to grab years
   $.map(data, function(val, i) {
-    yearList.push(i);
     var displayYear;
 
     if (i === 'all-time') {
@@ -24,7 +22,11 @@ function buildTable(data){
     }
 
     yearOption = '<option class="year-option year-'+ i +'">'+ displayYear +'</option>';
-    $('.year-select').append(yearOption);
+    // only adds a year to the select box option list if it's a year
+    // All time is hard-coded into the select box so it will always appear first
+    if (displayYear != 'All time') {
+      $('.year-select').append(yearOption);
+    }
 
     year = '<table class="donor-table'+i+' table-year-'+i+' donor-table">' + 
               '<thead>' +
@@ -44,7 +46,7 @@ function buildTable(data){
     $.map(val, function(donation, index) {
       // if there's a NULL or 0 in the data- just display empty table cells
       var sponsor = donation.sponsor;
-      corporateNames.push(donation.sponsor);
+      corporateNames.push(sponsor);
       if (donation.sponsor == 'NULL') {
         sponsor = '';
       }
