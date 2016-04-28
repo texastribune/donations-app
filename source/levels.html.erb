@@ -15,7 +15,8 @@ title: Explore Benefits
 
 <div class="main">
   <h2 class="tagline"><%= data.Info[0]['tagline'] %></h2>
-  <h3>Explore the benefits:</h3>
+  <h3>Explore the benefits</h3>
+  <p>Sustaining membership allows you to support journalism that matters with your ongoing monthly or yearly gift from your credit card.  It auto-renews each year, and helps eliminate renewal mailings or lapses in your membership.</p>
   <table>
     <% data.levels.each do |level| %>
     <tbody class="grid-body <% if level.most_popular %>opened<% end %>">
@@ -31,9 +32,9 @@ title: Explore Benefits
             <h5 class="benefit-flag"><i class="fa fa-star"></i> Most Popular</h5>
           <% end %>
         </td>
-        <% if level.amount_month %><td class="amount-monthly"><a href="https://checkout.texastribune.org/<% if level.circle %>circle<% else %>member<% end %>form?&amp;amount=<%= level.amount_month %><% if level.circle %>&amp;installments=36<% end %>&amp;installmentPeriod=monthly"><% if level.range_month %><%= level.range_month %><% else %>$<%= level.amount_month %><% end %> Monthly</a></td><% end %>
+        <% if level.amount_month %><td class="amount-monthly"><a href="https://checkout.texastribune.org/<% if level.circle %>circle<% else %>member<% end %>form?&amp;amount=<%= level.amount_month %><% if level.circle %>&amp;installments=36<% end %>&amp;installmentPeriod=monthly" onclick="ga('send', 'event', 'donations-app', 'click', 'levels-page-monthly-contrib', {'nonInteraction': 1})"><% if level.range_month %><%= level.range_month %><% else %>$<%= level.amount_month %><% end %> Monthly</a></td><% end %>
         <td class="amount-yearly">
-          <a href="https://checkout.texastribune.org/<% if level.circle %>circle<% else %>member<% end %>form?&amp;amount=<%= level.amount_annual %><% if level.circle %>&amp;installments=3<% end %>&amp;installmentPeriod=yearly"><% if level.range_annual %><%= level.range_annual %><% else %><% if level.amount_annual_comma %>$<%= level.amount_annual_comma %><% else %>$<%= level.amount_annual %><% end %><% end %> Annually</a>
+          <a href="https://checkout.texastribune.org/<% if level.circle %>circle<% else %>member<% end %>form?&amp;amount=<%= level.amount_annual %><% if level.circle %>&amp;installments=3<% end %>&amp;installmentPeriod=yearly" onclick="ga('send', 'event', 'donations-app', 'click', 'levels-page-annual-contrib', {'nonInteraction': 1})"><% if level.range_annual %><%= level.range_annual %><% else %><% if level.amount_annual_comma %>$<%= level.amount_annual_comma %><% else %>$<%= level.amount_annual %><% end %><% end %> Annually</a>
         </td>
       </tr>
       <tr class="popout">
