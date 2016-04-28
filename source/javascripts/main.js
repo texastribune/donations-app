@@ -158,6 +158,8 @@ $(document).ready(function() {
     // Don't submit the form as is
     e.preventDefault();
 
+    ga('send', 'event', 'donations-app', 'click', 'top-checkout-submit', {'nonInteraction': 1});
+
     var installmentPeriod, installments;
 
     // Base url for form
@@ -246,6 +248,8 @@ $(document).ready(function() {
 
     // Don't submit the form as is
     e.preventDefault();
+
+    ga('send', 'event', 'donations-app', 'click', 'bottom-checkout-submit', {'nonInteraction': 1});
 
     var installmentPeriod, installments;
 

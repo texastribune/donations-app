@@ -17,8 +17,8 @@ title: Circle Membership
             <p><em>Three-Year Commitment</em></p>
           </div>
           <div class="circle-box-bottom">
-            <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_annual %>&amp;installmentPeriod=yearly&amp;installments=3"><button class="button button-flat">$<%= level.amount_annual_comma %> <br>Annually</button></a>
-            <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_month %>&amp;installmentPeriod=monthly&amp;installments=3"><button style="float: right;" class="button button-flat">$<%= level.amount_month %> <br>Monthly</button></a>
+            <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_annual %>&amp;installmentPeriod=yearly&amp;installments=3" onclick="ga('send', 'event', 'donations-app', 'click', 'circle-yearly', {'nonInteraction': 1})"><button class="button button-flat">$<%= level.amount_annual_comma %> <br>Annually</button></a>
+            <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_month %>&amp;installmentPeriod=monthly&amp;installments=3" onclick="ga('send', 'event', 'donations-app', 'click', 'circle-monthly', {'nonInteraction': 1})"><button style="float: right;" class="button button-flat">$<%= level.amount_month %> <br>Monthly</button></a>
           </div>
         </div>
       <% end %>
