@@ -29,39 +29,6 @@
       margin: 0.5em 0;
     }
   }
-  .sorts {
-    display: table-cell;
-  }
-
-  .header-label {
-    display: table-cell;
-  }
-
-  .year-jumper-bar {
-    border-bottom: 6px solid $yellow-tribune;
-  }
-
-  .jumper-container {
-    margin: 0;
-    // margin-bottom: -.05em;
-  }
-
-  .year-jumper {
-    background-color: $black;
-    padding: .33em 1.5em;
-    color: $white;
-    font-size: .75em;
-    display: inline-block;
-    margin-right: -.5em;
-    cursor: pointer;
-    a {
-      color: $white;
-    }
-  }
-
-  .sort {
-    cursor: pointer;
-  }
 
   .donor-table {
     font-size: .75em;
