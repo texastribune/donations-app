@@ -17,13 +17,15 @@ title: Corporate Sponsors
 <ul id="mylist">
 </ul> -->
 <div class="search">
-	<span class="search-label">Search: </span><input id="corporate-search" />
-	<button class="button button-flat" id="go">Go</button>
-	<button class="button button-flat" id="reset">Reset</button>
+  <span class="search-label">Sort by year: </span><select class="year-select">
+    <option>All time</option>
+  </select>
+  <div class="search-container">
+  	<span class="search-label">Search <span class="search-year"></span> sponsors: </span><input id="corporate-search" />
+  	<button class="button button-flat" id="go">Go</button>
+  	<button class="button button-flat" id="reset">Reset</button>
+  </div>
 </div>
-<span class="search-label">Sort by year: </span><select class="year-select">
-	<option>All time</option>
-</select>
-<div class="year-button"></div>
+<h3 class="sponsor-table-header"><span id="search-year"></span> Corporate Sponsors:</h3>
 <div class="year"></div>
 <div class="donor-table"></div>

@@ -30,6 +30,8 @@ function buildTable(data){
       displayYear = i;
     }
 
+    $('#search-year').html(displayYear);
+
     yearOption = '<option class="year-option year-'+ i +'">'+ displayYear +'</option>';
     // only adds a year to the select box option list if it's a year
     // All time is hard-coded into the select box so it will always appear first
@@ -37,15 +39,15 @@ function buildTable(data){
       $('.year-select').append(yearOption);
     }
 
-    year = '<table class="donor-table'+i+' table-year-'+i+' donor-table">' + 
+    year = '<table class="sponsor-table donor-table'+i+' table-year-'+i+' donor-table">' + 
               '<thead>' +
                 '<tr class="labels">'+
-                    '<th><div class="label">Sponsor</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
-                    '<th><div class="label">Digital revenue</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
-                    '<th><div class="label">Digital in-kind</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
-                    '<th><div class="label">Events revenue</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
-                    '<th><div class="label">Events in-kind</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
-                    '<th><div class="label">Total</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
+                    '<th><h5 class="label">Sponsor</h5><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
+                    '<th><h5 class="label">Digital revenue</h5><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
+                    '<th><h5 class="label">Digital<br />in-kind</h5><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
+                    '<th><h5 class="label">Events revenue</h5><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
+                    '<th><h5 class="label">Events<br />in-kind</h5><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
+                    '<th><h5 class="label">Total</h5><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>'+
                   '</tr>'+
                 '</thead>'+
               '<tbody></tbody>'+

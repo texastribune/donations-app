@@ -59,10 +59,22 @@
     }
   }
 
+}
+
+.sponsor-table {
+  width: 100%;
   th {
     padding: .5em;
     min-width: 80px;
   }
+
+  // .labels {
+  //   text-transform: uppercase;
+  //   font-weight: 400;
+  //   letter-spacing: 2px;
+  //   margin: .2em 0;
+  //   font-size: 11px;
+  // }
 
   th,
   td {
@@ -98,7 +110,6 @@
 
     }
   }
-
 }
 
 // awesomeplete styles

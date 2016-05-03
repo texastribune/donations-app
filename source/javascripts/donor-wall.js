@@ -19,11 +19,11 @@ var slug = function(str) {
 
 function buildWall(data) {
 	var nameList = [];
-	var wall = '<table class="donor-wall-table">' +
+	var wall = '<table class="sponsor-table donor-wall-table">' +
 					'<thead>' +
 						'<tr class="labels">' +
-							'<th><div class="label sponsor">Sponsor</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>' +
-							'<th><div class="label">Amount</div><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>' +
+							'<th><h5 class="label sponsor">Sponsor</h5><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>' +
+							'<th><h5 class="label">Amount</h5><span class="fa-stack"><i class="sort-up fa fa-caret-up fa-stack-1x"></i><i class="sort-down fa fa-caret-down fa-stack-1x"></i></span></th>' +
 						'</tr>' +
 					'</thead>' +
 					'<tbody class="donor-wall-tbody">' +
