@@ -12,6 +12,36 @@
       margin: 0.5em 0;
     }
   }
+
+  .donor-table {
+    font-size: .75em;
+    width: 100%;
+    display: none;
+    margin-top: .5em;
+  }
+
+  .sort-up {
+    margin-top: -.5em;
+  }
+
+  .fa-stack-1x {
+    display: inline;
+  }
+
+  .fa-stack {
+    display: table-cell;
+    vertical-align: top;
+    line-height: 1.2em;
+  }
+
+  .label {
+    position: relative;
+    display: table-cell;
+
+    br {
+      display: block;
+    }
+  }
 }
 
 .corporate-sponsors {
@@ -31,7 +61,6 @@
   }
 
   .donor-table {
-    font-size: .75em;
     width: 100%;
     display: none;
     margin-top: .5em;
@@ -63,6 +92,7 @@
 
 .sponsor-table {
   width: 100%;
+  font-size: .875em;
   th {
     padding: .5em;
     min-width: 80px;
