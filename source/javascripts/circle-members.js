@@ -23,7 +23,14 @@ function buildWall(data) {
 	$.map(data, function(val, i) {
 		slugCircles = slug(i);
 		circleId = '#'+slugCircles;
-		$(circleId).append('<h3>' + i + '</h3>');
-		$(circleId).append('<p>' + val + '</p>');
+		$(circleId).append('<h3 class="circle-title">' + i + '</h3>');
+		$.map(val, function(name, index) {
+			if (index == val.length-1) {
+				$(circleId).append('<span class="circle-list">' + name + ' </span> ');
+			} else {
+				$(circleId).append('<span class="circle-list">' + name + ' <span class="yellow-star">&#9733;</span></span> ');
+			}
+			
+		});
 	});
 }
