@@ -1,10 +1,22 @@
 <nav class="nav mobile-nav">
   <ul>
-    <li><%= link_to 'Become a Member', '/index.html' %></li>
-    <li><%= link_to 'Explore Benefits', '/levels.html' %></li>
-    <li><%= link_to 'Circle Membership', '/circle.html' %></li>
-    <li><a href="http://www.texastribune.org/support-us/donors-and-members/">Donor and Member Wall</a></li>
-    <li><a href="http://www.texastribune.org/support-us/corporate-sponsors/">Corporate Sponsors</a></li>
-    <li><%= link_to 'Frequently Asked Questions', '/faq.html' %></li>
+    <li>
+      <a href="/index.html" onclick="ga('send', 'event', 'donations-app', 'click', 'mobile-nav-become-member', {'nonInteraction': 1})">Become a Member</a>
+    </li>
+    <li>
+      <a href="/levels.html" onclick="ga('send', 'event', 'donations-app', 'click', 'mobile-nav-explore-benefits', {'nonInteraction': 1})">Explore Benefits</a>
+    </li>
+    <li>
+      <a href="/circle.html" onclick="ga('send', 'event', 'donations-app', 'click', 'mobile-nav-circle-member', {'nonInteraction': 1})">Circle Membership</a>
+    </li>
+    <li>
+      <a href="https://www.texastribune.org/support-us/donors-and-members/" onclick="ga('send', 'event', 'donations-app', 'click', 'mobile-nav-donor-member-wall', {'nonInteraction': 1})">Donor and Member Wall</a>
+    </li>
+    <li>
+      <a href="https://www.texastribune.org/support-us/corporate-sponsors/" onclick="ga('send', 'event', 'donations-app', 'click', 'mobile-nav-corporate-sponsors', {'nonInteraction': 1})">Corporate Sponsors</a>
+    </li>
+    <li>
+      <a href="/faq.html" onclick="ga('send', 'event', 'donations-app', 'click', 'mobile-nav-faq', {'nonInteraction': 1})">Frequently Asked Questions</a>
+    </li>
   </ul>
 </nav>
