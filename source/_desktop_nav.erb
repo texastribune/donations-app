@@ -1,10 +1,22 @@
 <nav class="nav desktop-nav">
   <ul>
-    <li <% if current_page.data.title == 'Become a Member' %>class="active"<% end %>><%= link_to 'Become<br> a Member<i class="fa fa-caret-down"></i>', '/index.html' %></li>
-    <li <% if current_page.data.title == 'Explore Benefits' %>class="active"<% end %>><%= link_to 'Explore<br> Benefits<i class="fa fa-caret-down"></i>', '/levels.html' %></li>
-    <li <% if current_page.data.title == 'Circle Membership' %>class="active"<% end %>><%= link_to 'Circle<br> Membership<i class="fa fa-caret-down"></i>', '/circle.html' %></li>
-    <li><a href="http://www.texastribune.org/support-us/donors-and-members/">Donor and<br> Member Wall</a></li>
-    <li><a href="http://www.texastribune.org/support-us/corporate-sponsors/">Corporate<br> Sponsors</a></li>
-    <li <% if current_page.data.title == 'Frequently Asked Questions' %>class="active"<% end %>><%= link_to 'Frequently<br> Asked Questions<i class="fa fa-caret-down"></i>', '/faq.html' %></li>
+    <li <% if current_page.data.title == 'Become a Member' %>class="active"<% end %>>
+      <a href="/index.html" onclick="ga('send', 'event', 'donations-app', 'click', 'desktop-nav-become-member', {'nonInteraction': 1})">Become<br> a Member<i class="fa fa-caret-down"></i></a>
+    </li>
+    <li <% if current_page.data.title == 'Explore Benefits' %>class="active"<% end %>>
+      <a href="/levels.html" onclick="ga('send', 'event', 'donations-app', 'click', 'desktop-nav-explore-benefits', {'nonInteraction': 1})">Explore<br> Benefits<i class="fa fa-caret-down"></i></a>
+    </li>
+    <li <% if current_page.data.title == 'Circle Membership' %>class="active"<% end %>>
+      <a href="/circle.html" onclick="ga('send', 'event', 'donations-app', 'click', 'desktop-nav-circle-member', {'nonInteraction': 1})">Circle<br> Membership<i class="fa fa-caret-down"></i></a>
+    </li>
+    <li>
+      <a href="http://www.texastribune.org/support-us/donors-and-members/" onclick="ga('send', 'event', 'donations-app', 'click', 'desktop-nav-donor-member-wall', {'nonInteraction': 1})">Donor and<br> Member Wall</a>
+    </li>
+    <li>
+      <a href="http://www.texastribune.org/support-us/corporate-sponsors/" onclick="ga('send', 'event', 'donations-app', 'click', 'desktop-nav-corporate-sponsors', {'nonInteraction': 1})">Corporate<br> Sponsors</a>
+    </li>
+    <li <% if current_page.data.title == 'Frequently Asked Questions' %>class="active"<% end %>>
+      <a href="/faq.html" onclick="ga('send', 'event', 'donations-app', 'click', 'desktop-nav-faq', {'nonInteraction': 1})">Frequently<br> Asked Questions<i class="fa fa-caret-down"></i></a>
+    </li>
   </ul>
 </nav>
