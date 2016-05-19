@@ -139,6 +139,7 @@ $(document).ready(function() {
     currentVal *= 12;
     newVal = currentVal;
     $('#spinner').attr('value', newVal);
+    ga('send', 'event', 'donations-app', 'click', 'top-checkout-annual-toggle', {'nonInteraction': 1});
     displayLevel();
   });
 
@@ -148,6 +149,7 @@ $(document).ready(function() {
     currentVal = parseInt($('#spinner').val());
     newVal = Math.ceil(currentVal / 12);
     $('#spinner').attr('value', newVal);
+    ga('send', 'event', 'donations-app', 'click', 'top-checkout-monthly-toggle', {'nonInteraction': 1});
     displayLevel();
   });
 
@@ -231,6 +233,7 @@ $(document).ready(function() {
     currentVal = parseInt($('#spinner-bottom').val());
     currentVal *= 12;
     newVal = currentVal;
+    ga('send', 'event', 'donations-app', 'click', 'bottom-checkout-annual-toggle', {'nonInteraction': 1});
     $('#spinner-bottom').attr('value', newVal);
   });
 
@@ -239,6 +242,7 @@ $(document).ready(function() {
     var currentVal, newVal;
     currentVal = parseInt($('#spinner-bottom').val());
     newVal = Math.ceil(currentVal / 12);
+    ga('send', 'event', 'donations-app', 'click', 'bottom-checkout-monthly-toggle', {'nonInteraction': 1});
     $('#spinner-bottom').attr('value', newVal);
   });
 
