@@ -62,6 +62,39 @@
   }
 }
 
+.circle-members-header {
+  text-align: center;
+  .circle-logo {
+    max-width: 60%;
+  }
+}
+
+.circle-members {
+  padding: 1.5em 0;
+  .circle-list-wrapper {
+    margin-bottom: 2em;
+    text-align: center;
+  }
+
+  .circle-title {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding: .5em;
+  }
+
+  .circle-list {
+    
+    font-size: 1.2em;
+    line-height: 1.5em;
+  }
+
+  .yellow-star {
+    color: $yellow-tribune;
+    font-size: .8em;
+  }
+}
+
 
 .benefits-header {
   padding: 1em 0 0.5em 0;
