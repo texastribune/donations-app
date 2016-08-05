@@ -26,9 +26,9 @@ function buildWall(data) {
 		$(circleId).append('<h3 class="circle-title">' + i + '</h3>');
 		$.map(val, function(name, index) {
 			if (index == val.length-1) {
-				$(circleId).append('<span class="circle-list">' + name + ' </span> ');
+				$(circleId).append('<span class="circle-list">&nbsp;' + name + ' </span> ');
 			} else {
-				$(circleId).append('<span class="circle-list">' + name + ' <span class="yellow-star">&#9733;</span></span> ');
+				$(circleId).append('<span class="circle-list">&nbsp;' + name + ' <span class="yellow-star">&#9733;</span></span> ');
 			}
 			
 		});

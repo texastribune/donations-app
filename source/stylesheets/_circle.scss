@@ -100,6 +100,13 @@
   padding: 1em 0 0.5em 0;
 }
 
+.benefits-list {
+  padding-left: 1em;
+  li {
+    padding-bottom: .5em;
+  }
+}
+
 
 .thanks {
   @include background-sizing;
