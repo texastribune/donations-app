@@ -19,3 +19,6 @@
 
 # Ignore google drive cache
 google_drive_cache/
+
+#Ignore env file
+.env
