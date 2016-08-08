@@ -28,7 +28,7 @@ function buildWall(data) {
 			if (index == val.length-1) {
 				$(circleId).append('<span class="circle-list">&nbsp;' + name + ' </span> ');
 			} else {
-				$(circleId).append('<span class="circle-list">&nbsp;' + name + ' <span class="yellow-star">&#9733;</span></span> ');
+				$(circleId).append('<span class="circle-list">&nbsp;' + name + ' <span class="yellow-star fa fa-star"></span></span> ');
 			}
 			
 		});
