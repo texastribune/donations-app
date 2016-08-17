@@ -29,6 +29,16 @@ title: Circle Membership
 
 <div class="main">
   <div class="main-left">
+  <div class="circle-members-header">
+    <img class="circle-logo" src="../images/circle-member-half-logo.png">
+  </div>
+  <div class="circle-members">
+    <div class="circle-list-wrapper" id="chairman-s-circle"></div>
+    <div class="circle-list-wrapper" id="leadership-circle"></div>
+    <div class="circle-list-wrapper" id="editor-s-circle"></div>
+  </div>
+  </div>
+  <div class="main-right level">
     <h3 class="section-header">Circle Membership</h3>
     <p>Circle Membership is a three-year commitment to provide backing for the vital work of our journalists. Circle Members believe in supporting our mission as a public service — free of charge on our website, in free syndication and at our numerous free public events — so all Texans have access to nonpartisan news and information.</p>
     <h3 class="section-header">Benefits</h3>
@@ -36,15 +46,11 @@ title: Circle Membership
     <h5 class="benefits-header">Content Benefits</h5>
       <p>Special notifications and updates from Evan Smith, CEO</p>
     <h5 class="benefits-header">Access Benefits</h5>
-      <p>Early registration to select Tribune events and VIP receptions</p>
-      <p>Invitations to exclusive events as part of The Texas Tribune Festival and year-round</p>
-      <p>Reserved seating at Tribune statewide events</p>
+        <p>Early registration to select Tribune events and VIP receptions</p>
+        <p>Invitations to exclusive events as part of The Texas Tribune Festival</p>
+        <p>Year-round reserved seating at Tribune statewide events</p>
     <h5 class="benefits-header">Recognition Benefits</h5>
-      <p>Exclusive recognition as a Texas Tribune Circle member on our site</p>
-    <h2 class="tagline"><%= data.Info[0]['tagline'] %></h2>
-    <%= partial "videos" %>
-  </div>
-  <div class="main-right">
+      <p>Exclusive recognition as a Texas Tribune Circle Member on our site</p>
     <h3 class="section-header">Have a Question?</h3>
     <% data.Contacts.each do |contact| %>
       <% if contact['on_circle_page'] == 'yes' %>
