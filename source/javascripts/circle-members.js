@@ -18,6 +18,16 @@ var slug = function(str) {
     return $slug.toLowerCase();
 };
 
+function orphanRemover(string){
+    var wordArray = string.split(" ");
+    var finalTitle = "";
+    for (i = 0; i <= wordArray.length - 1; i++) {
+        finalTitle += wordArray[i];
+        finalTitle += "&nbsp;";
+    }
+    return finalTitle;
+}
+
 
 function buildWall(data) {
 	$.map(data, function(val, i) {
@@ -25,10 +35,11 @@ function buildWall(data) {
 		circleId = '#'+slugCircles;
 		$(circleId).append('<h3 class="circle-title">' + i + '</h3>');
 		$.map(val, function(name, index) {
+			var prettyName = orphanRemover(name);
 			if (index == val.length-1) {
-				$(circleId).append('<span class="circle-list">&nbsp;' + name + ' </span> ');
+				$(circleId).append('<span class="circle-list">' + prettyName + ' </span> ');
 			} else {
-				$(circleId).append('<span class="circle-list">&nbsp;' + name + ' <span class="yellow-star fa fa-star"></span></span> ');
+				$(circleId).append('<span class="circle-list">' + name + ' <span class="yellow-star fa fa-star"></span></span> ');
 			}
 			
 		});
