@@ -17,8 +17,8 @@ title: Circle Membership
             <p><em>Three-Year Commitment</em></p>
           </div>
           <div class="circle-box-bottom">
-            <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_annual %>&amp;installmentPeriod=yearly&amp;installments=3" onclick="ga('send', 'event', 'donations-app', 'click', 'circle-yearly', {'nonInteraction': 1})"><button class="button button-flat">$<%= level.amount_annual_comma %> <br>Annually</button></a>
-            <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_month %>&amp;installmentPeriod=monthly&amp;installments=3" onclick="ga('send', 'event', 'donations-app', 'click', 'circle-monthly', {'nonInteraction': 1})"><button style="float: right;" class="button button-flat">$<%= level.amount_month %> <br>Monthly</button></a>
+            <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_annual %>&amp;installmentPeriod=yearly&amp;installments=3" ga-on="click" ga-event-category="Donate" ga-event-action="checkout-intent" ga-event-label="circle-yearly"><button class="button button-flat">$<%= level.amount_annual_comma %> <br>Annually</button></a>
+            <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_month %>&amp;installmentPeriod=monthly&amp;installments=3" ga-on="click" ga-event-category="Donate" ga-event-action="checkout-intent" ga-event-label="circle-monthly"><button style="float: right;" class="button button-flat">$<%= level.amount_month %> <br>Monthly</button></a>
           </div>
         </div>
       <% end %>
@@ -70,7 +70,7 @@ title: Circle Membership
     <hr>
     <div class="extra-info">
       <h3>Prefer to mail a check?</h3>
-      <p>Click <a href="https://static.texastribune.org/media/marketing/TT-circle-membership-contribution-form.pdf" onclick="ga('send', 'event', 'donations-app', 'click', 'mail-check', {'nonInteraction': 1})">here</a> for our membership form and mailing information. </p>
+      <p>Click <a href="https://static.texastribune.org/media/marketing/TT-circle-membership-contribution-form.pdf" ga-on="click" ga-event-category="Donate" ga-event-action="checkout-intent" ga-event-label="mail-check">here</a> for our membership form and mailing information. </p>
     </div>
   </div>
 </div>

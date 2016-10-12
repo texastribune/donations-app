@@ -34,7 +34,7 @@ title: Become a Member
   </div><!-- main-left -->
   <div class="main-right">
     <div class="student-member">
-      <a href="https://checkout.texastribune.org/memberform?&amp;amount=10&amp;installmentPeriod=yearly" onclick="ga('send', 'event', 'donations-app', 'click', 'student-member', {'nonInteraction': 1})">Interested in becoming a student member? <i class="fa fa-chevron-right"></i></a>
+      <a href="https://checkout.texastribune.org/memberform?&amp;amount=10&amp;installmentPeriod=yearly" ga-on="click" ga-event-category="Donate" ga-event-action="checkout-intent" ga-event-label="student-member">Interested in becoming a student member? <i class="fa fa-chevron-right"></i></a>
     </div>
     <hr>
     <% data.levels.each do |level| %>
@@ -48,7 +48,7 @@ title: Become a Member
           <% end %>
           <h3><%= level.name %></h3>
           <h4 class="amount">
-            <% if level.amount_month %><a href="https://checkout.texastribune.org/<% if level.circle %>circle<% else %>member<% end %>form?&amp;amount=<%= level.amount_month %><% if level.circle %>&amp;installments=36<% end %>&amp;installmentPeriod=monthly" onclick="ga('send', 'event', 'donations-app', 'click', 'index-right-monthly-member', {'nonInteraction': 1})">$<%= level.amount_month %> Monthly</a> <span>or</span> <% end %><a href="https://checkout.texastribune.org/<% if level.circle %>circle<% else %>member<% end %>form?&amp;amount=<%= level.amount_annual %>&amp;installmentPeriod=yearly<% if level.circle %>&amp;installments=3<% end %>" onclick="ga('send', 'event', 'donations-app', 'click', 'index-right-yearly-member', {'nonInteraction': 1})"><% if level.amount_annual_comma %>$<%= level.amount_annual_comma %><% else %>$<%= level.amount_annual %><% end %> Annually</a></h4>
+            <% if level.amount_month %><a href="https://checkout.texastribune.org/<% if level.circle %>circle<% else %>member<% end %>form?&amp;amount=<%= level.amount_month %><% if level.circle %>&amp;installments=36<% end %>&amp;installmentPeriod=monthly" ga-on="click" ga-event-category="Donate" ga-event-action="checkout-intent" ga-event-label="index-right-monthly-member">$<%= level.amount_month %> Monthly</a> <span>or</span> <% end %><a href="https://checkout.texastribune.org/<% if level.circle %>circle<% else %>member<% end %>form?&amp;amount=<%= level.amount_annual %>&amp;installmentPeriod=yearly<% if level.circle %>&amp;installments=3<% end %>" ga-on="click" ga-event-category="Donate" ga-event-action="checkout-intent" ga-event-label="index-right-yearly-member"><% if level.amount_annual_comma %>$<%= level.amount_annual_comma %><% else %>$<%= level.amount_annual %><% end %> Annually</a></h4>
           <% if level.commitment %>
             <p class="italic">Three-Year Commitment</p>
           <% end %>
