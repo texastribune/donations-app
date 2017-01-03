@@ -15,6 +15,30 @@
   .tagline {
     margin: 1em 0 0.5em 0;
   }
+
+  @page {
+    size: 5.5in 8.5in;
+    margin: 70pt 60pt 70pt;
+  }
+
+
+  .no_print {
+    @media print {
+      display: none;
+    }
+  }
+  .print_full {
+    @media print {
+      @include span-columns(12);
+      @include media($tablet) {
+        @include span-columns(12);
+      }
+      @include media($mobile) {
+        @include span-columns(12);
+        padding: 0 1em;
+      }
+    }
+  }
 }
 
 .circle-box {
