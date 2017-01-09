@@ -90,6 +90,10 @@
   text-align: center;
   .circle-logo {
     max-width: 60%;
+
+    @media print {
+      max-width: 200px;
+    }
   }
 }
 
@@ -98,6 +102,10 @@
   .circle-list-wrapper {
     margin-bottom: 1em;
     text-align: center;
+
+    @media print {
+      margin: 0 1.8em 1em;
+    }
   }
 
   .circle-title {
@@ -106,11 +114,19 @@
     letter-spacing: 3px;
     padding: .5em;
     font-size: 1.5em;
+
+    @media print {
+      font-size: 1em;
+    }
   }
 
   .circle-list {
     font-size: 1em;
     line-height: 1.5em;
+
+    @media print {
+      font-size: .78em;
+    }
   }
 
   .yellow-star {
