@@ -8,6 +8,15 @@
       @include span-columns(8);
     }
   }
+
+  @media print {
+    margin: 24px auto 0;
+    text-align: center;
+
+    img {
+      width: 33%;
+    }
+  }
 }
 
 

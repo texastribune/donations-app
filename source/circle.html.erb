@@ -2,7 +2,7 @@
 title: Circle Membership
 ---
 
-<div class="splash">
+<div class="splash no_print">
   <div class="splash-wrapper">
     <div class="splash-greeting">
       <h1 class="splash-header">Join Our Circle</h1>
@@ -17,8 +17,8 @@ title: Circle Membership
             <p><em>Three-Year Commitment</em></p>
           </div>
           <div class="circle-box-bottom">
-            <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_annual %>&amp;installmentPeriod=yearly&amp;installments=3" onclick="ga('send', 'event', 'donations-app', 'click', 'circle-yearly', {'nonInteraction': 1})"><button class="button button-flat">$<%= level.amount_annual_comma %> <br>Annually</button></a>
-            <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_month %>&amp;installmentPeriod=monthly&amp;installments=3" onclick="ga('send', 'event', 'donations-app', 'click', 'circle-monthly', {'nonInteraction': 1})"><button style="float: right;" class="button button-flat">$<%= level.amount_month %> <br>Monthly</button></a>
+            <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_annual %>&amp;installmentPeriod=yearly&amp;installments=3" ga-on="click" ga-event-category="Donate" ga-event-action="checkout-intent" ga-event-label="circle-yearly"><button class="button button-flat">$<%= level.amount_annual_comma %> <br>Annually</button></a>
+            <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_month %>&amp;installmentPeriod=monthly&amp;installments=3" ga-on="click" ga-event-category="Donate" ga-event-action="checkout-intent" ga-event-label="circle-monthly"><button style="float: right;" class="button button-flat">$<%= level.amount_month %> <br>Monthly</button></a>
           </div>
         </div>
       <% end %>
@@ -28,7 +28,7 @@ title: Circle Membership
 </div><!-- splash-circle -->
 
 <div class="main">
-  <div class="main-left">
+  <div class="main-left print_full">
   <div class="circle-members-header">
     <img class="circle-logo" src="../images/circle-member-half-logo.png">
   </div>
@@ -38,7 +38,7 @@ title: Circle Membership
     <div class="circle-list-wrapper" id="editor-s-circle"></div>
   </div>
   </div>
-  <div class="main-right level">
+  <div class="main-right level no_print">
     <h3 class="section-header">Circle Membership</h3>
     <p>Circle Membership is a three-year commitment to provide backing for the vital work of our journalists. Circle Members believe in supporting our mission as a public service — free of charge on our website, in free syndication and at our numerous free public events — so all Texans have access to nonpartisan news and information.</p>
     <h3 class="section-header">Benefits</h3>
@@ -70,10 +70,10 @@ title: Circle Membership
     <hr>
     <div class="extra-info">
       <h3>Prefer to mail a check?</h3>
-      <p>Click <a href="https://static.texastribune.org/media/marketing/TT-circle-membership-contribution-form.pdf" onclick="ga('send', 'event', 'donations-app', 'click', 'mail-check', {'nonInteraction': 1})">here</a> for our membership form and mailing information. </p>
+      <p>Click <a href="https://static.texastribune.org/media/marketing/TT-circle-membership-contribution-form.pdf" ga-on="click" ga-event-category="Donate" ga-event-action="checkout-intent" ga-event-label="mail-check">here</a> for our membership form and mailing information. </p>
     </div>
   </div>
 </div>
-<div class="thanks outer-info">
+<div class="thanks outer-info no_print">
   <div class="inner-info"><hr>Thank you for supporting The Texas Tribune<hr></div>
 </div>
