@@ -3,11 +3,6 @@ configure :development do
   activate :livereload
 end
 
-# Activate extension for Bourbon Sass mixins
-activate :bourbon
-
-activate :google_drive, load_sheets: ENV['GOOGLE_DRIVE_KEY']
-
 set :css_dir, 'stylesheets'
 
 set :js_dir, 'javascripts'
@@ -16,26 +11,13 @@ set :images_dir, 'images'
 
 # Build-specific configuration
 configure :build do
-  activate :minify_html
-
-  # For example, change the Compass output style for deployment
-  activate :minify_css
-
-  # Minify Javascript on build
-  activate :minify_javascript
-
   # Enable cache buster asset hashing of files
   activate :asset_hash
+  activate :minify_html
 end
 
 # Gzip files
 activate :gzip
-
-# Compress images
-activate :imageoptim do |options|
-  options.pngout = false
-  options.svgo = false
-end
 
 # For s3 sync for deploying with middleman build
 activate :s3_sync do |config|
