@@ -4,10 +4,6 @@ ruby "2.3.0"
 
 gem "middleman", "~> 4"
 
-gem "bourbon"
-
-gem "neat"
-
 gem "middleman-livereload"
 
 gem "middleman-minify-html"

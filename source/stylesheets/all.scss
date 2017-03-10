@@ -1,11 +1,11 @@
-@import 'bourbon';
-@import 'neat';
-
+// vendor
+@import "~bourbon/app/assets/stylesheets/bourbon";
+@import "~bourbon-neat/app/assets/stylesheets/neat";
 @import 'normalize';
 
 // general
 @import 'settings';
-@import 'layout';
+/*@import 'layout';
 @import 'typography';
 @import 'footer';
 
@@ -14,4 +14,4 @@
 @import 'index';
 @import 'circle';
 @import 'levels';
-@import 'checkout';
+@import 'checkout';*/

@@ -22,3 +22,7 @@ google_drive_cache/
 
 #Ignore env file
 .env
+
+node_modules/
+npm-debug.log
+.tmp/
