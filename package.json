@@ -5,7 +5,8 @@
   "author": "Your Name <you.name@example.org>",
   "scripts": {
     "dev": "bundle exec middleman",
-    "build": "bundle exec middleman build"
+    "build": "bundle exec middleman build && npm run critical",
+    "critical": "node critical.js"
   },
   "main": "source/index.html.erb",
   "repository": {
@@ -26,10 +27,12 @@
     "css-loader": "^0.26.4",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
+    "inline-critical": "^2.4.0",
     "node-sass": "^4.5.0",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.13.2",
-    "webpack": "^2.2.1"
+    "webpack": "^2.2.1",
+    "webpack-plugin-critical": "^1.0.0"
   },
   "license": "MIT"
 }
