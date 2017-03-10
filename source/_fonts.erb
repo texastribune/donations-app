@@ -1,0 +1,79 @@
+<style>
+  @font-face {
+    font-family: 'League Gothic Subset';
+    src: url();
+    font-weight: 400;
+		font-style: normal;
+		unicode-range: U+65-U+90, U+97-122;
+  }
+
+  @font-face {
+    font-family: 'League Gothic';
+    src: url('../font/league-gothic-regular.woff2') format('woff2'),
+         url('../font/league-gothic-regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'League Gothic';
+    src: url('../font/league-gothic-bold.woff2') format('woff2'),
+         url('../font/league-gothic-bold.woff') format('woff');
+    font-weight: 700;
+    font-style: bold;
+  }
+
+  @font-face {
+    font-family: 'League Gothic';
+    src: url('../font/league-gothic-italic.woff2') format('woff2'),
+         url('../font/league-gothic-italic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .league-gothic {
+    font-family: Helvetica, Arial, sans-serif;
+
+    .stage-1 & {
+      font-family: 'League Gothic', Helvetica, Arial, sans-serif;
+    }
+  }
+
+  .league-gothic--normal {
+    @extend .league-gothic;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .league-gothic--bold {
+    @extend .league-gothic;
+    font-weight: 700;
+  }
+
+  .league-gothic--italic {
+    @extend .league-gothic;
+    font-weight: 400;
+    font-style: italic;
+  }
+</style>
+
+<script>
+  if (sessionStorage.criticalFoftDataUriFontsLoaded) {
+    document.documentElement.className += 'stage-1';
+    return;
+  }
+
+  // include FontFaceObserver
+
+  var leagueGothicSubset = new FontFaceObserver('League Gothic Subset');
+
+  Promise.all([leagueGothicSubset.load()]).then(function() {
+    document.documentElement.className += 'stage-1';
+
+    var leagueGothicAll = new FontFaceObserver('League Gothic');
+
+    Promise.all([leagueGothicAll.load()]).then(function() {
+      sessionStorage.criticalFoftDataUriFontsLoaded = true;
+    });
+  }):
+</script>
