@@ -4,7 +4,8 @@
   "description": "Support nonprofit journalism by giving to The Texas Tribune",
   "author": "Your Name <you.name@example.org>",
   "scripts": {
-    "dev": "bundle exec middleman"
+    "dev": "bundle exec middleman",
+    "build": "bundle exec middleman build"
   },
   "main": "source/index.html.erb",
   "repository": {
