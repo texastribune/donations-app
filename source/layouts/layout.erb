@@ -1,7 +1,5 @@
 <!doctype html>
-<!--[if IE 8]> <html class="ie8"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<html>
+<html lang="en-US">
   <head>
     <meta charset="utf-8">
 
@@ -23,12 +21,11 @@
     <link rel="apple-touch-icon-precomposed" sizes="76x76" href="http://s3.amazonaws.com/static.texastribune.org/media/icons/iPad_Icon_76x76.png"/>
     <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://s3.amazonaws.com/static.texastribune.org/media/icons/iPhone_Icon_120x120.png"/>
     <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://s3.amazonaws.com/static.texastribune.org/media/icons/iPad_Icon_152x152.png"/>
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
 
     <script src="//use.typekit.net/ngv2xmw.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -48,21 +45,20 @@
 
     fbq('init', '1570461443220689');
     fbq('track', "PageView");</script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1570461443220689&ev=PageView&noscript=1"
-    /></noscript>
+
+    <noscript>
+      <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1570461443220689&ev=PageView&noscript=1"/>
+    </noscript>
     <!-- End Facebook Pixel Code -->
   </head>
   <body class="<%= page_classes %> no-js">
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5L2Z5Z"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5L2Z5Z" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     <%= partial "header" %>
-
-    <div id="testing"></div>
-    <img src="../img/circle-member-half-logo.png">
 
     <%= yield %>
 
@@ -91,6 +87,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </script>
 
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53beb39e1b9725fb"></script>
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53beb39e1b9725fb"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="../js/bundle.js"></script>
   </body>
 </html>

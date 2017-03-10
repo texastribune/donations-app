@@ -2,8 +2,13 @@
 /build
 /.sass-cache
 /.cache
+/.tmp
 google_drive_cache/
 node_modules/
+
+source/bg
+source/javascripts
+source/css
 
 .DS_Store
 .env

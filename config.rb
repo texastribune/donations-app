@@ -35,7 +35,7 @@ activate :external_pipeline,
   command: build? ?
   "./node_modules/webpack/bin/webpack.js --bail -p" :
   "./node_modules/webpack/bin/webpack.js --colors --watch -p",
-  source: ".tmp/dist",
+  source: ".tmp",
   latency: 1
 
 # add default caching policy to all files
