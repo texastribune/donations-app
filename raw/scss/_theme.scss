@@ -138,7 +138,6 @@ hr {
   }
   &#video-top {
     background-color: lighten($black, 20%);
-    background-image: url("../images/ESmith_mission_img.jpg");
     background-size: cover;
     height: 350px;
     @include media($mobile) {
@@ -154,18 +153,6 @@ hr {
 
 .outer-video-wrapper {
   @include hide-for-mobile;
-}
-
-#video-two {
-  background-image: url("../images/event_video_still.jpg");
-}
-
-#video-three {
-  background-image: url("../images/godandgov.jpg");
-}
-
-#video-four {
-  background-image: url("../images/CapitolAnimation.jpg");
 }
 
 .watch-more {

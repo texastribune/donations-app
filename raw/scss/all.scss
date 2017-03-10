@@ -1,17 +1,20 @@
-// vendor
 @import "~bourbon/app/assets/stylesheets/bourbon";
 @import "~bourbon-neat/app/assets/stylesheets/neat";
 @import 'normalize';
 
-// general
 @import 'settings';
-/*@import 'layout';
+@import 'layout';
 @import 'typography';
 @import 'footer';
 
-// pages
-@import 'theme';
+/*@import 'theme';
 @import 'index';
 @import 'circle';
 @import 'levels';
 @import 'checkout';*/
+
+#testing {
+  background-image: url(../bg/hero-circles.jpg);
+  width: 1000px;
+  height: 500px;
+}

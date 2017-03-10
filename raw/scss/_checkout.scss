@@ -172,7 +172,6 @@ input[type=number]::-webkit-outer-spin-button {
 .index {
   .bottom-checkout {
     background-color: lighten($black, 20%);
-    background-image: url("../images/support-us-footer-bg.jpg");
     @include background-sizing;
   }
 }
@@ -180,7 +179,6 @@ input[type=number]::-webkit-outer-spin-button {
 .levels {
   .bottom-checkout {
     background-color: lighten($black, 20%);
-    background-image: url("//s3.amazonaws.com/static.texastribune.org/media/membership/member-grid-footer-bg002.jpg");
     @include background-sizing;
   }
 }
@@ -309,4 +307,3 @@ body.no-js {
     }
   }
 }
-
