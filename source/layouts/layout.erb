@@ -26,7 +26,6 @@
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
     <script>
       (function(d) {
@@ -102,6 +101,23 @@
 
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53beb39e1b9725fb"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="../javascripts/bundle.js"></script>
+
+    <% if current_page.data.page == 'levels' %>
+      <script>
+        // visually hide popout elements on load
+        (function() {
+          $('.popout').addClass('visually-hidden');
+          $('.opened').find('.popout').toggleClass('visually-hidden');
+        })();
+
+        // toggles benefit info in grid
+        $('.open-close').on('click', function() {
+          $(this).closest('.grid-body').toggleClass('opened');
+          $(this).closest('.grid-body').find('.popout').toggleClass('visually-hidden');
+        });
+      </script>
+    <% end %>
   </body>
 </html>
