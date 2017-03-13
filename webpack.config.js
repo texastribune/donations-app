@@ -35,7 +35,9 @@ module.exports = {
           publicPath: '../bg/',
           fallback: 'style-loader',
           use: [{
-            loader: 'css-loader'
+            loader: 'css-loader?importLoaders=1'
+          }, {
+            loader: 'postcss-loader'
           }, {
             loader: 'sass-loader',
             options: {
