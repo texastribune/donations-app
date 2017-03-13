@@ -13,3 +13,6 @@ node_modules/
 source/bg
 source/javascripts
 source/css
+
+# tests
+test/compiled.js
