@@ -24,9 +24,7 @@
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
-    <!-- <script src="//use.typekit.net/ngv2xmw.js"></script> -->
-
-    <%= partial "font" %>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -52,7 +50,7 @@
     </noscript>
     <!-- End Facebook Pixel Code -->
   </head>
-  <body>
+  <body class="<%= page_classes %>">
     <!-- Google Tag Manager (noscript) -->
     <noscript>
       <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5L2Z5Z" height="0" width="0" style="display:none;visibility:hidden"></iframe>
@@ -60,9 +58,7 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <%= partial "header" %>
-
     <%= yield %>
-
     <%= partial "mobile_nav" %>
     <%= partial 'footer' %>
 
@@ -89,7 +85,6 @@
 
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53beb39e1b9725fb"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="../js/bundle.js"></script>
+    <script src="../javascripts/bundle.js"></script>
   </body>
 </html>

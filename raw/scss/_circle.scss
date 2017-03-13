@@ -5,7 +5,7 @@
   }
   .splash {
     background-color: lighten($black, 25%);
-    background-image: url("../images/hero-circles.jpg");
+    background-image: url("../bg/hero-circles.jpg");
   }
   .main {
     @include media($mobile) {
@@ -138,7 +138,7 @@
 .thanks {
   @include background-sizing;
   background-color: lighten($black, 20%);
-  background-image: url("../images/footer-thanks.jpg");
+  background-image: url("../bg/footer-thanks.jpg");
   height: 350px;
   .inner-info {
     @include media($mobile) {
