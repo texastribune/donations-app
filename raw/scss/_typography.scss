@@ -4,27 +4,36 @@ html {
   font-size: 14px;
 }
 
-// size if league gothic loads
-.wf-leaguegothic-i4-active {
-  h1 {
-    font-size: 7em;
-    @media (max-width: 870px) {
-      font-size: 8em;
-    }
-    @include media($tablet) {
-      font-size: 5em;
-    }
-  }
-  .faq h1 {
-    @media (min-width: 871px) {
-      font-size: 7.2em;
-    }
+.league-gothic {
+  font-family: Helvetica, Arial, sans-serif;
+
+  .wf-leaguegothic-i4-active & {
+    font-family: league-gothic, Helvetica, Arial, sans-serif;
   }
 }
 
 h1 {
+  @extend .league-gothic;
   font-size: 5em;
   margin: 0;
+
+  .wf-leaguegothic-i4-active & {
+    font-size: 7em;
+
+    @media (max-width: 870px) {
+      font-size: 8em;
+    }
+
+    @include media($tablet) {
+      font-size: 5em;
+    }
+  }
+
+  .faq & {
+    @media (min-width: 871px) {
+      font-size: 7.2em;
+    }
+  }
 }
 
 h2 {

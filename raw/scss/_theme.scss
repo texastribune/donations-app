@@ -17,7 +17,6 @@
 
 .splash-header {
   border-bottom: 3px solid $yellow-tribune;
-  font-family: $league-gothic;
   @include media($mobile) {
     border-bottom: none;
   }

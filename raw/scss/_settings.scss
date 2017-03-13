@@ -19,10 +19,6 @@ $bg-nav: #000000;
 $link-nav: white;
 
 
-// Fonts
-$league-gothic: 'league-gothic', sans-serif;
-
-
 // Mixins
 @mixin hide-for-mobile {
   @include media($mobile) {

@@ -17,7 +17,6 @@
     "url": "https://github.com/texastribune/donations-app/issues"
   },
   "dependencies": {
-    "fontfaceobserver": "^2.0.9",
     "node-bourbon": "^4.2.3",
     "node-neat": "^1.7.2"
   },
