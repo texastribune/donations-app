@@ -5,7 +5,8 @@ html {
 }
 
 .league-gothic {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Impact;
+  font-size: 4.3em;
 
   .wf-leaguegothic-i4-active & {
     font-family: league-gothic, Helvetica, Arial, sans-serif;
@@ -26,12 +27,6 @@ h1 {
 
     @include media($tablet) {
       font-size: 5em;
-    }
-  }
-
-  .faq & {
-    @media (min-width: 871px) {
-      font-size: 7.2em;
     }
   }
 }
