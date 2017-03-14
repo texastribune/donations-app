@@ -1,15 +1,26 @@
+import chai from 'chai';
+import sinon from 'sinon';
+
 const assert = chai.assert;
 const expect = chai.expect;
 
 import FormHandler from '../raw/js/form';
 
-describe('Donation form', () => {
-  it('testing testing', function() {
-    const Handler = new FormHandler();
-    const obj = {};
+describe('Donation carousel form', () => {
+  let DonationForm = new FormHandler();
 
-    Handler.funFun(obj);
+  afterEach(() => {
+    DonationForm = new FormHandler();
+  });
 
-    expect(obj).to.have.all.keys('sunSun');
+  it('should be the width of its container times the number of slides', () => {
+    const getOuterContainerWidth = sinon.stub(DonationForm, 'getOuterContainerWidth');
+
+    DonationForm.carouselInner = $('<div/>');
+    DonationForm.numSlides = 3;
+    getOuterContainerWidth.returns(100);
+
+    DonationForm.setInnerWidth();
+    assert.equal(DonationForm.carouselInner.css('width'), '300px');
   });
 });
