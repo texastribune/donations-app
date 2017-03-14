@@ -1,309 +1,88 @@
-// Express Checkout
+.carousel {
+  width: 500px;
+  overflow: hidden;
+  position: relative;
 
-// Turn off native spinner to use jquery ui
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+  &__form {
 
-// General checkout styles
-.express-checkout {
-  a {
-    color: $black;
   }
-  .give-header {
-    padding-bottom: 0.5em;
-    @media (max-width: 620px) {
-      color: $white;
-    }
-  }
-  .contribute {
-    background-color: $bg-contribute;
-    padding: 2em 3em;
-    text-align: center;
-    @media (max-width: 680px) {
-      padding: 2em;
-    }
-    @media (max-width: 620px) {
-      background-color: transparent;
-      padding: 0;
-    }
-    .level-display {
-      @media (max-width: 620px) {
-        display: none;
-      }
-      h5, h3 {
-        text-align: left;
-      }
-      p {
-        clear: both;
-        font-size: 1.2em;
-        padding: 1em 0 0.5em 0;
-        text-align: center;
-        text-decoration: underline;
-      }
-    }
-    .level-inner {
-      float: left;
-      margin-right: 0.5em;
-      width: 45%;
-      @media (max-width: 850px) {
-        display: none;
-      }
-      h3 {
-        font-size: 1.5em;
-      }
-      h5, h3 {
-        text-align: center;
-      }
-      &.selected {
-        h3, h5 {
-          color: $black;
-        }
-      }
-    }
-    .unselected {
-      h3 {
-        color: $gray-medium;
-      }
-    }
-    h5 {
-      clear: both;
-      padding-top: 1.5em;
-    }
-    .button {
-      margin-top: 1em;
-      width: 100%;
-    }
-    .wf-leaguegothic-i4-active {
-      span.dollar {
-        font-size: 4em;
-      }
-    }
-    span.dollar {
-      color: $black;
-      font-family: "league-gothic";
-      font-size: 3.5em;
-      padding: 0 0.2em;
-      vertical-align: middle;
-      @media (max-width: 620px) {
-        color: $white;
-      }
-    }
-  }
-  .renew-donate {
-    @media (max-width: 620px) {
-      margin-top: 1em;
-    }
-    .button {
-      margin: 1em 0;
-      padding: 0.5em 1.5em;
-      width: 100%;
-    }
-  }
-  label {
-    color: #b2b2b2;
-    cursor: pointer;
+
+  &__slide {
+    display: block;
     float: left;
-    font-size: 0.8em;
-    font-weight: bold;
-    letter-spacing: 2px;
-    padding: 0.5em;
-    text-transform: uppercase;
-    width: 120px;
-  }
-  @include media($mobile) {
-    padding: 0.5em 1.5em;
-  }
-}
 
-
-// Top checkout styles
-.top-checkout {
-  &.express-checkout {
-    label {
-      width: 48%;
-      &[for='yearly'] {
-        float: left;
-      }
-      &[for='monthly'] {
-        float: right;
-      }
-      @include media($mobile) {
-        font-size: 1em;
-      }
+    &--frequency {
+      @extend .carousel__slide;
     }
-    .ui-spinner {
-      width: 200px;
+
+    &--range {
+      @extend .carousel__slide;
+    }
+
+    &--amount {
+      @extend .carousel__slide;
     }
   }
-}
 
-#contribute-buttons-top {
-  margin: 1em 0;
-}
+  &__legend {
 
-
-// Amount input spinner styles
-#spinner, #spinner-bottom {
-  background-color: $white;
-  border: 2px solid $gray-medium;
-  color: $black;
-  font-family: "league-gothic";
-  font-size: 3.5em;
-  margin: 0;
-  text-align: center;
-}
-
-#spinner {
-  width: 100%;
-}
-
-#spinner-bottom {
-  width: 250px;
-  @include media($tablet) {
-    width: 100%;
   }
-}
 
+  &__radios {
 
-// Bottom express checkout
-.index {
-  .bottom-checkout {
-    background-color: lighten($black, 20%);
-    @include background-sizing;
   }
-}
 
-.levels {
-  .bottom-checkout {
-    background-color: lighten($black, 20%);
-    @include background-sizing;
-  }
-}
+  &__label {
 
-.bottom-checkout {
-  @include outer-container;
-  max-width: none;
-  padding: 3em 1em;
-  @include media($tablet) {
-    padding: 3em 0 2em 0;
   }
-  h2 {
-    border-bottom: 3px solid $yellow-tribune;
-    color: white;
-    font-family: 'league-gothic';
-    font-size: 4em;
-    font-weight: 200;
-    margin-bottom: 0.5em;
-    text-align: left;
+
+  &__label-text {
+
   }
-  .express-checkout {
-    @include span-columns(6);
-    @media (max-width: 1020px) {
-      @include span-columns(8);
+
+  &__radio {
+
+  }
+
+  &__manual {
+
+  }
+
+  &__manual-label {
+
+  }
+
+  &__manual-radio {
+
+  }
+
+  &__manual-input {
+
+  }
+
+  &__manual-error {
+
+  }
+
+  &__buttons {
+
+  }
+
+  &__item {
+
+  }
+
+  &__button {
+    &--prev {
+
     }
-    @include media($tablet) {
-      @include span-columns(10)
-    }
-    @include media($mobile) {
-      @include span-columns(12);
-    }
-    .contribute {
-      background: transparent;
-      .donate-link {
-        display: block;
-        p {
-          color: $white;
-          font-size: 1.2em;
-          margin-top: 1em;
-          span {
-            color: $white;
-            text-decoration: underline;
-          }
-        }
-      }
-      .left-wrapper {
-        float: left;
-        width: 75%;
-        @include media($tablet) {
-          width: 100%;
-        }
-        .ui-spinner {
-          float: left;
-        }
-        @include media($tablet) {
-          .ui-spinner {
-            width: 80%;
 
-          }
-        }
-      }
-      .right-wrapper {
-        float: right;
-        width: 25%;
-        .ui-buttonset {
-          display: inline-block;
-          width: 100%;
-        }
-        @include media($tablet) {
-          width: 100%;
-        }
-      }
-      label {
-        display: inline-block;
-        width: 100%;
-        &[for='yearly-bottom'] {
-          margin-bottom: 1em;
-        }
-        @include media($tablet) {
-          display: inline;
-          width: 48%;
-          font-size: 1em;
-          margin: 1em 0 0 0;
-          &[for='yearly-bottom'] {
-            float: left;
-          }
-          &[for='monthly-bottom'] {
-            float: right;
-          }
-        }
-      }
-      @include media($tablet) {
-        button[type='submit'] {
-          margin: 0;
-        }
-      }
-      span.dollar {
-        color: $white;
-        float: left;
-        padding: 0 0.2em;
-        width: 20%;
-      }
-    }
-  }
-}
+    &--next {
 
-
-// Hide js elements if user doesn't have js
-body.no-js {
-  .dollar, #spinner, #contribute-buttons-top, .level-display {
-    display: none;
-  }
-  .bottom-checkout {
-    .left-wrapper, .right-wrapper {
-      display: none;
     }
-  }
-  .top-checkout {
-    @media (min-width: 620px) {
-      .contribute {
-        margin-top: 2em;
-        .button {
-            margin-top: 0;
-        }
-      }
+
+    &--submit {
+
     }
   }
 }
