@@ -1,32 +1,69 @@
 export default class FormHandler {
-  constructor() {
-    this.rangeAttach = $('.carousel__fieldset--range');
-    this.amountsAttach = $('.carousel__fieldset--amount');
-    this.carouselOuter = $('#carousel-outer');
-    this.carouselInner = $('#carousel-inner');
-    this.carouselSlides = $('.carousel-slide');
-    this.prevButton = $('#prev');
-    this.nextButton = $('#prev');
-    this.submitButton = $('#submit');
-
-    this.currFrequencyIndex = 1;
-    this.currRangeIndex = 1;
-    this.transformValue = 0;
-    this.currSlide = 0;
+  constructor(opts) {
+    this.rangeAttach = opts.rangeAttach;
+    this.amountsAttach = opts.amountsAttach;
+    this.outerContainer = opts.outerContainer;
+    this.innerContainer = opts.innerContainer;
+    this.carouselSlides = opts.carouselSlides;
+    this.prevButton = opts.prevButton;
+    this.nextButton = opts.nextButton;
+    this.submitButton = opts.submitButton;
+    this.currFrequencyIndex = opts.startFrequencyIndex;
+    this.currRangeIndex = opts.startRangeIndex;
+    this.currSlide = opts.startSlide;
     this.numSlides = this.carouselSlides.length;
-
-    this.frequencyToRanges = [
-      [1, 2, 3, 4],
-      [5, 6, 7, 8],
-      [9, 10, 11, 12]
-    ];
-
-    this.rangesToAmounts = [
-      [13, 14, 15, 16],
-      [17, 18, 19, 20],
-      [21, 22, 23, 24]
-    ];
+    this.frequencyToRanges = opts.frequencyToRanges;
+    this.rangesToAmounts = opts.rangesToAmounts;
   }
+
+  // returns integer of current carousel transform value
+  getTransformValue() {
+    return this.getOuterContainerWidth() * this.currSlide;
+  }
+
+  // returns integer width of outer container
+  getOuterContainerWidth() {
+    return this.outerContainer.width();
+  }
+
+  // sets width of inner container as
+  // number of slides * width of outer container
+  setInnerContainerWidth() {
+    const innerContainerWidth = this.numSlides * this.getOuterContainerWidth();
+    this.innerContainer.css('width', `${innerContainerWidth}px`);
+  }
+
+  // returns integer width of inner container
+  getInnerContainerWidth() {
+    return this.innerContainer.width();
+  }
+
+  // sets each slide to width of the outer container
+  setSlideWidth() {
+    const slideWidth = this.getOuterContainerWidth();
+
+    this.carouselSlides.each(function(){
+      $(this).css('width', `${slideWidth}px`);
+    });
+  }
+
+  // shifts carousel forward or backward
+  setTransform() {
+    this.innerContainer.css('transform', `translateX(-${this.getTransformValue()}px)`);
+  }
+
+  // initialize carousel
+  initCarousel() {
+    this.setInnerContainerWidth();
+    this.setSlideWidth();
+    this.setTransform();
+  }
+
+  bindEvents() {
+
+  }
+
+
 
   // is existing range/frequency
   // takes which and returns a boolean
@@ -81,22 +118,35 @@ export default class FormHandler {
   // takes forward or back
   // calls get width of outer container
   // transforms carousel by that amount
+  // after interval, removes ARIA live
 
   // disablePrevNext
   // takes forward or back
   // disables button if meets condition
 
+  // accessible hide
+  // add ARIA hidden attribute
+
   // show submit button
 
+  // add/remove ARIA live
+
+  // manual input is selected
+
+  // validate manual input
+  // ARIA invalid attribute should be set
+
+  // create string and redirect
+
   // *bind events
-  // frequency click event
+  // FREQUENCY CLICK EVENT
   // get index attribute
   // check if is existing range/frequency
   // if not, get frequencyToRange value
   // call set new range or frequency
   // call build range markup
   // append to DOM
-  // range click event
+  // RANGE CLICK EVENT
   // get index attribute
   // check if existing
   // if not, get rangeToAmounts value
@@ -104,19 +154,23 @@ export default class FormHandler {
   // insertAfter
   // radio click event
   // call add remove selected
-  // prev click event
+  // PREV CLICK EVENT
   // check if is first slide
-  // if not, decrement slideIndex
+  // if so, return false
+  // if not call accessible hide on current
+  // decrement slideIndex
+  // call aria live on new current
   // call disable with back
   // call move carousel w/ back
-  // next click event
+  // NEXT CLICK EVENT
   // check if is last slide
+  // if so, return false
   // if not, increment slideIndex
   // call disable with next
   // call move carousel w/ forward
   // if is last slide, show submit button
-
-  // *inititialize carousel
-  // get width of outer container
-  // set width of inner container
+  // SUBMIT EVENT
+  // check if manual input is selected
+  // if so, check if input is numeric
+  // if so, create string and redirect
 }
