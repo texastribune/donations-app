@@ -1,6 +1,7 @@
 export default class FormHandler {
   constructor(opts) {
-    this.rangeAttach = opts.rangeAttach;
+    this.originalOpts = opts;
+    this.rangesAttach = opts.rangesAttach;
     this.amountsAttach = opts.amountsAttach;
     this.outerContainer = opts.outerContainer;
     this.innerContainer = opts.innerContainer;
@@ -8,11 +9,13 @@ export default class FormHandler {
     this.prevButton = opts.prevButton;
     this.nextButton = opts.nextButton;
     this.submitButton = opts.submitButton;
+    this.frequenciesRadios = $(opts.frequenciesRadios);
+    this.rangesRadios = $(opts.rangesRadios);
     this.currFrequencyIndex = opts.startFrequencyIndex;
     this.currRangeIndex = opts.startRangeIndex;
     this.currSlide = opts.startSlide;
     this.numSlides = this.carouselSlides.length;
-    this.frequencyToRanges = opts.frequencyToRanges;
+    this.frequenciesToRanges = opts.frequenciesToRanges;
     this.rangesToAmounts = opts.rangesToAmounts;
   }
 
@@ -59,54 +62,125 @@ export default class FormHandler {
     this.setTransform();
   }
 
-  bindEvents() {
+  // get value of either data-frequency or data-range
+  // it should be a non-negative integer
+  getRadioIndex(which, el) {
+    const index = el.attr(`data-${which}`);
 
+    if (isNaN(index)) {
+      throw new Error();
+    } else if ( index.indexOf('.') !== -1 ) {
+      throw new Error();
+    } else if ( parseInt(index) < 0 ) {
+      throw new Error();
+    }
+
+    return parseInt(index);
   }
 
+  // returns true or false depending whether
+  // existing frequency index or range index is
+  // the same as the one found inside a newly
+  // selected radio button
+  isCurrentIndex(which, eventIndex) {
+    const baseIndex = (which === 'frequency' ? this.currFrequencyIndex : this.currRangeIndex);
+    return parseInt(eventIndex) === parseInt(baseIndex);
+  }
 
+  // sets new current index for
+  // frequency and range
+  setNewCurrentIndex(which, eventIndex) {
+    if (which === 'frequency') {
+      this.currFrequencyIndex = eventIndex;
+    } else if (which === 'range') {
+      this.currRangeIndex = eventIndex;
+    }
+  }
 
-  // is existing range/frequency
-  // takes which and returns a boolean
+  // returns new range values
+  getFrequenciesToRangesValues(newIndex) {
+    return this.frequenciesToRanges[newIndex];
+  }
 
-  // set new frequency range
-  // takes which, value and then sets the value
+  // returns new amounts values
+  getRangesToAmountsValues(newIndex) {
+    return this.rangesToAmounts[this.currFrequencyIndex][newIndex];
+  }
 
-  // get attr
-  // takes element, attr name
-  // returns attr value
+  // build new ranges markup
+  buildRangesMarkup(newRangesValues) {
+    return `
+      ${newRangesValues.map((val, index) => `
+        <label class="carousel__label" for="range-${index+1}" aria-labelledby="range-legend">
+          <span class="carousel__label-text">${val}</span>
+          <input class="carousel__radio" type="radio" name="range" data-range="${index}" id="range-${index+1}">
+        </label>
+      `).join('\n')}
+    `;
+  }
 
-  // get frequencyToRange value
-  // takes index and returns array of values
+  // build new amounts markup
+  buildAmountsMarkup(newAmountsValues) {
+    return `
+      ${newAmountsValues.map((val, index) => `
+        <label class="carousel__label" for="amount-${index+1}" aria-labelledby="amount-legend">
+          <span class="carousel__label-text">${val}</span>
+          <input class="carousel__radio" type="radio" name="amount" id="amount-${index+1}">
+        </label>
+      `).join('\n')}
+    `;
+  }
 
-  // get rangeToAmounts value
-  // takes index and returns array of values
+  // append to range or amounts markup to DOM
+  appendMarkupToDOM(which, markup) {
+    const attacher = (which === 'frequency' ? this.rangesAttach : this.amountsAttach);
+    attacher.empty().append(markup);
+  }
 
-  // build range markup
-  // takes array of values, returns markup
+  // after radios have been dynamically added to the DOM
+  // we need to rebind our events
+  // would be nice to use delegation, but that makes
+  // testing difficult because then we can't .trigger()
+  reinitEvents() {
+    this.frequenciesRadios = $(this.originalOpts.frequenciesRadios);
+    this.rangesRadios = $(this.originalOpts.rangesRadios);
+    this.bindEvents();
+  }
 
-  // build amounts markup
-  // takes array of values, returns markup
+  // bind DOM events
+  bindEvents() {
+    const self = this;
 
-  // append to DOM
-  // takes markup, attacher, returns nothing
+    this.frequenciesRadios.change(function() {
+      const eventIndex = self.getRadioIndex('frequency', $(this));
 
-  // insertAfter
-  // takes markup, attacher, returns nothing
+      if (!self.isCurrentIndex('frequency', eventIndex)) {
+        const newRangesValues = self.getFrequenciesToRangesValues(eventIndex);
+        const newRangesMarkup = self.buildRangesMarkup(newRangesValues);
 
-  // get outer container width
-  // returns width of outer container
+        self.appendMarkupToDOM('frequency', newRangesMarkup);
+        self.setNewCurrentIndex('frequency', eventIndex);
+        self.reinitEvents();
+      }
+    });
 
-  // get width of outer container
-  // takes nothing, returns width
+    this.rangesRadios.change(function() {
+      const eventIndex = self.getRadioIndex('range', $(this));
 
-  // set width of inner container
-  // takes nothing, returns nothing
-  // sets width of inner container to num slides * outer container width
+      if (!self.isCurrentIndex('range', eventIndex)) {
+        const newAmountsValues = self.getRangesToAmountsValues(eventIndex);
+        const newAmountsMarkup = self.buildAmountsMarkup(newAmountsValues);
 
-  // add remove selected
-  // takes nothing
-  // if has selected class, return false
-  // otherwise set selected, unselect others
+        self.appendMarkupToDOM('range', newAmountsMarkup);
+        self.setNewCurrentIndex('range', eventIndex);
+        self.reinitEvents();
+      }
+    });
+  }
+
+  // call add remove selected
+
+  // reset amounts when frequency changes
 
   // isLastSlide
   // returns boolean
@@ -138,22 +212,6 @@ export default class FormHandler {
 
   // create string and redirect
 
-  // *bind events
-  // FREQUENCY CLICK EVENT
-  // get index attribute
-  // check if is existing range/frequency
-  // if not, get frequencyToRange value
-  // call set new range or frequency
-  // call build range markup
-  // append to DOM
-  // RANGE CLICK EVENT
-  // get index attribute
-  // check if existing
-  // if not, get rangeToAmounts value
-  // call build amounts markup
-  // insertAfter
-  // radio click event
-  // call add remove selected
   // PREV CLICK EVENT
   // check if is first slide
   // if so, return false
