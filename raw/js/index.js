@@ -12,8 +12,8 @@ const DonationForm = new FormHandler({
   submitButton: $('#submit'),
   frequenciesRadios: '.carousel__slide--frequency .carousel__radio',
   rangesRadios: '.carousel__slide--range .carousel__radio',
-  startFrequencyIndex: 1,
-  startRangeIndex: 1,
+  defaultFrequenciesIndex: 1,
+  defaultRangesIndex: 1,
   startSlide: 0,
   frequenciesToRanges: [
     [1, 2, 3, 4],
