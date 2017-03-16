@@ -11,8 +11,10 @@ export default class FormHandler {
     this.submitButton = opts.submitButton;
     this.frequenciesRadios = $(opts.frequenciesRadios);
     this.rangesRadios = $(opts.rangesRadios);
-    this.currFrequencyIndex = opts.startFrequencyIndex;
-    this.currRangeIndex = opts.startRangeIndex;
+    this.currFrequenciesIndex = opts.defaultFrequenciesIndex;
+    this.currRangesIndex = opts.defaultRangesIndex;
+    this.defaultFrequenciesIndex = opts.defaultFrequenciesIndex;
+    this.defaultRangesIndex = opts.defaultRangesIndex;
     this.currSlide = opts.startSlide;
     this.numSlides = this.carouselSlides.length;
     this.frequenciesToRanges = opts.frequenciesToRanges;
@@ -83,7 +85,7 @@ export default class FormHandler {
   // the same as the one found inside a newly
   // selected radio button
   isCurrentIndex(which, eventIndex) {
-    const baseIndex = (which === 'frequency' ? this.currFrequencyIndex : this.currRangeIndex);
+    const baseIndex = (which === 'frequency' ? this.currFrequenciesIndex : this.currRangesIndex);
     return parseInt(eventIndex) === parseInt(baseIndex);
   }
 
@@ -91,9 +93,9 @@ export default class FormHandler {
   // frequency and range
   setNewCurrentIndex(which, eventIndex) {
     if (which === 'frequency') {
-      this.currFrequencyIndex = eventIndex;
+      this.currFrequenciesIndex = eventIndex;
     } else if (which === 'range') {
-      this.currRangeIndex = eventIndex;
+      this.currRangesIndex = eventIndex;
     }
   }
 
@@ -104,7 +106,7 @@ export default class FormHandler {
 
   // returns new amounts values
   getRangesToAmountsValues(newIndex) {
-    return this.rangesToAmounts[this.currFrequencyIndex][newIndex];
+    return this.rangesToAmounts[this.currFrequenciesIndex][newIndex];
   }
 
   // build new ranges markup
@@ -133,7 +135,7 @@ export default class FormHandler {
 
   // append to range or amounts markup to DOM
   appendMarkupToDOM(which, markup) {
-    const attacher = (which === 'frequency' ? this.rangesAttach : this.amountsAttach);
+    const attacher = (which === 'range' ? this.rangesAttach : this.amountsAttach);
     attacher.empty().append(markup);
   }
 
@@ -155,11 +157,16 @@ export default class FormHandler {
       const eventIndex = self.getRadioIndex('frequency', $(this));
 
       if (!self.isCurrentIndex('frequency', eventIndex)) {
+        self.setNewCurrentIndex('frequency', eventIndex);
+        self.setNewCurrentIndex('range', self.defaultRangesIndex);
+
         const newRangesValues = self.getFrequenciesToRangesValues(eventIndex);
         const newRangesMarkup = self.buildRangesMarkup(newRangesValues);
+        const newAmountsValues = self.getRangesToAmountsValues(self.defaultRangesIndex);
+        const newAmountsMarkup = self.buildAmountsMarkup(newAmountsValues);
 
-        self.appendMarkupToDOM('frequency', newRangesMarkup);
-        self.setNewCurrentIndex('frequency', eventIndex);
+        self.appendMarkupToDOM('range', newRangesMarkup);
+        self.appendMarkupToDOM('amount', newAmountsMarkup);
         self.reinitEvents();
       }
     });
@@ -168,19 +175,18 @@ export default class FormHandler {
       const eventIndex = self.getRadioIndex('range', $(this));
 
       if (!self.isCurrentIndex('range', eventIndex)) {
+        self.setNewCurrentIndex('range', eventIndex);
+
         const newAmountsValues = self.getRangesToAmountsValues(eventIndex);
         const newAmountsMarkup = self.buildAmountsMarkup(newAmountsValues);
 
-        self.appendMarkupToDOM('range', newAmountsMarkup);
-        self.setNewCurrentIndex('range', eventIndex);
+        self.appendMarkupToDOM('amount', newAmountsMarkup);
         self.reinitEvents();
       }
     });
   }
 
   // call add remove selected
-
-  // reset amounts when frequency changes
 
   // isLastSlide
   // returns boolean
