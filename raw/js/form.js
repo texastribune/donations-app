@@ -334,7 +334,9 @@ export default class FormHandler {
       self.updateSelectedClass('amount', $(this));
     });
 
-    this.prevButton.click(function() {
+    this.prevButton.click(function(e) {
+      e.preventDefault();
+
       if (!self.isFirstSlide()) {
         self.updateCurrSlide('prev');
         self.accessibleShowCurrent();
@@ -350,7 +352,9 @@ export default class FormHandler {
       }
     });
 
-    this.nextButton.click(function() {
+    this.nextButton.click(function(e) {
+      e.preventDefault();
+
       if (!self.isLastSlide()) {
         self.updateCurrSlide('next');
         self.accessibleShowCurrent();
