@@ -106,9 +106,11 @@ export default class FormHandler {
 
   // returns new amounts values
   getRangesToAmountsValues(newIndex) {
-    return this.rangesToAmounts[this.currFrequenciesIndex][newIndex];
+    return this.rangesToAmounts[newIndex];
   }
 
+  // returned checked boolean if new radio button
+  // should be checked by default when appended to DOM
   shouldBeChecked(which, iterIndex) {
     if (which === 'range') {
       return (iterIndex === this.defaultRangesIndex ? `checked` : ``);
@@ -146,6 +148,16 @@ export default class FormHandler {
     const attacher = (which === 'range' ? this.rangesAttach : this.amountsAttach);
     attacher.empty().append(markup);
   }
+
+  /*updateSelectedClass(which) {
+    if (which === 'frequency') {
+
+    } else if (which === 'range') {
+
+    } else if (which === 'amount') {
+
+    }
+  }*/
 
   // after radios have been dynamically added to the DOM
   // we need to rebind our events

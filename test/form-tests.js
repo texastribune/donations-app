@@ -35,26 +35,10 @@ describe('Donation carousel form', () => {
         [9, 10, 11, 12]
       ],
       rangesToAmounts: [
-        [
-          [13, 14, 15, 16],
-          [17, 18, 19, 20],
-          [21, 22, 23, 24],
-          [25, 26, 27, 28]
-        ],
-
-        [
-          [29, 30, 31, 32],
-          [33, 34, 35, 36],
-          [37, 38, 39, 40],
-          [41, 42, 43, 44]
-        ],
-
-        [
-          [45, 46, 47, 48],
-          [49, 50, 51, 52],
-          [53, 54, 55, 56],
-          [57, 58, 59, 60]
-        ]
+        [17, 18, 19, 20],
+        [21, 22, 23, 24],
+        [25, 26, 27, 28],
+        [29, 30, 31, 32]
       ]
     });
   });
@@ -167,11 +151,10 @@ describe('Donation carousel form', () => {
     assert.equal(DonationForm.currRangesIndex, DonationForm.defaultRangesIndex);
   });
 
-  it('range changes shold get new amounts array at index[currFrequenciesIndex][event index]', () => {
+  it('new amounts should be array at index retrieved from range radio', () => {
     const index = DonationForm.rangesRadios.first().attr('data-range');
-    const newAmountsValues = DonationForm.getRangesToAmountsValues(index);
-    DonationForm.currFrequencyIndex = 1;
-    assert.deepEqual(newAmountsValues, [37, 38, 39, 40]);
+    const newRangesValues = DonationForm.getRangesToAmountsValues(index);
+    assert.deepEqual(newRangesValues, [25, 26, 27, 28]);
   });
 
   it('ranges markup should contain certain values', () => {
@@ -204,7 +187,7 @@ describe('Donation carousel form', () => {
     assert.equal(spy.returnValues[callIndexWithChecked], 'checked');
   });
 
-  it('events should be reinitialized after a frequency radio and range radio change', () => {
+  it('events should be reinitialized after a radio change', () => {
     const spy = sinon.spy(DonationForm, 'reinitEvents');
     DonationForm.bindEvents();
     DonationForm.frequenciesRadios.trigger('change');
