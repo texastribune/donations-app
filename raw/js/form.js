@@ -297,14 +297,14 @@ export default class FormHandler {
   // we need to rebind our events
   // would be nice to use delegation, but that makes
   // testing difficult because then we can't .trigger()
-  reinitEvents() {
+  reinitRadioEvents() {
     this.frequenciesRadios = $(this.originalOpts.frequenciesRadios);
     this.rangesRadios = $(this.originalOpts.rangesRadios);
-    this.bindEvents();
+    this.bindRadioEvents();
   }
 
-  // bind DOM events
-  bindEvents() {
+  // bind radio button events
+  bindRadioEvents() {
     const self = this;
 
     this.frequenciesRadios.change(function() {
@@ -317,7 +317,7 @@ export default class FormHandler {
       self.updateSelectedClass('frequency', $(this));
       self.appendMarkupToDOM('range', newRangesMarkup);
       self.appendMarkupToDOM('amount', newAmountsMarkup);
-      self.reinitEvents();
+      self.reinitRadioEvents();
     });
 
     this.rangesRadios.change(function() {
@@ -327,12 +327,17 @@ export default class FormHandler {
 
       self.updateSelectedClass('range', $(this));
       self.appendMarkupToDOM('amount', newAmountsMarkup);
-      self.reinitEvents();
+      self.reinitRadioEvents();
     });
 
     this.amountsRadios.change(function() {
       self.updateSelectedClass('amount', $(this));
     });
+  }
+
+  // bind carousel-related events
+  bindCarouselEvents() {
+    const self = this;
 
     this.prevButton.click(function(e) {
       e.preventDefault();
@@ -369,6 +374,11 @@ export default class FormHandler {
         }
       }
     });
+  }
+
+  // bind form-related events
+  bindFormEvents() {
+    const self = this;
 
     this.manualInput.focus(function() {
       self.selectManualEntryRadio($(this));
@@ -391,5 +401,11 @@ export default class FormHandler {
         self.showErrorMessage();
       }
     });
+  }
+
+  bindAllEvents() {
+    this.bindRadioEvents();
+    this.bindCarouselEvents();
+    this.bindFormEvents();
   }
 }

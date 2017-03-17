@@ -36,4 +36,4 @@ const DonationForm = new FormHandler({
 });
 
 DonationForm.initCarousel();
-DonationForm.bindEvents();
+DonationForm.bindAllEvents();

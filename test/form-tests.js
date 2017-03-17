@@ -114,7 +114,7 @@ describe('Donation carousel form', () => {
   it('frequency changes should reset amounts to default', () => {
     const spy = sinon.spy(DonationForm, 'getRangesToAmountsValues');
     const defaultRangesToAmounts = DonationForm.rangesToAmounts[DonationForm.defaultRangesIndex];
-    DonationForm.bindEvents();
+    DonationForm.bindRadioEvents();
     DonationForm.frequenciesRadios.trigger('change');
     assert.isTrue(spy.called);
     assert.equal(spy.returnValues[0], defaultRangesToAmounts);
@@ -151,8 +151,8 @@ describe('Donation carousel form', () => {
   });
 
   it('events should be reinitialized after a radio change', () => {
-    const spy = sinon.spy(DonationForm, 'reinitEvents');
-    DonationForm.bindEvents();
+    const spy = sinon.spy(DonationForm, 'reinitRadioEvents');
+    DonationForm.bindRadioEvents();
     DonationForm.frequenciesRadios.trigger('change');
     DonationForm.rangesRadios.trigger('change');
     assert.isAtLeast(spy.callCount, 2);
@@ -160,14 +160,14 @@ describe('Donation carousel form', () => {
 
   it('changing a radio should update the selected class', () => {
     const spy = sinon.spy(DonationForm, 'updateSelectedClass');
-    DonationForm.bindEvents();
+    DonationForm.bindRadioEvents();
     DonationForm.amountsRadios.trigger('change');
     assert.isTrue(spy.calledWith('amount'));
   });
 
   it('clicking next does nothing when at last slide', () => {
     const spy = sinon.spy(DonationForm, 'updateCurrSlide');
-    DonationForm.bindEvents();
+    DonationForm.bindCarouselEvents();
     DonationForm.currSlide = DonationForm.numSlides-1;
     DonationForm.nextButton.trigger('click');
     assert.isFalse(spy.called);
@@ -175,7 +175,7 @@ describe('Donation carousel form', () => {
 
   it('clicking previous does nothing when at first slide', () => {
     const spy = sinon.spy(DonationForm, 'updateCurrSlide');
-    DonationForm.bindEvents();
+    DonationForm.bindCarouselEvents();
     DonationForm.currSlide = 0;
     DonationForm.prevButton.trigger('click');
     assert.isFalse(spy.called);
@@ -183,14 +183,14 @@ describe('Donation carousel form', () => {
 
   it('clicking previous decrements current slide when not at first already', () => {
     DonationForm.currSlide = 2;
-    DonationForm.bindEvents();
+    DonationForm.bindCarouselEvents();
     DonationForm.prevButton.trigger('click');
     assert.equal(1, DonationForm.currSlide);
   });
 
   it('clicking next increments current slide when not at last already', () => {
     DonationForm.currSlide = 0;
-    DonationForm.bindEvents();
+    DonationForm.bindCarouselEvents();
     DonationForm.nextButton.trigger('click');
     assert.equal(1, DonationForm.currSlide);
   });
@@ -198,7 +198,7 @@ describe('Donation carousel form', () => {
   it('any time you are allowed to click previous, it should enable next', () => {
     const spy = sinon.spy(DonationForm, 'enableButton');
     DonationForm.currSlide = 1;
-    DonationForm.bindEvents();
+    DonationForm.bindCarouselEvents();
     DonationForm.prevButton.trigger('click');
     assert.isTrue(spy.calledWith('next'));
   });
@@ -206,23 +206,23 @@ describe('Donation carousel form', () => {
   it('any time you are allowed to click next, it should enable previous', () => {
     const spy = sinon.spy(DonationForm, 'enableButton');
     DonationForm.currSlide = 1;
-    DonationForm.bindEvents();
+    DonationForm.bindCarouselEvents();
     DonationForm.nextButton.trigger('click');
     assert.isTrue(spy.calledWith('prev'));
   });
 
-  it('if clicking previous results in moving to first slide, disable previous', () => {
+  it('if clicking previous means moving to first slide, disable previous', () => {
     const spy = sinon.spy(DonationForm, 'disableButton');
     DonationForm.currSlide = 1;
-    DonationForm.bindEvents();
+    DonationForm.bindCarouselEvents();
     DonationForm.prevButton.trigger('click');
     assert.isTrue(spy.calledWith('prev'));
   });
 
-  it('if clicking next results in moving to last slide, disable next', () => {
+  it('if clicking next means moving to last slide, disable next', () => {
     const spy = sinon.spy(DonationForm, 'disableButton');
     DonationForm.currSlide = 1;
-    DonationForm.bindEvents();
+    DonationForm.bindCarouselEvents();
     DonationForm.nextButton.trigger('click');
     assert.isTrue(spy.calledWith('next'));
   });
@@ -230,7 +230,7 @@ describe('Donation carousel form', () => {
   it('the submit button should appear on the last slide', () => {
     const spy = sinon.spy(DonationForm, 'showSubmitButton');
     DonationForm.currSlide = 1;
-    DonationForm.bindEvents();
+    DonationForm.bindCarouselEvents();
     DonationForm.nextButton.trigger('click');
     assert.isTrue(spy.calledOnce);
   });
@@ -238,7 +238,7 @@ describe('Donation carousel form', () => {
   it('the submit button should always get hidden when clicking previous button', () => {
     const spy = sinon.spy(DonationForm, 'hideSubmitButton');
     DonationForm.currSlide = 2;
-    DonationForm.bindEvents();
+    DonationForm.bindCarouselEvents();
     DonationForm.prevButton.trigger('click');
     DonationForm.prevButton.trigger('click');
     assert.isTrue(spy.calledTwice);
@@ -247,7 +247,7 @@ describe('Donation carousel form', () => {
   it('all slides but current should have aria-hidden', () => {
     DonationForm.currSlide = 1;
     DonationForm.carouselSlides = $('<div aria-hidden="true"/><div/><div aria-hidden="true"/>');
-    DonationForm.bindEvents();
+    DonationForm.bindCarouselEvents();
     DonationForm.prevButton.trigger('click');
     assert.equal('true', DonationForm.carouselSlides.eq(1).attr('aria-hidden'));
     assert.equal('true', DonationForm.carouselSlides.eq(2).attr('aria-hidden'));
@@ -261,21 +261,21 @@ describe('Donation carousel form', () => {
 
   it('during animation, new current slide should get aria-live', () => {
     const spy = sinon.spy(DonationForm, 'tempAccessibleLive');
-    DonationForm.bindEvents();
+    DonationForm.bindCarouselEvents();
     DonationForm.nextButton.trigger('click');
     assert.isTrue(spy.called);
   });
 
   it('focusing on manual input should select its accompanying radio', () => {
     const spy = sinon.spy(DonationForm, 'selectManualEntryRadio');
-    DonationForm.bindEvents();
+    DonationForm.bindFormEvents();
     DonationForm.manualInput.trigger('focus');
     assert.isTrue(spy.calledOnce);
   });
 
   it('entering a value in the manual field should update value of accompanying radio', () => {
     const spy = sinon.spy(DonationForm, 'updateManualEntryRadioVal');
-    DonationForm.bindEvents();
+    DonationForm.bindFormEvents();
     DonationForm.manualInput.trigger('keyup');
     assert.isTrue(spy.called);
   });
