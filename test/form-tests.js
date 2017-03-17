@@ -25,6 +25,7 @@ describe('Donation carousel form', () => {
       nextButton: $('<button/>'),
       submitButton: $('<input type="submit"/>'),
       manualInput: $('<input type="text">'),
+      form: $('<form/>'),
       frequenciesRadios: '#frequency-radio',
       rangesRadios: '#range-radio',
       amountsRadios: '#amount-radio',
@@ -270,5 +271,45 @@ describe('Donation carousel form', () => {
     DonationForm.bindEvents();
     DonationForm.manualInput.trigger('focus');
     assert.isTrue(spy.calledOnce);
+  });
+
+  it('entering a value in the manual field should update value of accompanying radio', () => {
+    const spy = sinon.spy(DonationForm, 'updateManualEntryRadioVal');
+    DonationForm.bindEvents();
+    DonationForm.manualInput.trigger('keyup');
+    assert.isTrue(spy.called);
+  });
+
+  it('should remove range from serialized input', () => {
+    const input = ['frequency=monthly', 'range=foo', 'amount=bar'];
+    DonationForm.removeRangeFromInput(input);
+    assert.deepEqual(['frequency=monthly', 'amount=bar'], input);
+  });
+
+  it('should convert the input string to an object', () => {
+    const input = 'frequency=monthly&range=foo&amount=bar';
+    const inputAsObject = DonationForm.convertInputToObject(input);
+    assert.deepEqual({ frequency: 'monthly', amount: 'bar' }, inputAsObject);
+  });
+
+  it('the form should validate input as numeric', () => {
+    assert.isTrue(DonationForm.isValidAmountInput('1234'));
+    assert.isTrue(DonationForm.isValidAmountInput(1234));
+    assert.isFalse(DonationForm.isValidAmountInput('$1234'));
+    assert.isFalse(DonationForm.isValidAmountInput('1,234'));
+    assert.isFalse(DonationForm.isValidAmountInput('1234a'));
+  });
+
+  it('should send users to proper checkout form based on frequency and amount', () => {
+    const monthlyOpts = { frequency: 'monthly', amount: '22' };
+    const onceOpts = { frequency: 'once', amount: '50' };
+    const annualOpts = { frequency: 'annually', amount: '109' };
+    const monthlyURL = DonationForm.getCheckoutURL(monthlyOpts);
+    const onceURL = DonationForm.getCheckoutURL(onceOpts);
+    const annualURL = DonationForm.getCheckoutURL(annualOpts);
+
+    assert.equal('https://checkout.texastribune.org/memberform?installmentPeriod=monthly&amount=22', monthlyURL);
+    assert.equal('https://checkout.texastribune.org/donateform?amount=50', onceURL);
+    assert.equal('https://checkout.texastribune.org/memberform?installmentPeriod=yearly&amount=109', annualURL);
   });
 });

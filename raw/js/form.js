@@ -10,6 +10,8 @@ export default class FormHandler {
     this.nextButton = opts.nextButton;
     this.submitButton = opts.submitButton;
     this.manualInput = opts.manualInput;
+    this.form = opts.form;
+    this.errorMessage = opts.errorMessage;
     this.frequenciesRadios = $(opts.frequenciesRadios);
     this.rangesRadios = $(opts.rangesRadios);
     this.amountsRadios = $(opts.amountsRadios);
@@ -119,7 +121,7 @@ export default class FormHandler {
       ${newAmountsValues.map((val, index) => `
         <label class="carousel__label" for="amount-${index+1}" aria-labelledby="amount-legend">
           <span class="carousel__label-text">${val}</span>
-          <input class="carousel__radio" type="radio" name="amount" id="amount-${index+1}" ${this.shouldBeChecked('amount', index)}>
+          <input class="carousel__radio" type="radio" value="${val}" name="amount" id="amount-${index+1}" ${this.shouldBeChecked('amount', index)}>
         </label>
       `).join('\n')}
     `;
@@ -228,6 +230,69 @@ export default class FormHandler {
     el.prev('.carousel__radio').prop('checked', true);
   }
 
+  updateManualEntryRadioVal(el) {
+    el.prev('.carousel__radio').val(el.val());
+  }
+
+  isValidAmountInput(amount) {
+    return !isNaN(amount);
+  }
+
+  removeRangeFromInput(splitInput) {
+    let indexWithRange;
+
+    for (let i = 0; i < splitInput.length; i++) {
+      if (splitInput[i].indexOf('range') !== -1) {
+        indexWithRange = i;
+        break;
+      }
+    }
+
+    splitInput.splice(indexWithRange, 1);
+  }
+
+  convertInputToObject(input) {
+    const splitInput = input.split('&');
+    let inputObject = {};
+
+    this.removeRangeFromInput(splitInput);
+
+    for (let i = 0; i < splitInput.length; i++) {
+      const curr = splitInput[i];
+      const splitParam = curr.split('=');
+
+      inputObject[splitParam[0]] = splitParam[1];
+    }
+
+    return inputObject;
+  }
+
+  getCheckoutURL(inputObject) {
+    const amount = inputObject.amount;
+    const frequency = inputObject.frequency;
+    const baseURL = 'https://checkout.texastribune.org';
+    let fullURL;
+
+    switch(frequency) {
+      case 'once':
+        fullURL = `${baseURL}/donateform?amount=${amount}`;
+        break;
+      case 'monthly':
+        fullURL = `${baseURL}/memberform?installmentPeriod=monthly&amount=${amount}`;
+        break;
+      case 'annually':
+        fullURL = `${baseURL}/memberform?installmentPeriod=yearly&amount=${amount}`;
+        break;
+    }
+
+    return fullURL;
+  }
+
+  showErrorMessage() {
+    this.errorMessage.removeClass('carousel__manual-error--hidden');
+    this.errorMessage.addClass('carousel__manual-error');
+  }
+
   // after radios have been dynamically added to the DOM
   // we need to rebind our events
   // would be nice to use delegation, but that makes
@@ -305,19 +370,22 @@ export default class FormHandler {
       self.selectManualEntryRadio($(this));
     });
 
-    $('form').submit(function(e) {
+    this.manualInput.keyup(function(){
+      self.updateManualEntryRadioVal($(this));
+    });
+
+    this.form.submit(function(e) {
       e.preventDefault();
+
+      const rawInput = $(this).serialize();
+      const inputObject = self.convertInputToObject(rawInput);
+
+      if ( self.isValidAmountInput(inputObject.amount) ) {
+        const checkoutURL = self.getCheckoutURL(inputObject);
+        window.location.href = checkoutURL;
+      } else {
+        self.showErrorMessage();
+      }
     });
   }
-
-  // validate manual input
-  // ARIA invalid attribute should be set
-
-  // create string and redirect
-
-
-
-  // SUBMIT EVENT
-  // if so, check if input is numeric
-  // if so, create string and redirect
 }
