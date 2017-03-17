@@ -162,4 +162,83 @@ describe('Donation carousel form', () => {
     DonationForm.amountsRadios.trigger('change');
     assert.isTrue(spy.calledWith('amount'));
   });
+
+  it('clicking next does nothing when at last slide', () => {
+    const spy = sinon.spy(DonationForm, 'updateCurrSlide');
+    DonationForm.bindEvents();
+    DonationForm.currSlide = DonationForm.numSlides-1;
+    DonationForm.nextButton.trigger('click');
+    assert.isFalse(spy.called);
+  });
+
+  it('clicking previous does nothing when at first slide', () => {
+    const spy = sinon.spy(DonationForm, 'updateCurrSlide');
+    DonationForm.bindEvents();
+    DonationForm.currSlide = 0;
+    DonationForm.prevButton.trigger('click');
+    assert.isFalse(spy.called);
+  });
+
+  it('clicking previous decrements current slide when not at first already', () => {
+    DonationForm.currSlide = 2;
+    DonationForm.bindEvents();
+    DonationForm.prevButton.trigger('click');
+    assert.equal(1, DonationForm.currSlide);
+  });
+
+  it('clicking next increments current slide when not at last already', () => {
+    DonationForm.currSlide = 0;
+    DonationForm.bindEvents();
+    DonationForm.nextButton.trigger('click');
+    assert.equal(1, DonationForm.currSlide);
+  });
+
+  it('any time you are allowed to click previous, it should enable next', () => {
+    const spy = sinon.spy(DonationForm, 'enableButton');
+    DonationForm.currSlide = 1;
+    DonationForm.bindEvents();
+    DonationForm.prevButton.trigger('click');
+    assert.isTrue(spy.calledWith('next'));
+  });
+
+  it('any time you are allowed to click next, it should enable previous', () => {
+    const spy = sinon.spy(DonationForm, 'enableButton');
+    DonationForm.currSlide = 1;
+    DonationForm.bindEvents();
+    DonationForm.nextButton.trigger('click');
+    assert.isTrue(spy.calledWith('prev'));
+  });
+
+  it('if clicking previous results in moving to first slide, disable previous', () => {
+    const spy = sinon.spy(DonationForm, 'disableButton');
+    DonationForm.currSlide = 1;
+    DonationForm.bindEvents();
+    DonationForm.prevButton.trigger('click');
+    assert.isTrue(spy.calledWith('prev'));
+  });
+
+  it('if clicking next results in moving to last slide, disable next', () => {
+    const spy = sinon.spy(DonationForm, 'disableButton');
+    DonationForm.currSlide = 1;
+    DonationForm.bindEvents();
+    DonationForm.nextButton.trigger('click');
+    assert.isTrue(spy.calledWith('next'));
+  });
+
+  it('the submit button should appear on the last slide', () => {
+    const spy = sinon.spy(DonationForm, 'showSubmitButton');
+    DonationForm.currSlide = 1;
+    DonationForm.bindEvents();
+    DonationForm.nextButton.trigger('click');
+    assert.isTrue(spy.calledOnce);
+  });
+
+  it('the submit button should always hide when clicking previous button', () => {
+    const spy = sinon.spy(DonationForm, 'hideSubmitButton');
+    DonationForm.currSlide = 2;
+    DonationForm.bindEvents();
+    DonationForm.prevButton.trigger('click');
+    DonationForm.prevButton.trigger('click');
+    assert.isTrue(spy.calledTwice);
+  });
 });

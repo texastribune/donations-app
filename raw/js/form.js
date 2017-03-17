@@ -147,6 +147,54 @@ export default class FormHandler {
     selectedEl.parent().addClass('radio__label--selected');
   }
 
+  updateCurrSlide(dir) {
+    if (dir === 'prev') {
+      this.currSlide--;
+    } else if (dir === 'next') {
+      this.currSlide++;
+    }
+  }
+
+  // returns true if the last slide is showing
+  isLastSlide() {
+    return this.currSlide === (this.numSlides - 1);
+  }
+
+  // returns true if the first slide is showing
+  isFirstSlide() {
+    return this.currSlide === 0;
+  }
+
+  // disables prev button if at first slide
+  // or next button if at last slide
+  disableButton(which) {
+    if (which === 'prev') {
+      this.prevButton.addClass('carousel__button--disabled');
+    } else if (which === 'next') {
+      this.nextButton.addClass('carousel__button--disabled');
+    }
+  }
+
+  // enables prev button if not at first slide
+  // or next button if not at last slide
+  enableButton(which) {
+    if (which === 'prev') {
+      this.prevButton.removeClass('carousel__button--disabled');
+    } else if (which === 'next') {
+      this.nextButton.removeClass('carousel__button--disabled');
+    }
+  }
+
+  // shows submit button on last slide
+  showSubmitButton() {
+    this.submitButton.removeClass('carousel__button--hidden');
+  }
+
+  // hides submit button on all but last slide
+  hideSubmitButton() {
+    this.submitButton.addClass('carousel__button--hidden');
+  }
+
   // after radios have been dynamically added to the DOM
   // we need to rebind our events
   // would be nice to use delegation, but that makes
@@ -187,25 +235,43 @@ export default class FormHandler {
     this.amountsRadios.change(function() {
       self.updateSelectedClass('amount', $(this));
     });
+
+    this.prevButton.click(function() {
+      if (!self.isFirstSlide()) {
+        self.updateCurrSlide('prev');
+        self.setTransform();
+        self.hideSubmitButton();
+        self.enableButton('next');
+
+        if (self.isFirstSlide()) {
+          self.disableButton('prev');
+        }
+      }
+    });
+
+    this.nextButton.click(function() {
+      if (!self.isLastSlide()) {
+        self.updateCurrSlide('next');
+        self.setTransform();
+        self.enableButton('prev');
+
+        if (self.isLastSlide()) {
+          self.disableButton('next');
+          self.showSubmitButton();
+        }
+      }
+    });
+
+    $('form').submit(function(e) {
+      e.preventDefault();
+    });
   }
-
-  // call add remove selected
-
-  // isLastSlide
-  // returns boolean
-
-  // isFirstSlide
-  // returns boolean
 
   // moveCarousel
   // takes forward or back
   // calls get width of outer container
   // transforms carousel by that amount
   // after interval, removes ARIA live
-
-  // disablePrevNext
-  // takes forward or back
-  // disables button if meets condition
 
   // accessible hide
   // add ARIA hidden attribute
@@ -221,21 +287,8 @@ export default class FormHandler {
 
   // create string and redirect
 
-  // PREV CLICK EVENT
-  // check if is first slide
-  // if so, return false
-  // if not call accessible hide on current
-  // decrement slideIndex
-  // call aria live on new current
-  // call disable with back
-  // call move carousel w/ back
-  // NEXT CLICK EVENT
-  // check if is last slide
-  // if so, return false
-  // if not, increment slideIndex
-  // call disable with next
-  // call move carousel w/ forward
-  // if is last slide, show submit button
+
+
   // SUBMIT EVENT
   // check if manual input is selected
   // if so, check if input is numeric
