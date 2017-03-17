@@ -11,6 +11,7 @@ export default class FormHandler {
     this.submitButton = opts.submitButton;
     this.frequenciesRadios = $(opts.frequenciesRadios);
     this.rangesRadios = $(opts.rangesRadios);
+    this.amountsRadios = $(opts.amountsRadios);
     this.currFrequenciesIndex = opts.defaultFrequenciesIndex;
     this.currRangesIndex = opts.defaultRangesIndex;
     this.defaultRangesIndex = opts.defaultRangesIndex;
@@ -140,15 +141,23 @@ export default class FormHandler {
     attacher.empty().append(markup);
   }
 
-  /*updateSelectedClass(which) {
+  // update selected class on label parent of
+  // currently seleted radios
+  updateSelectedClass(which, selectedEl) {
+    let whichRadios;
+
     if (which === 'frequency') {
-
+      whichRadios = this.frequenciesRadios;
     } else if (which === 'range') {
-
+      whichRadios = this.rangesRadios;
     } else if (which === 'amount') {
-
+      whichRadios = this.amountsRadios;
     }
-  }*/
+
+    whichRadios.parent().removeClass('radio__label--selected');
+    whichRadios.parent().addClass('radio__label');
+    selectedEl.parent().addClass('radio__label--selected');
+  }
 
   // after radios have been dynamically added to the DOM
   // we need to rebind our events
@@ -168,7 +177,8 @@ export default class FormHandler {
       const eventIndex = self.getRadioIndex('frequency', $(this));
 
       self.setNewCurrentIndex('frequency', eventIndex);
-      self.setNewCurrentIndex('range', self.defaultRangesIndex);
+      self.setNewCurrentIndex('frequency', self.defaultRangesIndex);
+      self.updateSelectedClass('frequency', $(this));
 
       const newRangesValues = self.getFrequenciesToRangesValues(eventIndex);
       const newRangesMarkup = self.buildRangesMarkup(newRangesValues);
@@ -184,12 +194,17 @@ export default class FormHandler {
       const eventIndex = self.getRadioIndex('range', $(this));
 
       self.setNewCurrentIndex('range', eventIndex);
+      self.updateSelectedClass('range', $(this));
 
       const newAmountsValues = self.getRangesToAmountsValues(eventIndex);
       const newAmountsMarkup = self.buildAmountsMarkup(newAmountsValues);
 
       self.appendMarkupToDOM('amount', newAmountsMarkup);
       self.reinitEvents();
+    });
+
+    this.amountsRadios.change(function() {
+      self.updateSelectedClass('amount', $(this));
     });
   }
 
