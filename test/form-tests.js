@@ -24,6 +24,7 @@ describe('Donation carousel form', () => {
       prevButton: $('<button/>'),
       nextButton: $('<button/>'),
       submitButton: $('<input type="submit"/>'),
+      manualInput: $('<input type="text">'),
       frequenciesRadios: '#frequency-radio',
       rangesRadios: '#range-radio',
       amountsRadios: '#amount-radio',
@@ -262,5 +263,12 @@ describe('Donation carousel form', () => {
     DonationForm.bindEvents();
     DonationForm.nextButton.trigger('click');
     assert.isTrue(spy.called);
+  });
+
+  it('focusing on manual input should select its accompanying radio', () => {
+    const spy = sinon.spy(DonationForm, 'selectManualEntryRadio');
+    DonationForm.bindEvents();
+    DonationForm.manualInput.trigger('focus');
+    assert.isTrue(spy.calledOnce);
   });
 });

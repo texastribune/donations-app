@@ -9,6 +9,7 @@ export default class FormHandler {
     this.prevButton = opts.prevButton;
     this.nextButton = opts.nextButton;
     this.submitButton = opts.submitButton;
+    this.manualInput = opts.manualInput;
     this.frequenciesRadios = $(opts.frequenciesRadios);
     this.rangesRadios = $(opts.rangesRadios);
     this.amountsRadios = $(opts.amountsRadios);
@@ -223,6 +224,10 @@ export default class FormHandler {
     }.bind(this), this.animationLength);
   }
 
+  selectManualEntryRadio(el) {
+    el.prev('.carousel__radio').prop('checked', true);
+  }
+
   // after radios have been dynamically added to the DOM
   // we need to rebind our events
   // would be nice to use delegation, but that makes
@@ -296,12 +301,14 @@ export default class FormHandler {
       }
     });
 
+    this.manualInput.focus(function() {
+      self.selectManualEntryRadio($(this));
+    });
+
     $('form').submit(function(e) {
       e.preventDefault();
     });
   }
-
-  // manual input is selected
 
   // validate manual input
   // ARIA invalid attribute should be set
@@ -311,7 +318,6 @@ export default class FormHandler {
 
 
   // SUBMIT EVENT
-  // check if manual input is selected
   // if so, check if input is numeric
   // if so, create string and redirect
 }

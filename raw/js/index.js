@@ -10,6 +10,7 @@ const DonationForm = new FormHandler({
   prevButton: $('#prev'),
   nextButton: $('#next'),
   submitButton: $('#submit'),
+  manualInput: $('#amount-input'),
   frequenciesRadios: '.carousel__slide--frequency .carousel__radio',
   rangesRadios: '.carousel__slide--range .carousel__radio',
   amountsRadios: '.carousel__slide--amount .carousel__radio',
