@@ -4,77 +4,89 @@ title: Become a Member
 
 <div class="">
   <div class="carousel" id="carousel-outer">
-    <form class="carousel__form" action="" method="get" aria-label="Donate to The Texas Tribune" id="carousel-inner">
-      <fieldset class="carousel__slide--frequency">
-        <legend class="carousel__legend" id="frequency-legend">Choose a donation frequency</legend>
-        <div class="carousel__radios">
-          <label class="carousel__label" for="frequency-once" aria-labelledby="frequency-legend">
-            <span class="carousel__label-text">Once</span>
-            <input class="carousel__radio" type="radio" name="frequency" data-frequency="0" id="frequency-once">
-          </label>
+    <form class="carousel__form" action="" method="get" aria-label="Donate to The Texas Tribune">
+      <div class="carousel__inner" id="carousel-inner">
+        <fieldset class="carousel__slide--frequency">
+          <legend class="carousel__legend" id="frequency-legend">Choose a donation frequency</legend>
+          <div class="carousel__radios">
+            <label class="carousel__label" for="frequency-once" aria-labelledby="frequency-legend">
+              <span class="carousel__label-text">Once</span>
+              <input class="carousel__radio" type="radio" value="once" name="frequency" data-frequency="0" id="frequency-once">
+            </label>
 
-          <label class="carousel__label" for="frequency-monthly" aria-labelledby="frequency-legend">
-            <span class="carousel__label-text">Monthly</span>
-            <input class="carousel__radio" type="radio" name="frequency" data-frequency="1" id="frequency-monthly" checked>
-          </label>
+            <label class="carousel__label--selected" for="frequency-monthly" aria-labelledby="frequency-legend">
+              <span class="carousel__label-text">Monthly</span>
+              <input class="carousel__radio" type="radio" value="monthly" name="frequency" data-frequency="1" id="frequency-monthly" checked>
+            </label>
 
-          <label class="carousel__label" for="frequency-annually" aria-labelledby="frequency-legend">
-            <span class="carousel__label-text">Annually</span>
-            <input class="carousel__radio" type="radio" name="frequency" data-frequency="2" id="frequency-annually">
-          </label>
-        </div>
-      </fieldset>
+            <label class="carousel__label" for="frequency-annually" aria-labelledby="frequency-legend">
+              <span class="carousel__label-text">Annually</span>
+              <input class="carousel__radio" type="radio" value="annually" name="frequency" data-frequency="2" id="frequency-annually">
+            </label>
+          </div>
+        </fieldset>
 
-      <fieldset class="carousel__slide--range">
-        <legend class="carousel__legend" id="range-legend">Choose a range</legend>
-        <div class="carousel__radios">
-          <label class="carousel__label" for="range-1" aria-labelledby="range-legend">
-            <span class="carousel__label-text">$1-34</span>
-            <input class="carousel__radio" type="radio" name="range" data-range="0" id="range-1">
-          </label>
+        <fieldset class="carousel__slide--range" aria-hidden="true">
+          <legend class="carousel__legend" id="range-legend">Choose a range</legend>
+          <div class="carousel__radios">
+            <label class="carousel__label" for="range-1" aria-labelledby="range-legend">
+              <span class="carousel__label-text">5</span>
+              <input class="carousel__radio" type="radio" name="range" data-range="0" id="range-1">
+            </label>
 
-          <label class="carousel__label" for="range-2" aria-labelledby="range-legend">
-            <span class="carousel__label-text">$35-100</span>
-            <input class="carousel__radio" type="radio" name="range" data-range="1" id="range-2" checked>
-          </label>
+            <label class="carousel__label--selected" for="range-2" aria-labelledby="range-legend">
+              <span class="carousel__label-text">6</span>
+              <input class="carousel__radio" type="radio" name="range" data-range="1" id="range-2" checked>
+            </label>
 
-          <label class="carousel__label" for="range-3" aria-labelledby="range-legend">
-            <span class="carousel__label-text">$101-$500</span>
-            <input class="carousel__radio" type="radio" name="range" data-range="2" id="range-3">
-          </label>
-        </div>
-      </fieldset>
+            <label class="carousel__label" for="range-3" aria-labelledby="range-legend">
+              <span class="carousel__label-text">7</span>
+              <input class="carousel__radio" type="radio" name="range" data-range="2" id="range-3">
+            </label>
 
-      <fieldset class="carousel__slide--amount">
-        <legend class="carousel__legend" id="amount-legend">Amount to give</legend>
-        <div class="carousel__radios">
-          <label class="carousel__label" for="amount-1" aria-labelledby="amount-legend">
-            <span class="carousel__label-text">$35</span>
-            <input class="carousel__radio" type="radio" name="amount" id="amount-1">
-          </label>
+            <label class="carousel__label" for="range-4" aria-labelledby="range-legend">
+              <span class="carousel__label-text">8</span>
+              <input class="carousel__radio" type="radio" name="range" data-range="3" id="range-4">
+            </label>
+          </div>
+        </fieldset>
 
-          <label class="carousel__label" for="amount-2" aria-labelledby="amount-legend">
-            <span class="carousel__label-text">$65</span>
-            <input class="carousel__radio" type="radio" name="amount" id="amount-2" checked>
-          </label>
+        <fieldset class="carousel__slide--amount" aria-hidden="true">
+          <legend class="carousel__legend" id="amount-legend">Amount to give</legend>
+          <div class="carousel__radios">
+            <label class="carousel__label" for="amount-1" aria-labelledby="amount-legend">
+              <span class="carousel__label-text">21</span>
+              <input class="carousel__radio" type="radio" value="21" name="amount" id="amount-1">
+            </label>
 
-          <label class="carousel__label" for="amount-3" aria-labelledby="amount-legend">
-            <span class="carousel__label-text">$85</span>
-            <input class="carousel__radio" type="radio" name="amount" id="amount-3">
-          </label>
-        </div>
+            <label class="carousel__label--selected" for="amount-2" aria-labelledby="amount-legend">
+              <span class="carousel__label-text">22</span>
+              <input class="carousel__radio" type="radio" value="22" name="amount" id="amount-2" checked>
+            </label>
 
-        <div class="carousel__manual">
-          <label class="carousel__manual-label" for="amount-manual">Or enter an amount</label>
-          <input class="carousel__manual-radio" type="radio" name="amount" value="" id="amount-manual">
-          <input class="carousel__manual-input" type="text">
-          <p class="carousel__manual-error hidden">Make sure you enter a number.</p>
-        </div>
-      </fieldset>
+            <label class="carousel__label" for="amount-3" aria-labelledby="amount-legend">
+              <span class="carousel__label-text">23</span>
+              <input class="carousel__radio" type="radio" value="23" name="amount" id="amount-3">
+            </label>
+
+            <label class="carousel__label" for="amount-4" aria-labelledby="amount-legend">
+              <span class="carousel__label-text">24</span>
+              <input class="carousel__radio" type="radio" value="24" name="amount" id="amount-4">
+            </label>
+          </div>
+
+          <div class="carousel__manual">
+            <label class="carousel__manual-label" for="amount-manual">Or enter an amount</label>
+            <input class="carousel__radio" type="radio" name="amount" id="amount-manual">
+            <input class="carousel__manual-input" type="text" id="amount-input">
+            <p class="carousel__manual-error--hidden" id="error-message">Make sure you enter a number.</p>
+          </div>
+        </fieldset>
+      </div>
 
       <ul class="carousel__buttons">
         <li class="carousel__item">
-          <button class="carousel__button--prev" aria-label="Go back to previous screen" tabindex="1" id="prev">Last</button>
+          <button class="carousel__button--prev carousel__button--disabled" aria-label="Go back to previous screen" tabindex="1" id="prev">Last</button>
         </li>
 
         <li class="carousel__item">
@@ -82,7 +94,7 @@ title: Become a Member
         </li>
 
         <li class="carousel__item">
-          <input class="carousel__button--submit hidden" aria-label="Go to checkout page" type="submit" value="Give Now" id="submit">
+          <input class="carousel__button--submit carousel__button--hidden" aria-label="Go to checkout page" type="submit" value="Give Now" id="submit">
         </li>
       </ul>
     </form>
