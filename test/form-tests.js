@@ -96,38 +96,25 @@ describe('Donation carousel form', () => {
     spy.reset();
   });
 
-  it('getRadioIndex should only be called with frequency and range', () => {
-    const spy = sinon.spy(DonationForm, 'getRadioIndex');
-
-    DonationForm.bindEvents();
-    DonationForm.frequenciesRadios.trigger('change');
-    DonationForm.rangesRadios.trigger('change');
-
-    assert.isTrue(spy.calledWith('frequency'));
-    assert.isTrue(spy.calledWith('range'));
-    assert.isFalse(spy.calledWith('amount'));
-
-    spy.reset();
-  });
-
   it('new ranges should be array at index retrieved from frequency radio', () => {
     const index = DonationForm.frequenciesRadios.first().attr('data-frequency');
     const newRangesValues = DonationForm.getFrequenciesToRangesValues(index);
     assert.deepEqual(newRangesValues, [9, 10, 11, 12]);
   });
 
-  it('frequency changes should reset amounts to default', () => {
-    const spy = sinon.spy(DonationForm, 'getRangesToAmountsValues');
-    DonationForm.bindEvents();
-    DonationForm.frequenciesRadios.trigger('change');
-    assert.isTrue(spy.called);
-    assert.equal(DonationForm.currRangesIndex, DonationForm.defaultRangesIndex);
-  });
-
   it('new amounts should be array at index retrieved from range radio', () => {
     const index = DonationForm.rangesRadios.first().attr('data-range');
     const newRangesValues = DonationForm.getRangesToAmountsValues(index);
     assert.deepEqual(newRangesValues, [25, 26, 27, 28]);
+  });
+
+  it('frequency changes should reset amounts to default', () => {
+    const spy = sinon.spy(DonationForm, 'getRangesToAmountsValues');
+    const defaultRangesToAmounts = DonationForm.rangesToAmounts[DonationForm.defaultRangesIndex];
+    DonationForm.bindEvents();
+    DonationForm.frequenciesRadios.trigger('change');
+    assert.isTrue(spy.called);
+    assert.equal(spy.returnValues[0], defaultRangesToAmounts);
   });
 
   it('ranges markup should contain certain values', () => {

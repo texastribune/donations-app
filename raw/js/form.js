@@ -12,8 +12,6 @@ export default class FormHandler {
     this.frequenciesRadios = $(opts.frequenciesRadios);
     this.rangesRadios = $(opts.rangesRadios);
     this.amountsRadios = $(opts.amountsRadios);
-    this.currFrequenciesIndex = opts.defaultFrequenciesIndex;
-    this.currRangesIndex = opts.defaultRangesIndex;
     this.defaultRangesIndex = opts.defaultRangesIndex;
     this.defaultAmountsIndex = opts.defaultAmountsIndex;
     this.currSlide = opts.startSlide;
@@ -79,16 +77,6 @@ export default class FormHandler {
     }
 
     return parseInt(index);
-  }
-
-  // sets new current index for
-  // frequency and range
-  setNewCurrentIndex(which, eventIndex) {
-    if (which === 'frequency') {
-      this.currFrequenciesIndex = eventIndex;
-    } else if (which === 'range') {
-      this.currRangesIndex = eventIndex;
-    }
   }
 
   // returns new range values
@@ -175,16 +163,12 @@ export default class FormHandler {
 
     this.frequenciesRadios.change(function() {
       const eventIndex = self.getRadioIndex('frequency', $(this));
-
-      self.setNewCurrentIndex('frequency', eventIndex);
-      self.setNewCurrentIndex('frequency', self.defaultRangesIndex);
-      self.updateSelectedClass('frequency', $(this));
-
       const newRangesValues = self.getFrequenciesToRangesValues(eventIndex);
       const newRangesMarkup = self.buildRangesMarkup(newRangesValues);
       const newAmountsValues = self.getRangesToAmountsValues(self.defaultRangesIndex);
       const newAmountsMarkup = self.buildAmountsMarkup(newAmountsValues);
 
+      self.updateSelectedClass('frequency', $(this));
       self.appendMarkupToDOM('range', newRangesMarkup);
       self.appendMarkupToDOM('amount', newAmountsMarkup);
       self.reinitEvents();
@@ -192,13 +176,10 @@ export default class FormHandler {
 
     this.rangesRadios.change(function() {
       const eventIndex = self.getRadioIndex('range', $(this));
-
-      self.setNewCurrentIndex('range', eventIndex);
-      self.updateSelectedClass('range', $(this));
-
       const newAmountsValues = self.getRangesToAmountsValues(eventIndex);
       const newAmountsMarkup = self.buildAmountsMarkup(newAmountsValues);
 
+      self.updateSelectedClass('range', $(this));
       self.appendMarkupToDOM('amount', newAmountsMarkup);
       self.reinitEvents();
     });
