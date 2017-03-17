@@ -13,6 +13,7 @@ describe('Donation carousel form', () => {
     window.jQuery = window.$ = global.$ = require('jquery');
     $('body').append( $('<input id="frequency-radio" type="radio" data-frequency="2"/>') );
     $('body').append( $('<input id="range-radio" type="radio" data-range="2"/>') );
+    $('body').append( $('<input id="amount-radio" type="radio"/>') );
 
     DonationForm = new FormHandler({
       rangesAttach: $('<div/>'),
@@ -25,6 +26,7 @@ describe('Donation carousel form', () => {
       submitButton: $('<input type="submit"/>'),
       frequenciesRadios: '#frequency-radio',
       rangesRadios: '#range-radio',
+      amountsRadios: '#amount-radio',
       defaultFrequenciesIndex: 1,
       defaultRangesIndex: 1,
       defaultAmountsIndex: 1,
@@ -93,7 +95,6 @@ describe('Donation carousel form', () => {
     rangeEl = $('<input type="radio" data-range="2.4"/>');
     expect(DonationForm.getRadioIndex.bind(null, 'range', rangeEl)).to.throw(Error);
     assert.isTrue(spy.threw());
-    spy.reset();
   });
 
   it('new ranges should be array at index retrieved from frequency radio', () => {
@@ -135,16 +136,16 @@ describe('Donation carousel form', () => {
 
   it('new ranges markup should have default selection', () => {
     const spy = sinon.spy(DonationForm, 'shouldBeChecked');
-    const callIndexWithChecked = DonationForm.defaultRangesIndex;
+    const callIndexReturningChecked = DonationForm.defaultRangesIndex;
     DonationForm.buildRangesMarkup([9, 10, 11, 12]);
-    assert.equal(spy.returnValues[callIndexWithChecked], 'checked');
+    assert.equal(spy.returnValues[callIndexReturningChecked], 'checked');
   });
 
   it('new amounts markup should have default selection', () => {
     const spy = sinon.spy(DonationForm, 'shouldBeChecked');
-    const callIndexWithChecked = DonationForm.defaultAmountsIndex;
+    const callIndexReturningChecked = DonationForm.defaultAmountsIndex;
     DonationForm.buildAmountsMarkup([29, 30, 31, 32]);
-    assert.equal(spy.returnValues[callIndexWithChecked], 'checked');
+    assert.equal(spy.returnValues[callIndexReturningChecked], 'checked');
   });
 
   it('events should be reinitialized after a radio change', () => {
@@ -153,5 +154,12 @@ describe('Donation carousel form', () => {
     DonationForm.frequenciesRadios.trigger('change');
     DonationForm.rangesRadios.trigger('change');
     assert.isAtLeast(spy.callCount, 2);
+  });
+
+  it('changing a radio should update the selected class', () => {
+    const spy = sinon.spy(DonationForm, 'updateSelectedClass');
+    DonationForm.bindEvents();
+    DonationForm.amountsRadios.trigger('change');
+    assert.isTrue(spy.calledWith('amount'));
   });
 });
