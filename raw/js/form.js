@@ -80,15 +80,6 @@ export default class FormHandler {
     return parseInt(index);
   }
 
-  // returns true or false depending whether
-  // existing frequency index or range index is
-  // the same as the one found inside a newly
-  // selected radio button
-  isCurrentIndex(which, eventIndex) {
-    const baseIndex = (which === 'frequency' ? this.currFrequenciesIndex : this.currRangesIndex);
-    return parseInt(eventIndex) === parseInt(baseIndex);
-  }
-
   // sets new current index for
   // frequency and range
   setNewCurrentIndex(which, eventIndex) {
@@ -176,33 +167,29 @@ export default class FormHandler {
     this.frequenciesRadios.change(function() {
       const eventIndex = self.getRadioIndex('frequency', $(this));
 
-      if (!self.isCurrentIndex('frequency', eventIndex)) {
-        self.setNewCurrentIndex('frequency', eventIndex);
-        self.setNewCurrentIndex('range', self.defaultRangesIndex);
+      self.setNewCurrentIndex('frequency', eventIndex);
+      self.setNewCurrentIndex('range', self.defaultRangesIndex);
 
-        const newRangesValues = self.getFrequenciesToRangesValues(eventIndex);
-        const newRangesMarkup = self.buildRangesMarkup(newRangesValues);
-        const newAmountsValues = self.getRangesToAmountsValues(self.defaultRangesIndex);
-        const newAmountsMarkup = self.buildAmountsMarkup(newAmountsValues);
+      const newRangesValues = self.getFrequenciesToRangesValues(eventIndex);
+      const newRangesMarkup = self.buildRangesMarkup(newRangesValues);
+      const newAmountsValues = self.getRangesToAmountsValues(self.defaultRangesIndex);
+      const newAmountsMarkup = self.buildAmountsMarkup(newAmountsValues);
 
-        self.appendMarkupToDOM('range', newRangesMarkup);
-        self.appendMarkupToDOM('amount', newAmountsMarkup);
-        self.reinitEvents();
-      }
+      self.appendMarkupToDOM('range', newRangesMarkup);
+      self.appendMarkupToDOM('amount', newAmountsMarkup);
+      self.reinitEvents();
     });
 
     this.rangesRadios.change(function() {
       const eventIndex = self.getRadioIndex('range', $(this));
 
-      if (!self.isCurrentIndex('range', eventIndex)) {
-        self.setNewCurrentIndex('range', eventIndex);
+      self.setNewCurrentIndex('range', eventIndex);
 
-        const newAmountsValues = self.getRangesToAmountsValues(eventIndex);
-        const newAmountsMarkup = self.buildAmountsMarkup(newAmountsValues);
+      const newAmountsValues = self.getRangesToAmountsValues(eventIndex);
+      const newAmountsMarkup = self.buildAmountsMarkup(newAmountsValues);
 
-        self.appendMarkupToDOM('amount', newAmountsMarkup);
-        self.reinitEvents();
-      }
+      self.appendMarkupToDOM('amount', newAmountsMarkup);
+      self.reinitEvents();
     });
   }
 

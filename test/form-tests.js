@@ -110,33 +110,6 @@ describe('Donation carousel form', () => {
     spy.reset();
   });
 
-  it('should only do markup replacement sequence if not current index', () => {
-    const freqSpy = sinon.spy(DonationForm, 'getFrequenciesToRangesValues');
-    const rangeSpy = sinon.spy(DonationForm, 'getRangesToAmountsValues');
-
-    DonationForm.bindEvents();
-
-    DonationForm.currFrequencyIndex = 1;
-    DonationForm.frequenciesRadios.trigger('change');
-    assert.isTrue(freqSpy.called);
-    freqSpy.reset();
-
-    DonationForm.currFrequencyIndex = 2;
-    DonationForm.frequenciesRadios.trigger('change');
-    assert.isFalse(freqSpy.called);
-    freqSpy.reset();
-
-    DonationForm.currRangesIndex = 1;
-    DonationForm.rangesRadios.trigger('change');
-    assert.isTrue(rangeSpy.called);
-    rangeSpy.reset();
-
-    DonationForm.currRangesIndex = 2;
-    DonationForm.rangesRadios.trigger('change');
-    assert.isFalse(rangeSpy.called);
-    rangeSpy.reset();
-  });
-
   it('new ranges should be array at index retrieved from frequency radio', () => {
     const index = DonationForm.frequenciesRadios.first().attr('data-frequency');
     const newRangesValues = DonationForm.getFrequenciesToRangesValues(index);
@@ -192,6 +165,6 @@ describe('Donation carousel form', () => {
     DonationForm.bindEvents();
     DonationForm.frequenciesRadios.trigger('change');
     DonationForm.rangesRadios.trigger('change');
-    assert.isTrue(spy.calledTwice);
+    assert.isAtLeast(spy.callCount, 2);
   });
 });
