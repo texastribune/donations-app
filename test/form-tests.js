@@ -27,6 +27,7 @@ describe('Donation carousel form', () => {
       rangesRadios: '#range-radio',
       defaultFrequenciesIndex: 1,
       defaultRangesIndex: 1,
+      defaultAmountsIndex: 1,
       startSlide: 0,
       frequenciesToRanges: [
         [1, 2, 3, 4],
@@ -187,6 +188,20 @@ describe('Donation carousel form', () => {
     assert.include(markup, 'for="amount-');
     assert.include(markup, 'id="amount-');
     assert.include(markup, '<span class="carousel__label-text">32</span>');
+  });
+
+  it('new ranges markup should have default selection', () => {
+    const spy = sinon.spy(DonationForm, 'shouldBeChecked');
+    const callIndexWithChecked = DonationForm.defaultRangesIndex;
+    DonationForm.buildRangesMarkup([9, 10, 11, 12]);
+    assert.equal(spy.returnValues[callIndexWithChecked], 'checked');
+  });
+
+  it('new amounts markup should have default selection', () => {
+    const spy = sinon.spy(DonationForm, 'shouldBeChecked');
+    const callIndexWithChecked = DonationForm.defaultAmountsIndex;
+    DonationForm.buildAmountsMarkup([29, 30, 31, 32]);
+    assert.equal(spy.returnValues[callIndexWithChecked], 'checked');
   });
 
   it('events should be reinitialized after a frequency radio and range radio change', () => {

@@ -13,8 +13,8 @@ export default class FormHandler {
     this.rangesRadios = $(opts.rangesRadios);
     this.currFrequenciesIndex = opts.defaultFrequenciesIndex;
     this.currRangesIndex = opts.defaultRangesIndex;
-    this.defaultFrequenciesIndex = opts.defaultFrequenciesIndex;
     this.defaultRangesIndex = opts.defaultRangesIndex;
+    this.defaultAmountsIndex = opts.defaultAmountsIndex;
     this.currSlide = opts.startSlide;
     this.numSlides = this.carouselSlides.length;
     this.frequenciesToRanges = opts.frequenciesToRanges;
@@ -109,13 +109,21 @@ export default class FormHandler {
     return this.rangesToAmounts[this.currFrequenciesIndex][newIndex];
   }
 
+  shouldBeChecked(which, iterIndex) {
+    if (which === 'range') {
+      return (iterIndex === this.defaultRangesIndex ? `checked` : ``);
+    } else if (which === 'amount') {
+      return (iterIndex === this.defaultAmountsIndex ? `checked` : ``);
+    }
+  }
+
   // build new ranges markup
   buildRangesMarkup(newRangesValues) {
     return `
       ${newRangesValues.map((val, index) => `
         <label class="carousel__label" for="range-${index+1}" aria-labelledby="range-legend">
           <span class="carousel__label-text">${val}</span>
-          <input class="carousel__radio" type="radio" name="range" data-range="${index}" id="range-${index+1}">
+          <input class="carousel__radio" type="radio" name="range" data-range="${index}" id="range-${index+1}" ${this.shouldBeChecked('range', index)}>
         </label>
       `).join('\n')}
     `;
@@ -127,7 +135,7 @@ export default class FormHandler {
       ${newAmountsValues.map((val, index) => `
         <label class="carousel__label" for="amount-${index+1}" aria-labelledby="amount-legend">
           <span class="carousel__label-text">${val}</span>
-          <input class="carousel__radio" type="radio" name="amount" id="amount-${index+1}">
+          <input class="carousel__radio" type="radio" name="amount" id="amount-${index+1}" ${this.shouldBeChecked('amount', index)}>
         </label>
       `).join('\n')}
     `;
