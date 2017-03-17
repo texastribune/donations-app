@@ -17,6 +17,7 @@ const DonationForm = new FormHandler({
   defaultRangesIndex: 1,
   defaultAmountsIndex: 1,
   startSlide: 0,
+  animationLength: 400,
   frequenciesToRanges: [
     [1, 2, 3, 4],
     [5, 6, 7, 8],

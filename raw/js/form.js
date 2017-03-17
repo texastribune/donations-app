@@ -16,6 +16,7 @@ export default class FormHandler {
     this.defaultAmountsIndex = opts.defaultAmountsIndex;
     this.currSlide = opts.startSlide;
     this.numSlides = this.carouselSlides.length;
+    this.animationLength = opts.animationLength;
     this.frequenciesToRanges = opts.frequenciesToRanges;
     this.rangesToAmounts = opts.rangesToAmounts;
   }
@@ -195,6 +196,33 @@ export default class FormHandler {
     this.submitButton.addClass('carousel__button--hidden');
   }
 
+  // remove aria-hidden from current slide
+  accessibleShowCurrent() {
+    this.carouselSlides.eq(this.currSlide).removeAttr('aria-hidden');
+  }
+
+  // after clicking next, put aria-hidden on
+  // the slide we're exiting from
+  accessibleHideMovingNext() {
+    this.carouselSlides.eq(this.currSlide - 1).attr('aria-hidden', 'true');
+  }
+
+  // after clicking previous, put aria-hiden on
+  // slide we're exiting from
+  accessibleHideMovingPrev() {
+    this.carouselSlides.eq(this.currSlide + 1).attr('aria-hidden', 'true');
+  }
+
+  // indicate to screen readers that
+  // new current slide is animating into view
+  tempAccessibleLive() {
+    this.carouselSlides.eq(this.currSlide).attr('aria-live', 'polite');
+
+    setTimeout(function() {
+      this.carouselSlides.eq(this.currSlide).removeAttr('aria-live');
+    }.bind(this), this.animationLength);
+  }
+
   // after radios have been dynamically added to the DOM
   // we need to rebind our events
   // would be nice to use delegation, but that makes
@@ -239,9 +267,12 @@ export default class FormHandler {
     this.prevButton.click(function() {
       if (!self.isFirstSlide()) {
         self.updateCurrSlide('prev');
-        self.setTransform();
+        self.accessibleShowCurrent();
+        self.accessibleHideMovingPrev();
         self.hideSubmitButton();
         self.enableButton('next');
+        self.setTransform();
+        self.tempAccessibleLive();
 
         if (self.isFirstSlide()) {
           self.disableButton('prev');
@@ -252,8 +283,11 @@ export default class FormHandler {
     this.nextButton.click(function() {
       if (!self.isLastSlide()) {
         self.updateCurrSlide('next');
-        self.setTransform();
+        self.accessibleShowCurrent();
+        self.accessibleHideMovingNext();
         self.enableButton('prev');
+        self.setTransform();
+        self.tempAccessibleLive();
 
         if (self.isLastSlide()) {
           self.disableButton('next');
@@ -266,19 +300,6 @@ export default class FormHandler {
       e.preventDefault();
     });
   }
-
-  // moveCarousel
-  // takes forward or back
-  // calls get width of outer container
-  // transforms carousel by that amount
-  // after interval, removes ARIA live
-
-  // accessible hide
-  // add ARIA hidden attribute
-
-  // show submit button
-
-  // add/remove ARIA live
 
   // manual input is selected
 

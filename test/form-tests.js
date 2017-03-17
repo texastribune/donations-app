@@ -233,12 +233,34 @@ describe('Donation carousel form', () => {
     assert.isTrue(spy.calledOnce);
   });
 
-  it('the submit button should always hide when clicking previous button', () => {
+  it('the submit button should always get hidden when clicking previous button', () => {
     const spy = sinon.spy(DonationForm, 'hideSubmitButton');
     DonationForm.currSlide = 2;
     DonationForm.bindEvents();
     DonationForm.prevButton.trigger('click');
     DonationForm.prevButton.trigger('click');
     assert.isTrue(spy.calledTwice);
+  });
+
+  it('all slides but current should have aria-hidden', () => {
+    DonationForm.currSlide = 1;
+    DonationForm.carouselSlides = $('<div aria-hidden="true"/><div/><div aria-hidden="true"/>');
+    DonationForm.bindEvents();
+    DonationForm.prevButton.trigger('click');
+    assert.equal('true', DonationForm.carouselSlides.eq(1).attr('aria-hidden'));
+    assert.equal('true', DonationForm.carouselSlides.eq(2).attr('aria-hidden'));
+    assert.notEqual('true', DonationForm.carouselSlides.eq(0).attr('aria-hidden'));
+    DonationForm.nextButton.trigger('click');
+    DonationForm.nextButton.trigger('click');
+    assert.equal('true', DonationForm.carouselSlides.eq(0).attr('aria-hidden'));
+    assert.equal('true', DonationForm.carouselSlides.eq(1).attr('aria-hidden'));
+    assert.notEqual('true', DonationForm.carouselSlides.eq(2).attr('aria-hidden'));
+  });
+
+  it('during animation, new current slide should get aria-live', () => {
+    const spy = sinon.spy(DonationForm, 'tempAccessibleLive');
+    DonationForm.bindEvents();
+    DonationForm.nextButton.trigger('click');
+    assert.isTrue(spy.called);
   });
 });
