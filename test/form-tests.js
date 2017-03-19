@@ -312,4 +312,14 @@ describe('Donation carousel form', () => {
     assert.equal('https://checkout.texastribune.org/donateform?amount=50', onceURL);
     assert.equal('https://checkout.texastribune.org/memberform?installmentPeriod=yearly&amount=109', annualURL);
   });
+
+  it('resizing the window should reset the carousel', () => {
+    const spy = sinon.spy(DonationForm, 'initCarousel');
+    DonationForm.bindWindowEvents();
+    $(window).trigger('resize');
+    // delay assertion because of debounce
+    setTimeout(function(){
+      assert.isTrue(spy.called);
+    }, 250);
+  });
 });

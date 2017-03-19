@@ -1,3 +1,5 @@
+import { debounce } from './utils';
+
 export default class FormHandler {
   constructor(opts) {
     this.originalOpts = opts;
@@ -403,9 +405,16 @@ export default class FormHandler {
     });
   }
 
+  bindWindowEvents() {
+    $(window).resize(debounce(function(){
+      this.initCarousel();
+    }.bind(this), 250, false));
+  }
+
   bindAllEvents() {
     this.bindRadioEvents();
     this.bindCarouselEvents();
     this.bindFormEvents();
+    this.bindWindowEvents();
   }
 }
