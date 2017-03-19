@@ -153,6 +153,7 @@ export default class FormHandler {
     selectedEl.parent().addClass('radio__label--selected');
   }
 
+  // either increment or decrement curr slide index
   updateCurrSlide(dir) {
     if (dir === 'prev') {
       this.currSlide--;
@@ -228,18 +229,25 @@ export default class FormHandler {
     }.bind(this), this.animationLength);
   }
 
+  // when the manual input field is active,
+  // make sure corresponding radio is selected
   selectManualEntryRadio(el) {
     el.prev('.carousel__radio').prop('checked', true);
   }
 
+  // when users enter a value in manual input
+  // field, make that the value of corresponding radio
   updateManualEntryRadioVal(el) {
     el.prev('.carousel__radio').val(el.val());
   }
 
+  // returns true if amount value is numeric
   isValidAmountInput(amount) {
     return !isNaN(amount);
   }
 
+  // removes range from input because
+  // it's actually not part of what we send to checkout
   removeRangeFromInput(splitInput) {
     let indexWithRange;
 
@@ -253,6 +261,8 @@ export default class FormHandler {
     splitInput.splice(indexWithRange, 1);
   }
 
+  // converts serialized form input to
+  // an object
   convertInputToObject(input) {
     const splitInput = input.split('&');
     let inputObject = {};
@@ -269,6 +279,8 @@ export default class FormHandler {
     return inputObject;
   }
 
+  // the final step
+  // sends users to the proper checkout screen
   getCheckoutURL(inputObject) {
     const amount = inputObject.amount;
     const frequency = inputObject.frequency;
@@ -290,6 +302,8 @@ export default class FormHandler {
     return fullURL;
   }
 
+  // if amount is not numeric, show error message
+  // and raise ARIA alert
   raiseValidationError() {
     this.errorMessage.removeClass('carousel__manual-error--hidden');
     this.errorMessage.addClass('carousel__manual-error');
@@ -297,6 +311,8 @@ export default class FormHandler {
     this.manualInput.attr('aria-invalid', 'true');
   }
 
+  // hide error message and remove ARIA alert
+  // invoked any time a radio button changes
   removeValidationError() {
     this.errorMessage.addClass('carousel__manual-error--hidden');
     this.errorMessage.removeClass('carousel__manual-error');
@@ -417,12 +433,14 @@ export default class FormHandler {
     });
   }
 
+  // bind window-related events
   bindWindowEvents() {
     $(window).resize(debounce(function(){
       this.initCarousel();
     }.bind(this), 250, false));
   }
 
+  // bind all events
   bindAllEvents() {
     this.bindRadioEvents();
     this.bindCarouselEvents();
