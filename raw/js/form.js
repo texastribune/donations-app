@@ -290,9 +290,18 @@ export default class FormHandler {
     return fullURL;
   }
 
-  showErrorMessage() {
+  raiseValidationError() {
     this.errorMessage.removeClass('carousel__manual-error--hidden');
     this.errorMessage.addClass('carousel__manual-error');
+    this.errorMessage.attr('role', 'alert');
+    this.manualInput.attr('aria-invalid', 'true');
+  }
+
+  removeValidationError() {
+    this.errorMessage.addClass('carousel__manual-error--hidden');
+    this.errorMessage.removeClass('carousel__manual-error');
+    this.errorMessage.removeAttr('role');
+    this.manualInput.removeAttr('aria-invalid');
   }
 
   // after radios have been dynamically added to the DOM
@@ -316,6 +325,7 @@ export default class FormHandler {
       const newAmountsValues = self.getRangesToAmountsValues(self.defaultRangesIndex);
       const newAmountsMarkup = self.buildAmountsMarkup(newAmountsValues);
 
+      self.removeValidationError();
       self.updateSelectedClass('frequency', $(this));
       self.appendMarkupToDOM('range', newRangesMarkup);
       self.appendMarkupToDOM('amount', newAmountsMarkup);
@@ -327,12 +337,14 @@ export default class FormHandler {
       const newAmountsValues = self.getRangesToAmountsValues(eventIndex);
       const newAmountsMarkup = self.buildAmountsMarkup(newAmountsValues);
 
+      self.removeValidationError();
       self.updateSelectedClass('range', $(this));
       self.appendMarkupToDOM('amount', newAmountsMarkup);
       self.reinitRadioEvents();
     });
 
     this.amountsRadios.change(function() {
+      self.removeValidationError();
       self.updateSelectedClass('amount', $(this));
     });
   }
@@ -400,7 +412,7 @@ export default class FormHandler {
         const checkoutURL = self.getCheckoutURL(inputObject);
         window.location.href = checkoutURL;
       } else {
-        self.showErrorMessage();
+        self.raiseValidationError();
       }
     });
   }

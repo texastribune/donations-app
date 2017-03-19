@@ -24,8 +24,9 @@ describe('Donation carousel form', () => {
       prevButton: $('<button/>'),
       nextButton: $('<button/>'),
       submitButton: $('<input type="submit"/>'),
-      manualInput: $('<input type="text">'),
+      manualInput: $('<input type="text"/>'),
       form: $('<form/>'),
+      errorMessage: $('<p/>'),
       frequenciesRadios: '#frequency-radio',
       rangesRadios: '#range-radio',
       amountsRadios: '#amount-radio',
@@ -298,6 +299,14 @@ describe('Donation carousel form', () => {
     assert.isFalse(DonationForm.isValidAmountInput('$1234'));
     assert.isFalse(DonationForm.isValidAmountInput('1,234'));
     assert.isFalse(DonationForm.isValidAmountInput('1234a'));
+  });
+
+  it('the form should mark input as invalid if not numeric', () => {
+    DonationForm.bindFormEvents();
+    DonationForm.form.trigger('submit');
+    assert.isTrue(DonationForm.errorMessage.hasClass('carousel__manual-error'));
+    assert.equal('alert', DonationForm.errorMessage.attr('role'));
+    assert.equal('true', DonationForm.manualInput.attr('aria-invalid'));
   });
 
   it('should send users to proper checkout form based on frequency and amount', () => {
