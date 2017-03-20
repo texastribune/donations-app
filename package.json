@@ -4,7 +4,7 @@
   "description": "Support nonprofit journalism by giving to The Texas Tribune",
   "author": "Andrew Gibson <agibson@texastribune.org>",
   "scripts": {
-    "dev": "bundle exec middleman",
+    "dev": "BABEL_ENV=modern bundle exec middleman",
     "build": "npm run modern && npm run old",
     "modern": "BABEL_ENV=modern bundle exec middleman build",
     "old": "BABEL_ENV=old webpack --config webpack.config.old.js && npm run es3",
