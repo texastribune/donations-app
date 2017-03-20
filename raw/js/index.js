@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import '../scss/all.scss';
 import FormHandler from './form';
 

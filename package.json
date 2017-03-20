@@ -18,6 +18,7 @@
     "url": "https://github.com/texastribune/donations-app/issues"
   },
   "dependencies": {
+    "babel-polyfill": "^6.23.0",
     "jquery": "^1.12.4",
     "node-bourbon": "^4.2.3",
     "node-neat": "^1.7.2"
