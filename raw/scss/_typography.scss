@@ -4,31 +4,9 @@ html {
   font-size: 14px;
 }
 
-.league-gothic {
-  font-family: Impact;
-  font-size: 4.3em;
-
-  .wf-leaguegothic-i4-active & {
-    font-family: league-gothic, Helvetica, Arial, sans-serif;
-  }
-}
-
 h1 {
-  @extend .league-gothic;
   font-size: 5em;
   margin: 0;
-
-  .wf-leaguegothic-i4-active & {
-    font-size: 7em;
-
-    @media (max-width: 870px) {
-      font-size: 8em;
-    }
-
-    @include media($tablet) {
-      font-size: 5em;
-    }
-  }
 }
 
 h2 {
