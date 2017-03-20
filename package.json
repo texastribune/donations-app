@@ -2,12 +2,15 @@
   "name": "donations-app",
   "version": "1.0.0",
   "description": "Support nonprofit journalism by giving to The Texas Tribune",
-  "author": "Your Name <you.name@example.org>",
+  "author": "Andrew Gibson <agibson@texastribune.org>",
   "scripts": {
     "dev": "bundle exec middleman",
-    "build": "npm run test && bundle exec middleman build && npm run critical",
+    "build": "npm run modern && npm run old",
+    "modern": "BABEL_ENV=modern bundle exec middleman build",
+    "old": "BABEL_ENV=old webpack --config webpack.config.old.js && npm run es3",
     "critical": "node critical.js",
-    "test": "mocha test/form-tests.js --compilers js:babel-core/register"
+    "test": "mocha test/form-tests.js --compilers js:babel-core/register",
+    "es3": "browserify ./build/javascripts/bundle-es3.js -o ./build/javascripts/bundle-es3.js -t [ es3ify ]"
   },
   "main": "source/index.html.erb",
   "repository": {
@@ -19,6 +22,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
+    "es5-shim": "^4.5.9",
     "jquery": "^1.12.4",
     "node-bourbon": "^4.2.3",
     "node-neat": "^1.7.2"
@@ -30,6 +34,7 @@
     "babel-preset-es2015": "^6.22.0",
     "chai": "^3.5.0",
     "css-loader": "^0.26.4",
+    "es3ify": "^0.2.2",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
     "inline-critical": "^2.4.0",
