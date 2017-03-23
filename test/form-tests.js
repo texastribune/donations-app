@@ -121,7 +121,17 @@ describe('Donation carousel form', () => {
     assert.include(markup, 'aria-labelledby="amount-legend"');
     assert.include(markup, 'for="amount-');
     assert.include(markup, 'id="amount-');
-    assert.include(markup, '<span class="carousel__label-text">25</span>');
+    assert.include(markup, '<span class="carousel__label-text">$25');
+  });
+
+  it('dynamic markup should only have frequency marker if not one-time', () => {
+    DonationForm.currFrequency = 'yearly';
+    let markup = DonationForm.buildRangesMarkup(['bar', 'baz', 'foo', 'lorem']);
+    assert.include(markup.trim(), 'Choose a yearly range');
+
+    DonationForm.currFrequency = 'once';
+    markup = DonationForm.buildRangesMarkup(['bar', 'baz', 'foo', 'lorem']);
+    assert.include(markup.trim(), 'Choose a range');
   });
 
   it('new ranges markup should have default selection', () => {
@@ -215,23 +225,6 @@ describe('Donation carousel form', () => {
     DonationForm.bindCarouselEvents();
     DonationForm.nextButton.trigger('click');
     assert.isTrue(spy.calledWith('next'));
-  });
-
-  it('the submit button should appear on the last slide', () => {
-    const spy = sinon.spy(DonationForm, 'showSubmitButton');
-    DonationForm.currSlide = 1;
-    DonationForm.bindCarouselEvents();
-    DonationForm.nextButton.trigger('click');
-    assert.isTrue(spy.calledOnce);
-  });
-
-  it('the submit button should always get hidden when clicking previous button', () => {
-    const spy = sinon.spy(DonationForm, 'hideSubmitButton');
-    DonationForm.currSlide = 2;
-    DonationForm.bindCarouselEvents();
-    DonationForm.prevButton.trigger('click');
-    DonationForm.prevButton.trigger('click');
-    assert.isTrue(spy.calledTwice);
   });
 
   it('all slides but current should have aria-hidden', () => {

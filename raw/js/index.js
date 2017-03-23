@@ -2,7 +2,7 @@ import '../scss/all.scss';
 import FormHandler from './form';
 
 const DonationForm = new FormHandler({
-  rangesAttach: $('.carousel__slide--range .carousel__radios'),
+  rangesAttach: $('.carousel__slide--range .carousel__fieldset'),
   amountsAttach: $('.carousel__slide--amount .carousel__radios'),
   outerContainer: $('#carousel-outer'),
   innerContainer: $('#carousel-inner'),
@@ -10,7 +10,7 @@ const DonationForm = new FormHandler({
   prevButton: $('#prev'),
   nextButton: $('#next'),
   submitButton: $('#submit'),
-  manualInput: $('#amount-input'),
+  manualInput: $('#manual-input'),
   form: $('.carousel__form'),
   errorMessage: $('#error-message'),
   frequenciesRadios: '.carousel__slide--frequency .carousel__radio',

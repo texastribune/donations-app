@@ -76,8 +76,8 @@ export default class FormHandler {
     return $el.attr('data-frequency');
   }
 
-  // get value of either data-frequency or data-range
-  // it should be a non-negative integer
+  // get value of data-range
+  // it's a non-negative integer
   getAmountIndexFromRadio($el) {
     return $el.attr('data-range');
   }
@@ -108,15 +108,29 @@ export default class FormHandler {
     }
   }
 
+  // if current frequency is yearly or
+  // monthly, label the range that way
+  // if once, don't label it at all
+  getFrequenciesMarker() {
+    if (this.currFrequency === 'monthly' || this.currFrequency === 'yearly') {
+      return `${this.currFrequency} `;
+    }
+    return '';
+  }
+
   // build new ranges markup
   buildRangesMarkup(newRangesValues) {
     return `
-      ${newRangesValues.map((val, index) => `
-        <label class="carousel__label" for="range-${index+1}" aria-labelledby="range-legend">
-          <span class="carousel__label-text">${val}</span>
-          <input class="carousel__radio" type="radio" name="range" data-range="${index}" id="range-${index+1}" ${this.shouldBeChecked('range', index)}>
-        </label>
-      `).join('\n')}
+      <legend class="carousel__legend" id="range-legend">Choose a ${this.getFrequenciesMarker()}range</legend>
+      <div class="carousel__radios">
+        ${newRangesValues.map((val, index) => `
+          <label class="carousel__label" for="range-${index+1}" aria-labelledby="range-legend">
+            <span class="carousel__label-text">${val}</span>
+            <i class="fa fa-check-square" aria-hidden="true"></i>
+            <input class="carousel__radio" type="radio" name="range" data-range="${index}" id="range-${index+1}" ${this.shouldBeChecked('range', index)}>
+          </label>
+        `).join('\n')}
+      </div>
     `;
   }
 
@@ -125,7 +139,8 @@ export default class FormHandler {
     return `
       ${newAmountsValues.map((val, index) => `
         <label class="carousel__label" for="amount-${index+1}" aria-labelledby="amount-legend">
-          <span class="carousel__label-text">${val}</span>
+          <span class="carousel__label-text">$${val} <span class="carousel__smallcaps">${this.getFrequenciesMarker()}</span></span>
+          <i class="fa fa-check-square" aria-hidden="true"></i>
           <input class="carousel__radio" type="radio" value="${val}" name="amount" id="amount-${index+1}" ${this.shouldBeChecked('amount', index)}>
         </label>
       `).join('\n')}
@@ -141,18 +156,18 @@ export default class FormHandler {
   // update selected class on label parent of
   // currently seleted radios
   updateSelectedClass(which, selectedEl) {
-    let whichRadios;
+    let radios;
 
     if (which === 'frequency') {
-      whichRadios = this.frequenciesRadios;
+      radios = this.frequenciesRadios;
     } else if (which === 'range') {
-      whichRadios = this.rangesRadios;
+      radios = this.rangesRadios;
     } else if (which === 'amount') {
-      whichRadios = this.amountsRadios;
+      radios = this.amountsRadios;
     }
 
-    whichRadios.parent().removeClass('radio__label--selected');
-    whichRadios.parent().addClass('radio__label');
+    radios.parent().removeClass('radio__label--selected');
+    radios.parent().addClass('radio__label');
     selectedEl.parent().addClass('radio__label--selected');
   }
 
@@ -193,16 +208,6 @@ export default class FormHandler {
     } else if (which === 'next') {
       this.nextButton.removeClass('carousel__button--disabled');
     }
-  }
-
-  // shows submit button on last slide
-  showSubmitButton() {
-    this.submitButton.removeClass('carousel__button--hidden');
-  }
-
-  // hides submit button on all but last slide
-  hideSubmitButton() {
-    this.submitButton.addClass('carousel__button--hidden');
   }
 
   // remove aria-hidden from current slide
@@ -384,7 +389,6 @@ export default class FormHandler {
         self.updateCurrSlide('prev');
         self.accessibleShowCurrent();
         self.accessibleHideMovingPrev();
-        self.hideSubmitButton();
         self.enableButton('next');
         self.setTransform();
         self.tempAccessibleLive();
@@ -408,7 +412,6 @@ export default class FormHandler {
 
         if (self.isLastSlide()) {
           self.disableButton('next');
-          self.showSubmitButton();
         }
       }
     });

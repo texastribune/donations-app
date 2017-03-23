@@ -2,103 +2,123 @@
 title: Become a Member
 ---
 
-<div class="">
+<div class="donate">
   <div class="carousel" id="carousel-outer">
-    <form class="carousel__form" action="" method="get" aria-label="Donate to The Texas Tribune">
-      <div class="carousel__inner" id="carousel-inner">
-        <fieldset class="carousel__slide--frequency">
+    <form class="carousel__form" action="" method="get" aria-labelledby="frequency-legend" id="carousel-inner" role="form">
+      <div class="carousel__slide--frequency">
+        <fieldset class="carousel__fieldset">
           <legend class="carousel__legend" id="frequency-legend">Make a donation</legend>
           <div class="carousel__radios">
-            <label class="carousel__label" for="frequency-once" aria-labelledby="frequency-legend">
-              <span class="carousel__label-text">One-Time</span>
+            <label class="carousel__label" for="frequency-once">
+              <span class="carousel__label-text">One-Time Donation</span>
+              <i class="fa fa-check-square" aria-hidden="true"></i>
               <input class="carousel__radio" type="radio" value="once" name="frequency" data-frequency="once" id="frequency-once">
             </label>
 
-            <label class="carousel__label--selected" for="frequency-monthly" aria-labelledby="frequency-legend">
-              <span class="carousel__label-text">Monthly</span>
+            <label class="carousel__label--selected" for="frequency-monthly">
+              <span class="carousel__label-text">Monthly Membership</span>
+              <i class="fa fa-check-square" aria-hidden="true"></i>
               <input class="carousel__radio" type="radio" value="monthly" name="frequency" data-frequency="monthly" id="frequency-monthly" checked>
             </label>
 
-            <label class="carousel__label" for="frequency-yearly" aria-labelledby="frequency-legend">
-              <span class="carousel__label-text">Yearly</span>
-              <input class="carousel__radio" type="radio" value="yearly" name="frequency" data-frequency="yearly" id="frequency-annually">
+            <label class="carousel__label" for="frequency-yearly">
+              <span class="carousel__label-text">Yearly Membership</span>
+              <i class="fa fa-check-square" aria-hidden="true"></i>
+              <input class="carousel__radio" type="radio" value="yearly" name="frequency" data-frequency="yearly" id="frequency-yearly">
             </label>
           </div>
         </fieldset>
+      </div>
 
-        <fieldset class="carousel__slide--range" aria-hidden="true">
-          <legend class="carousel__legend" id="range-legend">Choose a range</legend>
+      <div class="carousel__slide--range" aria-hidden="true">
+        <fieldset class="carousel__fieldset">
+          <legend class="carousel__legend" id="range-legend">Choose a monthly range</legend>
           <div class="carousel__radios">
-            <label class="carousel__label" for="range-1" aria-labelledby="range-legend">
+            <label class="carousel__label" for="range-1">
               <span class="carousel__label-text">$5-20</span>
+              <i class="fa fa-check-square" aria-hidden="true"></i>
               <input class="carousel__radio" type="radio" name="range" data-range="0" id="range-1">
             </label>
 
-            <label class="carousel__label--selected" for="range-2" aria-labelledby="range-legend">
+            <label class="carousel__label--selected" for="range-2">
               <span class="carousel__label-text">$21-40</span>
+              <i class="fa fa-check-square" aria-hidden="true"></i>
               <input class="carousel__radio" type="radio" name="range" data-range="1" id="range-2" checked>
             </label>
 
-            <label class="carousel__label" for="range-3" aria-labelledby="range-legend">
+            <label class="carousel__label" for="range-3">
               <span class="carousel__label-text">$41-60</span>
+              <i class="fa fa-check-square" aria-hidden="true"></i>
               <input class="carousel__radio" type="radio" name="range" data-range="2" id="range-3">
             </label>
 
-            <label class="carousel__label" for="range-4" aria-labelledby="range-legend">
+            <label class="carousel__label" for="range-4">
               <span class="carousel__label-text">$61-$82</span>
+              <i class="fa fa-check-square" aria-hidden="true"></i>
               <input class="carousel__radio" type="radio" name="range" data-range="3" id="range-4">
             </label>
           </div>
-        </fieldset>
 
-        <fieldset class="carousel__slide--amount" aria-hidden="true">
-          <legend class="carousel__legend" id="amount-legend">Amount to give</legend>
+          <p class="carousel__circle">Trying to donate more? <a href="https://support.texastribune.org/circle.html">Learn how</a>.</p>
+        </fieldset>
+      </div>
+
+      <div class="carousel__slide--amount" aria-hidden="true">
+        <fieldset class="carousel__fieldset">
+          <legend class="carousel__legend" id="amount-legend">How much would you like to give?</legend>
           <div class="carousel__radios">
-            <label class="carousel__label" for="amount-1" aria-labelledby="amount-legend">
-              <span class="carousel__label-text">41</span>
+            <label class="carousel__label" for="amount-1">
+              <span class="carousel__label-text">$41 <span class="carousel__smallcaps">monthly</span></span>
+              <i class="fa fa-check-square" aria-hidden="true"></i>
               <input class="carousel__radio" type="radio" value="41" name="amount" id="amount-1">
             </label>
 
-            <label class="carousel__label--selected" for="amount-2" aria-labelledby="amount-legend">
-              <span class="carousel__label-text">49</span>
+            <label class="carousel__label--selected" for="amount-2">
+              <span class="carousel__label-text">$49 <span class="carousel__smallcaps">monthly</span></span>
+              <i class="fa fa-check-square" aria-hidden="true"></i>
               <input class="carousel__radio" type="radio" value="49" name="amount" id="amount-2" checked>
             </label>
 
-            <label class="carousel__label" for="amount-3" aria-labelledby="amount-legend">
-              <span class="carousel__label-text">54</span>
+            <label class="carousel__label" for="amount-3">
+              <span class="carousel__label-text">$54 <span class="carousel__smallcaps">monthly</span></span>
+              <i class="fa fa-check-square" aria-hidden="true"></i>
               <input class="carousel__radio" type="radio" value="54" name="amount" id="amount-3">
             </label>
 
-            <label class="carousel__label" for="amount-4" aria-labelledby="amount-legend">
-              <span class="carousel__label-text">60</span>
+            <label class="carousel__label" for="amount-4">
+              <span class="carousel__label-text">$60 <span class="carousel__smallcaps">monthly</span></span>
+              <i class="fa fa-check-square" aria-hidden="true"></i>
               <input class="carousel__radio" type="radio" value="60" name="amount" id="amount-4">
             </label>
           </div>
 
           <div class="carousel__manual">
-            <label class="carousel__manual-label" for="amount-manual">Or enter an amount</label>
-            <input class="carousel__radio" type="radio" name="amount" id="amount-manual">
-            <input class="carousel__manual-input" type="text" id="amount-input">
+            <div class="carousel__manual-els">
+              <label class="carousel__manual-label" for="amount-manual" id="manual-label">Or enter your desired amount</label>
+              <input class="carousel__radio" type="radio" name="amount" id="amount-manual">
+              <input class="carousel__manual-input" type="text" aria-labelledby="manual-label" id="manual-input">
+            </div>
+
             <p class="carousel__manual-error--hidden" id="error-message">Make sure you enter a number.</p>
           </div>
         </fieldset>
+
+        <input class="carousel__button--submit carousel__button--hidden" aria-label="Go To Checkout" type="submit" value="Go To Checkout" id="submit">
       </div>
-
-      <ul class="carousel__buttons">
-        <li class="carousel__item">
-          <button class="carousel__button--prev carousel__button--disabled" aria-label="Go back to previous screen" tabindex="1" id="prev">Last</button>
-        </li>
-
-        <li class="carousel__item">
-          <button class="carousel__button--next" aria-label="Move forward to next screen" tabindex="2" id="next">Next</button>
-        </li>
-
-        <li class="carousel__item">
-          <input class="carousel__button--submit carousel__button--hidden" aria-label="Go to checkout page" type="submit" value="Give Now" id="submit">
-        </li>
-      </ul>
     </form>
+
+    <ul class="carousel__buttons">
+      <li class="carousel__item">
+        <button class="carousel__button--prev carousel__button--disabled" aria-label="Go back to previous screen" id="prev">Last</button>
+      </li>
+
+      <li class="carousel__item">
+        <button class="carousel__button--next" aria-label="Move forward to next screen" id="next">Next</button>
+      </li>
+    </ul>
   </div>
+
+  <p class="donate__mail">Prefer to mail a check? Use our <a href="https://static.texastribune.org/media/marketing/TT-membership-contribution-form.pdf">membership form</a>.</p>
 </div>
 
 <div class="main">
