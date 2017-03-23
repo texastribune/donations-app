@@ -20,6 +20,7 @@ export default class FormHandler {
     this.defaultRangesIndex = opts.defaultRangesIndex;
     this.defaultAmountsIndex = opts.defaultAmountsIndex;
     this.currSlide = opts.startSlide;
+    this.currFrequency = opts.startFrequency;
     this.numSlides = this.carouselSlides.length;
     this.animationLength = opts.animationLength;
     this.frequenciesToRanges = opts.frequenciesToRanges;
@@ -59,7 +60,7 @@ export default class FormHandler {
 
   // shifts carousel forward or backward
   setTransform() {
-    this.innerContainer.css(getSupportedTransform(), `translateX(-${this.getTransformValue()}px)`);
+    this.innerContainer.css('transform', `translateX(-${this.getTransformValue()}px)`);
   }
 
   // initialize carousel
@@ -69,30 +70,32 @@ export default class FormHandler {
     this.setTransform();
   }
 
+  // takes a frequency radio as parameter
+  // returns it's data-frequency attr value
+  getFrequencyFromRadio($el) {
+    return $el.attr('data-frequency');
+  }
+
   // get value of either data-frequency or data-range
   // it should be a non-negative integer
-  getRadioIndex(which, el) {
-    const index = el.attr(`data-${which}`);
+  getAmountIndexFromRadio($el) {
+    return $el.attr('data-range');
+  }
 
-    if (isNaN(index)) {
-      throw new Error();
-    } else if ( index.indexOf('.') !== -1 ) {
-      throw new Error();
-    } else if ( parseInt(index) < 0 ) {
-      throw new Error();
-    }
-
-    return parseInt(index);
+  // updates the currently selected frequency
+  // to either once, monthly, yearly
+  updateCurrFrequency(newFrequency) {
+    this.currFrequency = newFrequency;
   }
 
   // returns new range values
-  getFrequenciesToRangesValues(newIndex) {
-    return this.frequenciesToRanges[newIndex];
+  getFrequenciesToRangesValues() {
+    return this.frequenciesToRanges[this.currFrequency];
   }
 
   // returns new amounts values
   getRangesToAmountsValues(newIndex) {
-    return this.rangesToAmounts[newIndex];
+    return this.rangesToAmounts[this.currFrequency][newIndex];
   }
 
   // returned checked boolean if new radio button
@@ -294,7 +297,7 @@ export default class FormHandler {
       case 'monthly':
         fullURL = `${baseURL}/memberform?installmentPeriod=monthly&amount=${amount}`;
         break;
-      case 'annually':
+      case 'yearly':
         fullURL = `${baseURL}/memberform?installmentPeriod=yearly&amount=${amount}`;
         break;
     }
@@ -339,8 +342,9 @@ export default class FormHandler {
     const self = this;
 
     this.frequenciesRadios.change(function() {
-      const eventIndex = self.getRadioIndex('frequency', $(this));
-      const newRangesValues = self.getFrequenciesToRangesValues(eventIndex);
+      self.updateCurrFrequency( self.getFrequencyFromRadio($(this)) );
+
+      const newRangesValues = self.getFrequenciesToRangesValues();
       const newRangesMarkup = self.buildRangesMarkup(newRangesValues);
       const newAmountsValues = self.getRangesToAmountsValues(self.defaultRangesIndex);
       const newAmountsMarkup = self.buildAmountsMarkup(newAmountsValues);
@@ -353,7 +357,7 @@ export default class FormHandler {
     });
 
     this.rangesRadios.change(function() {
-      const eventIndex = self.getRadioIndex('range', $(this));
+      const eventIndex = self.getAmountIndexFromRadio($(this));
       const newAmountsValues = self.getRangesToAmountsValues(eventIndex);
       const newAmountsMarkup = self.buildAmountsMarkup(newAmountsValues);
 

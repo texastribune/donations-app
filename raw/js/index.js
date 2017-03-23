@@ -17,22 +17,39 @@ const DonationForm = new FormHandler({
   rangesRadios: '.carousel__slide--range .carousel__radio',
   amountsRadios: '.carousel__slide--amount .carousel__radio',
   defaultFrequenciesIndex: 1,
-  defaultRangesIndex: 1,
-  defaultAmountsIndex: 1,
+  defaultRangesIndex: 2,
+  defaultAmountsIndex: 2,
   startSlide: 0,
+  startFrequency: 'monthly',
   animationLength: 400,
-  frequenciesToRanges: [
-    [1, 2, 3, 4],
-    [5, 6, 7, 8],
-    [9, 10, 11, 12],
-    [13, 14, 15, 16]
-  ],
-  rangesToAmounts: [
-    [17, 18, 19, 20],
-    [21, 22, 23, 24],
-    [25, 26, 27, 28],
-    [29, 30, 31, 32]
-  ]
+  frequenciesToRanges: {
+    once: ['$1-$34', '$35-$100', '$101-$500', '$501-$999'],
+    monthly: ['$5-$20', '$21-$40', '$41-$60', '$61-$82'],
+    yearly: ['$1-$34', '$35-$100', '$101-$500', '$501-$999']
+  },
+
+  rangesToAmounts: {
+    once: [
+      [5, 15, 25, 34],
+      [35, 65, 85, 100],
+      [120, 240, 360, 500],
+      [520, 640, 760, 880]
+    ],
+
+    monthly: [
+      [5, 11, 16, 20],
+      [21, 29, 34, 40],
+      [41, 49, 54, 60],
+      [61, 69, 78, 82]
+    ],
+
+    yearly: [
+      [5, 15, 25, 34],
+      [35, 65, 85, 100],
+      [120, 240, 360, 500],
+      [520, 640, 760, 880]
+    ]
+  }
 });
 
 DonationForm.doInitialEvents();
