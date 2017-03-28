@@ -1,6 +1,10 @@
 import '../scss/all.scss';
 import FormHandler from './form';
 
+(function resetForm() {
+  document.forms[0].reset();
+})();
+
 const DonationForm = new FormHandler({
   rangesAttach: $('.carousel__slide--range .carousel__fieldset'),
   amountsAttach: $('.carousel__slide--amount .carousel__radios'),
@@ -52,6 +56,5 @@ const DonationForm = new FormHandler({
   }
 });
 
-DonationForm.doInitialEvents();
 DonationForm.initCarousel();
 DonationForm.bindAllEvents();

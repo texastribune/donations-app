@@ -365,10 +365,6 @@ export default class FormHandler {
     this.bindRadioEvents();
   }
 
-  doInitialEvents() {
-    this.manualInput.val('');
-  }
-
   // bind radio button events
   bindRadioEvents() {
     const self = this;
