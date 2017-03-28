@@ -111,17 +111,27 @@ export default class FormHandler {
   // if current frequency is yearly or
   // monthly, label the range that way
   // if once, don't label it at all
-  getFrequenciesMarker() {
+  getFrequenciesLegendMarker() {
     if (this.currFrequency === 'monthly' || this.currFrequency === 'yearly') {
       return `${this.currFrequency} `;
     }
     return '';
   }
 
+  getFrequenciesLabelMarker() {
+    if (this.currFrequency === 'monthly') {
+      return 'per month';
+    } else if (this.currFrequency === 'yearly') {
+      return 'per year';
+    } else {
+      return '';
+    }
+  }
+
   // build new ranges markup
   buildRangesMarkup(newRangesValues) {
     return `
-      <legend class="carousel__legend" id="range-legend">Choose a ${this.getFrequenciesMarker()}range</legend>
+      <legend class="carousel__legend" id="range-legend">Choose a ${this.getFrequenciesLegendMarker()}range</legend>
       <div class="carousel__radios">
         ${newRangesValues.map((val, index) => `
           <label class="carousel__label" for="range-${index+1}" aria-labelledby="range-legend">
@@ -139,7 +149,7 @@ export default class FormHandler {
     return `
       ${newAmountsValues.map((val, index) => `
         <label class="carousel__label" for="amount-${index+1}" aria-labelledby="amount-legend">
-          <span class="carousel__label-text">$${val} <span class="carousel__smallcaps">${this.getFrequenciesMarker()}</span></span>
+          <span class="carousel__label-text">$${val} <span class="carousel__smallcaps">${this.getFrequenciesLabelMarker()}</span></span>
           <i class="fa fa-check-square" aria-hidden="true"></i>
           <input class="carousel__radio" type="radio" value="${val}" name="amount" id="amount-${index+1}" ${this.shouldBeChecked('amount', index)}>
         </label>

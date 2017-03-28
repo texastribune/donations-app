@@ -129,6 +129,9 @@ describe('Donation carousel form', () => {
     let markup = DonationForm.buildRangesMarkup(['bar', 'baz', 'foo', 'lorem']);
     assert.include(markup.trim(), 'Choose a yearly range');
 
+    markup = DonationForm.buildAmountsMarkup(['bar', 'baz', 'foo', 'lorem']);
+    assert.include(markup.trim(), 'per year');
+
     DonationForm.currFrequency = 'once';
     markup = DonationForm.buildRangesMarkup(['bar', 'baz', 'foo', 'lorem']);
     assert.include(markup.trim(), 'Choose a range');
