@@ -138,6 +138,11 @@ export default class FormHandler {
     return '';
   }
 
+  // TODO: Add test
+  putCommasInNumber(num) {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
   // build new ranges markup
   buildRangesMarkup(newRangesValues) {
     return `
@@ -161,7 +166,7 @@ export default class FormHandler {
     return `
       ${newAmountsValues.map((val, index) => `
         <label class="carousel__label" for="amount-${index+1}" aria-labelledby="amount-legend">
-          <span class="carousel__label-text">$${val} <span class="carousel__smallcaps">${this.getFrequenciesLabelMarker()}</span></span>
+          <span class="carousel__label-text">$${this.putCommasInNumber(val)} <span class="carousel__smallcaps">${this.getFrequenciesLabelMarker()}</span></span>
           <i class="fa fa-check-square" aria-hidden="true"></i>
           <input class="carousel__radio" type="radio" value="${val}" name="amount" id="amount-${index+1}" ${this.shouldBeChecked('amount', index)}>
         </label>
