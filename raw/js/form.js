@@ -264,6 +264,25 @@ export default class FormHandler {
     }.bind(this), this.animationLength);
   }
 
+  // TODO: Make this return a value so it's testable
+  setManualInputBorderClass(which) {
+    let borderClass;
+
+    switch(which) {
+      case 'normal':
+        borderClass = 'carousel__manual--normal';
+        break;
+      case 'invalid':
+        borderClass = 'carousel__manual--invalid';
+        break;
+      case 'selected':
+        borderClass = 'carousel__manual--selected';
+        break;
+    }
+
+    this.manualInput.attr('class', borderClass);
+  }
+
   // when the manual input field is active,
   // make sure corresponding radio is selected
   selectManualEntryRadio(el) {
@@ -378,6 +397,7 @@ export default class FormHandler {
       const newAmountsMarkup = self.buildAmountsMarkup(newAmountsValues);
 
       self.removeValidationError();
+      self.setManualInputBorderClass('normal');
       self.updateSelectedClass('frequency', $(this));
       self.appendMarkupToDOM('range', newRangesMarkup);
       self.appendMarkupToDOM('amount', newAmountsMarkup);
@@ -390,6 +410,7 @@ export default class FormHandler {
       const newAmountsMarkup = self.buildAmountsMarkup(newAmountsValues);
 
       self.removeValidationError();
+      self.setManualInputBorderClass('normal');
       self.updateSelectedClass('range', $(this));
       self.appendMarkupToDOM('amount', newAmountsMarkup);
       self.reinitRadioEvents();
@@ -397,6 +418,7 @@ export default class FormHandler {
 
     this.amountsRadios.change(function() {
       self.removeValidationError();
+      self.setManualInputBorderClass('normal');
       self.updateSelectedClass('amount', $(this));
     });
   }
@@ -446,6 +468,8 @@ export default class FormHandler {
 
     this.manualInput.focus(function() {
       self.selectManualEntryRadio($(this));
+      self.removeValidationError();
+      self.setManualInputBorderClass('selected');
     });
 
     this.manualInput.keyup(function(){
@@ -463,6 +487,7 @@ export default class FormHandler {
         window.location.href = checkoutURL;
       } else {
         self.raiseValidationError();
+        self.setManualInputBorderClass('invalid');
       }
     });
   }
