@@ -109,7 +109,7 @@ export default class FormHandler {
   }
 
   // if current frequency is yearly or
-  // monthly, label the range that way
+  // monthly, label the range legend that way
   // if once, don't label it at all
   getFrequenciesLegendMarker() {
     if (this.currFrequency === 'monthly' || this.currFrequency === 'yearly') {
@@ -118,14 +118,24 @@ export default class FormHandler {
     return '';
   }
 
+  // if current frequency is yearly or
+  // monthly, label the amounts buttons that way
+  // if once, don't label at all
   getFrequenciesLabelMarker() {
     if (this.currFrequency === 'monthly') {
       return 'per month';
     } else if (this.currFrequency === 'yearly') {
       return 'per year';
-    } else {
-      return '';
     }
+    return '';
+  }
+
+  // TODO: Add test
+  addStudentMembership() {
+    if (this.currFrequency === 'yearly') {
+      return `<p class="carousel__student"><a class="carousel__student-link" href="https://checkout.texastribune.org/memberform?&amount=10&installmentPeriod=yearly">Interested in a $10 student membership?</a></p>`;
+    }
+    return '';
   }
 
   // build new ranges markup
@@ -140,6 +150,8 @@ export default class FormHandler {
             <input class="carousel__radio" type="radio" name="range" data-range="${index}" id="range-${index+1}" ${this.shouldBeChecked('range', index)}>
           </label>
         `).join('\n')}
+        ${this.addStudentMembership()}
+        <p class="carousel__circle">Trying to donate more? <a class="carousel__circle-link" href="https://support.texastribune.org/circle.html">Learn how</a>.</p>
       </div>
     `;
   }
