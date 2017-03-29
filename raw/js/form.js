@@ -102,9 +102,9 @@ export default class FormHandler {
   // should be checked by default when appended to DOM
   shouldBeChecked(which, iterIndex) {
     if (which === 'range') {
-      return (iterIndex === this.defaultRangesIndex ? `checked` : ``);
+      return iterIndex === this.defaultRangesIndex;
     } else if (which === 'amount') {
-      return (iterIndex === this.defaultAmountsIndex ? `checked` : ``);
+      return iterIndex === this.defaultAmountsIndex;
     }
   }
 
@@ -149,10 +149,10 @@ export default class FormHandler {
       <legend class="carousel__legend" id="range-legend">Choose a ${this.getFrequenciesLegendMarker()}range</legend>
       <div class="carousel__radios">
         ${newRangesValues.map((val, index) => `
-          <label class="carousel__label" for="range-${index+1}" aria-labelledby="range-legend">
+          <label class="carousel__label${this.shouldBeChecked('range', index) ? `--selected`: `--normal`}" for="range-${index+1}" aria-labelledby="range-legend">
             <span class="carousel__label-text">${val}</span>
             <i class="fa fa-check-square" aria-hidden="true"></i>
-            <input class="carousel__radio" type="radio" name="range" data-range="${index}" id="range-${index+1}" ${this.shouldBeChecked('range', index)}>
+            <input class="carousel__radio" type="radio" name="range" data-range="${index}" id="range-${index+1}" ${this.shouldBeChecked('range', index) ? `checked` : ``}>
           </label>
         `).join('\n')}
         ${this.addStudentMembership()}
@@ -165,10 +165,10 @@ export default class FormHandler {
   buildAmountsMarkup(newAmountsValues) {
     return `
       ${newAmountsValues.map((val, index) => `
-        <label class="carousel__label" for="amount-${index+1}" aria-labelledby="amount-legend">
+        <label class="carousel__label${this.shouldBeChecked('amount', index) ? `--selected`: `--normal`}" for="amount-${index+1}" aria-labelledby="amount-legend">
           <span class="carousel__label-text">$${this.putCommasInNumber(val)} <span class="carousel__smallcaps">${this.getFrequenciesLabelMarker()}</span></span>
           <i class="fa fa-check-square" aria-hidden="true"></i>
-          <input class="carousel__radio" type="radio" value="${val}" name="amount" id="amount-${index+1}" ${this.shouldBeChecked('amount', index)}>
+          <input class="carousel__radio" type="radio" value="${val}" name="amount" id="amount-${index+1}" ${this.shouldBeChecked('amount', index) ? `checked` : ``}>
         </label>
       `).join('\n')}
     `;
@@ -193,9 +193,8 @@ export default class FormHandler {
       radios = this.amountsRadios;
     }
 
-    radios.parent().removeClass('radio__label--selected');
-    radios.parent().addClass('radio__label');
-    selectedEl.parent().addClass('radio__label--selected');
+    radios.parent().attr('class', 'carousel__label--normal');
+    selectedEl.parent().attr('class', 'carousel__label--selected');
   }
 
   // either increment or decrement curr slide index

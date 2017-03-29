@@ -139,18 +139,18 @@ describe('Donation carousel form', () => {
 
   it('new ranges markup should have default selection', () => {
     DonationForm.defaultRangesIndex = 1;
-    const spy = sinon.spy(DonationForm, 'shouldBeChecked');
-    const callIndexReturningChecked = DonationForm.defaultRangesIndex;
-    DonationForm.buildRangesMarkup(['$1-$34', '$35-$100', '$101-$500', '$501-$999']);
-    assert.equal(spy.returnValues[callIndexReturningChecked], 'checked');
+    const checked = DonationForm.shouldBeChecked('range', 1);
+    const unchecked = DonationForm.shouldBeChecked('range', 2);
+    assert.isTrue(checked);
+    assert.isFalse(unchecked);
   });
 
   it('new amounts markup should have default selection', () => {
-    DonationForm.defaultAmountsIndex = 1;
-    const spy = sinon.spy(DonationForm, 'shouldBeChecked');
-    const callIndexReturningChecked = DonationForm.defaultAmountsIndex;
-    DonationForm.buildAmountsMarkup([5, 15, 25, 34]);
-    assert.equal(spy.returnValues[callIndexReturningChecked], 'checked');
+    DonationForm.defaultAmountsIndex = 2;
+    const checked = DonationForm.shouldBeChecked('amount', 2);
+    const unchecked = DonationForm.shouldBeChecked('amount', 1);
+    assert.isTrue(checked);
+    assert.isFalse(unchecked);
   });
 
   it('events should be reinitialized after a radio change', () => {
