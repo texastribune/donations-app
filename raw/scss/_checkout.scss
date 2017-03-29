@@ -2,7 +2,7 @@
   @include span-columns(6);
 
   &__mail {
-    
+
   }
 }
 
@@ -53,6 +53,10 @@
     color: black;
 
     &--selected {
+      @extend .carousel__label;
+    }
+
+    &--normal {
       @extend .carousel__label;
     }
   }
@@ -113,8 +117,24 @@
 
   }
 
-  &__control {
+  &__indicator {
 
+  }
+
+  &__dot {
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+
+    &--normal {
+      @extend .carousel__dot;
+      color: color: red;;
+    }
+
+    &--selected {
+      @extend .carousel__dot;
+      color: green;
+    }
   }
 
   &__button {

@@ -102,25 +102,25 @@ title: Become a Member
               <div class="carousel__manual">
                 <div class="carousel__manual-els">
                   <label class="carousel__manual-label" for="amount-manual" id="manual-label">Or enter your desired amount</label>
-                  <input class="carousel__radio hidden" type="radio" name="amount" id="amount-manual">
+                  <input class="carousel__radio visually-hidden" type="radio" name="amount" id="amount-manual">
                   <input class="carousel__manual--normal" type="text" aria-labelledby="manual-label" id="manual-input">
                 </div>
 
-                <p class="carousel__manual-error--hidden" id="error-message">Make sure you enter a number.</p>
+                <p class="carousel__manual-error hidden" id="error-message">Make sure you enter a number.</p>
               </div>
             </fieldset>
 
-            <input class="carousel__button--submit carousel__button--hidden" aria-label="Go To Checkout" type="submit" value="Go To Checkout" id="submit">
+            <input class="carousel__button--submit" aria-label="Go To Checkout" type="submit" value="Go To Checkout" id="submit">
           </div>
         </form>
 
         <div class="carousel__controls">
-          <button class="carousel__button--prev carousel__button--disabled" aria-label="Go back to previous screen" id="prev">Last</button>
+          <button class="carousel__button--prev visually-hidden" aria-label="Go back to previous screen" id="prev" disabled>Last</button>
 
           <ul class="carousel__indicator" aria-hidden="true">
             <li class="carousel__dot--selected"></li>
-            <li class="carousel__dot"></li>
-            <li class="carousel__dot"></li>
+            <li class="carousel__dot--normal"></li>
+            <li class="carousel__dot--normal"></li>
           </ul>
 
           <button class="carousel__button--next" aria-label="Move forward to next screen" id="next">Next</button>

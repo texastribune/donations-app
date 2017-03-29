@@ -219,21 +219,31 @@ export default class FormHandler {
   // disables prev button if at first slide
   // or next button if at last slide
   disableButton(which) {
+    let $el;
+
     if (which === 'prev') {
-      this.prevButton.addClass('carousel__button--disabled');
+      $el = this.prevButton;
     } else if (which === 'next') {
-      this.nextButton.addClass('carousel__button--disabled');
+      $el = this.nextButton;
     }
+
+    $el.addClass('visually-hidden');
+    $el.prop('disabled', true);
   }
 
   // enables prev button if not at first slide
   // or next button if not at last slide
   enableButton(which) {
+    let $el;
+
     if (which === 'prev') {
-      this.prevButton.removeClass('carousel__button--disabled');
+      $el = this.prevButton;
     } else if (which === 'next') {
-      this.nextButton.removeClass('carousel__button--disabled');
+      $el = this.nextButton;
     }
+
+    $el.removeClass('visually-hidden');
+    $el.prop('disabled', false);
   }
 
   // remove aria-hidden from current slide
@@ -358,8 +368,7 @@ export default class FormHandler {
   // if amount is not numeric, show error message
   // and raise ARIA alert
   raiseValidationError() {
-    this.errorMessage.removeClass('carousel__manual-error--hidden');
-    this.errorMessage.addClass('carousel__manual-error');
+    this.errorMessage.removeClass('hidden');
     this.errorMessage.attr('role', 'alert');
     this.manualInput.attr('aria-invalid', 'true');
   }
@@ -367,8 +376,7 @@ export default class FormHandler {
   // hide error message and remove ARIA alert
   // invoked any time a radio button changes
   removeValidationError() {
-    this.errorMessage.addClass('carousel__manual-error--hidden');
-    this.errorMessage.removeClass('carousel__manual-error');
+    this.errorMessage.addClass('hidden');
     this.errorMessage.removeAttr('role');
     this.manualInput.removeAttr('aria-invalid');
   }
