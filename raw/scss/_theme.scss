@@ -29,12 +29,26 @@
 
 .splash-info, .splash-header {
   color: white;
-  font-weight: 200;
 }
 
 .splash-info, .splash-support {
   font-size: 1.2em;
+  font-weight: 200;
+  letter-spacing: 1px;
+  line-height: 1.4;
   @include hide-for-mobile;
+}
+
+.splash-link {
+  text-decoration: underline;
+
+  &--teal {
+    color: $teal-tribune;
+  }
+
+  &--yellow {
+    color: $yellow-tribune;
+  }
 }
 
 

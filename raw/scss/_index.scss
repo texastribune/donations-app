@@ -1,29 +1,41 @@
-// Index page
 .index {
   .splash {
     background-color: lighten($black, 20%);
-    background-image: url("../bg/support-us-header-bg.jpg");
-    .splash-greeting {
-      text-align: right;
+    background-image: url('../bg/support-us-header-bg.jpg');
+  }
+
+  .splash-header {
+    border-bottom: none;
+    font-size: 2.5em;
+  }
+
+  .splash-greeting {
+    text-align: left;
+    @include span-columns(6);
+      @include shift(0);
+    @media (max-width: 840px) {
       @include span-columns(6);
         @include shift(0);
-      @media (max-width: 840px) {
-        @include span-columns(6);
-          @include shift(0);
-      }
-      @media (max-width: 620px) {
-        @include span-columns(12);
-        text-align: center;
-      }
     }
-    .splash-wrapper {
-      @media (max-width: 620px) {
-        padding: 2em 1em;
-      }
-      @include media($mobile) {
-        padding: 0;
-      }
+    @media (max-width: 620px) {
+      @include span-columns(12);
+      text-align: center;
     }
+  }
+
+  .splash-wrapper {
+    @media (max-width: 620px) {
+      padding: 2em 1em;
+    }
+    @include media($mobile) {
+      padding: 0;
+    }
+  }
+}
+
+// Index page
+/*.index {
+  .splash {
     .express-checkout {
       @include span-columns(6);
       @media (max-width: 840px) {
@@ -86,4 +98,4 @@
   @include media($mobile) {
     padding: 1em;
   }
-}
+}*/

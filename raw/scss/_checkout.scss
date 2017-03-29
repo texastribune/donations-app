@@ -1,3 +1,11 @@
+.donate {
+  @include span-columns(6);
+
+  &__mail {
+    
+  }
+}
+
 .carousel {
   width: 500px;
   overflow: hidden;
@@ -29,6 +37,10 @@
     }
   }
 
+  &__fieldset {
+
+  }
+
   &__legend {
 
   }
@@ -38,10 +50,18 @@
   }
 
   &__label {
+    color: black;
 
+    &--selected {
+      @extend .carousel__label;
+    }
   }
 
   &__label-text {
+
+  }
+
+  &__checkmark {
 
   }
 
@@ -49,7 +69,15 @@
 
   }
 
+  &__circle {
+
+  }
+
   &__manual {
+
+  }
+
+  &__manual-els {
 
   }
 
@@ -57,37 +85,47 @@
 
   }
 
-  &__manual-radio {
+  &__manual {
+    display: block;
 
-  }
+    &--selected {
+      @extend .carousel__manual;
+    }
 
-  &__manual-input {
+    &--invalid {
+      @extend .carousel__manual;
+    }
 
+    &--normal {
+      @extend .carousel__manual;
+    }
   }
 
   &__manual-error {
 
   }
 
-  &__buttons {
+  &__submit {
 
   }
 
-  &__item {
+  &__controls {
+
+  }
+
+  &__control {
 
   }
 
   &__button {
-    &--prev {
+    border: none;
 
+    &--prev {
+      @extend .carousel__button;
     }
 
     &--next {
-
-    }
-
-    &--submit {
-
+      @extend .carousel__button;
     }
   }
 }
