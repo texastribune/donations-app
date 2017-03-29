@@ -30,6 +30,7 @@ describe('Donation carousel form', () => {
       frequenciesRadios: '#frequency-radio',
       rangesRadios: '#range-radio',
       amountsRadios: '#amount-radio',
+      indicators: $('<div/><div/><div/>'),
       defaultFrequenciesIndex: 1,
       defaultRangesIndex: 1,
       defaultAmountsIndex: 1,
@@ -228,6 +229,14 @@ describe('Donation carousel form', () => {
     DonationForm.bindCarouselEvents();
     DonationForm.nextButton.trigger('click');
     assert.isTrue(spy.calledWith('next'));
+  });
+
+  it('dots should indicate current slide', () => {
+    DonationForm.currSlide = 1;
+    DonationForm.bindCarouselEvents();
+    DonationForm.nextButton.trigger('click');
+    assert.isTrue( DonationForm.indicators.eq(DonationForm.currSlide).hasClass('carousel__dot--selected') );
+    assert.isTrue( DonationForm.indicators.eq(DonationForm.currSlide-1).hasClass('carousel__dot--normal') );
   });
 
   it('all slides but current should have aria-hidden', () => {

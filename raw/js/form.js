@@ -17,6 +17,7 @@ export default class FormHandler {
     this.frequenciesRadios = $(opts.frequenciesRadios);
     this.rangesRadios = $(opts.rangesRadios);
     this.amountsRadios = $(opts.amountsRadios);
+    this.indicators = opts.indicators;
     this.defaultRangesIndex = opts.defaultRangesIndex;
     this.defaultAmountsIndex = opts.defaultAmountsIndex;
     this.currSlide = opts.startSlide;
@@ -195,6 +196,14 @@ export default class FormHandler {
 
     radios.parent().attr('class', 'carousel__label--normal');
     selectedEl.parent().attr('class', 'carousel__label--selected');
+  }
+
+  // update the indicator dots
+  updateIndicators(which) {
+    const lastSlide = (which === 'prev' ? this.currSlide + 1 : this.currSlide - 1);
+
+    this.indicators.eq(lastSlide).attr('class', 'carousel__dot--normal');
+    this.indicators.eq(this.currSlide).attr('class', 'carousel__dot--selected');
   }
 
   // either increment or decrement curr slide index
@@ -439,6 +448,7 @@ export default class FormHandler {
 
       if (!self.isFirstSlide()) {
         self.updateCurrSlide('prev');
+        self.updateIndicators('prev');
         self.accessibleShowCurrent();
         self.accessibleHideMovingPrev();
         self.enableButton('next');
@@ -456,6 +466,7 @@ export default class FormHandler {
 
       if (!self.isLastSlide()) {
         self.updateCurrSlide('next');
+        self.updateIndicators('next');
         self.accessibleShowCurrent();
         self.accessibleHideMovingNext();
         self.enableButton('prev');

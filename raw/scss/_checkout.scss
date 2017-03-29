@@ -117,7 +117,7 @@
 
   }
 
-  &__indicator {
+  &__indicators {
 
   }
 
@@ -128,7 +128,7 @@
 
     &--normal {
       @extend .carousel__dot;
-      color: color: red;;
+      color: red;
     }
 
     &--selected {

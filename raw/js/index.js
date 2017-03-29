@@ -20,6 +20,7 @@ const DonationForm = new FormHandler({
   frequenciesRadios: '.carousel__slide--frequency .carousel__radio',
   rangesRadios: '.carousel__slide--range .carousel__radio',
   amountsRadios: '.carousel__slide--amount .carousel__radio',
+  indicators: $('[class*=carousel__dot]'),
   defaultFrequenciesIndex: 1,
   defaultRangesIndex: 1,
   defaultAmountsIndex: 1,
