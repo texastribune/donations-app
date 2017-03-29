@@ -1,22 +1,29 @@
 .donate {
   @include span-columns(6);
 
-  &__mail {
+  @media (max-width: 840px) {
+    @include span-columns(12);
+  }
 
+  &__inner {
+    background-color: $white;
+    padding: 1em;
+    position: relative;
+  }
+
+  &__mail {
+    color: $white;
+    margin-top: 1em;
+    text-align: center;
   }
 }
 
 .carousel {
-  width: 500px;
+  width: 100%;
   overflow: hidden;
-  position: relative;
-
-  @media screen and (max-width: 800px) {
-    width: 100%;
-  }
 
   &__form {
-
+    transition: transform .5s;
   }
 
   &__slide {
@@ -38,11 +45,12 @@
   }
 
   &__fieldset {
-
+    border: none;
   }
 
   &__legend {
-
+    font-weight: bold;
+    font-size: 1.4em;
   }
 
   &__radios {
@@ -114,38 +122,63 @@
   }
 
   &__controls {
-
+    bottom: 1em;
+    left: 50%;
+    margin-left: -110px;
+    position: absolute;
+    width: 220px;
   }
 
   &__indicators {
-
+    float: left;
+    list-style: none;
+    margin: 0 1em;
+    padding: .4em 0;
   }
 
   &__dot {
     border-radius: 50%;
-    height: 20px;
-    width: 20px;
+    display: block;
+    float: left;
+    height: 10px;
+    margin-right: 1.5em;
+    width: 10px;
 
     &--normal {
       @extend .carousel__dot;
-      color: red;
+      background-color: $gray-medium;
     }
 
     &--selected {
       @extend .carousel__dot;
-      color: green;
+      background-color: $teal-tribune;
+    }
+
+    &:last-child {
+      margin-right: 0;
     }
   }
 
   &__button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
     border: none;
+    background: none;
+    color: $teal-tribune;
+    font-weight: bold;
 
     &--prev {
       @extend .carousel__button;
+      float: left;
     }
 
     &--next {
       @extend .carousel__button;
+      float: right;
+    }
+
+    &.disabled {
+      color: $white;
     }
   }
 }

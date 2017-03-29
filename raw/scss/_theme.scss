@@ -43,10 +43,12 @@
   text-decoration: underline;
 
   &--teal {
+    @extend .splash-link;
     color: $teal-tribune;
   }
 
   &--yellow {
+    @extend .splash-link;
     color: $yellow-tribune;
   }
 }

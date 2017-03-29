@@ -77,3 +77,16 @@ $link-nav: white;
 .show-mobile {
   @include show-for-mobile;
 }
+
+// clearfix
+.clearfix {
+  &:after {
+    clear: both;
+    content: '';
+    display: block;
+    height: 0;
+    visibility: hidden;
+  }
+}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */

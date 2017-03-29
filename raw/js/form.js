@@ -236,7 +236,7 @@ export default class FormHandler {
       $el = this.nextButton;
     }
 
-    $el.addClass('visually-hidden');
+    $el.addClass('disabled');
     $el.prop('disabled', true);
   }
 
@@ -251,7 +251,7 @@ export default class FormHandler {
       $el = this.nextButton;
     }
 
-    $el.removeClass('visually-hidden');
+    $el.removeClass('disabled');
     $el.prop('disabled', false);
   }
 

@@ -11,13 +11,11 @@
 
   .splash-greeting {
     text-align: left;
+
     @include span-columns(6);
       @include shift(0);
+
     @media (max-width: 840px) {
-      @include span-columns(6);
-        @include shift(0);
-    }
-    @media (max-width: 620px) {
       @include span-columns(12);
       text-align: center;
     }
