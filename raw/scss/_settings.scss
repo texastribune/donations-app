@@ -7,8 +7,10 @@ $mobile: new-breakpoint(max-width 520px);
 // Colors
 $yellow-tribune: #ffc200;
 $teal-tribune: #008990;
+$error-red: #db2f2f;
 
 $black: #000000;
+$gray-dark: #444;
 $gray-medium: #aaaaaa;
 $gray-light: #ebebeb;
 $white: #ffffff;
@@ -68,6 +70,10 @@ $link-nav: white;
   clip: rect(0 0 0 0);
   height: 1px; width: 1px;
   margin: -1px; padding: 0; border: 0;
+}
+
+.hidden {
+  display: none;
 }
 
 .hide-mobile {

@@ -134,7 +134,7 @@ export default class FormHandler {
   // TODO: Add test
   addStudentMembership() {
     if (this.currFrequency === 'yearly') {
-      return `<p class="carousel__student"><a class="carousel__student-link" href="https://checkout.texastribune.org/memberform?&amount=10&installmentPeriod=yearly">Interested in a $10 student membership?</a></p>`;
+      return `<p class="carousel__student"><a class="splash-link--teal" href="https://checkout.texastribune.org/memberform?&amount=10&installmentPeriod=yearly">Interested</a> <span class="bold">in a $10 student membership?</span></p>`;
     }
     return '';
   }
@@ -147,17 +147,17 @@ export default class FormHandler {
   // build new ranges markup
   buildRangesMarkup(newRangesValues) {
     return `
-      <legend class="carousel__legend" id="range-legend">Choose a ${this.getFrequenciesLegendMarker()}range</legend>
+      <legend class="carousel__legend" id="range-legend">Choose a ${this.getFrequenciesLegendMarker()}range:</legend>
       <div class="carousel__radios">
         ${newRangesValues.map((val, index) => `
           <label class="carousel__label${this.shouldBeChecked('range', index) ? `--selected`: `--normal`}" for="range-${index+1}" aria-labelledby="range-legend">
             <span class="carousel__label-text">${val}</span>
-            <i class="fa fa-check-square" aria-hidden="true"></i>
-            <input class="carousel__radio" type="radio" name="range" data-range="${index}" id="range-${index+1}" ${this.shouldBeChecked('range', index) ? `checked` : ``}>
+            <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
+            <input class="carousel__radio visually-hidden" type="radio" name="range" data-range="${index}" id="range-${index+1}" ${this.shouldBeChecked('range', index) ? `checked` : ``}>
           </label>
         `).join('\n')}
         ${this.addStudentMembership()}
-        <p class="carousel__circle">Trying to donate more? <a class="carousel__circle-link" href="https://support.texastribune.org/circle.html">Learn how</a>.</p>
+        <p class="carousel__circle"><span class="bold">Trying to donate more?</span> <a class="splash-link--teal" href="https://support.texastribune.org/circle.html">Learn how</a>.</p>
       </div>
     `;
   }
@@ -167,9 +167,12 @@ export default class FormHandler {
     return `
       ${newAmountsValues.map((val, index) => `
         <label class="carousel__label${this.shouldBeChecked('amount', index) ? `--selected`: `--normal`}" for="amount-${index+1}" aria-labelledby="amount-legend">
-          <span class="carousel__label-text">$${this.putCommasInNumber(val)} <span class="carousel__smallcaps">${this.getFrequenciesLabelMarker()}</span></span>
-          <i class="fa fa-check-square" aria-hidden="true"></i>
-          <input class="carousel__radio" type="radio" value="${val}" name="amount" id="amount-${index+1}" ${this.shouldBeChecked('amount', index) ? `checked` : ``}>
+          <span class="carousel__label-text">
+            <span class="carousel__label-main">$${this.putCommasInNumber(val)}</span>
+            <span class="carousel__label-sub">${this.getFrequenciesLabelMarker()}</span>
+          </span>
+          <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
+          <input class="carousel__radio visually-hidden" type="radio" value="${val}" name="amount" id="amount-${index+1}" ${this.shouldBeChecked('amount', index) ? `checked` : ``}>
         </label>
       `).join('\n')}
     `;
@@ -194,8 +197,11 @@ export default class FormHandler {
       radios = this.amountsRadios;
     }
 
-    radios.parent().attr('class', 'carousel__label--normal');
-    selectedEl.parent().attr('class', 'carousel__label--selected');
+    radios.parent('[class*=carousel__label]').attr('class', 'carousel__label--normal');
+
+    if ( selectedEl.attr('id') !== 'amount-manual' ) {
+      selectedEl.parent().attr('class', 'carousel__label--selected');
+    }
   }
 
   // update the indicator dots
@@ -288,13 +294,13 @@ export default class FormHandler {
 
     switch(which) {
       case 'normal':
-        borderClass = 'carousel__manual--normal';
+        borderClass = 'carousel__manual-input--normal';
         break;
       case 'invalid':
-        borderClass = 'carousel__manual--invalid';
+        borderClass = 'carousel__manual-input--invalid';
         break;
       case 'selected':
-        borderClass = 'carousel__manual--selected';
+        borderClass = 'carousel__manual-input--selected';
         break;
     }
 
@@ -304,7 +310,7 @@ export default class FormHandler {
   // when the manual input field is active,
   // make sure corresponding radio is selected
   selectManualEntryRadio(el) {
-    el.prev('.carousel__radio').prop('checked', true);
+    el.prev('.carousel__radio').prop('checked', true).change();
   }
 
   // when users enter a value in manual input
@@ -397,6 +403,7 @@ export default class FormHandler {
   reinitRadioEvents() {
     this.frequenciesRadios = $(this.originalOpts.frequenciesRadios);
     this.rangesRadios = $(this.originalOpts.rangesRadios);
+    this.amountsRadios = $(this.originalOpts.amountsRadios);
     this.bindRadioEvents();
   }
 

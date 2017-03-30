@@ -19,8 +19,9 @@
 }
 
 .carousel {
-  width: 100%;
+  min-height: 350px;
   overflow: hidden;
+  width: 100%;
 
   &__form {
     transition: transform .5s;
@@ -54,27 +55,62 @@
   }
 
   &__radios {
-
+    margin-top: .5em;
   }
 
   &__label {
     color: black;
+    cursor: pointer;
+    border: 2px solid $yellow-tribune;
+    display: block;
+    font-weight: bold;
+    margin-top: 1em;
+    padding: .5em 0;
+    text-align: center;
+    text-transform: uppercase;
+    transition: background-color .3s;
+    width: 100%;
 
     &--selected {
       @extend .carousel__label;
+      background-color: $white;
+      text-indent: 16px;
     }
 
     &--normal {
       @extend .carousel__label;
+      background-color: $yellow-tribune;
+    }
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    &:hover {
+      background-color: $white;
     }
   }
 
-  &__label-text {
+  &__label-main {
+    font-weight: bold;
+  }
 
+  &__label-sub {
+    font-size: .8em;
+    font-weight: normal;
+    text-transform: lowercase;
   }
 
   &__checkmark {
+    color: $yellow-tribune;
 
+    .carousel__label--selected & {
+      display: inline;
+    }
+
+    .carousel__label--normal & {
+      display: none;
+    }
   }
 
   &__radio {
@@ -82,11 +118,16 @@
   }
 
   &__circle {
+    margin-top: 1em;
+  }
 
+  &__student {
+    margin-top: 1em;
   }
 
   &__manual {
-
+    margin: 1em auto 0 auto;
+    max-width: 310px;
   }
 
   &__manual-els {
@@ -94,31 +135,62 @@
   }
 
   &__manual-label {
-
+    float: left;
+    font-weight: bold;
+    line-height: 25px;
+    margin-right: .5em;
   }
 
-  &__manual {
+  &__manual-input {
+    border-style: solid;
+    border-width: 1px;
     display: block;
+    float: right;
+    font-weight: bold;
+    height: 25px;
+    text-indent: .5em;
+    width: 100px;
 
     &--selected {
-      @extend .carousel__manual;
+      @extend .carousel__manual-input;
+      border-color: $yellow-tribune;
     }
 
     &--invalid {
-      @extend .carousel__manual;
+      @extend .carousel__manual-input;
+      border-color: $error-red;
     }
 
     &--normal {
-      @extend .carousel__manual;
+      @extend .carousel__manual-input;
+      border-color: $gray-medium;
     }
   }
 
   &__manual-error {
-
+    color: $error-red;
+    font-size: .7em;
+    margin-top: .25em;
+    text-align: right;
   }
 
   &__submit {
+    background-color: $yellow-tribune;
+    border: 2px solid $yellow-tribune;
+    color: black;
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    margin-top: 1em;
+    padding: .5em 0;
+    text-align: center;
+    text-transform: uppercase;
+    transition: background-color .3s;
+    width: 100%;
 
+    &:hover {
+      background-color: $white;
+    }
   }
 
   &__controls {
@@ -151,7 +223,7 @@
 
     &--selected {
       @extend .carousel__dot;
-      background-color: $teal-tribune;
+      background-color: $gray-dark;
     }
 
     &:last-child {
