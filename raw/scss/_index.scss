@@ -7,6 +7,10 @@
   .splash-header {
     border-bottom: none;
     font-size: 2.5em;
+
+    @include media($mobile) {
+      font-size: 1.6em;
+    }
   }
 
   .splash-greeting {
@@ -30,70 +34,3 @@
     }
   }
 }
-
-// Index page
-/*.index {
-  .splash {
-    .express-checkout {
-      @include span-columns(6);
-      @media (max-width: 840px) {
-        @include span-columns(6);
-      }
-      @media (max-width: 620px) {
-        @include span-columns(8);
-          @include shift(2);
-      }
-      @include media($mobile) {
-        @include span-columns(12);
-          @include shift(0);
-      }
-    }
-  }
-  hr {
-    margin-bottom: 1em;
-  }
-  .main-left {
-    @include hide-for-mobile;
-  }
-  .main-right {
-    .student-member {
-      @include media($mobile) {
-        padding: 1em 0.8em 0.5em 0.8em;
-      }
-    }
-    hr:nth-last-of-type(3) {
-      @include hide-for-mobile;
-    }
-  }
-}
-
-
-// Levels boxes
-.level {
-  margin: 0 0 1em 0;
-  h4.amount {
-    color: $teal-tribune;
-    span {
-      color: $black;
-    }
-    a {
-      text-decoration: underline;
-    }
-  }
-  h4.all-above {
-    color: $black;
-    margin-top: 0.5em;
-    @include media($mobile) {
-      padding-top: 1em;
-    }
-  }
-  h5 {
-    margin-top: 1em;
-  }
-  p {
-    margin: 0.3em 0;
-  }
-  @include media($mobile) {
-    padding: 1em;
-  }
-}*/

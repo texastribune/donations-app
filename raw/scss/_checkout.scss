@@ -19,7 +19,7 @@
 }
 
 .carousel {
-  min-height: 350px;
+  min-height: 360px;
   overflow: hidden;
   width: 100%;
 
@@ -153,7 +153,7 @@
 
     &--selected {
       @extend .carousel__manual-input;
-      border-color: $yellow-tribune;
+      border-color: $teal-tribune;
     }
 
     &--invalid {

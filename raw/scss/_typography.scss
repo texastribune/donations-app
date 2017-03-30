@@ -5,9 +5,13 @@ html {
 }
 
 h1 {
-  font-size: 5em;
+  font-size: 4.8em;
   font-weight: bold;
   margin: 0;
+
+  @include media($tablet) {
+    font-size: 3em;
+  }
 }
 
 h2 {
