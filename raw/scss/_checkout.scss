@@ -36,7 +36,7 @@
 }
 
 .carousel {
-  min-height: 360px;
+  height: 360px;
   overflow: hidden;
   width: 100%;
 
@@ -134,10 +134,6 @@
     }
   }
 
-  &__radio {
-
-  }
-
   &__circle {
     margin-top: 1em;
   }
@@ -149,10 +145,6 @@
   &__manual {
     margin: 1em auto 0 auto;
     max-width: 250px;
-  }
-
-  &__manual-els {
-
   }
 
   &__manual-label {

@@ -61,7 +61,10 @@ export default class FormHandler {
 
   // shifts carousel forward or backward
   setTransform() {
-    this.innerContainer.css('transform', `translateX(-${this.getTransformValue()}px)`);
+    this.innerContainer.css(
+      getSupportedTransform(),
+      `translateX(-${this.getTransformValue()}px)`
+    );
   }
 
   // initialize carousel

@@ -24,7 +24,7 @@ export function debounce(func, wait, immediate) {
 }
 
 export function getSupportedTransform() {
-  const prefixes = 'transform WebkitTransform MozTransform OTransform msTransform'.split(' ');
+  const prefixes = 'transform -webkit-transform -moz-transform -o-transform -ms-transform'.split(' ');
   const div = document.createElement('div');
 
   for (let i = 0; i < prefixes.length; i++) {
@@ -33,5 +33,5 @@ export function getSupportedTransform() {
     }
   }
 
-  return false;
+  return 'transform';
 }

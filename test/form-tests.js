@@ -122,7 +122,7 @@ describe('Donation carousel form', () => {
     assert.include(markup, 'aria-labelledby="amount-legend"');
     assert.include(markup, 'for="amount-');
     assert.include(markup, 'id="amount-');
-    assert.include(markup, '<span class="carousel__label-text">$25');
+    assert.include(markup, '<span class="carousel__label-main">$25');
   });
 
   it('dynamic markup should only have frequency marker if not one-time', () => {
