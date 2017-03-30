@@ -9,12 +9,29 @@
     background-color: $white;
     padding: 1em;
     position: relative;
+
+    @media (max-width: 840px) {
+      margin: 0 auto;
+      max-width: 520px;
+    }
   }
 
   &__mail {
     color: $white;
     margin-top: 1em;
     text-align: center;
+
+    @include media($mobile) {
+      background-color: $white;
+      color: $black;
+      margin: -1px auto 0 auto;
+      max-width: 520px;
+      padding: 1em 1.5em;
+
+      a {
+        color: $teal-tribune;
+      }
+    }
   }
 }
 
@@ -52,6 +69,10 @@
   &__legend {
     font-weight: bold;
     font-size: 1.4em;
+
+    @include media($mobile) {
+      font-size: 1.1em;
+    }
   }
 
   &__radios {
@@ -127,7 +148,7 @@
 
   &__manual {
     margin: 1em auto 0 auto;
-    max-width: 310px;
+    max-width: 250px;
   }
 
   &__manual-els {
@@ -170,7 +191,7 @@
   &__manual-error {
     color: $error-red;
     font-size: .7em;
-    margin-top: .25em;
+    margin: .25em 0 1em 0;
     text-align: right;
   }
 
@@ -181,7 +202,6 @@
     cursor: pointer;
     display: block;
     font-weight: bold;
-    margin-top: 1em;
     padding: .5em 0;
     text-align: center;
     text-transform: uppercase;

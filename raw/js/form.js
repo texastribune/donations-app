@@ -128,7 +128,10 @@ export default class FormHandler {
     } else if (this.currFrequency === 'yearly') {
       return 'per year';
     }
-    return '';
+
+    // return this so the checkmark placement
+    // stays consistent
+    return '&nbsp;';
   }
 
   // TODO: Add test
