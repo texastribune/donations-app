@@ -20,7 +20,7 @@ can't use flexbox or inline-block.
 
   &__inner {
     background-color: $white;
-    padding: 1.625em;
+    padding: 1.5em;
     position: relative;
     transition: opacity .5s;
     zoom: 1;
@@ -92,6 +92,7 @@ can't use flexbox or inline-block.
 
   &__fieldset {
     border: none;
+    margin: 0;
     padding: 0;
   }
 
