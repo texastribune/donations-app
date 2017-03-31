@@ -1,7 +1,16 @@
+/*
+
+NOTE: All the hard-coded widths in here suck,
+but there isn't a great way around that given
+we're still supporting IE 7+ and therefore
+can't use flexbox or inline-block.
+
+*/
+
 .donate {
   @include span-columns(6);
 
-  @media (max-width: 840px) {
+  @include media($tablet-carousel) {
     @include span-columns(12);
   }
 
@@ -11,26 +20,22 @@
 
   &__inner {
     background-color: $white;
-    padding: 1em;
+    padding: 1.625em;
     position: relative;
     transition: opacity .5s;
     zoom: 1;
 
-    @media (max-width: 840px) {
+    @include media($tablet-carousel) {
       margin: 0 auto;
-      max-width: 520px;
+      max-width: $mobile-width;
     }
 
     &.unloaded {
-      filter: alpha(opacity=0);
-      -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
-      opacity: 0;
+      @include opacity-cross-browser(0);
     }
 
     &.loaded {
-      filter: alpha(opacity=1);
-      -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=1)';
-      opacity: 1;
+      @include opacity-cross-browser(1);
     }
   }
 
@@ -42,8 +47,10 @@
     @include media($mobile) {
       background-color: $white;
       color: $black;
+      // iOS shows a weird line if
+      // you don't do -1px as margin-top
       margin: -1px auto 0 auto;
-      max-width: 520px;
+      max-width: $mobile-width;
       padding: 1em 1.5em;
 
       a {
@@ -54,12 +61,15 @@
 }
 
 .carousel {
+  // needs to be hard coded to
+  // keep prev/next buttons from moving
   height: 360px;
   overflow: hidden;
   width: 100%;
 
   &__form {
     transition: transform .5s;
+    will-change: transform;
   }
 
   &__slide {
@@ -82,6 +92,8 @@
 
   &__fieldset {
     border: none;
+    margin: 0;
+    padding: 0;
   }
 
   &__legend {
@@ -94,25 +106,18 @@
   }
 
   &__radios {
-    margin-top: .5em;
+    margin-top: 1em;
   }
 
   &__label {
-    color: black;
-    cursor: pointer;
-    border: 2px solid $yellow-tribune;
-    display: block;
-    font-weight: bold;
+    @extend .form-button--full;
+    border-color: $yellow-tribune;
     margin-top: 1em;
-    padding: .5em 0;
-    text-align: center;
-    text-transform: uppercase;
-    transition: background-color .3s;
-    width: 100%;
 
     &--selected {
       @extend .carousel__label;
       background-color: $white;
+      // prevent checkmark from moving
       text-indent: 16px;
     }
 
@@ -121,23 +126,13 @@
       background-color: $yellow-tribune;
     }
 
-    &:first-of-type {
+    &:first-child {
       margin-top: 0;
     }
 
     &:hover {
       background-color: $white;
     }
-  }
-
-  &__label-main {
-    font-weight: bold;
-  }
-
-  &__label-sub {
-    font-size: .8em;
-    font-weight: normal;
-    text-transform: lowercase;
   }
 
   &__checkmark {
@@ -161,23 +156,25 @@
   }
 
   &__manual {
-    margin: 1em auto 0 auto;
+    margin: 1em auto;
     max-width: 250px;
   }
 
   &__manual-label {
+    @extend .bold;
     float: left;
-    font-weight: bold;
+    // for vertical centering
     line-height: 25px;
     margin-right: .5em;
   }
 
   &__manual-input {
+    @extend .bold;
     border-style: solid;
     border-width: 1px;
     display: block;
     float: right;
-    font-weight: bold;
+    // for vertical centering
     height: 25px;
     text-indent: .5em;
     width: 100px;
@@ -201,22 +198,16 @@
   &__manual-error {
     color: $error-red;
     font-size: .7em;
-    margin: .25em 0 1em 0;
+    margin: .25em 0 0 0;
     text-align: right;
   }
 
   &__submit {
+    @extend .form-button--full;
+    @extend .uppercase;
     background-color: $yellow-tribune;
-    border: 2px solid $yellow-tribune;
-    color: black;
-    cursor: pointer;
+    border-color: $yellow-tribune;
     display: block;
-    font-weight: bold;
-    padding: .5em 0;
-    text-align: center;
-    text-transform: uppercase;
-    transition: background-color .3s;
-    width: 100%;
 
     &:hover {
       background-color: $white;
@@ -262,12 +253,12 @@
   }
 
   &__button {
+    @extend .bold;
     -webkit-appearance: none;
     -moz-appearance: none;
     border: none;
     background: none;
     color: $teal-tribune;
-    font-weight: bold;
 
     &--prev {
       @extend .carousel__button;

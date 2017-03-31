@@ -1,5 +1,9 @@
+// Width references
+$mobile-width: 520px;
+
 // Breakpoints
 $desktop: new-breakpoint(min-width 800px 12);
+$tablet-carousel: new-breakpoint(max-width 840px);
 $tablet: new-breakpoint(max-width 799px);
 $mobile: new-breakpoint(max-width 520px);
 
@@ -22,6 +26,12 @@ $link-nav: white;
 
 
 // Mixins
+@mixin opacity-cross-browser($alpha: 0) {
+  filter: alpha(opacity=#{$alpha});
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$alpha})';
+  opacity: $alpha;
+}
+
 @mixin hide-for-mobile {
   @include media($mobile) {
     display: none;
@@ -84,7 +94,7 @@ $link-nav: white;
   @include show-for-mobile;
 }
 
-// clearfix
+// Clearfix
 .clearfix {
   &:after {
     clear: both;

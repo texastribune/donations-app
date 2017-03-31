@@ -1,6 +1,7 @@
 // Splash banner
 .splash {
   @include background-sizing;
+
   @include media($mobile) {
     background-image: none;
   }
@@ -10,6 +11,7 @@
   @include span-columns(12);
   padding: 1.5em;
   text-align: center;
+
   .splash-info {
     padding: 1em 0;
   }
@@ -17,6 +19,7 @@
 
 .splash-header {
   border-bottom: 3px solid $yellow-tribune;
+
   @include media($mobile) {
     border-bottom: none;
   }
@@ -60,6 +63,7 @@
     background-color: lighten($black, 20%);
     background-image: url("../bg/FAQ-header-bg.jpg");
   }
+
   .main {
     padding: 2em;
     h4 {
@@ -86,6 +90,7 @@
   font-weight: bold;
   padding: 0.5em 1.8em;
   text-align: center;
+
   &:focus {
     outline: none;
   }
@@ -95,6 +100,7 @@
   background-color: $yellow-tribune;
   border: none;
   color: $black;
+
   &:hover {
     @include fast-transition(background-color);
     background-color: $teal-tribune;
@@ -116,6 +122,7 @@ hr {
   @include align-items(center);
   @include justify-content(center);
   text-align: center;
+
   .inner-info {
     background-color: transparent;
     border: 3px solid $white;
@@ -127,9 +134,11 @@ hr {
     outline: none;
     padding: 1em 2em;
     text-transform: uppercase;
+
     a {
       color: $white;
     }
+
     hr {
       border-top: 1px solid $white;
       display: inline-block;
@@ -137,6 +146,7 @@ hr {
       vertical-align: middle;
       width: 50px;
     }
+
     &:hover {
       @include medium-transition(background-color);
       background-color: $teal-tribune;
@@ -151,6 +161,7 @@ hr {
   &.video-wrapper {
     margin-bottom: 1.5em;
   }
+
   &#video-top {
     background-color: lighten($black, 20%);
     background-size: cover;
@@ -159,6 +170,7 @@ hr {
       height: 200px;
     }
   }
+
   &.secondary-video {
     background-color: lighten($black, 20%);
     background-size: cover;
@@ -186,12 +198,15 @@ hr {
 // Give more cta and mail-a-check section
 .extra-info {
   padding: 1em 1em 3em 0;
+
   h3 {
     padding-bottom: 1em;
   }
+
   @include media($mobile) {
     padding: 1em 1em 3em 1em;
     text-align: center;
+
     h3 {
       padding: 0.5em 0;
     }
@@ -201,9 +216,11 @@ hr {
 .give-more {
   @include media($mobile) {
     background-color: $black;
+
     h3 {
       color: $yellow-tribune;
     }
+
     p {
       color: $white;
     }
@@ -219,6 +236,7 @@ h5.benefit-flag {
   font-weight: bold;
   margin-bottom: 0.8em;
   padding: 0.5em 1.2em 0.5em 0.5em;
+
   i {
     color: white;
   }
@@ -233,6 +251,7 @@ h5.benefit-flag {
 .social {
   color: $white;
   margin: 0.5em 0.5em 0.5em 0;
+
   &:hover {
     opacity: 0.9;
   }
@@ -254,12 +273,15 @@ h5.benefit-flag {
 // Contact Info
 .contact-info {
   margin: 2em 0;
+
   @include media($mobile) {
     margin: 2em 1em;
   }
+
   h5 {
     padding: 0 0 1em 0;
   }
+
   h4, p {
     padding: 0 0 0.2em 0;
   }
@@ -267,7 +289,25 @@ h5.benefit-flag {
 
 .section-header {
   margin: 1em 0;
+
   @include media($mobile) {
     margin: 2em 0 1em 0.5em;
+  }
+}
+
+.form-button {
+  @extend .bold;
+  color: $black;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 2px;
+  padding: .5em 0;
+  text-align: center;
+  transition: background-color .3s;
+
+  &--full {
+    @extend .form-button;
+    display: block;
+    width: 100%;
   }
 }
