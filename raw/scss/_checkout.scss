@@ -5,14 +5,32 @@
     @include span-columns(12);
   }
 
+  @include media($mobile) {
+    background-color: $white;
+  }
+
   &__inner {
     background-color: $white;
     padding: 1em;
     position: relative;
+    transition: opacity .5s;
+    zoom: 1;
 
     @media (max-width: 840px) {
       margin: 0 auto;
       max-width: 520px;
+    }
+
+    &.unloaded {
+      filter: alpha(opacity=0);
+      -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
+      opacity: 0;
+    }
+
+    &.loaded {
+      filter: alpha(opacity=1);
+      -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=1)';
+      opacity: 1;
     }
   }
 

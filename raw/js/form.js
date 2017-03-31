@@ -18,6 +18,7 @@ export default class FormHandler {
     this.rangesRadios = $(opts.rangesRadios);
     this.amountsRadios = $(opts.amountsRadios);
     this.indicators = opts.indicators;
+    this.fadeEl = opts.fadeEl;
     this.defaultRangesIndex = opts.defaultRangesIndex;
     this.defaultAmountsIndex = opts.defaultAmountsIndex;
     this.currSlide = opts.startSlide;
@@ -72,6 +73,10 @@ export default class FormHandler {
     this.setInnerContainerWidth();
     this.setSlideWidth();
     this.setTransform();
+  }
+
+  removeCarouselLoadingClass() {
+    this.fadeEl.removeClass('unloaded').addClass('loaded');
   }
 
   // takes a frequency radio as parameter

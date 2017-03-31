@@ -21,6 +21,7 @@ const DonationForm = new FormHandler({
   rangesRadios: '.carousel__slide--range .carousel__radio',
   amountsRadios: '.carousel__slide--amount .carousel__radio',
   indicators: $('[class*=carousel__dot]'),
+  fadeEl: $('.donate__inner'),
   defaultFrequenciesIndex: 1,
   defaultRangesIndex: 1,
   defaultAmountsIndex: 1,
@@ -58,4 +59,5 @@ const DonationForm = new FormHandler({
 });
 
 DonationForm.initCarousel();
+DonationForm.removeCarouselLoadingClass();
 DonationForm.bindAllEvents();

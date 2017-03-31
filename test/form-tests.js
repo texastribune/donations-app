@@ -31,6 +31,7 @@ describe('Donation carousel form', () => {
       rangesRadios: '#range-radio',
       amountsRadios: '#amount-radio',
       indicators: $('<div/><div/><div/>'),
+      fadeEl: $('<div/>'),
       defaultFrequenciesIndex: 1,
       defaultRangesIndex: 1,
       defaultAmountsIndex: 1,
