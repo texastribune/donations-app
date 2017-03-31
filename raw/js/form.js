@@ -168,7 +168,6 @@ export default class FormHandler {
           </label>
         `).join('\n')}
         ${this.addStudentMembership()}
-        <p class="carousel__circle"><span class="bold">Trying to donate more?</span> <a class="splash-link--teal" href="https://support.texastribune.org/circle.html">Learn how</a>.</p>
       </div>
     `;
   }
