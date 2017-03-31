@@ -3,15 +3,24 @@
   .splash-wrapper {
     padding: 1em;
   }
+
   .splash {
     background-color: lighten($black, 25%);
     background-image: url("../bg/hero-circles.jpg");
   }
+
   .main {
     @include media($mobile) {
       padding: 0 1em;
     }
   }
+
+  .main-right {
+    p {
+      margin: 0.3em 0;
+    }
+  }
+
   .tagline {
     margin: 1em 0 0.5em 0;
   }
@@ -21,18 +30,20 @@
     size: A4;
   }
 
-
   .no_print {
     @media print {
       display: none;
     }
   }
+
   .print_full {
     @media print {
       @include span-columns(12);
+
       @include media($tablet) {
         @include span-columns(12);
       }
+
       @include media($mobile) {
         @include span-columns(12);
         padding: 0 1em;
@@ -43,11 +54,13 @@
 
 .circle-box {
   @include span-columns(4);
+
   @media (max-width: 855px) {
     margin-bottom: 2em;
     @include span-columns(6);
       @include shift(3);
   }
+
   @include media($mobile) {
     @include span-columns(12);
       @include shift(0);
@@ -58,11 +71,13 @@
   background-color: $white;
   padding: 1em 2.2em;
   text-align: center;
+
   h3 {
     border-bottom: 2px solid $yellow-tribune;
     color: $black;
     padding: 0.2em 0;
   }
+
   p {
     color: $black;
     font-weight: 700;
@@ -75,11 +90,13 @@
   color: $black;
   padding: 0 1em 1em 1em;
   text-align: left;
+
   .button {
     font-size: 1em;
     font-weight: 600;
     padding: 0.8em;
     width: 48%;
+
     .fa {
       font-size: 0.8em;
     }
@@ -88,6 +105,7 @@
 
 .circle-members-header {
   text-align: center;
+
   .circle-logo {
     max-width: 60%;
 
@@ -99,6 +117,7 @@
 
 .circle-members {
   padding: 1em 0;
+
   .circle-list-wrapper {
     margin-bottom: 1em;
     text-align: center;
@@ -140,14 +159,17 @@
   background-color: lighten($black, 20%);
   background-image: url("../bg/footer-thanks.jpg");
   height: 350px;
+
   .inner-info {
     @include media($mobile) {
       margin: 0 1em;
     }
+
     &:hover {
       background-color: transparent;
       border: 3px solid $white;
     }
+
     hr {
       @include hide-for-mobile;
     }
