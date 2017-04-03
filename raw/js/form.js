@@ -177,7 +177,7 @@ export default class FormHandler {
     return `
       ${newAmountsValues.map((val, index) => `
         <label class="carousel__label${this.shouldBeChecked('amount', index) ? `--selected`: `--normal`}" for="amount-${index+1}" aria-labelledby="amount-legend">
-          $${this.putCommasInNumber(val)} <span class="lowercase thin">${this.getFrequenciesLabelMarker()}</span>
+          $${this.putCommasInNumber(val)} ${this.getFrequenciesLabelMarker()}
           <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
           <input class="carousel__radio visually-hidden" type="radio" value="${val}" name="amount" id="amount-${index+1}" ${this.shouldBeChecked('amount', index) ? `checked` : ``}>
         </label>
