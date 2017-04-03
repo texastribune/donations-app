@@ -1,12 +1,11 @@
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  entry: './raw/js/old.js',
+  entry: './raw/js/index-old.js',
 
   output: {
-    path: path.join(__dirname, 'build', 'javascripts'),
+    path: path.join(__dirname, 'source', 'javascripts'),
     filename: 'bundle-es3.js',
     publicPath: './'
   },
@@ -15,7 +14,11 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        include: [/raw/, /source/, /node_modules/],
+        include: [
+          /raw/,
+          /source/,
+          /node_modules/
+        ],
         use: [{
           loader: 'babel-loader'
         }]

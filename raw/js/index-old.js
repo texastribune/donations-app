@@ -1,4 +1,4 @@
-import FormHandler from './form';
+import FormHandler from './form-old';
 
 (function resetForm() {
   document.forms[0].reset();
@@ -19,6 +19,8 @@ const DonationForm = new FormHandler({
   frequenciesRadios: '.carousel__slide--frequency .carousel__radio',
   rangesRadios: '.carousel__slide--range .carousel__radio',
   amountsRadios: '.carousel__slide--amount .carousel__radio',
+  indicators: $('[class*=carousel__dot]'),
+  fadeEl: $('.donate__inner'),
   defaultFrequenciesIndex: 1,
   defaultRangesIndex: 1,
   defaultAmountsIndex: 1,
@@ -26,9 +28,9 @@ const DonationForm = new FormHandler({
   startFrequency: 'monthly',
   animationLength: 400,
   frequenciesToRanges: {
-    once: ['$35-$100', '$101-$500', '$501-$999', '$1,000-$5,000'],
-    monthly: ['$5-$34', '$35-$64', '$65-$83', '$84-$417'],
-    yearly: ['$35-$100', '$101-$500', '$501-$999', '$1,000-$5,000']
+    once: ['$35 - $100', '$101 - $500', '$501 - $999', '$1,000 - $5,000'],
+    monthly: ['$5 - $34', '$35 - $64', '$65 - $83', '$84 - $417'],
+    yearly: ['$35 - $100', '$101 - $500', '$501 - $999', '$1,000 - $5,000']
   },
 
   rangesToAmounts: {
@@ -56,4 +58,5 @@ const DonationForm = new FormHandler({
 });
 
 DonationForm.initCarousel();
+DonationForm.removeCarouselLoadingClass();
 DonationForm.bindAllEvents();
