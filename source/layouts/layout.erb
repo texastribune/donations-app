@@ -93,21 +93,5 @@
     <!--[if !IE]>-->
       <script src="../javascripts/bundle.js"></script>
     <!--<![endif]-->
-
-    <% if current_page.data.page == 'levels' %>
-      <script>
-        // visually hide popout elements on load
-        (function() {
-          $('.popout').addClass('visually-hidden');
-          $('.opened').find('.popout').toggleClass('visually-hidden');
-        })();
-
-        // toggles benefit info in grid
-        $('.open-close').on('click', function() {
-          $(this).closest('.grid-body').toggleClass('opened');
-          $(this).closest('.grid-body').find('.popout').toggleClass('visually-hidden');
-        });
-      </script>
-    <% end %>
   </body>
 </html>
