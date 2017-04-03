@@ -102,10 +102,6 @@ can't use flexbox or inline-block.
     font-weight: bold;
     font-size: 1.4em;
     margin-bottom: 1em;
-
-    @include media($mobile) {
-      font-size: 1.1em;
-    }
   }
 
   &__label {
