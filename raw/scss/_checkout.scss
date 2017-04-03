@@ -98,16 +98,14 @@ can't use flexbox or inline-block.
   }
 
   &__legend {
+    display: block;
     font-weight: bold;
     font-size: 1.4em;
+    margin-bottom: 1em;
 
     @include media($mobile) {
       font-size: 1.1em;
     }
-  }
-
-  &__radios {
-    margin-top: 1em;
   }
 
   &__label {
@@ -167,6 +165,9 @@ can't use flexbox or inline-block.
 
   &__manual-input {
     @extend .bold;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 0;
     border-style: solid;
     border-width: 1px;
     display: block;
@@ -214,16 +215,16 @@ can't use flexbox or inline-block.
   &__controls {
     bottom: 1em;
     left: 50%;
-    margin-left: -110px;
+    margin-left: -98px;
     position: absolute;
-    width: 220px;
+    width: 196px;
   }
 
   &__indicators {
     float: left;
     list-style: none;
     margin: 0 1em;
-    padding: .4em 0;
+    padding: .3em 0;
   }
 
   &__dot {
@@ -256,15 +257,11 @@ can't use flexbox or inline-block.
     border: none;
     background: none;
     color: $teal-tribune;
+    padding: 0;
 
-    &--prev {
+    &--prev, &--next {
       @extend .carousel__button;
       float: left;
-    }
-
-    &--next {
-      @extend .carousel__button;
-      float: right;
     }
 
     &.disabled {
