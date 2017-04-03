@@ -213,20 +213,6 @@ hr {
   }
 }
 
-.give-more {
-  @include media($mobile) {
-    background-color: $black;
-
-    h3 {
-      color: $yellow-tribune;
-    }
-
-    p {
-      color: $white;
-    }
-  }
-}
-
 
 // Benefit flag
 h5.benefit-flag {
