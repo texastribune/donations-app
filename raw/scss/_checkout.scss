@@ -210,17 +210,18 @@ can't use flexbox or inline-block.
 
   &__controls {
     bottom: 1em;
+    display: table;
     left: 50%;
-    margin-left: -98px;
+    margin-left: -115px;
     position: absolute;
-    width: 196px;
+    width: 230px;
   }
 
   &__indicators {
-    float: left;
     list-style: none;
-    margin: 0 1em;
-    padding: .3em 0;
+    display: table-cell;
+    padding: 0 1.5em;
+    vertical-align: middle;
   }
 
   &__dot {
@@ -253,11 +254,13 @@ can't use flexbox or inline-block.
     border: none;
     background: none;
     color: $teal-tribune;
+    display: table-cell;
+    font-size: 1.2em;
     padding: 0;
+    vertical-align: middle;
 
     &--prev, &--next {
       @extend .carousel__button;
-      float: left;
     }
 
     &.disabled {
