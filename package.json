@@ -37,6 +37,7 @@
     "es3ify": "^0.2.2",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
+    "glob": "^7.1.1",
     "inline-critical": "^2.4.0",
     "jsdom": "^9.12.0",
     "jsdom-global": "^2.1.1",

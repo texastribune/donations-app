@@ -1,18 +1,27 @@
-var fs = require('fs');
-var inline = require('inline-critical');
-var path = require('path');
+const fs = require('fs');
+const inline = require('inline-critical');
+const path = require('path');
+const glob = require('glob');
 
-const buildDir = path(__dirname, 'build');
-const files = ['circle', 'faq', 'index', 'levels'];
-const critical = fs.readFileSync(path.join(__dirname, 'source', 'css', 'styles.css'), 'utf-8');
+const buildDir = path.join(__dirname, 'build');
 
-files.forEach(file => {
-  const html = path.resolve(buildDir, `${file}.html`);
+glob(`${buildDir}/css/*.css`, (err, cssFiles) => {
+  if (cssFiles.length !== 1) {
+    return false;
+  }
 
-  const inlined = inline(html, critical, {
-    minify: true,
-    extract: false
+  const cssFile = cssFiles[0];
+
+  glob(`${buildDir}/*.html`, (err, htmlFiles) => {
+    htmlFiles.forEach(htmlFile => {
+      const htmlContents = fs.readFileSync(htmlFile);
+      const cssContents = fs.readFileSync(cssFile);
+      const inlined = inline(htmlContents, cssContents, {
+        minify: true,
+        extract: false
+      });
+
+      fs.writeFileSync(htmlFile, inlined);
+    });
   });
-
-  fs.writeFileSync(html, inlined);
 });
