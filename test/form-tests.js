@@ -115,7 +115,7 @@ describe('Donation carousel form', () => {
     assert.include(markup, 'aria-labelledby="range-legend"');
     assert.include(markup, 'for="range-');
     assert.include(markup, 'id="range-');
-    assert.include(markup, '<span class="carousel__label-text">$35-$100</span>');
+    assert.include(markup, '$35-$100');
   });
 
   it('amounts markup should contain certain values', () => {
@@ -123,20 +123,27 @@ describe('Donation carousel form', () => {
     assert.include(markup, 'aria-labelledby="amount-legend"');
     assert.include(markup, 'for="amount-');
     assert.include(markup, 'id="amount-');
-    assert.include(markup, '<span class="carousel__label-main">$25');
+    assert.include(markup, '$25');
   });
 
-  it('dynamic markup should only have frequency marker if not one-time', () => {
+  it('ranges markup should only have frequency marker if not one-time', () => {
     DonationForm.currFrequency = 'yearly';
     let markup = DonationForm.buildRangesMarkup(['bar', 'baz', 'foo', 'lorem']);
     assert.include(markup.trim(), 'Choose a yearly range');
 
-    markup = DonationForm.buildAmountsMarkup(['bar', 'baz', 'foo', 'lorem']);
-    assert.include(markup.trim(), 'per year');
-
     DonationForm.currFrequency = 'once';
     markup = DonationForm.buildRangesMarkup(['bar', 'baz', 'foo', 'lorem']);
     assert.include(markup.trim(), 'Choose a range');
+  });
+
+  it('amounts markup should only have frequency marker if not one-time', () => {
+    DonationForm.currFrequency = 'monthly';
+    let markup = DonationForm.buildAmountsMarkup(['bar', 'baz', 'foo', 'lorem']);
+    assert.include(markup.trim(), 'per month');
+
+    DonationForm.currFrequency = 'once';
+    markup = DonationForm.buildAmountsMarkup(['bar', 'baz', 'foo', 'lorem']);
+    assert.notInclude(markup.trim(), 'once');
   });
 
   it('new ranges markup should have default selection', () => {
