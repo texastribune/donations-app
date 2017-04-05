@@ -87,6 +87,12 @@ describe('Donation carousel form', () => {
     assert.equal(DonationForm.innerContainer.css('transform'), 'translateX(-200px)');
   });
 
+  it('inner container height should equal current slide height', () => {
+    sinon.stub(DonationForm, 'getCurrSlideHeight').returns(100);
+    DonationForm.setInnerContainerHeight();
+    assert.equal(DonationForm.innerContainer.css('height'), '100px');
+  });
+
   it('new ranges should be array at index retrieved from frequency radio', () => {
     const newRangesValues = DonationForm.getFrequenciesToRangesValues();
     DonationForm.currFrequency = 'monthly';
