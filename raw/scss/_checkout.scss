@@ -18,6 +18,9 @@ $carousel-height: 360px;
 
   @include media($mobile) {
     background-color: $white;
+    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d2d0d0' fill-opacity='0.5' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+    border-bottom: 1px solid $gray-light;
+    padding-bottom: 1.5em;
   }
 
   &__inner {
@@ -30,6 +33,11 @@ $carousel-height: 360px;
     @include media($tablet-carousel) {
       margin: 0 auto;
       max-width: $mobile-width;
+      padding-bottom: 0;
+    }
+
+    @include media($mobile) {
+      background: none;
     }
 
     &.unloaded {
@@ -63,13 +71,12 @@ $carousel-height: 360px;
     text-align: center;
 
     @include media($mobile) {
-      background-color: $white;
       color: $black;
       // iOS shows a weird line if
       // you don't do -1px as margin-top
-      margin: -1px auto 0 auto;
+      margin: 1em auto 0 auto;
       max-width: $mobile-width;
-      padding: 1em 1.5em;
+      padding: 0 1.5em;
 
       a {
         color: $teal-tribune;
@@ -86,6 +93,7 @@ $carousel-height: 360px;
   width: 100%;
 
   &__form {
+    overflow-y: hidden;
     position: relative; // for old IE so we can use left instead of translate
     transition: transform .5s;
     will-change: transform;
@@ -225,7 +233,8 @@ $carousel-height: 360px;
     display: block;
 
     &:hover {
-      color: $yellow-tribune;
+      background-color: $white;
+      color: #222;
     }
   }
 
@@ -233,9 +242,16 @@ $carousel-height: 360px;
     bottom: 1em;
     display: table;
     left: 50%;
-    margin-left: -115px;
+    margin-left: -120px;
     position: absolute;
-    width: 230px;
+    width: 240px;
+
+    @include media($mobile) {
+      bottom: auto;
+      left: auto;
+      margin: 1em auto 0 auto;
+      position: static;
+    }
   }
 
   &__indicators {
@@ -247,6 +263,7 @@ $carousel-height: 360px;
 
   &__dot {
     border-radius: 50%;
+    border: 1px solid $gray-dark;
     display: block;
     float: left;
     height: 10px;
@@ -255,7 +272,7 @@ $carousel-height: 360px;
 
     &--normal {
       @extend .carousel__dot;
-      background-color: $gray-medium;
+      background-color: $white;
     }
 
     &--selected {

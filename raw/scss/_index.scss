@@ -13,7 +13,7 @@
     font-size: 2.5em;
 
     @include media($mobile) {
-      font-size: 1.8em;
+      font-size: 1.6em;
       // following two properties are useful
       // when applying dark overlay via :before
       position: relative;
@@ -64,6 +64,12 @@
 
     @include media($mobile) {
       padding: 0;
+    }
+  }
+
+  .main {
+    @include media($mobile) {
+      margin-top: 1em;
     }
   }
 

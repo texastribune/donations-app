@@ -39,11 +39,28 @@ export default class FormHandler {
     return this.outerContainer.width();
   }
 
+  // returns height of current slide
+  // it varies by slide because there are different
+  // form controls on each
+  getCurrSlideHeight() {
+    return this.carouselSlides.eq(this.currSlide).height();
+  }
+
   // sets width of inner container as
   // number of slides * width of outer container
   setInnerContainerWidth() {
     const innerContainerWidth = this.numSlides * this.getOuterContainerWidth();
     this.innerContainer.css('width', `${innerContainerWidth}px`);
+  }
+
+  // set height of inner container
+  // invoked on clicks of prev/next buttons
+  // important for mobile because it allows the
+  // prev/next buttons to hug closely to the yellow
+  // buttons regardless of the height of the tallest slide
+  setInnerContainerHeight() {
+    const self = this;
+    this.innerContainer.css('height', `${self.getCurrSlideHeight()}px`);
   }
 
   // returns integer width of inner container
@@ -73,6 +90,7 @@ export default class FormHandler {
     this.setInnerContainerWidth();
     this.setSlideWidth();
     this.setTransform();
+    this.setInnerContainerHeight();
   }
 
   removeCarouselLoadingClass() {
@@ -467,6 +485,7 @@ export default class FormHandler {
         self.accessibleHideMovingPrev();
         self.enableButton('next');
         self.setTransform();
+        self.setInnerContainerHeight();
         self.tempAccessibleLive();
 
         if (self.isFirstSlide()) {
@@ -485,6 +504,7 @@ export default class FormHandler {
         self.accessibleHideMovingNext();
         self.enableButton('prev');
         self.setTransform();
+        self.setInnerContainerHeight();
         self.tempAccessibleLive();
 
         if (self.isLastSlide()) {

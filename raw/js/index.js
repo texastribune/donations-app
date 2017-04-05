@@ -29,9 +29,9 @@ const DonationForm = new FormHandler({
   startFrequency: 'monthly',
   animationLength: 400,
   frequenciesToRanges: {
-    once: ['$35 - $100', '$101 - $500', '$501 - $999', '$1,000 - $5,000'],
-    monthly: ['$5 - $34', '$35 - $64', '$65 - $83', '$84 - $417'],
-    yearly: ['$35 - $100', '$101 - $500', '$501 - $999', '$1,000 - $5,000']
+    once: ['$35 to $100', '$101 to $500', '$501 to $999', '$1,000 to $5,000'],
+    monthly: ['$5 to $34', '$35 to $64', '$65 to $83', '$84 to $417'],
+    yearly: ['$35 to $100', '$101 to $500', '$501 to $999', '$1,000 to $5,000']
   },
 
   rangesToAmounts: {
