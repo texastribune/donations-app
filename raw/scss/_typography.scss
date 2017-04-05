@@ -64,6 +64,20 @@ i.fa-chevron-right {
   font-size: 0.8em;
 }
 
+.weight {
+  &--bold {
+    font-weight: bold;
+  }
+
+  &--normal {
+    font-weight: 400;
+  }
+
+  &--thin {
+    font-weight: 200;
+  }
+}
+
 .bold {
   font-weight: bold;
 }

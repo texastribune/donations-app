@@ -19,6 +19,7 @@
 
 .splash-header {
   border-bottom: 3px solid $yellow-tribune;
+  color: $white;
 
   @include media($mobile) {
     border-bottom: none;
@@ -27,19 +28,17 @@
 
 .splash-support {
   color: $yellow-tribune;
-  font-weight: 400;
 }
-
-.splash-info, .splash-header {
-  color: white;
+.splash-info {
+  color: $white;
 }
 
 .splash-info, .splash-support {
-  font-size: 1.2em;
-  font-weight: 200;
-  letter-spacing: 1px;
-  line-height: 1.4;
+  @extend .weight--normal;
   @include hide-for-mobile;
+  font-size: 1.2em;
+  letter-spacing: .03em;
+  line-height: 1.4;
 }
 
 .splash-link {
@@ -282,8 +281,6 @@ h5.benefit-flag {
 }
 
 .form-button {
-  @extend .bold;
-  color: $black;
   cursor: pointer;
   border-style: solid;
   border-width: 2px;

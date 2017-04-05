@@ -162,7 +162,7 @@ export default class FormHandler {
       <div class="carousel__radios">
         ${newRangesValues.map((val, index) => `
           <label class="carousel__label${this.shouldBeChecked('range', index) ? `--selected`: `--normal`}" for="range-${index+1}" aria-labelledby="range-legend">
-            ${val}
+            <span class="weight--bold">${val}</span>
             <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
             <input class="carousel__radio visually-hidden" type="radio" name="range" data-range="${index}" id="range-${index+1}" ${this.shouldBeChecked('range', index) ? `checked` : ``}>
           </label>
@@ -177,7 +177,7 @@ export default class FormHandler {
     return `
       ${newAmountsValues.map((val, index) => `
         <label class="carousel__label${this.shouldBeChecked('amount', index) ? `--selected`: `--normal`}" for="amount-${index+1}" aria-labelledby="amount-legend">
-          $${this.putCommasInNumber(val)} ${this.getFrequenciesLabelMarker()}
+          <span class="weight--bold">$${this.putCommasInNumber(val)}</span> ${this.getFrequenciesLabelMarker()}
           <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
           <input class="carousel__radio visually-hidden" type="radio" value="${val}" name="amount" id="amount-${index+1}" ${this.shouldBeChecked('amount', index) ? `checked` : ``}>
         </label>

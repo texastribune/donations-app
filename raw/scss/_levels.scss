@@ -21,15 +21,12 @@
 
   .level-breakdown {
     margin-top: 2em;
-    min-width: 940px;
-
-    @include media($mobile) {
-      min-width: 0;
-    }
+    table-layout: fixed;
+    width: 100%;
   }
 
   h3 {
-    padding: 0 0 0.5em 0;
+    padding: 0 0.5em 0.5em 0;
   }
 
   .social {
