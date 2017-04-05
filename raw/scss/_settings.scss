@@ -24,14 +24,6 @@ $bg-nav: #000000;
 
 $link-nav: white;
 
-
-// Mixins
-@mixin opacity-cross-browser($alpha: 0) {
-  filter: alpha(opacity=#{$alpha});
-  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$alpha})';
-  opacity: $alpha;
-}
-
 @mixin hide-for-mobile {
   @include media($mobile) {
     display: none;

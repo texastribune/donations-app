@@ -7,6 +7,8 @@ can't use flexbox or inline-block.
 
 */
 
+$carousel-height: 360px;
+
 .donate {
   @include span-columns(6);
 
@@ -31,11 +33,27 @@ can't use flexbox or inline-block.
     }
 
     &.unloaded {
-      @include opacity-cross-browser(0);
+      &:before {
+        @extend .uppercase;
+        @extend .weight--bold;
+        background-color: rgba($white, .95);
+        color: $teal-tribune;
+        content: 'Loading...';
+        height: 100%;
+        left: 0;
+        line-height: $carousel-height;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+      }
     }
 
     &.loaded {
-      @include opacity-cross-browser(1);
+      &:before {
+        content: '';
+      }
     }
   }
 
@@ -63,7 +81,7 @@ can't use flexbox or inline-block.
 .carousel {
   // needs to be hard coded to
   // keep prev/next buttons from moving
-  height: 360px;
+  height: $carousel-height;
   overflow: hidden;
   width: 100%;
 
