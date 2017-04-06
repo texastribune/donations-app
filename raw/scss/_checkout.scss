@@ -26,7 +26,7 @@ $carousel-mobile-height: auto;
 
   &__inner {
     background-color: $white;
-    padding: 1.5em;
+    padding: 1.5em 1.5em 0 1.5em;
     position: relative;
     transition: opacity .5s;
     zoom: 1;
@@ -34,7 +34,6 @@ $carousel-mobile-height: auto;
     @include media($tablet-carousel) {
       margin: 0 auto;
       max-width: $mobile-width;
-      padding-bottom: 0;
     }
 
     @include media($mobile) {
