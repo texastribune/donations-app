@@ -281,7 +281,10 @@ h5.benefit-flag {
 }
 
 .form-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
   cursor: pointer;
+  border-radius: 0;
   border-style: solid;
   border-width: 2px;
   padding: .5em 0;

@@ -7,7 +7,8 @@ can't use flexbox or inline-block.
 
 */
 
-$carousel-height: 310px;
+$carousel-desktop-height: 330px;
+$carousel-mobile-height: auto;
 
 .donate {
   @include span-columns(6);
@@ -49,7 +50,7 @@ $carousel-height: 310px;
         content: 'Loading...';
         height: 100%;
         left: 0;
-        line-height: $carousel-height;
+        padding-top: 25%;
         position: absolute;
         text-align: center;
         top: 0;
@@ -88,9 +89,13 @@ $carousel-height: 310px;
 .carousel {
   // needs to be hard coded to
   // keep prev/next buttons from moving
-  height: $carousel-height;
-  overflow: hidden;
+  height: $carousel-desktop-height;
+  overflow-x: hidden;
   width: 100%;
+
+  @include media($mobile) {
+    height: $carousel-mobile-height;
+  }
 
   &__form {
     overflow-y: hidden;
@@ -129,6 +134,7 @@ $carousel-height: 310px;
     display: block;
     font-size: 1.4em;
     margin-bottom: 1em;
+    text-align: center;
   }
 
   &__label {
@@ -171,7 +177,7 @@ $carousel-height: 310px;
   }
 
   &__student {
-    margin-top: 2em;
+    margin-top: 1em;
   }
 
   &__manual {

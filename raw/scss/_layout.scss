@@ -56,7 +56,7 @@
 }
 
 // Desktop nav
-nav.desktop-nav {
+.desktop-nav {
   border-bottom: 5px solid $yellow-tribune;
   @include hide-for-mobile;
   ul {
@@ -86,7 +86,7 @@ nav.desktop-nav {
 }
 
 // Mobile nav
-nav.mobile-nav {
+.mobile-nav {
   @include show-for-mobile;
   ul {
     padding: 0 1em;

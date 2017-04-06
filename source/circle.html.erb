@@ -2,86 +2,88 @@
 title: Circle Membership
 ---
 
-<div class="splash no_print">
-  <div class="splash-wrapper">
-    <div class="splash-greeting">
-      <h1 class="splash-header">Join Our Circle</h1>
-      <p class="splash-info">The Texas Tribune is the only member-supported, digitally focused, nonpartisan news organization that informs & engages with Texans about public policy, politics, government and statewide issues.</p>
-      <h4 class="splash-support">Our nonprofit newsroom depends on your support!</h4>
-    </div><!-- splash-greeting -->
-    <% data.levels.each do |level| %>
-      <% if level.circle %>
-        <div class="circle-box">
-          <div class="circle-box-top">
-            <h3><%= level.name %></h3>
-            <p><em>Three-Year Commitment</em></p>
+<% content_for :main do %>
+  <div class="splash no_print">
+    <div class="splash-wrapper">
+      <div class="splash-greeting">
+        <h1 class="splash-header">Join Our Circle</h1>
+        <p class="splash-info">The Texas Tribune is the only member-supported, digitally focused, nonpartisan news organization that informs & engages with Texans about public policy, politics, government and statewide issues.</p>
+        <h4 class="splash-support">Our nonprofit newsroom depends on your support!</h4>
+      </div><!-- splash-greeting -->
+      <% data.levels.each do |level| %>
+        <% if level.circle %>
+          <div class="circle-box">
+            <div class="circle-box-top">
+              <h3><%= level.name %></h3>
+              <p><em>Three-Year Commitment</em></p>
+            </div>
+            <div class="circle-box-bottom">
+              <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_annual %>&amp;installmentPeriod=yearly&amp;installments=3" ga-on="click" ga-event-category="Donate" ga-event-action="checkout-intent" ga-event-label="circle-yearly"><button class="button button-flat">$<%= level.amount_annual_comma %> <br>Annually</button></a>
+              <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_month %>&amp;installmentPeriod=monthly&amp;installments=3" ga-on="click" ga-event-category="Donate" ga-event-action="checkout-intent" ga-event-label="circle-monthly"><button style="float: right;" class="button button-flat">$<%= level.amount_month %> <br>Monthly</button></a>
+            </div>
           </div>
-          <div class="circle-box-bottom">
-            <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_annual %>&amp;installmentPeriod=yearly&amp;installments=3" ga-on="click" ga-event-category="Donate" ga-event-action="checkout-intent" ga-event-label="circle-yearly"><button class="button button-flat">$<%= level.amount_annual_comma %> <br>Annually</button></a>
-            <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_month %>&amp;installmentPeriod=monthly&amp;installments=3" ga-on="click" ga-event-category="Donate" ga-event-action="checkout-intent" ga-event-label="circle-monthly"><button style="float: right;" class="button button-flat">$<%= level.amount_month %> <br>Monthly</button></a>
-          </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div><!-- splash-wrapper -->
-  <%= partial "desktop_nav" %>
-</div><!-- splash-circle -->
+    </div><!-- splash-wrapper -->
+    <%= partial "desktop_nav" %>
+  </div><!-- splash-circle -->
 
-<div class="main">
-  <div class="main-left print_full">
-  <div class="circle-members-header">
-    <img class="circle-logo" src="../img/circle-member-half-logo.png">
-  </div>
-  <div class="circle-members">
-    <div class="circle-list-wrapper" id="chairman-s-circle"></div>
-    <div class="circle-list-wrapper" id="leadership-circle"></div>
-    <div class="circle-list-wrapper" id="editor-s-circle"></div>
-  </div>
-  </div>
-  <div class="main-right level no_print">
-    <h3 class="section-header">Circle Membership</h3>
-    <p>Circle Membership is a three-year commitment to provide backing for the vital work of our journalists. Circle Members believe in supporting our mission as a public service — free of charge on our website, in free syndication and at our numerous free public events — so all Texans have access to nonpartisan news and information.</p>
-    <h3 class="section-header">Benefits</h3>
-    <h4>All Benefactor level benefits, plus:</h4>
-    <h5 class="benefits-header">Content Benefits</h5>
-      <p>Special notifications and updates from Evan Smith, CEO</p>
-    <h5 class="benefits-header">Access Benefits</h5>
-        <p>Early registration to select Tribune events and VIP receptions</p>
-        <p>Invitations to exclusive events as part of The Texas Tribune Festival</p>
-        <p>Year-round reserved seating at Tribune statewide events</p>
-    <h5 class="benefits-header">Recognition Benefits</h5>
-      <p>Exclusive recognition as a Texas Tribune Circle Member on our site</p>
-    <h3 class="section-header">Have a Question?</h3>
-    <div class="contact-info">
-      <h5>Foundations &amp; Major Gifts</h5>
-      <h4>Terry Quinn</h4>
-      <p class="italic">Chief Development Officer</p>
-      <p>512-716-8613</p>
-      <p><a href="mailto:tquinn@texastribune.org">tquinn@texastribune.org <i class="fa fa-chevron-right"></i></a></p>
+  <div class="main">
+    <div class="main-left print_full">
+    <div class="circle-members-header">
+      <img class="circle-logo" src="../img/circle-member-half-logo.png">
     </div>
-    <div class="contact-info">
-      <h5>Corporate Sponsorships</h5>
-      <h4>April Hinkle</h4>
-      <p class="italic">Chief Revenue Officer</p>
-      <p>512-716-8634</p>
-      <p><a href="mailto:ahinkle@texastribune.org">ahinkle@texastribune.org <i class="fa fa-chevron-right"></i></a></p>
+    <div class="circle-members">
+      <div class="circle-list-wrapper" id="chairman-s-circle"></div>
+      <div class="circle-list-wrapper" id="leadership-circle"></div>
+      <div class="circle-list-wrapper" id="editor-s-circle"></div>
     </div>
-    <div class="contact-info">
-      <h5>Circle Membership</h5>
-      <h4>Suzanne Geiger</h4>
-      <p class="italic">Development Manager</p>
-      <p>512-716-8646</p>
-      <p><a href="mailto:sgeiger@texastribune.org">sgeiger@texastribune.org <i class="fa fa-chevron-right"></i></a></p>
     </div>
-    <hr>
-    <%= partial "give_more" %>
-    <hr>
-    <div class="extra-info">
-      <h3>Prefer to mail a check?</h3>
-      <p>Click <a href="https://static.texastribune.org/media/marketing/TT-circle-membership-contribution-form.pdf" ga-on="click" ga-event-category="Donate" ga-event-action="checkout-intent" ga-event-label="mail-check">here</a> for our membership form and mailing information. </p>
+    <div class="main-right level no_print">
+      <h3 class="section-header">Circle Membership</h3>
+      <p>Circle Membership is a three-year commitment to provide backing for the vital work of our journalists. Circle Members believe in supporting our mission as a public service — free of charge on our website, in free syndication and at our numerous free public events — so all Texans have access to nonpartisan news and information.</p>
+      <h3 class="section-header">Benefits</h3>
+      <h4>All Benefactor level benefits, plus:</h4>
+      <h5 class="benefits-header">Content Benefits</h5>
+        <p>Special notifications and updates from Evan Smith, CEO</p>
+      <h5 class="benefits-header">Access Benefits</h5>
+          <p>Early registration to select Tribune events and VIP receptions</p>
+          <p>Invitations to exclusive events as part of The Texas Tribune Festival</p>
+          <p>Year-round reserved seating at Tribune statewide events</p>
+      <h5 class="benefits-header">Recognition Benefits</h5>
+        <p>Exclusive recognition as a Texas Tribune Circle Member on our site</p>
+      <h3 class="section-header">Have a Question?</h3>
+      <div class="contact-info">
+        <h5>Foundations &amp; Major Gifts</h5>
+        <h4>Terry Quinn</h4>
+        <p class="italic">Chief Development Officer</p>
+        <p>512-716-8613</p>
+        <p><a href="mailto:tquinn@texastribune.org">tquinn@texastribune.org <i class="fa fa-chevron-right"></i></a></p>
+      </div>
+      <div class="contact-info">
+        <h5>Corporate Sponsorships</h5>
+        <h4>April Hinkle</h4>
+        <p class="italic">Chief Revenue Officer</p>
+        <p>512-716-8634</p>
+        <p><a href="mailto:ahinkle@texastribune.org">ahinkle@texastribune.org <i class="fa fa-chevron-right"></i></a></p>
+      </div>
+      <div class="contact-info">
+        <h5>Circle Membership</h5>
+        <h4>Suzanne Geiger</h4>
+        <p class="italic">Development Manager</p>
+        <p>512-716-8646</p>
+        <p><a href="mailto:sgeiger@texastribune.org">sgeiger@texastribune.org <i class="fa fa-chevron-right"></i></a></p>
+      </div>
+      <hr>
+      <%= partial "give_more" %>
+      <hr>
+      <div class="extra-info">
+        <h3>Prefer to mail a check?</h3>
+        <p>Click <a href="https://static.texastribune.org/media/marketing/TT-circle-membership-contribution-form.pdf" ga-on="click" ga-event-category="Donate" ga-event-action="checkout-intent" ga-event-label="mail-check">here</a> for our membership form and mailing information. </p>
+      </div>
     </div>
   </div>
-</div>
-<div class="thanks outer-info no_print">
-  <div class="inner-info"><hr>Thank you for supporting The Texas Tribune<hr></div>
-</div>
+  <div class="thanks outer-info no_print">
+    <div class="inner-info"><hr>Thank you for supporting The Texas Tribune<hr></div>
+  </div>
+<% end %>
