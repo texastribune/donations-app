@@ -5,7 +5,7 @@
   "author": "Andrew Gibson <agibson@texastribune.org>",
   "scripts": {
     "dev": "BABEL_ENV=modern bundle exec middleman",
-    "build": "npm run old-js && BABEL_ENV=modern npm run middleman",
+    "build": "npm run old-js && BABEL_ENV=modern npm run middleman && npm run critical",
     "old-js": "BABEL_ENV=old webpack --config webpack.config.old.js && npm run es3",
     "middleman": "bundle exec middleman build",
     "critical": "node critical.js",
