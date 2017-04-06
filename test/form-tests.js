@@ -38,31 +38,28 @@ describe('Donation carousel form', () => {
       startSlide: 0,
       startFrequency: 'monthly',
       frequenciesToRanges: {
-        once: ['$1-$34', '$35-$100', '$101-$500', '$501-$999'],
-        monthly: ['$5-$20', '$21-$40', '$41-$60', '$61-$82'],
-        yearly: ['$1-$34', '$35-$100', '$101-$500', '$501-$999']
+        once: ['Up to $35', 'Up to $100', 'More than $100'],
+        monthly: ['Up to $35', 'Up to $100', 'More than $100'],
+        yearly: ['Up to $35', 'Up to $100', 'More than $100']
       },
 
       rangesToAmounts: {
         once: [
-          [5, 15, 25, 34],
-          [35, 65, 85, 100],
-          [120, 240, 360, 500],
-          [520, 640, 760, 880]
+          [12, 25, 35],
+          [45, 65, 100],
+          [250, 500, 850]
         ],
 
         monthly: [
-          [5, 11, 16, 20],
-          [21, 29, 34, 40],
-          [41, 49, 54, 60],
-          [61, 69, 78, 82]
+          [12, 25, 35],
+          [45, 65, 100],
+          [250, 500, 850]
         ],
 
         yearly: [
-          [5, 15, 25, 34],
-          [35, 65, 85, 100],
-          [120, 240, 360, 500],
-          [520, 640, 760, 880]
+          [12, 25, 35],
+          [45, 65, 100],
+          [250, 500, 850]
         ]
       }
     });
@@ -94,21 +91,20 @@ describe('Donation carousel form', () => {
   });
 
   it('new ranges should be array at index retrieved from frequency radio', () => {
+    DonationForm.currFrequency = 'yearly';
     const newRangesValues = DonationForm.getFrequenciesToRangesValues();
-    DonationForm.currFrequency = 'monthly';
-    assert.deepEqual(newRangesValues, ['$5-$20', '$21-$40', '$41-$60', '$61-$82']);
+    assert.deepEqual(newRangesValues, ['Up to $35', 'Up to $100', 'More than $100']);
   });
 
   it('new amounts should be array at index retrieved from range radio', () => {
     const newRangesValues = DonationForm.getRangesToAmountsValues(2);
     DonationForm.currFrequency = 'monthly';
-    assert.deepEqual(newRangesValues, [41, 49, 54, 60]);
+    assert.deepEqual(newRangesValues, [250, 500, 850]);
   });
 
   it('frequency changes should reset amounts to default', () => {
-    DonationForm.currFrequency = 'monthly';
     DonationForm.defaultRangesIndex = 1;
-    const defaultRangesToAmounts = DonationForm.rangesToAmounts[DonationForm.currFrequency][DonationForm.defaultRangesIndex];
+    const defaultRangesToAmounts = DonationForm.rangesToAmounts['monthly'][DonationForm.defaultRangesIndex];
     const spy = sinon.spy(DonationForm, 'getRangesToAmountsValues');
     DonationForm.bindRadioEvents();
     DonationForm.frequenciesRadios.trigger('change');
@@ -117,39 +113,39 @@ describe('Donation carousel form', () => {
   });
 
   it('ranges markup should contain certain values', () => {
-    const markup = DonationForm.buildRangesMarkup(['$1-$34', '$35-$100', '$101-$500', '$501-$999']);
+    const markup = DonationForm.buildRangesMarkup(['Up to $35', 'Up to $100', 'More than $100']);
     assert.include(markup, 'aria-labelledby="range-legend"');
     assert.include(markup, 'for="range-');
     assert.include(markup, 'id="range-');
-    assert.include(markup, '$35-$100');
+    assert.include(markup, 'Up to $100');
   });
 
   it('amounts markup should contain certain values', () => {
-    const markup = DonationForm.buildAmountsMarkup([5, 15, 25, 34]);
+    const markup = DonationForm.buildAmountsMarkup([45, 65, 100]);
     assert.include(markup, 'aria-labelledby="amount-legend"');
     assert.include(markup, 'for="amount-');
     assert.include(markup, 'id="amount-');
-    assert.include(markup, '$25');
+    assert.include(markup, '$65');
   });
 
-  it('ranges markup should only have frequency marker if not one-time', () => {
-    DonationForm.currFrequency = 'yearly';
+  it('ranges markup should have frequency marker if not one-time', () => {
+    DonationForm.currFrequency = 'monthly';
     let markup = DonationForm.buildRangesMarkup(['bar', 'baz', 'foo', 'lorem']);
-    assert.include(markup.trim(), 'Choose a yearly range');
+    assert.include(markup.trim(), 'per month');
 
     DonationForm.currFrequency = 'once';
     markup = DonationForm.buildRangesMarkup(['bar', 'baz', 'foo', 'lorem']);
-    assert.include(markup.trim(), 'Choose a range');
+    assert.notInclude(markup.trim(), 'one time');
   });
 
-  it('amounts markup should only have frequency marker if not one-time', () => {
+  it('amounts markup should have frequency marker if not one-time', () => {
     DonationForm.currFrequency = 'monthly';
     let markup = DonationForm.buildAmountsMarkup(['bar', 'baz', 'foo', 'lorem']);
     assert.include(markup.trim(), 'per month');
 
     DonationForm.currFrequency = 'once';
     markup = DonationForm.buildAmountsMarkup(['bar', 'baz', 'foo', 'lorem']);
-    assert.notInclude(markup.trim(), 'once');
+    assert.notInclude(markup.trim(), 'one time');
   });
 
   it('new ranges markup should have default selection', () => {
@@ -310,6 +306,10 @@ describe('Donation carousel form', () => {
     assert.isFalse(DonationForm.isValidAmountInput('$1234'));
     assert.isFalse(DonationForm.isValidAmountInput('1,234'));
     assert.isFalse(DonationForm.isValidAmountInput('1234a'));
+  });
+
+  it('four-digit numbers should have commas', () => {
+    assert.equal('5,000', DonationForm.putCommasInNumber(5000));
   });
 
   it('should send users to proper checkout form based on frequency and amount', () => {

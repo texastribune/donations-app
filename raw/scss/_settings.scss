@@ -65,7 +65,7 @@ $link-nav: white;
 }
 
 
-// Helper classes
+// not hidden from screen readers
 .visually-hidden {
   position: absolute;
   overflow: hidden;
@@ -74,8 +74,16 @@ $link-nav: white;
   margin: -1px; padding: 0; border: 0;
 }
 
+// hidden from screen readers
 .hidden {
   display: none;
+}
+
+// hidden from screen readers
+// still occupies height/width on the screen
+// but you can't see the actual contents
+.faux-hidden {
+  visibility: hidden;
 }
 
 .hide-mobile {

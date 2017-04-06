@@ -7,7 +7,7 @@ can't use flexbox or inline-block.
 
 */
 
-$carousel-height: 360px;
+$carousel-height: 310px;
 
 .donate {
   @include span-columns(6);
@@ -171,7 +171,7 @@ $carousel-height: 360px;
   }
 
   &__student {
-    margin-top: 1em;
+    margin-top: 2em;
   }
 
   &__manual {

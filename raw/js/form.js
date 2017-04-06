@@ -136,16 +136,6 @@ export default class FormHandler {
   }
 
   // if current frequency is yearly or
-  // monthly, label the range legend that way
-  // if once, don't label it at all
-  getFrequenciesLegendMarker() {
-    if (this.currFrequency === 'monthly' || this.currFrequency === 'yearly') {
-      return `${this.currFrequency} `;
-    }
-    return '';
-  }
-
-  // if current frequency is yearly or
   // monthly, label the amounts buttons that way
   // if once, don't label at all
   getFrequenciesLabelMarker() {
@@ -161,14 +151,6 @@ export default class FormHandler {
   }
 
   // TODO: Add test
-  addStudentMembership() {
-    if (this.currFrequency === 'yearly') {
-      return `<p class="carousel__student"><a class="splash-link--teal" href="https://checkout.texastribune.org/memberform?&amount=10&installmentPeriod=yearly">Interested</a> <span class="bold">in a $10 student membership?</span></p>`;
-    }
-    return '';
-  }
-
-  // TODO: Add test
   putCommasInNumber(num) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
@@ -176,17 +158,13 @@ export default class FormHandler {
   // build new ranges markup
   buildRangesMarkup(newRangesValues) {
     return `
-      <legend class="carousel__legend" id="range-legend">Choose a ${this.getFrequenciesLegendMarker()}range:</legend>
-      <div class="carousel__radios">
-        ${newRangesValues.map((val, index) => `
-          <label class="carousel__label${this.shouldBeChecked('range', index) ? `--selected`: `--normal`}" for="range-${index+1}" aria-labelledby="range-legend">
-            <span class="weight--bold">${val}</span>
-            <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
-            <input class="carousel__radio visually-hidden" type="radio" name="range" data-range="${index}" id="range-${index+1}" ${this.shouldBeChecked('range', index) ? `checked` : ``}>
-          </label>
-        `).join('\n')}
-        ${this.addStudentMembership()}
-      </div>
+      ${newRangesValues.map((val, index) => `
+        <label class="carousel__label${this.shouldBeChecked('range', index) ? `--selected`: `--normal`}" for="range-${index+1}" aria-labelledby="range-legend">
+          <span class="weight--bold">${val}</span> ${this.getFrequenciesLabelMarker()}
+          <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
+          <input class="carousel__radio visually-hidden" type="radio" name="range" data-range="${index}" id="range-${index+1}" ${this.shouldBeChecked('range', index) ? `checked` : ``}>
+        </label>
+      `).join('\n')}
     `;
   }
 
@@ -408,7 +386,7 @@ export default class FormHandler {
   // if amount is not numeric, show error message
   // and raise ARIA alert
   raiseValidationError() {
-    this.errorMessage.removeClass('hidden');
+    this.errorMessage.removeClass('faux-hidden');
     this.errorMessage.attr('role', 'alert');
     this.manualInput.attr('aria-invalid', 'true');
   }
@@ -416,7 +394,7 @@ export default class FormHandler {
   // hide error message and remove ARIA alert
   // invoked any time a radio button changes
   removeValidationError() {
-    this.errorMessage.addClass('hidden');
+    this.errorMessage.addClass('faux-hidden');
     this.errorMessage.removeAttr('role');
     this.manualInput.removeAttr('aria-invalid');
   }
