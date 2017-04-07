@@ -71,6 +71,8 @@ export default class FormHandler {
     this.setTransform();
   }
 
+  // removes "loading" overlay
+  // when all the widths have been set
   removeCarouselLoadingClass() {
     this.fadeEl.removeClass('unloaded').addClass('loaded');
   }
@@ -108,9 +110,7 @@ export default class FormHandler {
       return 'per year';
     }
 
-    // return this so the checkmark placement
-    // stays consistent
-    return '&nbsp;';
+    return '';
   }
 
   // Put commas in four-digit+ numbers
@@ -132,7 +132,9 @@ export default class FormHandler {
 
   // append new amounts markup to DOM
   appendAmountsMarkupToDOM(markup) {
-    this.amountsAttach.empty().append(markup);
+    this.amountsAttach
+      .empty()
+      .append(markup);
   }
 
   // update selected class on label parent of
@@ -151,7 +153,7 @@ export default class FormHandler {
       .removeClass('carousel__label--selected')
       .addClass('carousel__label--normal');
 
-    if ( selectedEl.attr('id') !== 'amount-manual' ) {
+    if (selectedEl.attr('id') !== 'amount-manual') {
       selectedEl
         .parent()
         .removeClass('carousel__label--normal')
@@ -217,19 +219,25 @@ export default class FormHandler {
 
   // remove aria-hidden from current slide
   accessibleShowCurrent() {
-    this.carouselSlides.eq(this.currSlide).removeAttr('aria-hidden');
+    this.carouselSlides
+      .eq(this.currSlide)
+      .removeAttr('aria-hidden');
   }
 
   // after clicking next, put aria-hidden on
   // the slide we're exiting from
   accessibleHideMovingNext() {
-    this.carouselSlides.eq(this.currSlide - 1).attr('aria-hidden', 'true');
+    this.carouselSlides
+      .eq(this.currSlide - 1)
+      .attr('aria-hidden', 'true');
   }
 
   // after clicking previous, put aria-hiden on
   // slide we're exiting from
   accessibleHideMovingPrev() {
-    this.carouselSlides.eq(this.currSlide + 1).attr('aria-hidden', 'true');
+    this.carouselSlides
+      .eq(this.currSlide + 1)
+      .attr('aria-hidden', 'true');
   }
 
   // indicate to screen readers that
@@ -244,17 +252,18 @@ export default class FormHandler {
 
   // TODO: Make this return a value so it's testable
   setManualInputBorderClass(which) {
+    const baseClass = 'carousel__manual-input';
     let borderClass;
 
     switch(which) {
       case 'normal':
-        borderClass = 'carousel__manual-input--normal';
+        borderClass =  `${baseClass}--normal`;
         break;
       case 'invalid':
-        borderClass = 'carousel__manual-input--invalid';
+        borderClass = `${baseClass}--invalid`;
         break;
       case 'selected':
-        borderClass = 'carousel__manual-input--selected';
+        borderClass = `${baseClass}--selected`;
         break;
     }
 
@@ -264,13 +273,18 @@ export default class FormHandler {
   // when the manual input field is active,
   // make sure corresponding radio is selected
   selectManualEntryRadio(el) {
-    el.prev('.carousel__radio').prop('checked', true).change();
+    el
+      .prev('.carousel__radio')
+      .prop('checked', true)
+      .change();
   }
 
   // when users enter a value in manual input
   // field, make that the value of corresponding radio
   updateManualEntryRadioVal(el) {
-    el.prev('.carousel__radio').val(el.val());
+    el
+      .prev('.carousel__radio')
+      .val( el.val() );
   }
 
   // returns true if amount value is numeric
@@ -281,8 +295,8 @@ export default class FormHandler {
     return !isNaN(amount);
   }
 
-  // converts serialized form input to
-  // an object
+  // converts serialized form
+  // input into an object
   convertInputToObject(input) {
     const splitInput = input.split('&');
     let inputObject = {};
