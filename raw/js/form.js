@@ -328,7 +328,7 @@ export default class FormHandler {
   // hide error message and remove ARIA alert
   // invoked any time a radio button changes
   removeValidationError() {
-    this.errorMessage.addClass('faux-hidden');
+    this.errorMessage.addClass('hidden');
     this.errorMessage.removeAttr('role');
     this.manualInput.removeAttr('aria-invalid');
   }
