@@ -3,7 +3,6 @@ import { debounce } from './utils';
 export default class FormHandler {
   constructor(opts) {
     this.originalOpts = opts;
-    this.rangesAttach = opts.rangesAttach;
     this.amountsAttach = opts.amountsAttach;
     this.outerContainer = opts.outerContainer;
     this.innerContainer = opts.innerContainer;
@@ -15,18 +14,15 @@ export default class FormHandler {
     this.form = opts.form;
     this.errorMessage = opts.errorMessage;
     this.frequenciesRadios = $(opts.frequenciesRadios);
-    this.rangesRadios = $(opts.rangesRadios);
     this.amountsRadios = $(opts.amountsRadios);
     this.indicators = opts.indicators;
     this.fadeEl = opts.fadeEl;
-    this.defaultRangesIndex = opts.defaultRangesIndex;
     this.defaultAmountsIndex = opts.defaultAmountsIndex;
     this.currSlide = opts.startSlide;
     this.currFrequency = opts.startFrequency;
     this.numSlides = this.carouselSlides.length;
     this.animationLength = opts.animationLength;
-    this.frequenciesToRanges = opts.frequenciesToRanges;
-    this.rangesToAmounts = opts.rangesToAmounts;
+    this.frequenciesToAmounts = opts.frequenciesToAmounts;
   }
 
   // returns integer of current carousel transform value
@@ -39,28 +35,11 @@ export default class FormHandler {
     return this.outerContainer.width();
   }
 
-  // returns height of current slide
-  // it varies by slide because there are different
-  // form controls on each
-  getCurrSlideHeight() {
-    return this.carouselSlides.eq(this.currSlide).height();
-  }
-
   // sets width of inner container as
   // number of slides * width of outer container
   setInnerContainerWidth() {
     const innerContainerWidth = this.numSlides * this.getOuterContainerWidth();
     this.innerContainer.css('width', `${innerContainerWidth}px`);
-  }
-
-  // set height of inner container
-  // invoked on clicks of prev/next buttons
-  // important for mobile because it allows the
-  // prev/next buttons to hug closely to the yellow
-  // buttons regardless of the height of the tallest slide
-  setInnerContainerHeight() {
-    const self = this;
-    this.innerContainer.css('height', `${self.getCurrSlideHeight()}px`);
   }
 
   // returns integer width of inner container
@@ -90,7 +69,6 @@ export default class FormHandler {
     this.setInnerContainerWidth();
     this.setSlideWidth();
     this.setTransform();
-    this.setInnerContainerHeight();
   }
 
   removeCarouselLoadingClass() {
@@ -103,36 +81,21 @@ export default class FormHandler {
     return $el.attr('data-frequency');
   }
 
-  // get value of data-range
-  // it's a non-negative integer
-  getAmountIndexFromRadio($el) {
-    return $el.attr('data-range');
-  }
-
   // updates the currently selected frequency
   // to either once, monthly, yearly
   updateCurrFrequency(newFrequency) {
     this.currFrequency = newFrequency;
   }
 
-  // returns new range values
-  getFrequenciesToRangesValues() {
-    return this.frequenciesToRanges[this.currFrequency];
-  }
-
   // returns new amounts values
-  getRangesToAmountsValues(newIndex) {
-    return this.rangesToAmounts[this.currFrequency][newIndex];
+  getFrequenciesToAmountsValues() {
+    return this.frequenciesToAmounts[this.currFrequency];
   }
 
   // returned checked boolean if new radio button
   // should be checked by default when appended to DOM
-  shouldBeChecked(which, iterIndex) {
-    if (which === 'range') {
-      return iterIndex === this.defaultRangesIndex;
-    } else if (which === 'amount') {
-      return iterIndex === this.defaultAmountsIndex;
-    }
+  shouldBeChecked(iterIndex) {
+    return iterIndex === this.defaultAmountsIndex;
   }
 
   // if current frequency is yearly or
@@ -150,41 +113,26 @@ export default class FormHandler {
     return '&nbsp;';
   }
 
-  // TODO: Add test
+  // Put commas in four-digit+ numbers
   putCommasInNumber(num) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  }
-
-  // build new ranges markup
-  buildRangesMarkup(newRangesValues) {
-    return `
-      ${newRangesValues.map((val, index) => `
-        <label class="carousel__label${this.shouldBeChecked('range', index) ? `--selected`: `--normal`}" for="range-${index+1}" aria-labelledby="range-legend">
-          <span class="weight--bold">${val}</span> ${this.getFrequenciesLabelMarker()}
-          <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
-          <input class="carousel__radio visually-hidden" type="radio" name="range" data-range="${index}" id="range-${index+1}" ${this.shouldBeChecked('range', index) ? `checked` : ``}>
-        </label>
-      `).join('\n')}
-    `;
   }
 
   // build new amounts markup
   buildAmountsMarkup(newAmountsValues) {
     return `
       ${newAmountsValues.map((val, index) => `
-        <label class="carousel__label${this.shouldBeChecked('amount', index) ? `--selected`: `--normal`}" for="amount-${index+1}" aria-labelledby="amount-legend">
-          <span class="weight--bold">$${this.putCommasInNumber(val)}</span> ${this.getFrequenciesLabelMarker()}
-          <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
+        <label class="carousel__label${this.shouldBeChecked(index) ? `--selected`: `--normal`} carousel__label--third" for="amount-${index+1}">
+          <span class="weight--bold">$${this.putCommasInNumber(val)}</span> <span class="carousel__qualifier">${this.getFrequenciesLabelMarker()}</span>
           <input class="carousel__radio visually-hidden" type="radio" value="${val}" name="amount" id="amount-${index+1}" ${this.shouldBeChecked('amount', index) ? `checked` : ``}>
         </label>
       `).join('\n')}
     `;
   }
 
-  // append to range or amounts markup to DOM
-  appendMarkupToDOM(which, markup) {
-    const attacher = (which === 'range' ? this.rangesAttach : this.amountsAttach);
-    attacher.empty().append(markup);
+  // append new amounts markup to DOM
+  appendAmountsMarkupToDOM(markup) {
+    this.amountsAttach.empty().append(markup);
   }
 
   // update selected class on label parent of
@@ -194,16 +142,20 @@ export default class FormHandler {
 
     if (which === 'frequency') {
       radios = this.frequenciesRadios;
-    } else if (which === 'range') {
-      radios = this.rangesRadios;
     } else if (which === 'amount') {
       radios = this.amountsRadios;
     }
 
-    radios.parent('[class*=carousel__label]').attr('class', 'carousel__label--normal');
+    radios
+      .parent('[class*=carousel__label]')
+      .removeClass('carousel__label--selected')
+      .addClass('carousel__label--normal');
 
     if ( selectedEl.attr('id') !== 'amount-manual' ) {
-      selectedEl.parent().attr('class', 'carousel__label--selected');
+      selectedEl
+        .parent()
+        .removeClass('carousel__label--normal')
+        .addClass('carousel__label--selected');
     }
   }
 
@@ -215,13 +167,12 @@ export default class FormHandler {
     this.indicators.eq(this.currSlide).attr('class', 'carousel__dot--selected');
   }
 
-  // either increment or decrement curr slide index
-  updateCurrSlide(dir) {
-    if (dir === 'prev') {
-      this.currSlide--;
-    } else if (dir === 'next') {
-      this.currSlide++;
-    }
+  decrementSlide() {
+    this.currSlide--;
+  }
+
+  incrementSlide() {
+    this.currSlide++;
   }
 
   // returns true if the last slide is showing
@@ -327,28 +278,11 @@ export default class FormHandler {
     return !isNaN(amount);
   }
 
-  // removes range from input because
-  // it's actually not part of what we send to checkout
-  removeRangeFromInput(splitInput) {
-    let indexWithRange;
-
-    for (let i = 0; i < splitInput.length; i++) {
-      if (splitInput[i].indexOf('range') !== -1) {
-        indexWithRange = i;
-        break;
-      }
-    }
-
-    splitInput.splice(indexWithRange, 1);
-  }
-
   // converts serialized form input to
   // an object
   convertInputToObject(input) {
     const splitInput = input.split('&');
     let inputObject = {};
-
-    this.removeRangeFromInput(splitInput);
 
     for (let i = 0; i < splitInput.length; i++) {
       const curr = splitInput[i];
@@ -386,7 +320,7 @@ export default class FormHandler {
   // if amount is not numeric, show error message
   // and raise ARIA alert
   raiseValidationError() {
-    this.errorMessage.removeClass('faux-hidden');
+    this.errorMessage.removeClass('hidden');
     this.errorMessage.attr('role', 'alert');
     this.manualInput.attr('aria-invalid', 'true');
   }
@@ -394,7 +328,7 @@ export default class FormHandler {
   // hide error message and remove ARIA alert
   // invoked any time a radio button changes
   removeValidationError() {
-    this.errorMessage.addClass('faux-hidden');
+    this.errorMessage.addClass('hidden');
     this.errorMessage.removeAttr('role');
     this.manualInput.removeAttr('aria-invalid');
   }
@@ -405,7 +339,6 @@ export default class FormHandler {
   // testing difficult because then we can't .trigger()
   reinitRadioEvents() {
     this.frequenciesRadios = $(this.originalOpts.frequenciesRadios);
-    this.rangesRadios = $(this.originalOpts.rangesRadios);
     this.amountsRadios = $(this.originalOpts.amountsRadios);
     this.bindRadioEvents();
   }
@@ -417,28 +350,13 @@ export default class FormHandler {
     this.frequenciesRadios.change(function() {
       self.updateCurrFrequency( self.getFrequencyFromRadio($(this)) );
 
-      const newRangesValues = self.getFrequenciesToRangesValues();
-      const newRangesMarkup = self.buildRangesMarkup(newRangesValues);
-      const newAmountsValues = self.getRangesToAmountsValues(self.defaultRangesIndex);
+      const newAmountsValues = self.getFrequenciesToAmountsValues();
       const newAmountsMarkup = self.buildAmountsMarkup(newAmountsValues);
 
       self.removeValidationError();
       self.setManualInputBorderClass('normal');
       self.updateSelectedClass('frequency', $(this));
-      self.appendMarkupToDOM('range', newRangesMarkup);
-      self.appendMarkupToDOM('amount', newAmountsMarkup);
-      self.reinitRadioEvents();
-    });
-
-    this.rangesRadios.change(function() {
-      const eventIndex = self.getAmountIndexFromRadio($(this));
-      const newAmountsValues = self.getRangesToAmountsValues(eventIndex);
-      const newAmountsMarkup = self.buildAmountsMarkup(newAmountsValues);
-
-      self.removeValidationError();
-      self.setManualInputBorderClass('normal');
-      self.updateSelectedClass('range', $(this));
-      self.appendMarkupToDOM('amount', newAmountsMarkup);
+      self.appendAmountsMarkupToDOM(newAmountsMarkup);
       self.reinitRadioEvents();
     });
 
@@ -457,13 +375,12 @@ export default class FormHandler {
       e.preventDefault();
 
       if (!self.isFirstSlide()) {
-        self.updateCurrSlide('prev');
+        self.decrementSlide();
         self.updateIndicators('prev');
         self.accessibleShowCurrent();
         self.accessibleHideMovingPrev();
         self.enableButton('next');
         self.setTransform();
-        self.setInnerContainerHeight();
         self.tempAccessibleLive();
 
         if (self.isFirstSlide()) {
@@ -476,13 +393,12 @@ export default class FormHandler {
       e.preventDefault();
 
       if (!self.isLastSlide()) {
-        self.updateCurrSlide('next');
+        self.incrementSlide();
         self.updateIndicators('next');
         self.accessibleShowCurrent();
         self.accessibleHideMovingNext();
         self.enableButton('prev');
         self.setTransform();
-        self.setInnerContainerHeight();
         self.tempAccessibleLive();
 
         if (self.isLastSlide()) {

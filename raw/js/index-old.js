@@ -5,7 +5,6 @@ import FormHandler from './form-old';
 })();
 
 const DonationForm = new FormHandler({
-  rangesAttach: $('.carousel__slide--range .carousel__radios'),
   amountsAttach: $('.carousel__slide--amount .carousel__radios'),
   outerContainer: $('#carousel-outer'),
   innerContainer: $('#carousel-inner'),
@@ -17,40 +16,18 @@ const DonationForm = new FormHandler({
   form: $('.carousel__form'),
   errorMessage: $('#error-message'),
   frequenciesRadios: '.carousel__slide--frequency .carousel__radio',
-  rangesRadios: '.carousel__slide--range .carousel__radio',
   amountsRadios: '.carousel__slide--amount .carousel__radio',
   indicators: $('[class*=carousel__dot]'),
   fadeEl: $('.donate__inner'),
   defaultFrequenciesIndex: 1,
-  defaultRangesIndex: 1,
   defaultAmountsIndex: 1,
   startSlide: 0,
   startFrequency: 'monthly',
   animationLength: 400,
-  frequenciesToRanges: {
-    once: ['Up to $35', 'Up to $100', 'More than $100'],
-    monthly: ['Up to $35', 'Up to $100', 'More than $100'],
-    yearly: ['Up to $35', 'Up to $100', 'More than $100']
-  },
-
-  rangesToAmounts: {
-    once: [
-      [12, 25, 35],
-      [45, 65, 100],
-      [250, 500, 850]
-    ],
-
-    monthly: [
-      [12, 25, 35],
-      [45, 65, 100],
-      [250, 500, 850]
-    ],
-
-    yearly: [
-      [12, 25, 35],
-      [45, 65, 100],
-      [250, 500, 850]
-    ]
+  frequenciesToAmounts: {
+    once: [40, 65, 150, 250, 400, 550],
+    monthly: [5, 15, 25, 35, 55, 85],
+    yearly: [40, 65, 150, 250, 400, 550]
   }
 });
 
