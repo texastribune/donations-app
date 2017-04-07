@@ -3,17 +3,34 @@ title: Donate to The Texas Tribune
 ---
 
 <% content_for :ie_styles do %>
-  <!--[if IE 8]>-->
+  <!--[if lte IE 8 ]>
     <style>
       .splash {
-        background-position: initial;
+        background-position: initial !important;
       }
 
-      .splash-greeting {
-        margin: 0;
+      .index .splash-greeting {
+        margin: 0 !important;
+      }
+
+      .index .splash-wrapper {
+        max-width: 100% !important;
+      }
+
+      i {
+        display: none !important;
+      }
+
+      .carousel__indicators {
+        display: none !important;
+      }
+
+      .carousel__label--third {
+        width: 30% !important;
+        margin-right: 3% !important;
       }
     </style>
-  <!--<![endif]-->
+  <![endif]-->
 <% end %>
 
 <% content_for :main do %>
