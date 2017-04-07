@@ -275,6 +275,9 @@ export default class FormHandler {
 
   // returns true if amount value is numeric
   isValidAmountInput(amount) {
+    if (amount === '') {
+      return false;
+    }
     return !isNaN(amount);
   }
 
