@@ -19,15 +19,14 @@ const DonationForm = new FormHandler({
   amountsRadios: '.carousel__slide--amount .carousel__radio',
   indicators: $('[class*=carousel__dot]'),
   fadeEl: $('.donate__inner'),
-  defaultFrequenciesIndex: 1,
-  defaultAmountsIndex: 1,
+  defaultAmountsIndex: 2,
   startSlide: 0,
   startFrequency: 'monthly',
   animationLength: 400,
   frequenciesToAmounts: {
-    once: [40, 65, 150, 250, 400, 550],
-    monthly: [5, 15, 25, 35, 55, 85],
-    yearly: [40, 65, 150, 250, 400, 550]
+    once: [50, 75, 100, 200, 500, 1000],
+    monthly: [5, 10, 15, 25, 55, 85],
+    yearly: [50, 75, 100, 200, 500, 1000]
   }
 });
 

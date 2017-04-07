@@ -99,3 +99,10 @@ $link-nav: white;
 }
 * html .clearfix             { zoom: 1; } /* IE6 */
 *:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+// force text onto own line
+// probably used on <span>
+.text-break {
+  display: block;
+  font-size: inherit;
+}

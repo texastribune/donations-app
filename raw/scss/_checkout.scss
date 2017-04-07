@@ -3,11 +3,11 @@
 NOTE: All the hard-coded widths in here suck,
 but there isn't a great way around that given
 we're still supporting IE 7+ and therefore
-can't use flexbox or inline-block.
+can't use flex or inline-block.
 
 */
 
-$carousel-desktop-height: 275px;
+$carousel-height: 285px;
 
 .donate {
   @include span-columns(5);
@@ -70,9 +70,7 @@ $carousel-desktop-height: 275px;
 
     @include media($mobile) {
       color: $black;
-      // iOS shows a weird line if
-      // you don't do -1px as margin-top
-      margin: 1em auto 0 auto;
+      margin: 2em auto 0 auto;
       max-width: $mobile-width;
       padding: 0 1.5em;
 
@@ -86,7 +84,7 @@ $carousel-desktop-height: 275px;
 .carousel {
   // needs to be hard coded to
   // keep prev/next buttons from moving
-  height: $carousel-desktop-height;
+  height: $carousel-height;
   overflow-x: hidden;
   width: 100%;
 
@@ -124,10 +122,13 @@ $carousel-desktop-height: 275px;
 
   &__legend {
     @extend .weight--bold;
-    display: block;
+    display: block !important; // old iOS versions
     font-size: 1.8em;
-    margin-bottom: .5em;
     text-align: center;
+  }
+
+  &__radios {
+    margin-top: 1em;
   }
 
   &__label {
@@ -262,6 +263,10 @@ $carousel-desktop-height: 275px;
     margin-left: -120px;
     position: absolute;
     width: 240px;
+
+    @include media($mobile) {
+      bottom: 0;
+    }
   }
 
   &__indicators {

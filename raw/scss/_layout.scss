@@ -100,7 +100,7 @@
 // Main area
 .main {
   @include outer-container;
-  padding: 3em 0;
+  padding: 3em 2em;
   @include media($mobile) {
     padding: 0 0 3em 0;
   }
