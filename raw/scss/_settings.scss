@@ -79,13 +79,6 @@ $link-nav: white;
   display: none;
 }
 
-// hidden from screen readers
-// still occupies height/width on the screen
-// but you can't see the actual contents
-.faux-hidden {
-  visibility: hidden;
-}
-
 .hide-mobile {
   @include hide-for-mobile;
 }

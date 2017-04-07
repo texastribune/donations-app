@@ -20,7 +20,7 @@ title: Donate to The Texas Tribune
   <div class="splash">
     <div class="splash-wrapper">
       <div class="splash-greeting">
-        <h1 class="splash-header">Independent, fact-based journalism</h1>
+        <h1 class="splash-header">Support independent, fact-based journalism</h1>
         <p class="splash-info">As a 501(c)3 nonprofit organization, the generosity of members and donors makes our work possible. <a class="splash-link--yellow" href="https://www.texastribune.org/about/">Learn more</a> about the Tribune's mission.</p>
       </div>
 
@@ -32,19 +32,19 @@ title: Donate to The Texas Tribune
                 <fieldset class="carousel__fieldset">
                   <legend id="frequency-legend" class="carousel__legend">Donate today</legend>
                   <div class="carousel__radios">
-                    <label class="carousel__label--selected" for="frequency-monthly">
+                    <label class="carousel__label--selected carousel__label--full" for="frequency-monthly">
                       <span class="uppercase weight--bold">Monthly</span>
                       <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
                       <input id="frequency-monthly" class="carousel__radio visually-hidden" type="radio" value="monthly" name="frequency" data-frequency="monthly" checked onclick="ga('send', 'event', 'donations-app', 'click', 'frequency-monthly', {'nonInteraction': 1})">
                     </label>
 
-                    <label class="carousel__label--normal" for="frequency-yearly">
+                    <label class="carousel__label--normal carousel__label--full" for="frequency-yearly">
                       <span class="uppercase weight--bold">Yearly</span>
                       <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
                       <input id="frequency-yearly" class="carousel__radio visually-hidden" type="radio" value="yearly" name="frequency" data-frequency="yearly" onclick="ga('send', 'event', 'donations-app', 'click', 'frequency-yearly', {'nonInteraction': 1})">
                     </label>
 
-                    <label class="carousel__label--normal" for="frequency-once">
+                    <label class="carousel__label--normal carousel__label--full" for="frequency-once">
                       <span class="uppercase weight--bold">One-Time</span>
                       <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
                       <input id="frequency-once" class="carousel__radio visually-hidden" type="radio" value="once" name="frequency" data-frequency="once" onclick="ga('send', 'event', 'donations-app', 'click', 'frequency-once', {'nonInteraction': 1})">
@@ -53,53 +53,38 @@ title: Donate to The Texas Tribune
                 </fieldset>
               </div>
 
-              <div class="carousel__slide--range" aria-hidden="true">
-                <fieldset class="carousel__fieldset">
-                  <legend id="range-legend" class="carousel__legend">I'm prepared to give&hellip;</legend>
-                  <div class="carousel__radios">
-                    <label class="carousel__label--selected" for="range-1">
-                      <span class="weight--bold">Up to $35</span> per month
-                      <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
-                      <input id="range-1" class="carousel__radio visually-hidden" type="radio" name="range" data-range="0" checked>
-                    </label>
-
-                    <label class="carousel__label--normal" for="range-2">
-                      <span class="weight--bold">Up to $100</span> per month
-                      <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
-                      <input id="range-2" class="carousel__radio visually-hidden" type="radio" name="range" data-range="1">
-                    </label>
-
-                    <label class="carousel__label--normal" for="range-3">
-                      <span class="weight--bold">More than $100</span> per month
-                      <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
-                      <input id="range-3" class="carousel__radio visually-hidden" type="radio" name="range" data-range="2">
-                    </label>
-                  </div>
-
-                  <p class="carousel__student"><a class="splash-link--teal" href="https://checkout.texastribune.org/memberform?&amount=10&installmentPeriod=yearly">Interested</a> <span class="bold">in a $10 student membership?</span></p>
-                </fieldset>
-              </div>
-
               <div class="carousel__slide--amount" aria-hidden="true">
                 <fieldset class="carousel__fieldset">
-                  <legend id="amount-legend" class="carousel__legend">Choose an amount</legend>
-                  <div class="carousel__radios">
-                    <label class="carousel__label--normal" for="amount-1">
-                      <span class="weight--bold">$12</span> per month
-                      <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
-                      <input id="amount-1" class="carousel__radio visually-hidden" type="radio" value="12" name="amount">
+                  <legend id="amount-legend" class="carousel__legend">I'm ready to give&hellip;</legend>
+                  <div class="carousel__radios clearfix">
+                    <label class="carousel__label--normal carousel__label--third" for="amount-1">
+                      <span class="weight--bold">$5</span> <span class="carousel__qualifier">per month</span>
+                      <input id="amount-1" class="carousel__radio visually-hidden" type="radio" value="5" name="amount">
                     </label>
 
-                    <label class="carousel__label--selected" for="amount-2">
-                      <span class="weight--bold">$25</span> per month
-                      <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
-                      <input id="amount-2" class="carousel__radio visually-hidden" type="radio" value="25" name="amount" checked>
+                    <label class="carousel__label--selected carousel__label--third" for="amount-2">
+                      <span class="weight--bold">$15</span> <span class="carousel__qualifier">per month</span>
+                      <input id="amount-2" class="carousel__radio visually-hidden" type="radio" value="15" name="amount" checked>
                     </label>
 
-                    <label class="carousel__label--normal" for="amount-3">
-                      <span class="weight--bold">$35</span> per month
-                      <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
-                      <input id="amount-3" class="carousel__radio visually-hidden" type="radio" value="35" name="amount">
+                    <label class="carousel__label--normal carousel__label--third" for="amount-3">
+                      <span class="weight--bold">$25</span> <span class="carousel__qualifier">per month</span>
+                      <input id="amount-3" class="carousel__radio visually-hidden" type="radio" value="25" name="amount">
+                    </label>
+
+                    <label class="carousel__label--normal carousel__label--third" for="amount-4">
+                      <span class="weight--bold">$35</span> <span class="carousel__qualifier">per month</span>
+                      <input id="amount-4" class="carousel__radio visually-hidden" type="radio" value="35" name="amount">
+                    </label>
+
+                    <label class="carousel__label--normal carousel__label--third" for="amount-5">
+                      <span class="weight--bold">$55</span> <span class="carousel__qualifier">per month</span>
+                      <input id="amount-5" class="carousel__radio visually-hidden" type="radio" value="55" name="amount">
+                    </label>
+
+                    <label class="carousel__label--normal carousel__label--third" for="amount-6">
+                      <span class="weight--bold">$85</span> <span class="carousel__qualifier">per month</span>
+                      <input id="amount-6" class="carousel__radio visually-hidden" type="radio" value="85" name="amount">
                     </label>
                   </div>
 
@@ -110,7 +95,7 @@ title: Donate to The Texas Tribune
                       <input id="manual-input" class="carousel__manual-input--normal" type="text" aria-labelledby="manual-label" placeholder="$">
                     </div>
 
-                    <p id="error-message" class="carousel__manual-error faux-hidden">Please enter a number.</p>
+                    <p id="error-message" class="carousel__manual-error hidden">Please enter a number.</p>
                   </div>
                 </fieldset>
 
@@ -125,7 +110,6 @@ title: Donate to The Texas Tribune
 
               <ul class="carousel__indicators clearfix" aria-hidden="true">
                 <li class="carousel__dot--selected"></li>
-                <li class="carousel__dot--normal"></li>
                 <li class="carousel__dot--normal"></li>
               </ul>
 
@@ -171,6 +155,13 @@ title: Donate to The Texas Tribune
             <i class="fa fa-chevron-right"></i>
           </a>
         </p>
+      </div>
+
+      <div class="section">
+        <h3>Circle Membership</h3>
+        <ul class="info-list">
+          <li>A three-year commitment that backs the vital work of our journalists. <a href="/circle.html">Circle members</a> believe in supporting our public service mission so that all Texans have can access our nonpartisan news, data and events at no cost.</li>
+        </ul>
       </div>
     </div>
 

@@ -7,11 +7,10 @@ can't use flexbox or inline-block.
 
 */
 
-$carousel-desktop-height: 330px;
-$carousel-mobile-height: auto;
+$carousel-desktop-height: 275px;
 
 .donate {
-  @include span-columns(6);
+  @include span-columns(5);
 
   @include media($tablet-carousel) {
     @include span-columns(12);
@@ -19,14 +18,13 @@ $carousel-mobile-height: auto;
 
   @include media($mobile) {
     background-color: $white;
-    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d2d0d0' fill-opacity='0.5' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
     border-bottom: 1px solid $gray-light;
     padding-bottom: 1.5em;
   }
 
   &__inner {
     background-color: $white;
-    padding: 1.5em 1.5em 0 1.5em;
+    padding: 1em 1em 0 1em;
     position: relative;
     transition: opacity .5s;
     zoom: 1;
@@ -92,10 +90,6 @@ $carousel-mobile-height: auto;
   overflow-x: hidden;
   width: 100%;
 
-  @include media($mobile) {
-    height: $carousel-mobile-height;
-  }
-
   &__form {
     overflow-y: hidden;
     position: relative; // for old IE so we can use left instead of translate
@@ -131,13 +125,12 @@ $carousel-mobile-height: auto;
   &__legend {
     @extend .weight--bold;
     display: block;
-    font-size: 1.4em;
-    margin-bottom: 1em;
+    font-size: 1.8em;
+    margin-bottom: .5em;
     text-align: center;
   }
 
   &__label {
-    @extend .form-button--full;
     border-color: $yellow-tribune;
     color: $black;
     margin-top: 1em;
@@ -145,8 +138,10 @@ $carousel-mobile-height: auto;
     &--selected {
       @extend .carousel__label;
       background-color: $white;
-      // prevent checkmark from moving
-      text-indent: 16px;
+
+      .carousel__slide--frequency & {
+        text-indent: 16px;
+      }
     }
 
     &--normal {
@@ -154,13 +149,28 @@ $carousel-mobile-height: auto;
       background-color: $yellow-tribune;
     }
 
-    &:first-child {
-      margin-top: 0;
+    &--full {
+      @extend .form-button--full;
+      @extend .form-button--thick;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    &--third {
+      @extend .form-button--third;
+      @extend .form-button--thin;
     }
 
     &:hover {
       background-color: $white;
     }
+  }
+
+  &__qualifier {
+    font-size: .7em;
+    letter-spacing: .03em;
   }
 
   &__checkmark {
@@ -231,7 +241,9 @@ $carousel-mobile-height: auto;
 
   &__submit {
     @extend .form-button--full;
+    @extend .form-button--thin;
     @extend .uppercase;
+    @extend .weight--bold;
     background-color: #222;
     border-color: #222;
     color: $white;
@@ -250,13 +262,6 @@ $carousel-mobile-height: auto;
     margin-left: -120px;
     position: absolute;
     width: 240px;
-
-    @include media($mobile) {
-      bottom: auto;
-      left: auto;
-      margin: 1em auto 0 auto;
-      position: static;
-    }
   }
 
   &__indicators {
@@ -306,6 +311,12 @@ $carousel-mobile-height: auto;
       @extend .carousel__button;
     }
 
+    // hack to make button not appear
+    // we don't want to display: none because
+    // then it throws off the alignment of the controls.
+    // this is OK for accessibility because the button
+    // also gets the disabled Boolean attribute
+    // which is screen-reader friendly
     &.disabled {
       color: $white;
     }

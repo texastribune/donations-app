@@ -1,7 +1,8 @@
 .index {
   .splash {
     background-color: lighten($black, 20%);
-    background-image: url('../bg/support-us-header-bg.jpg');
+    background-position-x: 50%;
+    background-image: url('../bg/bg2.jpg');
 
     @include media($mobile) {
       background-image: none;
@@ -9,14 +10,15 @@
   }
 
   .splash-header {
-    font-size: 4.2em;
+    font-size: 3.2em;
+    padding-bottom: .5em;
 
     @include media($tablet-carousel) {
-      font-size: 3.6em;
+      font-size: 3em;
     }
 
     @include media($mobile) {
-      font-size: 2.4em;
+      font-size: 1.8em;
       // following two properties are useful
       // when applying dark overlay via :before
       position: relative;
@@ -27,7 +29,7 @@
   .splash-greeting {
     text-align: left;
 
-    @include span-columns(6);
+    @include span-columns(7);
       @include shift(0);
 
     @include media($tablet-carousel) {
@@ -36,7 +38,8 @@
     }
 
     @include media($mobile) {
-      background-image: url('../bg/support-us-header-bg.jpg');
+      background-image: url('../bg/bg2.jpg');
+      background-position-x: 50%;
       background-size: cover;
       position: relative;
 
@@ -60,7 +63,7 @@
     z-index: 2;
 
     @include media($tablet-carousel) {
-      display: block;
+      display: none;
     }
   }
 
@@ -76,7 +79,8 @@
 
   .main {
     @include media($mobile) {
-      margin-top: 1em;
+      background-color: #f9f9f9;
+      padding-top: 1em;
     }
   }
 
