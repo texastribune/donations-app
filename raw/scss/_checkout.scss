@@ -26,7 +26,6 @@ $carousel-height: 285px;
     background-color: $white;
     padding: 1em 1em 0 1em;
     position: relative;
-    transition: opacity .5s;
     zoom: 1;
 
     @include media($tablet-carousel) {
@@ -92,7 +91,6 @@ $carousel-height: 285px;
     overflow-y: hidden;
     position: relative; // for old IE so we can use left instead of translate
     transition: transform .5s;
-    will-change: transform;
   }
 
   &__slide {
@@ -229,7 +227,7 @@ $carousel-height: 285px;
 
     &--normal {
       @extend .carousel__manual-input;
-      border-color: $gray-medium;
+      border-color: $teal-tribune;
     }
   }
 
@@ -260,9 +258,9 @@ $carousel-height: 285px;
     bottom: 1em;
     display: table;
     left: 50%;
-    margin-left: -120px;
+    margin-left: -96px;
     position: absolute;
-    width: 240px;
+    width: 192px;
 
     @include media($mobile) {
       bottom: 0;
@@ -280,9 +278,8 @@ $carousel-height: 285px;
     border-radius: 50%;
     border: 1px solid $gray-dark;
     display: block;
-    float: left;
     height: 10px;
-    margin-right: 1.5em;
+    margin-right: .5em;
     width: 10px;
 
     &--normal {
@@ -295,7 +292,12 @@ $carousel-height: 285px;
       background-color: $gray-dark;
     }
 
+    &:first-child {
+      float: left;
+    }
+
     &:last-child {
+      float: right;
       margin-right: 0;
     }
   }
