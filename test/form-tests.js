@@ -12,15 +12,13 @@ describe('Donation carousel form', () => {
     this.jsdom = require('jsdom-global')();
     window.jQuery = window.$ = global.$ = require('jquery');
     $('body').append( $('<input id="frequency-radio" type="radio" data-frequency="monthly"/>') );
-    $('body').append( $('<input id="range-radio" type="radio" data-range="2"/>') );
     $('body').append( $('<input id="amount-radio" type="radio"/>') );
 
     DonationForm = new FormHandler({
-      rangesAttach: $('<div/>'),
       amountsAttach: $('<div/>'),
       outerContainer: $('<div/>'),
       innerContainer: $('<div/>'),
-      carouselSlides: $('<div/><div/><div/>'),
+      carouselSlides: $('<div aria-hidden="true"/><div/>'),
       prevButton: $('<button/>'),
       nextButton: $('<button/>'),
       submitButton: $('<input type="submit"/>'),
@@ -28,39 +26,17 @@ describe('Donation carousel form', () => {
       form: $('<form/>'),
       errorMessage: $('<p/>'),
       frequenciesRadios: '#frequency-radio',
-      rangesRadios: '#range-radio',
       amountsRadios: '#amount-radio',
       indicators: $('<div/><div/><div/>'),
       fadeEl: $('<div/>'),
-      defaultFrequenciesIndex: 1,
-      defaultRangesIndex: 1,
-      defaultAmountsIndex: 1,
+      defaultAmountsIndex: 2,
       startSlide: 0,
       startFrequency: 'monthly',
-      frequenciesToRanges: {
-        once: ['Up to $35', 'Up to $100', 'More than $100'],
-        monthly: ['Up to $35', 'Up to $100', 'More than $100'],
-        yearly: ['Up to $35', 'Up to $100', 'More than $100']
-      },
-
-      rangesToAmounts: {
-        once: [
-          [12, 25, 35],
-          [45, 65, 100],
-          [250, 500, 850]
-        ],
-
-        monthly: [
-          [12, 25, 35],
-          [45, 65, 100],
-          [250, 500, 850]
-        ],
-
-        yearly: [
-          [12, 25, 35],
-          [45, 65, 100],
-          [250, 500, 850]
-        ]
+      animationLength: 400,
+      frequenciesToAmounts: {
+        once: [50, 75, 100, 200, 500, 1000],
+        monthly: [5, 10, 15, 25, 55, 85],
+        yearly: [50, 75, 100, 200, 500, 1000]
       }
     });
   });
@@ -68,7 +44,7 @@ describe('Donation carousel form', () => {
   it('inner container should be outer container width times number of slides', () => {
     sinon.stub(DonationForm, 'getOuterContainerWidth').returns(100);
     DonationForm.setInnerContainerWidth();
-    assert.equal(DonationForm.innerContainer.css('width'), '300px');
+    assert.equal(DonationForm.innerContainer.css('width'), '200px');
   });
 
   it('slide width should be equal to outer container width', () => {
@@ -84,58 +60,17 @@ describe('Donation carousel form', () => {
     assert.equal(DonationForm.innerContainer.css('transform'), 'translateX(-200px)');
   });
 
-  it('inner container height should equal current slide height', () => {
-    sinon.stub(DonationForm, 'getCurrSlideHeight').returns(100);
-    DonationForm.setInnerContainerHeight();
-    assert.equal(DonationForm.innerContainer.css('height'), '100px');
-  });
-
-  it('new ranges should be array at index retrieved from frequency radio', () => {
+  it('new amounts should be array based on current frequency', () => {
     DonationForm.currFrequency = 'yearly';
-    const newRangesValues = DonationForm.getFrequenciesToRangesValues();
-    assert.deepEqual(newRangesValues, ['Up to $35', 'Up to $100', 'More than $100']);
-  });
-
-  it('new amounts should be array at index retrieved from range radio', () => {
-    const newRangesValues = DonationForm.getRangesToAmountsValues(2);
-    DonationForm.currFrequency = 'monthly';
-    assert.deepEqual(newRangesValues, [250, 500, 850]);
-  });
-
-  it('frequency changes should reset amounts to default', () => {
-    DonationForm.defaultRangesIndex = 1;
-    const defaultRangesToAmounts = DonationForm.rangesToAmounts['monthly'][DonationForm.defaultRangesIndex];
-    const spy = sinon.spy(DonationForm, 'getRangesToAmountsValues');
-    DonationForm.bindRadioEvents();
-    DonationForm.frequenciesRadios.trigger('change');
-    // our fake frequency radio has data-frequency="monthly"
-    assert.equal(spy.returnValues[0], defaultRangesToAmounts);
-  });
-
-  it('ranges markup should contain certain values', () => {
-    const markup = DonationForm.buildRangesMarkup(['Up to $35', 'Up to $100', 'More than $100']);
-    assert.include(markup, 'aria-labelledby="range-legend"');
-    assert.include(markup, 'for="range-');
-    assert.include(markup, 'id="range-');
-    assert.include(markup, 'Up to $100');
+    const newRangesValues = DonationForm.getFrequenciesToAmountsValues();
+    assert.deepEqual(newRangesValues, [50, 75, 100, 200, 500, 1000]);
   });
 
   it('amounts markup should contain certain values', () => {
-    const markup = DonationForm.buildAmountsMarkup([45, 65, 100]);
-    assert.include(markup, 'aria-labelledby="amount-legend"');
+    const markup = DonationForm.buildAmountsMarkup([5, 10, 15, 25, 55, 85]);
     assert.include(markup, 'for="amount-');
     assert.include(markup, 'id="amount-');
-    assert.include(markup, '$65');
-  });
-
-  it('ranges markup should have frequency marker if not one-time', () => {
-    DonationForm.currFrequency = 'monthly';
-    let markup = DonationForm.buildRangesMarkup(['bar', 'baz', 'foo', 'lorem']);
-    assert.include(markup.trim(), 'per month');
-
-    DonationForm.currFrequency = 'once';
-    markup = DonationForm.buildRangesMarkup(['bar', 'baz', 'foo', 'lorem']);
-    assert.notInclude(markup.trim(), 'one time');
+    assert.include(markup, '$55');
   });
 
   it('amounts markup should have frequency marker if not one-time', () => {
@@ -148,18 +83,10 @@ describe('Donation carousel form', () => {
     assert.notInclude(markup.trim(), 'one time');
   });
 
-  it('new ranges markup should have default selection', () => {
-    DonationForm.defaultRangesIndex = 1;
-    const checked = DonationForm.shouldBeChecked('range', 1);
-    const unchecked = DonationForm.shouldBeChecked('range', 2);
-    assert.isTrue(checked);
-    assert.isFalse(unchecked);
-  });
-
   it('new amounts markup should have default selection', () => {
     DonationForm.defaultAmountsIndex = 2;
-    const checked = DonationForm.shouldBeChecked('amount', 2);
-    const unchecked = DonationForm.shouldBeChecked('amount', 1);
+    const checked = DonationForm.shouldBeChecked(2);
+    const unchecked = DonationForm.shouldBeChecked(1);
     assert.isTrue(checked);
     assert.isFalse(unchecked);
   });
@@ -168,8 +95,7 @@ describe('Donation carousel form', () => {
     const spy = sinon.spy(DonationForm, 'reinitRadioEvents');
     DonationForm.bindRadioEvents();
     DonationForm.frequenciesRadios.trigger('change');
-    DonationForm.rangesRadios.trigger('change');
-    assert.isAtLeast(spy.callCount, 2);
+    assert.isAtLeast(spy.callCount, 1);
   });
 
   it('changing a radio should update the selected class', () => {
@@ -180,15 +106,15 @@ describe('Donation carousel form', () => {
   });
 
   it('clicking next does nothing when at last slide', () => {
-    const spy = sinon.spy(DonationForm, 'updateCurrSlide');
+    const spy = sinon.spy(DonationForm, 'incrementSlide');
+    DonationForm.currSlide = DonationForm.numSlides - 1;
     DonationForm.bindCarouselEvents();
-    DonationForm.currSlide = DonationForm.numSlides-1;
     DonationForm.nextButton.trigger('click');
     assert.isFalse(spy.called);
   });
 
   it('clicking previous does nothing when at first slide', () => {
-    const spy = sinon.spy(DonationForm, 'updateCurrSlide');
+    const spy = sinon.spy(DonationForm, 'decrementSlide');
     DonationForm.bindCarouselEvents();
     DonationForm.currSlide = 0;
     DonationForm.prevButton.trigger('click');
@@ -219,7 +145,7 @@ describe('Donation carousel form', () => {
 
   it('any time you are allowed to click next, it should enable previous', () => {
     const spy = sinon.spy(DonationForm, 'enableButton');
-    DonationForm.currSlide = 1;
+    DonationForm.currSlide = 0;
     DonationForm.bindCarouselEvents();
     DonationForm.nextButton.trigger('click');
     assert.isTrue(spy.calledWith('prev'));
@@ -235,14 +161,14 @@ describe('Donation carousel form', () => {
 
   it('if clicking next means moving to last slide, disable next', () => {
     const spy = sinon.spy(DonationForm, 'disableButton');
-    DonationForm.currSlide = 1;
+    DonationForm.currSlide = 0;
     DonationForm.bindCarouselEvents();
     DonationForm.nextButton.trigger('click');
     assert.isTrue(spy.calledWith('next'));
   });
 
   it('dots should indicate current slide', () => {
-    DonationForm.currSlide = 1;
+    DonationForm.currSlide = 0;
     DonationForm.bindCarouselEvents();
     DonationForm.nextButton.trigger('click');
     assert.isTrue( DonationForm.indicators.eq(DonationForm.currSlide).hasClass('carousel__dot--selected') );
@@ -251,19 +177,15 @@ describe('Donation carousel form', () => {
 
   it('all slides but current should have aria-hidden', () => {
     DonationForm.currSlide = 1;
-    DonationForm.carouselSlides = $('<div aria-hidden="true"/><div/><div aria-hidden="true"/>');
     DonationForm.bindCarouselEvents();
 
     DonationForm.prevButton.trigger('click');
     assert.equal('true', DonationForm.carouselSlides.eq(1).attr('aria-hidden'));
-    assert.equal('true', DonationForm.carouselSlides.eq(2).attr('aria-hidden'));
     assert.notEqual('true', DonationForm.carouselSlides.eq(0).attr('aria-hidden'));
 
     DonationForm.nextButton.trigger('click');
-    DonationForm.nextButton.trigger('click');
     assert.equal('true', DonationForm.carouselSlides.eq(0).attr('aria-hidden'));
-    assert.equal('true', DonationForm.carouselSlides.eq(1).attr('aria-hidden'));
-    assert.notEqual('true', DonationForm.carouselSlides.eq(2).attr('aria-hidden'));
+    assert.notEqual('true', DonationForm.carouselSlides.eq(1).attr('aria-hidden'));
   });
 
   it('during animation, new current slide should get aria-live', () => {
@@ -288,14 +210,8 @@ describe('Donation carousel form', () => {
     assert.isTrue(spy.called);
   });
 
-  it('should remove range from serialized input', () => {
-    const input = ['frequency=monthly', 'range=foo', 'amount=bar'];
-    DonationForm.removeRangeFromInput(input);
-    assert.deepEqual(['frequency=monthly', 'amount=bar'], input);
-  });
-
   it('should convert the input string to an object', () => {
-    const input = 'frequency=monthly&range=foo&amount=bar';
+    const input = 'frequency=monthly&amount=bar';
     const inputAsObject = DonationForm.convertInputToObject(input);
     assert.deepEqual({ frequency: 'monthly', amount: 'bar' }, inputAsObject);
   });
@@ -306,6 +222,7 @@ describe('Donation carousel form', () => {
     assert.isFalse(DonationForm.isValidAmountInput('$1234'));
     assert.isFalse(DonationForm.isValidAmountInput('1,234'));
     assert.isFalse(DonationForm.isValidAmountInput('1234a'));
+    assert.isFalse(DonationForm.isValidAmountInput(''));
   });
 
   it('four-digit numbers should have commas', () => {
