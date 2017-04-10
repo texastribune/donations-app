@@ -8,7 +8,12 @@
 
   .splash {
     background-color: lighten($black, 20%);
-    background-image: url("../bg/bg4.jpg");
+    background-image: url('../bg/levels.jpg');
+    background-position-x: 100%;
+
+    @include media($tablet) {
+      background-position-x: 0;
+    }
   }
 
   h2 {
@@ -32,6 +37,7 @@
   .social {
     display: inline;
     margin: 0;
+
     @include media($tablet) {
       display: block;
       margin: 0.5em 0;

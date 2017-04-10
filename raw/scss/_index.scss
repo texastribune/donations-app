@@ -2,7 +2,7 @@
   .splash {
     background-color: lighten($black, 20%);
     background-position-x: 50%;
-    background-image: url('../bg/bg2.jpg');
+    background-image: url('../bg/index.jpg');
 
     @include media($mobile) {
       background-image: none;
@@ -38,7 +38,7 @@
     }
 
     @include media($mobile) {
-      background-image: url('../bg/bg2.jpg');
+      background-image: url('../bg/index.jpg');
       background-position-x: 50%;
       background-size: cover;
       position: relative;

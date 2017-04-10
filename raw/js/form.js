@@ -124,7 +124,7 @@ export default class FormHandler {
       ${newAmountsValues.map((val, index) => `
         <label class="carousel__label${this.shouldBeChecked(index) ? `--selected`: `--normal`} carousel__label--third" for="amount-${index+1}">
           <span class="weight--bold">$${this.putCommasInNumber(val)}</span> <span class="carousel__qualifier">${this.getFrequenciesLabelMarker()}</span>
-          <input class="carousel__radio visually-hidden" type="radio" value="${val}" name="amount" id="amount-${index+1}" ${this.shouldBeChecked('amount', index) ? `checked` : ``}>
+          <input class="carousel__radio visually-hidden" type="radio" value="${val}" name="amount" id="amount-${index+1}" ${this.shouldBeChecked(index) ? `checked` : ``}>
         </label>
       `).join('\n')}
     `;
@@ -355,7 +355,6 @@ export default class FormHandler {
   // would be nice to use delegation, but that makes
   // testing difficult because then we can't .trigger()
   reinitRadioEvents() {
-    this.frequenciesRadios = $(this.originalOpts.frequenciesRadios);
     this.amountsRadios = $(this.originalOpts.amountsRadios);
     this.bindRadioEvents();
   }

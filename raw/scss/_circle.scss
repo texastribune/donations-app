@@ -6,8 +6,12 @@
 
   .splash {
     background-color: lighten($black, 25%);
-    background-image: url("../bg/bg5.jpg");
+    background-image: url('../bg/circle.jpg');
     background-position-x: 100%;
+
+    @include media($tablet-carousel) {
+      background-position-x: 0%;
+    }
   }
 
   .main {
