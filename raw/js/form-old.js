@@ -13,7 +13,8 @@ export default class FormHandler {
     this.manualInput = opts.manualInput;
     this.form = opts.form;
     this.errorMessage = opts.errorMessage;
-    this.frequenciesRadios = $(opts.frequenciesRadios);
+    this.frequenciesLabels = opts.frequenciesLabels;
+    this.frequenciesRadios = opts.frequenciesRadios;
     this.amountsRadios = $(opts.amountsRadios);
     this.indicators = opts.indicators;
     this.fadeEl = opts.fadeEl;
@@ -21,6 +22,7 @@ export default class FormHandler {
     this.currSlide = opts.startSlide;
     this.currFrequency = opts.startFrequency;
     this.numSlides = this.carouselSlides.length;
+    this.animationDelay = opts.animationDelay;
     this.animationLength = opts.animationLength;
     this.frequenciesToAmounts = opts.frequenciesToAmounts;
   }
@@ -74,7 +76,9 @@ export default class FormHandler {
   // removes "loading" overlay
   // when all the widths have been set
   removeCarouselLoadingClass() {
-    this.fadeEl.removeClass('unloaded').addClass('loaded');
+    this.fadeEl
+      .removeClass('unloaded')
+      .addClass('loaded');
   }
 
   // takes a frequency radio as parameter
@@ -109,7 +113,6 @@ export default class FormHandler {
     } else if (this.currFrequency === 'yearly') {
       return 'per year';
     }
-
     return '';
   }
 
@@ -161,6 +164,22 @@ export default class FormHandler {
     }
   }
 
+  // receives a frequency label as a parameter
+  // returns true if it contains the class indicating it
+  // is the default selection
+  isPreselectedDefault($el) {
+    return $el.hasClass('carousel__label--preselected');
+  }
+
+  // gives the default frequency the actual selected class
+  // aesthetically, this means that if clicked, the
+  // checkmark becomes visible
+  preselectionToSelection($el) {
+    $el
+      .removeClass('carousel__label--preselected')
+      .addClass('carousel__label--selected');
+  }
+
   // update the indicator dots
   updateIndicators(which) {
     const lastSlide = (which === 'prev' ? this.currSlide + 1 : this.currSlide - 1);
@@ -169,10 +188,12 @@ export default class FormHandler {
     this.indicators.eq(this.currSlide).attr('class', 'carousel__dot--selected');
   }
 
+  // reduce slide index by one
   decrementSlide() {
     this.currSlide--;
   }
 
+  // increase slide index by one
   incrementSlide() {
     this.currSlide++;
   }
@@ -356,11 +377,11 @@ export default class FormHandler {
   // testing difficult because then we can't .trigger()
   reinitRadioEvents() {
     this.amountsRadios = $(this.originalOpts.amountsRadios);
-    this.bindRadioEvents();
+    this.bindAmountsEvents();
   }
 
-  // bind radio button events
-  bindRadioEvents() {
+  // bind events related to frequency radios
+  bindFrequenciesEvents() {
     const self = this;
 
     this.frequenciesRadios.change(function() {
@@ -375,6 +396,24 @@ export default class FormHandler {
       self.appendAmountsMarkupToDOM(newAmountsMarkup);
       self.reinitRadioEvents();
     });
+
+    this.frequenciesLabels.click(function() {
+      const $this = $(this);
+
+      if (self.isPreselectedDefault($this)) {
+        self.preselectionToSelection($this);
+      }
+
+      window.setTimeout(function() {
+        self.nextButton.trigger('click');
+      }, self.animationDelay);
+    });
+  }
+
+  // bind events related to amounts radios
+  // and manual input
+  bindAmountsEvents() {
+    const self = this;
 
     this.amountsRadios.change(function() {
       self.removeValidationError();
@@ -463,7 +502,8 @@ export default class FormHandler {
 
   // bind all events
   bindAllEvents() {
-    this.bindRadioEvents();
+    this.bindFrequenciesEvents();
+    this.bindAmountsEvents();
     this.bindCarouselEvents();
     this.bindFormEvents();
     this.bindWindowEvents();

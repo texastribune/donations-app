@@ -49,7 +49,13 @@ title: Donate to The Texas Tribune
                 <fieldset class="carousel__fieldset">
                   <legend id="frequency-legend" class="carousel__legend">Donate today</legend>
                   <div class="carousel__radios">
-                    <label class="carousel__label--selected carousel__label--full" for="frequency-monthly">
+                    <label class="carousel__label--normal carousel__label--full" for="frequency-once">
+                      <span class="uppercase weight--bold">One-Time</span>
+                      <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
+                      <input id="frequency-once" class="carousel__radio visually-hidden" type="radio" value="once" name="frequency" data-frequency="once" onclick="ga('send', 'event', 'Support Page', 'donations-app', 'frequency-once', {'nonInteraction': 1})">
+                    </label>
+
+                    <label class="carousel__label--preselected carousel__label--full" for="frequency-monthly">
                       <span class="uppercase weight--bold">Monthly</span>
                       <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
                       <input id="frequency-monthly" class="carousel__radio visually-hidden" type="radio" value="monthly" name="frequency" data-frequency="monthly" checked onclick="ga('send', 'event', 'Support Page', 'donations-app', 'frequency-monthly', {'nonInteraction': 1})">
@@ -59,12 +65,6 @@ title: Donate to The Texas Tribune
                       <span class="uppercase weight--bold">Yearly</span>
                       <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
                       <input id="frequency-yearly" class="carousel__radio visually-hidden" type="radio" value="yearly" name="frequency" data-frequency="yearly" onclick="ga('send', 'event', 'Support Page', 'donations-app', 'frequency-yearly', {'nonInteraction': 1})">
-                    </label>
-
-                    <label class="carousel__label--normal carousel__label--full" for="frequency-once">
-                      <span class="uppercase weight--bold">One-Time</span>
-                      <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
-                      <input id="frequency-once" class="carousel__radio visually-hidden" type="radio" value="once" name="frequency" data-frequency="once" onclick="ga('send', 'event', 'Support Page', 'donations-app', 'frequency-once', {'nonInteraction': 1})">
                     </label>
                   </div>
                 </fieldset>

@@ -134,6 +134,15 @@ $carousel-height: 285px;
     color: $black;
     margin-top: 1em;
 
+    &--preselected {
+      @extend .carousel__label;
+      background-color: $white;
+
+      .carousel__checkmark {
+        display: none;
+      }
+    }
+
     &--selected {
       @extend .carousel__label;
       background-color: $white;

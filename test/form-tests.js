@@ -25,13 +25,15 @@ describe('Donation carousel form', () => {
       manualInput: $('<input type="text"/>'),
       form: $('<form/>'),
       errorMessage: $('<p/>'),
-      frequenciesRadios: '#frequency-radio',
+      frequenciesLabels: $('<label/><label/>'),
+      frequenciesRadios: $('#frequency-radio'),
       amountsRadios: '#amount-radio',
       indicators: $('<div/><div/><div/>'),
       fadeEl: $('<div/>'),
       defaultAmountsIndex: 2,
       startSlide: 0,
       startFrequency: 'monthly',
+      animationDelay: 200,
       animationLength: 400,
       frequenciesToAmounts: {
         once: [50, 75, 100, 200, 500, 1000],
@@ -91,16 +93,16 @@ describe('Donation carousel form', () => {
     assert.isFalse(unchecked);
   });
 
-  it('events should be reinitialized after a radio change', () => {
+  it('events should be reinitialized after a frequency radio change', () => {
     const spy = sinon.spy(DonationForm, 'reinitRadioEvents');
-    DonationForm.bindRadioEvents();
+    DonationForm.bindFrequenciesEvents();
     DonationForm.frequenciesRadios.trigger('change');
     assert.isAtLeast(spy.callCount, 1);
   });
 
   it('changing a radio should update the selected class', () => {
     const spy = sinon.spy(DonationForm, 'updateSelectedClass');
-    DonationForm.bindRadioEvents();
+    DonationForm.bindAmountsEvents();
     DonationForm.amountsRadios.trigger('change');
     assert.isTrue(spy.calledWith('amount'));
   });
@@ -165,6 +167,19 @@ describe('Donation carousel form', () => {
     DonationForm.bindCarouselEvents();
     DonationForm.nextButton.trigger('click');
     assert.isTrue(spy.calledWith('next'));
+  });
+
+  it('clicking a frequency label should move carousel to amounts slide', () => {
+    const spy = sinon.spy(DonationForm, 'setTransform');
+    sinon.stub(DonationForm, 'getOuterContainerWidth').returns(100);
+    DonationForm.currSlide = 0;
+    DonationForm.bindCarouselEvents();
+    DonationForm.bindFrequenciesEvents();
+    DonationForm.frequenciesLabels.trigger('click');
+    setTimeout(function(){
+      assert.isTrue(spy.called);
+      assert.equal(DonationForm.innerContainer.css('transform'), 'translateX(-100px)');
+    }, DonationForm.animationDelay);
   });
 
   it('dots should indicate current slide', () => {
