@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
 
+    <link href="//cdn.optimizely.com/" rel="dns-prefetch">
+
     <title><%= current_page.data.title %> | The Texas Tribune</title>
     <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
 
@@ -47,6 +49,8 @@
     <!--<![endif]-->
 
     <%= yield_content :ie_styles %>
+
+    <script src="https://cdn.optimizely.com/js/1290820213.js"></script>
   </head>
   <body class="<%= page_classes %>">
     <!-- Google Tag Manager (noscript) -->
