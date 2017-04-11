@@ -16,7 +16,7 @@ const DonationForm = new FormHandler({
   manualInput: $('#manual-input'),
   form: $('.carousel__form'),
   errorMessage: $('#error-message'),
-  frequenciesLabels: $('.carousel__slide--frequency [class*=carousel__label'),
+  frequenciesLabels: $('.carousel__slide--frequency [class*=carousel__label]'),
   frequenciesRadios: $('.carousel__slide--frequency .carousel__radio'),
   amountsRadios: '.carousel__slide--amount .carousel__radio',
   indicators: $('[class*=carousel__dot]'),
