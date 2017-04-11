@@ -3,7 +3,7 @@ title: Donate to The Texas Tribune
 ---
 
 <% content_for :ie_styles do %>
-  <!--[if lte IE 8 ]>
+  <!--[if lte IE 8]>
     <style>
       body {
         width: 960px !important;
@@ -30,8 +30,46 @@ title: Donate to The Texas Tribune
       }
 
       .index .carousel__label--third {
-        width: 30% !important;
         margin-right: 3% !important;
+      }
+    </style>
+  <![endif]-->
+
+  <!--[if IE 8]>
+    <style>
+      .index .carousel__label--third {
+        width: 30% !important;
+      }
+    </style>
+  <![endif]-->
+
+  <!--[if IE 7]>
+    <style>
+      .index .splash {
+        background-image: none !important;
+      }
+
+      .index .donate__inner {
+        padding: 0 !important;
+        overflow: hidden !important;
+      }
+
+      .index .carousel__slide--frequency,
+      .index .carousel__slide--amount {
+        padding: 0 !important;
+      }
+
+      .index .carousel__radios {
+        overflow: hidden !important;
+      }
+
+      .index .carousel__label--third {
+        width: 25% !important;
+      }
+
+      .index .carousel__manual {
+        width: 300px !important;
+        max-width: none !important;
       }
     </style>
   <![endif]-->
