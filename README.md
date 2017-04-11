@@ -12,7 +12,7 @@ To get started:
 ### `raw/`
 Contains files that will eventually be compiled or otherwise transformed with Webpack.
 
-+ `raw/js`: Place all ES2015 modules here, as well as entry points. More on this later.
++ `raw/js`: Place all ES2015 modules and entry points here. Right now, there is a form module for old browsers and for modern browsers, plus an entry point for each (I'm sure you can figure out which is which by the file names). The only difference between the old-browser form module and the new one is that the old uses the CSS `left` property instead of `transform` to deal with carousel actions.
 + `raw/bg`: Place all background images here. That's because SCSS files `require()` them and will therefore be part of the Webpack build process.
 + `raw/scss`: Place all SCSS files -- partials and entry points -- here.
 
@@ -52,22 +52,24 @@ Inline critical CSS in all of the built HTML files using [inline-critical](https
 
 ## Commands
 + `npm run dev`: Fire up the development server. This will enable live reloading of templates, JavaScript and CSS.
-+ `npm test`: Run unit tests.
++ `npm run build`: Build for production.
++ `npm run middleman`: Build the modern and legacy JavaScript bundle. Then do the Middleman build process. Then inline critical CSS.
++ `npm run old-js`: Using Webpack, build a JavaScript bundle for old browsers.
++ `npm run es3`: After we've built our bundle for old browsers, use [es3ify](https://www.npmjs.com/package/es3ify) to make sure the syntax is OK.
 + `npm run critical`: Inline critical CSS
-+ `npm run modern`: Build for production for modern browsers.
-+ `npm run old`: Build for production for old browsers.
-+ `npm run es3`: Make our JavaScript compatible with old browsers, notably IE 8 and below.
-+ `npm run build`: Runs the modern build and old build commands sequentially.
++ `npm test`: Run unit tests.
 
 
-## Why two build processes?
-The short answer: We want to support IE 8, but we still want to write modern JavaScript. So when you do `npm run build`, here's what happens:
+## Why the weird build process?
+The short answer: We want to support IE 7 and 8, but we still want to write modern JavaScript. So when you do `npm run build`, here's what happens:
+
++ Using `webpack.config.old.js` and the entry point `raw/js/index-old.js`, our JavaScript is compiled into `bundle-es3.js` and placed in `source/javascripts`.
++ `bundle-es3.js` is run through [es3ify](https://www.npmjs.com/package/es3ify) to make it compliant with IE 8 and below.
 + Using `webpack.config.js`, our JavaScript is compiled from the entry point `raw/js/index.js` into `bundle.js` and placed in `source/javascripts`. It uses [babel-preset-es2015](http://babeljs.io/docs/plugins/preset-es2015/) straight up.
-+ Middleman then minifies everything in `source/` and places it in `build/`.
-+ Next, using `webpack.config.old.js` and the entry point `raw/js/old.js`, our JavaScript is compiled into `bundle-es3.js` and placed in `build/javascripts`. Middleman has already done its production build, so there is no point in putting this compiled file in `source/` first.
-+ Finally, `bundle-es3.js` is run through [es3ify](https://www.npmjs.com/package/es3ify) to make it compliant with IE 8 and below.
++ Middleman then does its production build, minifying everything in `source/` and placing it in `build/`.
++ Finally, critical CSS is inlined.
 
-If you look at the bottom of `source/layouts/layout.erb`, you'll notice that [es5-shim](https://github.com/es-shims/es5-shim) and `bundle-es3.js` are only included for old IE versions.
+If you look at the bottom of `source/layouts/layout.erb`, you'll notice that `bundle-es3.js` is only included for old IE versions.
 
 
 ## Deploying
