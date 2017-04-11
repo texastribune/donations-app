@@ -24,12 +24,12 @@ const DonationForm = new FormHandler({
   defaultAmountsIndex: 2,
   startSlide: 0,
   startFrequency: 'monthly',
-  animationDelay: 200,
+  animationDelay: 300,
   animationLength: 400,
   frequenciesToAmounts: {
     once: [50, 75, 100, 200, 500, 1000],
     monthly: [5, 10, 15, 25, 55, 85],
-    yearly: [50, 75, 100, 200, 500, 1000]
+    yearly: [50, 75, 100, 250, 500, 1000]
   }
 });
 

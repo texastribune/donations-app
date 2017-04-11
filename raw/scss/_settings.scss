@@ -48,6 +48,7 @@ $link-nav: white;
 
 @mixin background-sizing {
   background-size: cover;
+  background-position-y: center;
   background-repeat: no-repeat;
 }
 

@@ -13,6 +13,12 @@
     font-size: 3.2em;
     padding-bottom: .5em;
 
+    // arbitrary breakpoint to make text
+    // look pretty
+    @media screen and (max-width: 925px) {
+      font-size: 2.8em;
+    }
+
     @include media($tablet-carousel) {
       font-size: 3em;
     }

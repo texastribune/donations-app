@@ -1,4 +1,4 @@
-// Splash banner
+// splash banner
 .splash {
   @include background-sizing;
 
@@ -27,14 +27,15 @@
 }
 
 .splash-support {
+  @extend .weight--bold;
   color: $yellow-tribune;
 }
 .splash-info {
+  @extend .weight--normal;
   color: $white;
 }
 
 .splash-info, .splash-support {
-  @extend .weight--normal;
   @include hide-for-mobile;
   font-size: 1.2em;
   letter-spacing: .03em;
@@ -96,13 +97,12 @@
 
 .button-flat, .button-flat a {
   background-color: $yellow-tribune;
-  border: none;
+  border: 2px solid $yellow-tribune;
   color: $black;
 
   &:hover {
     @include fast-transition(background-color);
-    background-color: $teal-tribune;
-    color: $white;
+    background-color: $white;
   }
 }
 
