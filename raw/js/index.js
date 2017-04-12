@@ -1,10 +1,6 @@
 import '../scss/all.scss';
 import FormHandler from './form';
 
-(function resetForm() {
-  document.forms[0].reset();
-})();
-
 const DonationForm = new FormHandler({
   amountsAttach: $('.carousel__slide--amount .carousel__radios'),
   outerContainer: $('#carousel-outer'),

@@ -126,6 +126,7 @@ $carousel-height: 285px;
   }
 
   &__radios {
+    -webkit-margin-before-collapse: separate;
     margin-top: 1em;
   }
 
@@ -176,9 +177,13 @@ $carousel-height: 285px;
     }
   }
 
+  &__dollars {
+    @extend .weight--bold;
+    font-size: .9em;
+  }
+
   &__qualifier {
     font-size: .7em;
-    letter-spacing: .03em;
   }
 
   &__checkmark {

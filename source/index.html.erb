@@ -117,32 +117,32 @@ title: Donate to The Texas Tribune
                   <legend id="amount-legend" class="carousel__legend">I'm ready to give&hellip;</legend>
                   <div class="carousel__radios clearfix">
                     <label class="carousel__label--normal carousel__label--third" for="amount-1">
-                      <span class="weight--bold">$5</span> <span class="carousel__qualifier">per month</span>
+                      <span class="carousel__dollars">$5</span> <span class="carousel__qualifier">per month</span>
                       <input id="amount-1" class="carousel__radio visually-hidden" type="radio" value="5" name="amount">
                     </label>
 
                     <label class="carousel__label--normal carousel__label--third" for="amount-2">
-                      <span class="weight--bold">$10</span> <span class="carousel__qualifier">per month</span>
+                      <span class="carousel__dollars">$10</span> <span class="carousel__qualifier">per month</span>
                       <input id="amount-2" class="carousel__radio visually-hidden" type="radio" value="10" name="amount">
                     </label>
 
                     <label class="carousel__label--selected carousel__label--third" for="amount-3">
-                      <span class="weight--bold">$15</span> <span class="carousel__qualifier">per month</span>
+                      <span class="carousel__dollars">$15</span> <span class="carousel__qualifier">per month</span>
                       <input id="amount-3" class="carousel__radio visually-hidden" type="radio" value="15" name="amount" checked>
                     </label>
 
                     <label class="carousel__label--normal carousel__label--third" for="amount-4">
-                      <span class="weight--bold">$25</span> <span class="carousel__qualifier">per month</span>
+                      <span class="carousel__dollars">$25</span> <span class="carousel__qualifier">per month</span>
                       <input id="amount-4" class="carousel__radio visually-hidden" type="radio" value="25" name="amount">
                     </label>
 
                     <label class="carousel__label--normal carousel__label--third" for="amount-5">
-                      <span class="weight--bold">$55</span> <span class="carousel__qualifier">per month</span>
+                      <span class="carousel__dollars">$55</span> <span class="carousel__qualifier">per month</span>
                       <input id="amount-5" class="carousel__radio visually-hidden" type="radio" value="55" name="amount">
                     </label>
 
                     <label class="carousel__label--normal carousel__label--third" for="amount-6">
-                      <span class="weight--bold">$85</span> <span class="carousel__qualifier">per month</span>
+                      <span class="carousel__dollars">$85</span> <span class="carousel__qualifier">per month</span>
                       <input id="amount-6" class="carousel__radio visually-hidden" type="radio" value="85" name="amount">
                     </label>
                   </div>
@@ -163,7 +163,7 @@ title: Donate to The Texas Tribune
             </form>
 
             <div class="carousel__controls clearfix">
-              <button id="prev" class="carousel__button--prev disabled" aria-label="Go back to previous screen" disabled onclick="ga('send', 'event', 'Support Page', 'donations-app', 'app-back', {'nonInteraction': 1})">
+              <button id="prev" class="carousel__button--prev disabled" aria-label="Go back to previous screen" disabled autocomplete="off" onclick="ga('send', 'event', 'Support Page', 'donations-app', 'app-back', {'nonInteraction': 1})">
                 <i class="fa fa-long-arrow-left" aria-hidden="true"></i>&nbsp;Back
               </button>
 
@@ -172,7 +172,7 @@ title: Donate to The Texas Tribune
                 <li class="carousel__dot--normal"></li>
               </ul>
 
-              <button id="next" class="carousel__button--next" aria-label="Move forward to next screen" onclick="ga('send', 'event', 'Support Page', 'donations-app', 'app-next', {'nonInteraction': 1})">
+              <button id="next" class="carousel__button--next" aria-label="Move forward to next screen" autocomplete="off" onclick="ga('send', 'event', 'Support Page', 'donations-app', 'app-next', {'nonInteraction': 1})">
                 Next&nbsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
               </button>
             </div>
@@ -277,4 +277,8 @@ title: Donate to The Texas Tribune
   <!--[if !IE]>-->
     <script src="../javascripts/bundle.js"></script>
   <!--<![endif]-->
+
+  <script>
+    document.forms[0].reset();
+  </script>
 <% end %>

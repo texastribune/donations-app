@@ -12,7 +12,7 @@ glob(`${buildDir}/css/*.css`, (err, cssFiles) => {
 
   const cssFile = cssFiles[0];
 
-  glob(`${buildDir}/*.html`, (err, htmlFiles) => {
+  glob(`${buildDir}/index.html`, (err, htmlFiles) => {
     htmlFiles.forEach(htmlFile => {
       const htmlContents = fs.readFileSync(htmlFile);
       const cssContents = fs.readFileSync(cssFile);

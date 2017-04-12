@@ -126,7 +126,7 @@ export default class FormHandler {
     return `
       ${newAmountsValues.map((val, index) => `
         <label class="carousel__label${this.shouldBeChecked(index) ? `--selected`: `--normal`} carousel__label--third" for="amount-${index+1}">
-          <span class="weight--bold">$${this.putCommasInNumber(val)}</span> <span class="carousel__qualifier">${this.getFrequenciesLabelMarker()}</span>
+          <span class="carousel__dollars">$${this.putCommasInNumber(val)}</span> <span class="carousel__qualifier">${this.getFrequenciesLabelMarker()}</span>
           <input class="carousel__radio visually-hidden" type="radio" value="${val}" name="amount" id="amount-${index+1}" ${this.shouldBeChecked(index) ? `checked` : ``}>
         </label>
       `).join('\n')}
@@ -293,19 +293,23 @@ export default class FormHandler {
 
   // when the manual input field is active,
   // make sure corresponding radio is selected
-  selectManualEntryRadio(el) {
-    el
+  selectManualEntryRadio() {
+    this.manualInput
       .prev('.carousel__radio')
       .prop('checked', true)
       .change();
   }
 
+  manualInputIsSelected() {
+    return this.manualInput.hasClass('carousel__manual-input--selected');
+  }
+
   // when users enter a value in manual input
   // field, make that the value of corresponding radio
-  updateManualEntryRadioVal(el) {
-    el
+  updateManualEntryRadioVal() {
+    this.manualInput
       .prev('.carousel__radio')
-      .val( el.val() );
+      .val(this.manualInput.val());
   }
 
   // returns true if amount value is numeric
@@ -468,17 +472,17 @@ export default class FormHandler {
     const self = this;
 
     this.manualInput.focus(function() {
-      self.selectManualEntryRadio($(this));
+      self.selectManualEntryRadio();
       self.removeValidationError();
       self.setManualInputBorderClass('selected');
     });
 
-    this.manualInput.keyup(function(){
-      self.updateManualEntryRadioVal($(this));
-    });
-
     this.form.submit(function(e) {
       e.preventDefault();
+
+      if (self.manualInputIsSelected()) {
+        self.updateManualEntryRadioVal();
+      }
 
       const rawInput = $(this).serialize();
       const inputObject = self.convertInputToObject(rawInput);
