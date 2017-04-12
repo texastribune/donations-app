@@ -81,3 +81,65 @@ In your terminal, you should see s3_sync applying any updates to files for the p
 
 ## Known bugs
 + On Internet Explorer 10 and 11, if a user goes through the carousel form, hits submit, and the hits the browser "back" button, the form does not reset properly. This is despite `document.forms[0].reset()` being called in `index.html`.
+
+
+## Browser testing
+
+### iOS
++ iPhone 7 on iOS 10 on Safari [WORKS]
++ iPhone 6 on iOS 9 on Safari [WORKS]
++ iPad Air 2 on iOS 9.3 on Safari [WORKS]
++ iPhone 6 on iOS 8 on Safari [WORKS]
++ iPad Mini 2 on iOS 7 on Safari [WORKS]
++ iPhone 5 on iOS 6 [WORKS]
++ iPhone 4S on iOS 5.1 on Safari [WORKS, BUT PREV/NEXT PLACEMENT GETS WONKY]
++ iPhone 4 on iOS 4 on Safari [DOES NOT WORK; PROBABLY NEEDS OLD BROWSER BUNDLE]
+
+### Android
++ Pixel on 7.1 on Chrome [WORKS]
++ Galaxy S6 on 5 on Chrome [WORKS]
++ LG G5 on 6 on Chrome [WORKS]
++ Nexus 9 on 5.1 on Firefox [WORKS]
++ Galaxy S4 on 4.4 on Chrome [WORKS]
++ Galaxy Note 3 on 4.3 on Chrome [WORKS]
++ Nexus 4 on 4.1 on Android Browser [WORKS]
++ Nexus S on 4.1 on Android Browser [WORKS, BUT IT'S A LITTLE SLOW/JUMPY]
++ Galaxy S2 on 2.3 [DOES NOT WORK; PROBABLY NEEDS OLD BROWSER BUNDLE]
+
+### IE
++ 7 [WORKS W/ OLD BROWSER BUNDLE]
++ 8 [WORKS W/ OLD BROWSER BUNDLE]
++ 9 [WORKS W/ OLD BROWSER BUNDLE]
++ 10 [ISSUE RESETTING FORM ON BACK BUTTON]
++ 11 [ISSUE RESETTING FORM ON BACK BUTTON]
+
+### Safari
++ 5.1 [WORKS, BUT PREV/NEXT PLACEMENT GETS WONKY]
++ 7 [WORKS]
++ 8 [WORKS]
++ 9 [WORKS]
++ 10 [WORKS]
+
+### Edge
++ 14 [WORKS]
++ 13 [WORKS]
+
+### Firefox
++ 20 on Windows XP [WORKS]
++ 15 on Snow Leopard [WORKS]
++ 52 on Sierra [WORKS]
++ 52 on Windows 7 [WORKS]
+
+### Chrome
++ 15 on XP [WORKS]
++ 16 on Snow Leopard [WORKS]
++ 56 on Sierra [WORKS]
++ 56 on Windows 7 [WORKS]
+
+### Opera
++ 15 on XP [WORKS]
++ 12 on Snow Leopard [WORKS]
++ 43 on Windows 7 [WORKS]
+
+# Facebook browser
++ Galaxy S7 [WORKS]
