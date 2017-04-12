@@ -26,7 +26,7 @@ const DonationForm = new FormHandler({
   animationDelay: 200,
   animationLength: 400,
   frequenciesToAmounts: {
-    once: [50, 75, 100, 200, 500, 1000],
+    once: [50, 75, 100, 250, 500, 1000],
     monthly: [5, 10, 15, 25, 55, 85],
     yearly: [50, 75, 100, 250, 500, 1000]
   }
