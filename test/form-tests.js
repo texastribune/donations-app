@@ -218,10 +218,12 @@ describe('Donation carousel form', () => {
     assert.isTrue(spy.calledOnce);
   });
 
-  it('entering a value in the manual field should update value of accompanying radio', () => {
+  it('if last amount selection was manual entry, use that value on submit', () => {
     const spy = sinon.spy(DonationForm, 'updateManualEntryRadioVal');
     DonationForm.bindFormEvents();
-    DonationForm.manualInput.trigger('keyup');
+    DonationForm.manualInput.trigger('focus');
+    DonationForm.manualInput.val('404');
+    DonationForm.form.trigger('submit');
     assert.isTrue(spy.called);
   });
 
