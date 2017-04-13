@@ -5,10 +5,11 @@
   "author": "Andrew Gibson <agibson@texastribune.org>",
   "scripts": {
     "dev": "BABEL_ENV=modern bundle exec middleman",
-    "build": "npm run new-js && npm run old-js",
-    "new-js": "BABEL_ENV=modern webpack --config webpack.config.js",
+    "build": "npm run old-js && BABEL_ENV=modern npm run middleman && npm run critical",
+    "middleman": "bundle exec middleman build",
     "old-js": "BABEL_ENV=old webpack --config webpack.config.old.js && npm run es3",
     "es3": "browserify ./source/javascripts/bundle-es3.js -o ./source/javascripts/bundle-es3.js -t [ es3ify ]",
+    "critical": "node critical.js",
     "test": "BABEL_ENV=modern mocha test/form-tests.js --compilers js:babel-core/register"
   },
   "main": "source/index.html.erb",

@@ -46,13 +46,17 @@ The configuration for a modern-browser Webpack build. More on this later.
 ### `webpack.config.old.js`
 The configuration for a legacy-browser Webpack build. More on this later.
 
+### `critical.js`
+A Node.js for inlining critical CSS.
+
 
 ## Commands
 + `npm run dev`: Fire up the development server. This will enable live reloading of templates, JavaScript and CSS.
-+ `npm run build`: Build JavaScript. This is part of the [Middleman build pipeline](https://middlemanapp.com/advanced/external-pipeline/).
-+ `npm run new-js`: Using Webpack, build a JavaScript bundle for modern browsers.
++ `npm run build`: Build for production.
++ `npm run middleman`: Do the official Middleman build process.
 + `npm run old-js`: Using Webpack, build a JavaScript bundle for old browsers.
 + `npm run es3`: After we've built our bundle for old browsers, use [es3ify](https://www.npmjs.com/package/es3ify) to make sure the syntax is OK.
++ `npm run critical`: Inline critical CSS.
 + `npm test`: Run unit tests.
 
 
@@ -61,14 +65,16 @@ The short answer: We want to support IE 7 and 8, but we still want to write mode
 
 + Using `webpack.config.old.js` and the entry point `raw/js/index-old.js`, our JavaScript is compiled into `bundle-es3.js` and placed in `source/javascripts`.
 + `bundle-es3.js` is run through [es3ify](https://www.npmjs.com/package/es3ify) to make it compliant with IE 8 and below.
-+ Using `webpack.config.js`, our JavaScript is compiled from the entry point `raw/js/index.js` into `bundle.js` and placed in `source/javascripts`. It uses [babel-preset-es2015](http://babeljs.io/docs/plugins/preset-es2015/) straight up.
-+ Middleman then does its production build, minifying everything in `source/` and placing it in `build/`.
++ Middleman does its production build, which includes using `webpack.config.js` to compile entry point `raw/js/index.js` into `bundle.js` and placed in `source/javascripts`. It uses [babel-preset-es2015](http://babeljs.io/docs/plugins/preset-es2015/) straight up.
++ During its production build, Middleman minifies everything in `source/` and places it in `build/`.
 + Finally, critical CSS is inlined.
 
 If you look at the bottom of `source/layouts/layout.erb`, you'll notice that `bundle-es3.js` is only included for old IE versions.
 
 
 ## Deploying
+**Deployment with s3_sync isn't working well with this project, so for now, we're deploying by simply uploading the `build/` directory via the S3 console. We'll come up with a better way soon. The old deployment instructions are below for reference.**
+
 To deploy, the project uses the middleman-s3_sync gem to push and compile the site to s3 after building.
 
 To deploy: `bundle exec middleman build && middleman s3_sync --force`.
@@ -77,6 +83,9 @@ In your terminal, you should see s3_sync applying any updates to files for the p
 
 ## Known bugs
 + On Internet Explorer 10 and 11, if a user goes through the carousel form, hits submit, and the hits the browser "back" button, the form does not reset properly. This is despite `document.forms[0].reset()` being called in `index.html`.
+
+## Other stuff to Note
++ The styles that make this work in IE 7-8 (mostly those inside conditional comments at the top of `source/index.html.erb`) are fickle. They work, but any change to the build process or stylesheets could cause them to break. Just keep that in mind.
 
 
 ## Browser testing
