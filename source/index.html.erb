@@ -1,128 +1,284 @@
 ---
-title: Become a Member
+title: Donate to The Texas Tribune
 ---
 
-<div class="splash">
-  <div class="splash-wrapper">
-    <div class="splash-greeting">
-      <h1 class="splash-header">Support Us</h1>
-      <p class="splash-info"><%= data.Info[0]['about_trib'] %></p>
-      <h4 class="splash-support"><%= data.Info[0]['support_cta'] %></h4>
-    </div>
-    <%= partial "top_checkout" %>
-  </div><!-- splash-wrapper -->
-  <%= partial "desktop_nav" %>
-</div><!-- splash-landing -->
+<% content_for :ie_styles do %>
+  <!--[if lte IE 8]>
+    <style>
+      body {
+        width: 960px !important;
+      }
 
-<div class="main">
-  <div class="main-left">
-    <h2><%= data.Info[0]['tagline'] %></h2>
-    <%= partial "videos" %>
-    <hr>
-    <h3 class="section-header">Have a Question?</h3>
-      <% data.Contacts.each do |contact| %>
-        <div class="contact-info">
-          <h5><%= contact['department'] %></h5>
-          <h4><%= contact['name'] %></h4>
-          <p class="italic"><%= contact['title'] %></p>
-          <p><%= contact['phone'] %></p>
-          <p><a href="mailto:<%=contact['email'] %>"><%= contact['email'] %> <i class="fa fa-chevron-right"></i></a></p>
-        </div>
-      <% end %>
-    <hr>
-    <%= partial "share" %>
-  </div><!-- main-left -->
-  <div class="main-right">
-    <div class="student-member">
-      <a href="https://checkout.texastribune.org/memberform?&amp;amount=10&amp;installmentPeriod=yearly" onclick="ga('send', 'event', 'donations-app', 'click', 'student-member', {'nonInteraction': 1})">Interested in becoming a student member? <i class="fa fa-chevron-right"></i></a>
-    </div>
-    <hr>
-    <% data.levels.each do |level| %>
-      <% unless level.student %>
-        <div class="level">
-          <% if level.most_popular %>
-            <h5 class="benefit-flag"><i class="fa fa-star"></i> Most Popular</h5>
-          <% end %>
-          <% if level.circle %>
-            <h5 class="benefit-flag"><i class="fa fa-support"></i> Circle Membership</h5>
-          <% end %>
-          <h3><%= level.name %></h3>
-          <h4 class="amount">
-            <% if level.amount_month %><a href="https://checkout.texastribune.org/<% if level.circle %>circle<% else %>member<% end %>form?&amp;amount=<%= level.amount_month %><% if level.circle %>&amp;installments=36<% end %>&amp;installmentPeriod=monthly" onclick="ga('send', 'event', 'donations-app', 'click', 'index-right-monthly-member', {'nonInteraction': 1})">$<%= level.amount_month %> Monthly</a> <span>or</span> <% end %><a href="https://checkout.texastribune.org/<% if level.circle %>circle<% else %>member<% end %>form?&amp;amount=<%= level.amount_annual %>&amp;installmentPeriod=yearly<% if level.circle %>&amp;installments=3<% end %>" onclick="ga('send', 'event', 'donations-app', 'click', 'index-right-yearly-member', {'nonInteraction': 1})"><% if level.amount_annual_comma %>$<%= level.amount_annual_comma %><% else %>$<%= level.amount_annual %><% end %> Annually</a></h4>
-          <% if level.commitment %>
-            <p class="italic">Three-Year Commitment</p>
-          <% end %>
-          <% if level.all_above %>
-            <% if level.extra_content_benefits or level.extra_access_benefits or level.extra_recognition_benefits %>
-              <h4 class="all-above">All the above, plus:</h4>
-            <% else %>
-              <h4 class="all-above">All the above benefits</h4>
-            <% end %>
-            <!-- list extra benefits for level by category -->
-            <% if level.extra_content_benefits %>
-              <h5>Content Benefits</h5>
-              <% level.extra_content_benefits.each do |benefit| %>
-                <p><%= benefit %></p>
-              <% end %>
-            <% end %>
-            <% if level.extra_access_benefits %>
-              <h5>Access Benefits</h5>
-              <% level.extra_access_benefits.each do |benefit| %>
-                <p><%= benefit %></p>
-              <% end %>
-            <% end %>
-            <% if level.extra_recognition_benefits %>
-              <h5>Recognition Benefits</h5>
-              <% level.extra_recognition_benefits.each do |benefit| %>
-                <p><%= benefit %></p>
-              <% end %>
-            <% end %>
-          <% else %> <!-- if not level.all_above -->
-            <!-- list all benefits by category -->
-            <% if level.all_content_benefits %>
-              <h5>Content Benefits</h5>
-              <% level.all_content_benefits.each do |benefit| %>
-                <p><%= benefit %></p>
-              <% end %>
-            <% end %>
-            <% if level.all_access_benefits %>
-              <h5>Access Benefits</h5>
-              <% level.all_access_benefits.each do |benefit| %>
-                <p><%= benefit %></p>
-              <% end %>
-            <% end %>
-            <% if level.all_recognition_benefits %>
-              <h5>Recognition Benefits</h5>
-              <% level.all_recognition_benefits.each do |benefit| %>
-                <p><%= benefit %></p>
-              <% end %>
-            <% end %>
-          <% end %>
-        </div>
-        <hr>
-      <% end %>
-    <% end %>
-    <%= partial "give_more" %>
-    <hr class="hide-mobile">
-    <%= partial "mail_check" %>
-    <hr class="show-mobile">
-  </div>
-</div><!-- main-right -->
-<!-- videos/contacts show below levels on mobile -->
-<div class="main-mobile">
-  <h2 class="tagline"><%= data.Info[0]['tagline'] %></h2>
-  <%= partial "videos" %>
-  <h3 class="section-header">Have a Question?</h3>
-    <% data.Contacts.each do |contact| %>
-      <div class="contact-info">
-        <h5><%= contact['department'] %></h5>
-        <h4><%= contact['name'] %></h4>
-        <p class="italic"><%= contact['title'] %></p>
-        <p><%= contact['phone'] %></p>
-        <p><a href="mailto:<%=contact['email'] %>"><%= contact['email'] %> <i class="fa fa-chevron-right"></i></a></p>
+      .index .splash {
+        background-position: initial !important;
+      }
+
+      .index .splash-greeting {
+        margin: 0 !important;
+      }
+
+      .index .splash-wrapper {
+        margin: 0 !important;
+      }
+
+      .index i {
+        display: none !important;
+      }
+
+      .index .carousel__indicators {
+        display: none !important;
+      }
+
+      .index .carousel__label--third {
+        margin-right: 3% !important;
+      }
+    </style>
+  <![endif]-->
+
+  <!--[if IE 8]>
+    <style>
+      .index .carousel__label--third {
+        width: 30% !important;
+      }
+    </style>
+  <![endif]-->
+
+  <!--[if IE 7]>
+    <style>
+      .index .splash {
+        background-image: none !important;
+      }
+
+      .index .donate__inner {
+        padding: 0 !important;
+        overflow: hidden !important;
+      }
+
+      .index .carousel__slide--frequency,
+      .index .carousel__slide--amount {
+        padding: 0 !important;
+      }
+
+      .index .carousel__radios {
+        overflow: hidden !important;
+      }
+
+      .index .carousel__label--third {
+        width: 25% !important;
+      }
+
+      .index .carousel__manual {
+        width: 300px !important;
+        max-width: none !important;
+      }
+    </style>
+  <![endif]-->
+<% end %>
+
+<% content_for :main do %>
+  <div class="splash">
+    <div class="splash-wrapper">
+      <div class="splash-greeting">
+        <h1 class="splash-header">Support independent, <span class="text-break">fact-based journalism</span></h1>
+        <p class="splash-info">As a 501(c)(3) nonprofit organization, our work is made possible through the generosity of members and donors. <span class="own-line"><a class="splash-link--yellow" href="https://www.texastribune.org/about/">Learn more</a> about the Tribune's mission.</span></p>
       </div>
-    <% end %>
-  <hr>
-  <%= partial "share" %>
-</div><!-- main-mobile -->
-<%= partial "bottom_checkout" %>
+
+      <div class="donate">
+        <div class="donate__inner unloaded">
+          <div id="carousel-outer" class="carousel">
+            <form id="carousel-inner" class="carousel__form clearfix" action="" method="get" aria-labelledby="frequency-legend" role="form">
+              <div class="carousel__slide--frequency">
+                <fieldset class="carousel__fieldset">
+                  <legend id="frequency-legend" class="carousel__legend">I want to donate&hellip;</legend>
+                  <div class="carousel__radios">
+                    <label class="carousel__label--normal carousel__label--full" for="frequency-yearly">
+                      <span class="uppercase weight--bold">Yearly</span>
+                      <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
+                      <input id="frequency-yearly" class="carousel__radio visually-hidden" type="radio" value="yearly" name="frequency" data-frequency="yearly" onclick="ga('send', 'event', 'Support Page', 'donations-app', 'frequency-yearly', {'nonInteraction': 1})">
+                    </label>
+
+                    <label class="carousel__label--preselected carousel__label--full" for="frequency-monthly">
+                      <span class="uppercase weight--bold">Monthly</span>
+                      <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
+                      <input id="frequency-monthly" class="carousel__radio visually-hidden" type="radio" value="monthly" name="frequency" data-frequency="monthly" checked onclick="ga('send', 'event', 'Support Page', 'donations-app', 'frequency-monthly', {'nonInteraction': 1})">
+                    </label>
+
+                    <label class="carousel__label--normal carousel__label--full" for="frequency-once">
+                      <span class="uppercase weight--bold">One Time</span>
+                      <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
+                      <input id="frequency-once" class="carousel__radio visually-hidden" type="radio" value="once" name="frequency" data-frequency="once" onclick="ga('send', 'event', 'Support Page', 'donations-app', 'frequency-once', {'nonInteraction': 1})">
+                    </label>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="carousel__slide--amount" aria-hidden="true">
+                <fieldset class="carousel__fieldset">
+                  <legend id="amount-legend" class="carousel__legend">I'm ready to give&hellip;</legend>
+                  <div class="carousel__radios clearfix">
+                    <label class="carousel__label--normal carousel__label--third" for="amount-1">
+                      <span class="carousel__dollars">$5</span> <span class="carousel__qualifier">per month</span>
+                      <input id="amount-1" class="carousel__radio visually-hidden" type="radio" value="5" name="amount">
+                    </label>
+
+                    <label class="carousel__label--normal carousel__label--third" for="amount-2">
+                      <span class="carousel__dollars">$10</span> <span class="carousel__qualifier">per month</span>
+                      <input id="amount-2" class="carousel__radio visually-hidden" type="radio" value="10" name="amount">
+                    </label>
+
+                    <label class="carousel__label--selected carousel__label--third" for="amount-3">
+                      <span class="carousel__dollars">$15</span> <span class="carousel__qualifier">per month</span>
+                      <input id="amount-3" class="carousel__radio visually-hidden" type="radio" value="15" name="amount" checked>
+                    </label>
+
+                    <label class="carousel__label--normal carousel__label--third" for="amount-4">
+                      <span class="carousel__dollars">$25</span> <span class="carousel__qualifier">per month</span>
+                      <input id="amount-4" class="carousel__radio visually-hidden" type="radio" value="25" name="amount">
+                    </label>
+
+                    <label class="carousel__label--normal carousel__label--third" for="amount-5">
+                      <span class="carousel__dollars">$55</span> <span class="carousel__qualifier">per month</span>
+                      <input id="amount-5" class="carousel__radio visually-hidden" type="radio" value="55" name="amount">
+                    </label>
+
+                    <label class="carousel__label--normal carousel__label--third" for="amount-6">
+                      <span class="carousel__dollars">$85</span> <span class="carousel__qualifier">per month</span>
+                      <input id="amount-6" class="carousel__radio visually-hidden" type="radio" value="85" name="amount">
+                    </label>
+                  </div>
+
+                  <div class="carousel__manual">
+                    <div class="carousel__manual-els clearfix">
+                      <label id="manual-label" class="carousel__manual-label" for="amount-manual">Or enter an amount:</label>
+                      <input id="amount-manual" class="carousel__radio visually-hidden" type="radio" name="amount">
+                      <input id="manual-input" class="carousel__manual-input--normal" type="text" aria-labelledby="manual-label" placeholder="$">
+                    </div>
+
+                    <p id="error-message" class="carousel__manual-error hidden">Please enter a number.</p>
+                  </div>
+                </fieldset>
+
+                <input id="submit" class="carousel__submit" aria-label="Go To Checkout" type="submit" value="Go To Checkout" onclick="ga('send', 'event', 'Support Page', 'donations-app', 'go-to-checkout', {'nonInteraction': 1})">
+              </div>
+            </form>
+
+            <div class="carousel__controls clearfix">
+              <button id="prev" class="carousel__button--prev disabled" aria-label="Go back to previous screen" disabled autocomplete="off" onclick="ga('send', 'event', 'Support Page', 'donations-app', 'app-back', {'nonInteraction': 1})">
+                <i class="fa fa-long-arrow-left" aria-hidden="true"></i>&nbsp;Back
+              </button>
+
+              <ul class="carousel__indicators clearfix" aria-hidden="true">
+                <li class="carousel__dot--selected"></li>
+                <li class="carousel__dot--normal"></li>
+              </ul>
+
+              <button id="next" class="carousel__button--next" aria-label="Move forward to next screen" autocomplete="off" onclick="ga('send', 'event', 'Support Page', 'donations-app', 'app-next', {'nonInteraction': 1})">
+                Next&nbsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <p class="donate__mail"><span class="weight--bold">Prefer to mail a check?</span> Use our <a class="splash-link--yellow" href="https://static.texastribune.org/media/marketing/TT-membership-contribution-form.pdf">membership form</a>.</p>
+      </div>
+    </div>
+
+    <%= partial "desktop_nav" %>
+  </div>
+
+  <div class="main">
+    <div class="main-left">
+      <div class="section">
+        <h3>All members enjoy the following benefits:</h3>
+        <ul class="info-list">
+          <li>Recognition on our <a href="https://www.texastribune.org/support-us/donors-and-members/">Donor Wall</a></li>
+          <li>Discounted tickets to the annual <a href="https://www.texastribune.org/festival/">Texas Tribune Festival</a></li>
+          <li>Exclusive, quarterly e-newsletter, where members get a behind-the-scenes look at the Tribune’s latest projects and initiatives</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>Sustaining or one-time membership?</h3>
+        <ul class="info-list">
+          <li>We think it's important that you get to support and consume the news on your own time and on your own terms. All donations are greatly appreciated.</li>
+          <li>A sustaining membership means your donation recurs automatically on a monthly or yearly basis via credit card. This provides the Tribune with the sort of predictable revenue that allows us to plan budgets a few years at a time, and it helps eliminate renewal mailings or lapses in your membership.</li>
+          <li>Explore member levels <a href="/levels.html">here</a>.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <p class="student">
+          <a href="https://checkout.texastribune.org/memberform?&amount=10&installmentPeriod=yearly">
+            Interested in becoming a student member?
+            <i class="fa fa-chevron-right"></i>
+          </a>
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>Circle Membership</h3>
+        <ul class="info-list">
+          <li>Circle Membership is a three-year commitment that backs the vital work of our journalists. <a href="/circle.html">Circle members</a> believe in supporting our public service mission so that all Texans have can access our nonpartisan news, data and events at no cost.</li>
+          <li>Circle Members enjoy invitations to exclusive events and special updates from CEO Evan Smith.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="main-right">
+      <div class="section">
+        <h3>Have a question?</h3>
+
+        <div class="contact-info">
+          <h5>Membership & The Blast</h5>
+          <h4>Suzanne Geiger</h4>
+          <p class="italic">Development Manager</p>
+          <p>512-716-8646</p>
+          <p><a href="mailto:sgeiger@texastribune.org">sgeiger@texastribune.org</a></p>
+        </div>
+
+        <div class="contact-info">
+          <h4>Rebecca Quarls</h4>
+          <p class="italic">Digital Marketing Manager</p>
+          <p>512-716-8686</p>
+          <p><a href="mailto:rquarls@texastribune.org">rquarls@texastribune.org</a></p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Want to give more?</h3>
+
+        <div class="give-more">
+          <h5>Major gifts or grants</h5>
+          <h4>Terry Quinn</h4>
+          <p class="italic">Chief Development Officer</p>
+          <p>512-716-8613</p>
+          <p><a href="mailto:tquinn@texastribune.org">tquinn@texastribune.org</a></p>
+        </div>
+
+        <div class="give-more">
+          <h5>Corporate sponsorships</h5>
+          <h4>April Hinkle</h4>
+          <p class="italic">Chief Revenue Officer</p>
+          <p>512-716-8634</p>
+          <p><a href="mailto:ahinkle@texastribune.org">ahinkle@texastribune.org</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% content_for :page_js do %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+
+  <!--[if lte IE 9]>
+    <script type="text/javascript" src="../javascripts/bundle-es3.js"></script>
+  <![endif]-->
+
+  <!--[if !IE]>-->
+    <script src="../javascripts/bundle.js"></script>
+  <!--<![endif]-->
+
+  <script>
+    document.forms[0].reset();
+  </script>
+<% end %>

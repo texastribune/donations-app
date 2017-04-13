@@ -4,27 +4,14 @@ html {
   font-size: 14px;
 }
 
-// size if league gothic loads
-.wf-leaguegothic-i4-active {
-  h1 {
-    font-size: 7em;
-    @media (max-width: 870px) {
-      font-size: 8em;
-    }
-    @include media($tablet) {
-      font-size: 5em;
-    }
-  }
-  .faq h1 {
-    @media (min-width: 871px) {
-      font-size: 7.2em;
-    }
-  }
-}
-
 h1 {
-  font-size: 5em;
+  font-size: 4.6em;
+  font-weight: bold;
   margin: 0;
+
+  @include media($tablet) {
+    font-size: 3em;
+  }
 }
 
 h2 {
@@ -62,6 +49,7 @@ h6 {
 p {
   font-size: 1em;
   margin: 0;
+
   &.italic {
     font-style: italic;
   }
@@ -74,4 +62,39 @@ a {
 
 i.fa-chevron-right {
   font-size: 0.8em;
+}
+
+.weight {
+  &--bold {
+    font-weight: bold;
+  }
+
+  &--normal {
+    font-weight: 400;
+  }
+
+  &--thin {
+    font-weight: 200;
+  }
+}
+
+.own-line {
+  display: block;
+  font-size: inherit;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.thin {
+  font-weight: 200;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
 }

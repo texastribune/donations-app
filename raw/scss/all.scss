@@ -1,24 +1,14 @@
-@import 'bourbon';
-@import 'neat';
-
+@import "~bourbon/app/assets/stylesheets/bourbon";
+@import "~bourbon-neat/app/assets/stylesheets/neat";
 @import 'normalize';
 
-// general
 @import 'settings';
 @import 'layout';
 @import 'typography';
 @import 'footer';
 
-// pages
 @import 'theme';
 @import 'index';
 @import 'circle';
 @import 'levels';
 @import 'checkout';
-
-// internet explorer styles
-@import 'ie';
-
-// third-party
-@import 'jqueryui';
-@import 'magnific-popup';

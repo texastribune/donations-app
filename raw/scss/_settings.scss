@@ -1,5 +1,9 @@
+// Width references
+$mobile-width: 520px;
+
 // Breakpoints
 $desktop: new-breakpoint(min-width 800px 12);
+$tablet-carousel: new-breakpoint(max-width 840px);
 $tablet: new-breakpoint(max-width 799px);
 $mobile: new-breakpoint(max-width 520px);
 
@@ -7,8 +11,10 @@ $mobile: new-breakpoint(max-width 520px);
 // Colors
 $yellow-tribune: #ffc200;
 $teal-tribune: #008990;
+$error-red: #db2f2f;
 
 $black: #000000;
+$gray-dark: #444;
 $gray-medium: #aaaaaa;
 $gray-light: #ebebeb;
 $white: #ffffff;
@@ -18,12 +24,6 @@ $bg-nav: #000000;
 
 $link-nav: white;
 
-
-// Fonts
-$league-gothic: 'league-gothic', sans-serif;
-
-
-// Mixins
 @mixin hide-for-mobile {
   @include media($mobile) {
     display: none;
@@ -48,7 +48,7 @@ $league-gothic: 'league-gothic', sans-serif;
 
 @mixin background-sizing {
   background-size: cover;
-  background-position: 50%;
+  background-position-y: center;
   background-repeat: no-repeat;
 }
 
@@ -65,7 +65,7 @@ $league-gothic: 'league-gothic', sans-serif;
 }
 
 
-// Helper classes
+// not hidden from screen readers
 .visually-hidden {
   position: absolute;
   overflow: hidden;
@@ -74,10 +74,35 @@ $league-gothic: 'league-gothic', sans-serif;
   margin: -1px; padding: 0; border: 0;
 }
 
+// hidden from screen readers
+.hidden {
+  display: none;
+}
+
 .hide-mobile {
   @include hide-for-mobile;
 }
 
 .show-mobile {
   @include show-for-mobile;
+}
+
+// Clearfix
+.clearfix {
+  &:after {
+    clear: both;
+    content: '';
+    display: block;
+    height: 0;
+    visibility: hidden;
+  }
+}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+// force text onto own line
+// probably used on <span>
+.text-break {
+  display: block;
+  font-size: inherit;
 }

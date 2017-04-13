@@ -1,0 +1,82 @@
+// Levels page
+.levels {
+  .main {
+    @include media($mobile) {
+      padding: 1em;
+    }
+  }
+
+  .splash {
+    background-color: lighten($black, 20%);
+    background-image: url('../bg/levels.jpg');
+    background-position-x: 100%;
+
+    @include media($tablet) {
+      background-position-x: 0;
+    }
+  }
+
+  h2 {
+    font-size: 2.4em;
+
+    @include media($mobile) {
+      font-size: 2.2em;
+    }
+  }
+
+  .level-breakdown {
+    margin-top: 2em;
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  h3 {
+    padding: 0 0.5em 0.5em 0;
+  }
+
+  .social {
+    display: inline;
+    margin: 0;
+
+    @include media($tablet) {
+      display: block;
+      margin: 0.5em 0;
+    }
+  }
+
+  .tagline {
+    display: none;
+  }
+}
+
+
+// Levels grid
+.grid-body {
+  @include outer-container;
+
+  tr {
+    border-bottom: 2px solid $gray-medium;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+
+  td {
+    padding: 1em 0;
+
+    @include media($mobile) {
+      @include span-columns(12);
+    }
+
+    &.name {
+      p {
+        color: $gray-medium;
+      }
+    }
+  }
+
+  h3 {
+    display: inline;
+  }
+}
