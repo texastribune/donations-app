@@ -23,6 +23,11 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin({
       filename: 'css/styles.css'
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false
+      }
     })
   ],
 

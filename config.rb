@@ -14,6 +14,7 @@ configure :production do
   # Enable cache buster asset hashing of files
   activate :asset_hash
   activate :minify_html
+  activate :minify_css
 end
 
 # Gzip files
@@ -25,15 +26,13 @@ activate :s3_sync do |config|
   config.region = 'us-east-1'
   config.aws_access_key_id = ENV['AWS_ACCESS_KEY']
   config.aws_secret_access_key = ENV['AWS_ACCESS_SECRET']
-  # Set this to true to deploy to s3
-  config.after_build = false
 end
 
 # https://rossta.net/blog/using-webpack-with-middleman.html
 activate :external_pipeline,
   name: :webpack,
   command: build? ?
-  "./node_modules/webpack/bin/webpack.js --bail -p" :
+  "npm run build" :
   "./node_modules/webpack/bin/webpack.js --colors --watch -p",
   source: ".tmp",
   latency: 1

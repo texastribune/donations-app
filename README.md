@@ -46,17 +46,13 @@ The configuration for a modern-browser Webpack build. More on this later.
 ### `webpack.config.old.js`
 The configuration for a legacy-browser Webpack build. More on this later.
 
-### `critical.js`
-Inline critical CSS in all of the built HTML files using [inline-critical](https://www.npmjs.com/package/inline-critical).
-
 
 ## Commands
 + `npm run dev`: Fire up the development server. This will enable live reloading of templates, JavaScript and CSS.
-+ `npm run build`: Build for production.
-+ `npm run middleman`: Build the modern and legacy JavaScript bundle. Then do the Middleman build process. Then inline critical CSS.
++ `npm run build`: Build JavaScript. This is part of the [Middleman build pipeline](https://middlemanapp.com/advanced/external-pipeline/).
++ `npm run new-js`: Using Webpack, build a JavaScript bundle for modern browsers.
 + `npm run old-js`: Using Webpack, build a JavaScript bundle for old browsers.
 + `npm run es3`: After we've built our bundle for old browsers, use [es3ify](https://www.npmjs.com/package/es3ify) to make sure the syntax is OK.
-+ `npm run critical`: Inline critical CSS
 + `npm test`: Run unit tests.
 
 
@@ -75,7 +71,7 @@ If you look at the bottom of `source/layouts/layout.erb`, you'll notice that `bu
 ## Deploying
 To deploy, the project uses the middleman-s3_sync gem to push and compile the site to s3 after building.
 
-By default, in config.rb, config.after_build is set to false. Set this to true. Check that your AWS_ACCESS_KEY and AWS_ACCESS_SECRET environment variables are set, and then run `bundle exec middleman build`.
+To deploy: `bundle exec middleman build && middleman s3_sync --force`.
 
 In your terminal, you should see s3_sync applying any updates to files for the project. You can also check the project s3 bucket to ensure that all files have been synced there. Change config.after_build back to its default of false after deploying.
 
