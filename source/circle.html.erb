@@ -19,7 +19,7 @@ title: Circle Membership
             </div>
             <div class="circle-box-bottom">
               <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_annual %>&amp;installmentPeriod=yearly&amp;installments=3" ga-on="click" ga-event-category="Donate" ga-event-action="checkout-intent" ga-event-label="circle-yearly"><button class="button button-flat">$<%= level.amount_annual_comma %> <br>Annually</button></a>
-              <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_month %>&amp;installmentPeriod=monthly&amp;installments=3" ga-on="click" ga-event-category="Donate" ga-event-action="checkout-intent" ga-event-label="circle-monthly"><button style="float: right;" class="button button-flat">$<%= level.amount_month %> <br>Monthly</button></a>
+              <a href="https://checkout.texastribune.org/circleform?&amp;amount=<%= level.amount_month %>&amp;installmentPeriod=monthly&amp;installments=36" ga-on="click" ga-event-category="Donate" ga-event-action="checkout-intent" ga-event-label="circle-monthly"><button style="float: right;" class="button button-flat">$<%= level.amount_month %> <br>Monthly</button></a>
             </div>
           </div>
         <% end %>
