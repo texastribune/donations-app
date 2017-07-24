@@ -9,8 +9,9 @@
     "middleman": "bundle exec middleman build",
     "old-js": "BABEL_ENV=old webpack --config webpack.config.old.js && npm run es3",
     "es3": "browserify ./source/javascripts/bundle-es3.js -o ./source/javascripts/bundle-es3.js -t [ es3ify ]",
-    "critical": "node critical.js",
-    "test": "BABEL_ENV=modern mocha test/form-tests.js --compilers js:babel-core/register"
+    "critical": "node ./utils/critical.js",
+    "test": "BABEL_ENV=modern mocha test/form-tests.js --compilers js:babel-core/register",
+    "deploy": "./utils/deploy.sh"
   },
   "main": "source/index.html.erb",
   "repository": {
@@ -19,6 +20,9 @@
   },
   "bugs": {
     "url": "https://github.com/texastribune/donations-app/issues"
+  },
+  "config": {
+    "s3_bucket": "support.texastribune.org"
   },
   "dependencies": {
     "es5-shim": "^4.5.9",
