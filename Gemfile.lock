@@ -8,9 +8,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
-    ansi (1.5.0)
     backports (3.6.8)
-    builder (3.2.3)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -25,27 +23,10 @@ GEM
       http_parser.rb (~> 0.6.0)
     erubis (2.7.0)
     eventmachine (1.2.3)
-    excon (0.55.0)
     execjs (2.7.0)
     fast_blank (1.0.0)
     fastimage (2.1.0)
     ffi (1.9.18)
-    fog-aws (1.2.1)
-      fog-core (~> 1.38)
-      fog-json (~> 1.0)
-      fog-xml (~> 0.1)
-      ipaddress (~> 0.8)
-    fog-core (1.43.0)
-      builder
-      excon (~> 0.49)
-      formatador (~> 0.2)
-    fog-json (1.0.2)
-      fog-core (~> 1.0)
-      multi_json (~> 1.10)
-    fog-xml (0.1.2)
-      fog-core
-      nokogiri (~> 1.5, >= 1.5.11)
-    formatador (0.2.5)
     haml (4.0.7)
       tilt
     hamster (3.0.0)
@@ -54,12 +35,10 @@ GEM
     htmlcompressor (0.2.0)
     http_parser.rb (0.6.0)
     i18n (0.7.0)
-    ipaddress (0.8.3)
     kramdown (1.13.2)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    map (6.6.0)
     memoist (0.15.0)
     middleman (4.2.1)
       coffee-script (~> 2.2)
@@ -101,23 +80,10 @@ GEM
     middleman-minify-html (3.4.1)
       htmlcompressor (~> 0.2.0)
       middleman-core (>= 3.2)
-    middleman-s3_sync (4.0.3)
-      ansi (~> 1.5.0)
-      fog-aws (>= 0.1.1)
-      map
-      middleman-cli
-      middleman-core (>= 4.0.0)
-      parallel
-      ruby-progressbar
-      unf
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    mini_portile2 (2.1.0)
     minitest (5.10.1)
-    multi_json (1.12.1)
-    nokogiri (1.7.0.1)
-      mini_portile2 (~> 2.1.0)
     padrino-helpers (0.13.3.3)
       i18n (~> 0.6, >= 0.6.7)
       padrino-support (= 0.13.3.3)
@@ -132,7 +98,6 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.8)
       ffi (>= 0.5.0)
-    ruby-progressbar (1.8.1)
     sass (3.4.23)
     servolux (0.12.0)
     thor (0.19.4)
@@ -142,19 +107,14 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.1.6)
       execjs (>= 0.3.0, < 3)
-    unf (0.1.4)
-      unf_ext
-    unf_ext (0.0.7.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  fog-aws
   middleman (~> 4)
   middleman-livereload
   middleman-minify-html
-  middleman-s3_sync (~> 4.0.3)
   mime-types
 
 RUBY VERSION
