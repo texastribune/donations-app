@@ -3,7 +3,7 @@ const inline = require('inline-critical');
 const path = require('path');
 const glob = require('glob');
 
-const buildDir = path.join(__dirname, 'build');
+const buildDir = path.join(__dirname, '..', 'build');
 
 glob(`${buildDir}/css/*.css`, (err, cssFiles) => {
   if (cssFiles.length !== 1) {
@@ -12,7 +12,7 @@ glob(`${buildDir}/css/*.css`, (err, cssFiles) => {
 
   const cssFile = cssFiles[0];
 
-  glob(`${buildDir}/index.html`, (err, htmlFiles) => {
+  glob(`${buildDir}/*.html`, (err, htmlFiles) => {
     htmlFiles.forEach(htmlFile => {
       const htmlContents = fs.readFileSync(htmlFile);
       const cssContents = fs.readFileSync(cssFile);
