@@ -19,9 +19,7 @@ activate :gzip
 activate :external_pipeline,
   name: :webpack,
   command: build? ?
-  "./node_modules/webpack/bin/webpack.js --bail --display errors-only" :
+  "./node_modules/webpack/bin/webpack.js --bail" :
   "./node_modules/webpack/bin/webpack.js --watch",
   source: ".tmp",
   latency: 1
-
-default_caching_policy max_age:(60 * 60 * 24 * 365)

@@ -30,23 +30,19 @@
     })(window,document,'script','dataLayer','GTM-P5L2Z5Z');</script>
     <!-- End Google Tag Manager -->
 
-    <!--[if !IE]><!-->
-      <script>
-      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-      fbq('init', '1570461443220689');
-      fbq('track', "PageView");</script>
+    fbq('init', '1570461443220689');
+    fbq('track', "PageView");</script>
 
-      <noscript>
-        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1570461443220689&ev=PageView&noscript=1"/>
-      </noscript>
-    <!--<![endif]-->
-
-    <%= yield_content :ie_styles %>
+    <noscript>
+      <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1570461443220689&ev=PageView&noscript=1"/>
+    </noscript>
   </head>
   <body class="<%= page_classes %>">
     <!-- Google Tag Manager (noscript) -->
@@ -81,10 +77,7 @@
       })(window,document,'script','mipData','GTM-NBBG35');
     </script>
 
-    <!--[if !IE]><!-->
-      <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53beb39e1b9725fb"></script>
-    <!--<![endif]-->
-
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53beb39e1b9725fb"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <%= yield_content :page_js %>
   </body>
