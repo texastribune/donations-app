@@ -25,9 +25,6 @@ Contains files that Middleman will eventually minify and move to the `build/` di
 + `source/css`: A `.gitignore`d directory containing Webpack-processed CSS.
 + `source/javascripts`: A `.gitignore`d directory containing Webpack-processed JavaScript.
 
-### `test/`
-Contains unit tests powered by [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/) and [Sinon](http://sinonjs.org/).
-
 ### `utils/`
 + `deploy.sh`: A shell script for deployment to S3.
 + `critical.js`: A Node script for inlining critical CSS.
@@ -53,7 +50,6 @@ The configuration for a modern-browser Webpack build. More on this later.
 + `npm run build`: Build for production.
 + `npm run middleman`: Do the official Middleman build process.
 + `npm run critical`: Inline critical CSS.
-+ `npm test`: Run unit tests.
 
 
 ## Deploying
