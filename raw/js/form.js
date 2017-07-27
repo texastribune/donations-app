@@ -238,6 +238,10 @@ export default class FormHandler {
     $el.prop('disabled', false);
   }
 
+  clearManualInput() {
+    this.manualInput.val('');
+  }
+
   // remove aria-hidden from current slide
   accessibleShowCurrent() {
     this.carouselSlides
@@ -421,6 +425,11 @@ export default class FormHandler {
 
     this.amountsRadios.change(function() {
       self.removeValidationError();
+
+      if ( $(this).attr('id') !== 'amount-manual' ) {
+        self.clearManualInput();
+      }
+
       self.setManualInputBorderClass('normal');
       self.updateSelectedClass('amount', $(this));
     });
