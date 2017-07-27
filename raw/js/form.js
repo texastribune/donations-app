@@ -479,6 +479,7 @@ export default class FormHandler {
 
     this.form.submit(function(e) {
       e.preventDefault();
+      self.manualInput.blur();
 
       if (self.manualInputIsSelected()) {
         self.updateManualEntryRadioVal();
