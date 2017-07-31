@@ -35,7 +35,11 @@ module.exports = {
     rules: [
       {
         test: /\.scss$/,
-        include: [/raw/, /source/, /node_modules/],
+        include: [
+          /raw/,
+          /source/,
+          /node_modules/
+        ],
         use: ExtractTextPlugin.extract({
           publicPath: '../bg/',
           fallback: 'style-loader',
@@ -57,7 +61,11 @@ module.exports = {
 
       {
         test: /\.js$/,
-        include: [/raw/, /source/, /node_modules/],
+        include: [
+          /raw/,
+          /source/,
+          /node_modules/
+        ],
         use: [{
           loader: 'babel-loader'
         }]

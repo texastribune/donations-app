@@ -1,15 +1,3 @@
 {
-  "env": {
-    "modern": {
-      "presets": ["es2015"]
-    },
-
-    "old": {
-      "presets": [
-        ["es2015", {
-          "loose": true
-        }]
-      ]
-    }
-  }
+  "presets": ["es2015"]
 }

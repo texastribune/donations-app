@@ -2,79 +2,6 @@
 title: Donate to The Texas Tribune
 ---
 
-<% content_for :ie_styles do %>
-  <!--[if lte IE 8]>
-    <style>
-      body {
-        width: 960px !important;
-      }
-
-      .index .splash {
-        background-position: initial !important;
-      }
-
-      .index .splash-greeting {
-        margin: 0 !important;
-      }
-
-      .index .splash-wrapper {
-        margin: 0 !important;
-      }
-
-      .index i {
-        display: none !important;
-      }
-
-      .index .carousel__indicators {
-        display: none !important;
-      }
-
-      .index .carousel__label--third {
-        margin-right: 3% !important;
-      }
-    </style>
-  <![endif]-->
-
-  <!--[if IE 8]>
-    <style>
-      .index .carousel__label--third {
-        width: 30% !important;
-      }
-    </style>
-  <![endif]-->
-
-  <!--[if IE 7]>
-    <style>
-      .index .splash {
-        background-image: none !important;
-      }
-
-      .index .donate__inner {
-        padding: 0 !important;
-        overflow: hidden !important;
-      }
-
-      .index .carousel__slide--frequency,
-      .index .carousel__slide--amount {
-        padding: 0 !important;
-      }
-
-      .index .carousel__radios {
-        overflow: hidden !important;
-      }
-
-      .index .carousel__label--third {
-        width: 25% !important;
-      }
-
-      .index .carousel__manual {
-        width: 300px !important;
-        max-width: none !important;
-      }
-    </style>
-  <![endif]-->
-<% end %>
-
 <% content_for :main do %>
   <div class="splash">
     <div class="splash-wrapper">
@@ -269,15 +196,7 @@ title: Donate to The Texas Tribune
 
 <% content_for :page_js do %>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
-
-  <!--[if lte IE 9]>
-    <script type="text/javascript" src="../javascripts/bundle-es3.js"></script>
-  <![endif]-->
-
-  <!--[if !IE]>-->
-    <script src="../javascripts/bundle.js"></script>
-  <!--<![endif]-->
-
+  <script src="../javascripts/bundle.js"></script>
   <script>
     document.forms[0].reset();
   </script>
