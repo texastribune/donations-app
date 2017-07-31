@@ -1,7 +1,12 @@
 ## Getting Started
 To get started:
 1. Clone down the project repo
-2. Make sure [rbenv](https://github.com/sstephenson/rbenv) is installed on your machine
+2. Install[rbenv](https://github.com/sstephenson/rbenv) on your machine via Homebrew:
+```
+brew update
+brew install rbenv
+rbenv init
+```
 3. Download Ruby 2.3.0, the version used in this project: `rbenv install 2.3.0`
 4. Switch to that version: `rbenv local 2.3.0`
 5. Make sure [Bundler](http://bundler.io/) is installed on your machine: `gem install bundler`
