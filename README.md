@@ -1,5 +1,5 @@
 ## Getting Started
-To get started:
+### Ruby
 1. Clone down the project repo
 2. Install[rbenv](https://github.com/sstephenson/rbenv) on your machine via Homebrew:
 ```
@@ -11,6 +11,13 @@ rbenv init
 4. Switch to that version: `rbenv local 2.3.0`
 5. Make sure [Bundler](http://bundler.io/) is installed on your machine: `gem install bundler`
 6. Install project packages: `bundle install`
+
+### Node.js
+Consult the `engines` section of `package.json` for the Node and NPM versions used in this project.
+
+The easiest way to use the proper Node version is to use [Node Version Manager](https://github.com/creationix/nvm) (nvm).
+
+To use the proper NPM version, simply install it on your machine: `npm install -g npm@<version>`.
 
 
 ## Structure
