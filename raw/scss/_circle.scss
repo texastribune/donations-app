@@ -18,6 +18,10 @@
     @include media($mobile) {
       padding: 0 1em;
     }
+
+    @media print {
+      padding-top: 0;
+    }
   }
 
   .main-right {
@@ -150,6 +154,7 @@
 
     @media print {
       font-size: .78em;
+      white-space: nowrap;
     }
   }
 
