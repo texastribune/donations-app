@@ -1,5 +1,5 @@
 ## Getting Started
-### Ruby
+### Basic setup
 1. Clone down the project repo
 2. Install [rbenv](https://github.com/sstephenson/rbenv) on your machine via Homebrew:
 ```
@@ -15,7 +15,7 @@ rbenv init
 8. Install JS packages: `npm install`
 
 ### Node.js
-Consult the `engines` section of `package.json` for the Node and NPM versions used in this project.
+Consult the `engines` section of `package.json` for the Node and NPM versions used in this project. Node is only used for development tools (i.e. Webpack), so any relatively up-to-date version of Node/NPM will probably suffice. Still, it's good to match the exact versions if possible.
 
 The easiest way to use the proper Node version is to use [Node Version Manager](https://github.com/creationix/nvm) (nvm).
 
