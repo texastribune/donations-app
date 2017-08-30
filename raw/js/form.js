@@ -381,7 +381,7 @@ export default class FormHandler {
     }
 
     if (campaignID) {
-      fullURL += `&campaignid=${campaignID}`;
+      fullURL += `&campaignId=${campaignID}`;
     }
 
     return fullURL;
