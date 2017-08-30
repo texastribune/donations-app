@@ -11,6 +11,7 @@ rbenv init
 4. Switch to that version: `rbenv local 2.3.0`
 5. Make sure [Bundler](http://bundler.io/) is installed on your machine: `gem install bundler`
 6. Install project packages: `bundle install`
+7. Install JS packages: `npm install`
 
 ### Node.js
 Consult the `engines` section of `package.json` for the Node and NPM versions used in this project.
