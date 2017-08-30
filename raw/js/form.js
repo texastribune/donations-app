@@ -345,7 +345,7 @@ export default class FormHandler {
     let params = window.location.search;
 
     if (params) {
-      params = params.replace('?', '').split('&');
+      params = params.replace(/\?/g, '').split('&');
 
       params.forEach((param) => {
         const splitParam = param.split('=');
