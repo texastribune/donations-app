@@ -1,20 +1,21 @@
 ## Getting Started
-### Ruby
+### Basic setup
 1. Clone down the project repo
-2. Install[rbenv](https://github.com/sstephenson/rbenv) on your machine via Homebrew:
+2. Install [rbenv](https://github.com/sstephenson/rbenv) on your machine via Homebrew:
 ```
 brew update
 brew install rbenv
 rbenv init
 ```
-3. Download Ruby 2.3.0, the version used in this project: `rbenv install 2.3.0`
-4. Switch to that version: `rbenv local 2.3.0`
-5. Make sure [Bundler](http://bundler.io/) is installed on your machine: `gem install bundler`
-6. Install project packages: `bundle install`
-7. Install JS packages: `npm install`
+3. `cd` inside the project directory
+4. Download Ruby 2.3.0, the version used in this project: `rbenv install 2.3.0`
+5. Switch to that version: `rbenv local 2.3.0`
+6. Make sure [Bundler](http://bundler.io/) is installed on your machine: `gem install bundler`
+7. Install project packages: `bundle install`
+8. Install JS packages: `npm install`
 
 ### Node.js
-Consult the `engines` section of `package.json` for the Node and NPM versions used in this project.
+Consult the `engines` section of `package.json` for the Node and NPM versions used in this project. Node is only used for development tools (i.e. Webpack), so any relatively up-to-date version of Node/NPM will probably suffice. Still, it's good to match the exact versions if possible.
 
 The easiest way to use the proper Node version is to use [Node Version Manager](https://github.com/creationix/nvm) (nvm).
 

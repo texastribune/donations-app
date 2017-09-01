@@ -340,9 +340,29 @@ export default class FormHandler {
     return inputObject;
   }
 
+  getCampaignID() {
+    let campaignID = null;
+    let params = window.location.search;
+
+    if (params) {
+      params = params.replace(/\?/g, '').split('&');
+
+      params.forEach((param) => {
+        const splitParam = param.split('=');
+
+        if (splitParam[0].toLowerCase() === 'campaignid') {
+          campaignID = splitParam[1];
+        }
+      });
+    }
+
+    return campaignID;
+  }
+
   // the final step
   // sends users to the proper checkout screen
   getCheckoutURL(inputObject) {
+    const campaignID = this.getCampaignID();
     const amount = inputObject.amount;
     const frequency = inputObject.frequency;
     const baseURL = 'https://checkout.texastribune.org';
@@ -358,6 +378,10 @@ export default class FormHandler {
       case 'yearly':
         fullURL = `${baseURL}/memberform?installmentPeriod=yearly&amount=${amount}`;
         break;
+    }
+
+    if (campaignID) {
+      fullURL += `&campaignId=${campaignID}`;
     }
 
     return fullURL;
