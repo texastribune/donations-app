@@ -1,8 +1,31 @@
+.campaign {
+  .splash {
+    background-image: url('../bg/raffle.jpg');
+  }
+
+  @include media($mobile) {
+    .splash-greeting {
+      background-image: url('../bg/raffle.jpg');
+    }
+  }
+}
+
+.index {
+  .splash {
+    background-image: url('../bg/index.jpg');
+  }
+
+  @include media($mobile) {
+    .splash-greeting {
+      background-image: url('../bg/index.jpg');
+    }
+  }
+}
+
 .index, .campaign {
   .splash {
     background-color: lighten($black, 20%);
     background-position-x: 50%;
-    background-image: url('../bg/index.jpg');
 
     @include media($mobile) {
       background-image: none;
@@ -44,7 +67,6 @@
     }
 
     @include media($mobile) {
-      background-image: url('../bg/index.jpg');
       background-position-x: 50%;
       background-size: cover;
       position: relative;
