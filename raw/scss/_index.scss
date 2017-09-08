@@ -139,6 +139,7 @@
   }
 
   .raffle-logos {
+    display: table;
     list-style: none;
     margin: 0 auto;
     max-width: 500px;
@@ -146,11 +147,15 @@
     text-align: center;
 
     li {
-      display: inline-block;
-      width: 47.5%;
+      display: table-cell;
+      vertical-align: middle;
 
       &:first-child {
-        margin-right: 5%;
+        padding-right: 2.5%;
+      }
+
+      &:last-child {
+        padding-left: 2.5%;
       }
 
       img {
