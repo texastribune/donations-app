@@ -8,6 +8,12 @@
       background-image: url('../bg/raffle.jpg');
     }
   }
+
+  .main {
+    @include media($mobile) {
+      padding-top: 2em;
+    }
+  }
 }
 
 .index {
@@ -18,6 +24,13 @@
   @include media($mobile) {
     .splash-greeting {
       background-image: url('../bg/index.jpg');
+    }
+  }
+
+  .main {
+    @include media($mobile) {
+      background-color: #f9f9f9;
+      padding-top: 1em;
     }
   }
 }
@@ -104,13 +117,6 @@
     }
   }
 
-  .main {
-    @include media($mobile) {
-      background-color: #f9f9f9;
-      padding-top: 1em;
-    }
-  }
-
   .section {
     h3 {
       margin-bottom: .5em;
@@ -138,30 +144,10 @@
     }
   }
 
-  .raffle-logos {
-    display: table;
-    list-style: none;
+  .raffle-logo {
+    display: block;
+    width: 100%;
     margin: 0 auto;
-    max-width: 500px;
-    padding: 0;
-    text-align: center;
-
-    li {
-      display: table-cell;
-      vertical-align: middle;
-
-      &:first-child {
-        padding-right: 2.5%;
-      }
-
-      &:last-child {
-        padding-left: 2.5%;
-      }
-
-      img {
-        display: block;
-        width: 100%;
-      }
-    }
+    max-width: 450px;
   }
 }
