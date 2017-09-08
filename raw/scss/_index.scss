@@ -128,4 +128,35 @@
       margin-bottom: 1em;
     }
   }
+
+  .top {
+    margin-bottom: 3em;
+
+    @include media($mobile) {
+      margin-bottom: 1em;
+      padding: 0 1em;
+    }
+  }
+
+  .raffle-logos {
+    list-style: none;
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 0;
+    text-align: center;
+
+    li {
+      display: inline-block;
+      width: 47.5%;
+
+      &:first-child {
+        margin-right: 5%;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
 }
