@@ -77,6 +77,10 @@ $carousel-height: 285px;
         color: $teal-tribune;
       }
     }
+
+    .campaign & {
+      display: none;
+    }
   }
 }
 
