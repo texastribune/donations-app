@@ -79,5 +79,6 @@ aws_secret_access_key=YOUR_SECRET_ACCESS_KEY
 
 You can combine the build and deploy into one step with `npm run build:deploy`.
 
-## Known bugs
-+ On Internet Explorer 10 and 11, if a user goes through the carousel form, hits submit, and the hits the browser "back" button, the form does not reset properly. This is despite `document.forms[0].reset()` being called in `index.html`.
+
+## Browser support
+We autoprefix for everything in `browserslist` but officially only support modern browsers plus Internet Explorer 9.
