@@ -1,6 +1,7 @@
 .campaign {
   .splash {
     background-image: url('../bg/raffle.jpg');
+    background-position-y: -70px; // to make sure hotel pool is visible
   }
 
   @include media($mobile) {
