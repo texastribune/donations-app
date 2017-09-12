@@ -8,8 +8,8 @@ brew install rbenv
 rbenv init
 ```
 3. `cd` inside the project directory
-4. Download Ruby 2.3.0, the version used in this project: `rbenv install 2.3.0`
-5. Switch to that version: `rbenv local 2.3.0`
+4. Download Ruby 2.3.0, the version used in this project: `rbenv install 2.3.1`
+5. Switch to that version: `rbenv local 2.3.1`
 6. Make sure [Bundler](http://bundler.io/) is installed on your machine: `gem install bundler`
 7. Install project packages: `bundle install`
 8. Install JS packages: `npm install`
