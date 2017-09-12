@@ -1,3 +1,14 @@
+/**
+  We have a normal landing page (/index.html) and our
+  campaign-specific landing page (/campaign.html).
+
+  Both have virtually the same layout with a few
+  page-specific differences. So instead of having
+  separate SCSS partials for each page, it made sense
+  to put all the styles here and use specificity
+  when needed.
+*/
+
 .campaign {
   .splash {
     background-image: url('../bg/raffle.jpg');
