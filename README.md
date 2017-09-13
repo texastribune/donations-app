@@ -12,7 +12,7 @@ rbenv init
 5. Switch to that version: `rbenv local 2.3.0`
 6. Make sure [Bundler](http://bundler.io/) is installed on your machine: `gem install bundler`
 7. Install project packages: `bundle install`
-8. Install JS packages: `npm install`
+8. Install JS packages: `yarn`
 
 ### Node.js
 Consult the `engines` section of `package.json` for the Node and NPM versions used in this project. Node is only used for development tools (i.e. Webpack), so any relatively up-to-date version of Node/NPM will probably suffice. Still, it's good to match the exact versions if possible.
@@ -60,10 +60,10 @@ The configuration for a modern-browser Webpack build. More on this later.
 
 
 ## Commands
-+ `npm run dev`: Fire up the development server. This will enable live reloading of templates, JavaScript and CSS.
-+ `npm run build`: Build for production.
-+ `npm run middleman`: Do the official Middleman build process.
-+ `npm run critical`: Inline critical CSS.
++ `yarn run dev`: Fire up the development server. This will enable live reloading of templates, JavaScript and CSS.
++ `yarn run build`: Build for production.
++ `yarn run middleman`: Do the official Middleman build process.
++ `yarn run critical`: Inline critical CSS.
 
 
 ## Deploying
@@ -74,10 +74,10 @@ aws_access_key_id=YOUR_UNIQUE_ID
 aws_secret_access_key=YOUR_SECRET_ACCESS_KEY
 ```
 
-2. Build for production: `npm run build`
-3. Push to S3: `npm run deploy`
+2. Build for production: `yarn run build`
+3. Push to S3: `yarn run deploy`
 
-You can combine the build and deploy into one step with `npm run build:deploy`.
+You can combine the build and deploy into one step with `yarn run build:deploy`.
 
 
 ## Browser support
