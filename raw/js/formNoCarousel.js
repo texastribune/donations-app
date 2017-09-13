@@ -1,20 +1,19 @@
 export default class FormHandler {
-  constructor(config) {
-    this.amountsRadios = $(config.amountsRadioClass);
-    this.frequenciesRadios = $(config.frequenciesRadioClass);
-    this.amountsAttachEl = config.amountsAttachEl;
-    this.monthlyAmounts = config.monthlyAmounts;
-    this.yearlyAmounts = config.yearlyAmounts;
-    this.defaultMonthlyAmountsIndex = config.defaultMonthlyAmountsIndex;
-    this.defaultYearlyAmountsIndex = config.defaultYearlyAmountsIndex;
-
+  constructor() {
+    this.monthlyAmounts = [5, 10, 15, 25, 55, 85];
+    this.yearlyAmounts = [50, 75, 100, 250, 500, 1000];
+    this.defaultMonthlyAmountsIndex = 2;
+    this.defaultYearlyAmountsIndex = 2;
+    this.amountsAttach = $('#amounts-attach');
+    this.frequenciesRadios = $('.checkout__frequencies-radio');
     this.amountsRadiosClass = '.checkout__amounts-radio';
+    this.amountsRadios = $('.checkout__amounts-radio');
     this.invalidClass = 'invalid';
     this.validClass = 'valid';
-    this.formEl = $('#checkout-form');
-    this.manualInputEl = $('#manual-input');
-    this.manualRadioEl = $('#amount-manual');
-    this.manualLabelEl = $('#manual-label');
+    this.form = $('#checkout-form');
+    this.manualInput = $('#manual-input');
+    this.manualRadio = $('#amount-manual');
+    this.manualLabel = $('#manual-label');
     this.errorEl = $('#error');
   }
 
@@ -72,25 +71,25 @@ export default class FormHandler {
     }
 
     const markup = FormHandler.getAmountsMarkup(amounts, checkedIndex);
-    this.amountsAttachEl.empty().append(markup);
+    this.amountsAttach.empty().append(markup);
   }
 
   _updateManualInputBorder(valid) {
     let borderClass;
 
     if (valid) {
-      this.manualInputEl
+      this.manualInput
         .removeClass(this.invalidClass)
         .addClass(this.validClass);
     } else {
-      this.manualInputEl
+      this.manualInput
         .removeClass(this.validClass)
         .addClass(this.invalidClass);
     }
   }
 
   _clearManualInput() {
-    this.manualInputEl.val('');
+    this.manualInput.val('');
   }
 
   _clearValidationError() {
@@ -126,9 +125,9 @@ export default class FormHandler {
   _bindManualEvents() {
     const self = this;
 
-    this.manualInputEl.focus(function() {
+    this.manualInput.focus(function() {
       self._clearValidationError();
-      self.manualRadioEl
+      self.manualRadio
         .prop('checked', true)
         .change();
     });
@@ -137,9 +136,9 @@ export default class FormHandler {
   _bindSubmitEvents() {
     const self = this;
 
-    this.formEl.submit(function(e) {
-      self.manualRadioEl.val(
-        self.manualInputEl.val()
+    this.form.submit(function(e) {
+      self.manualRadio.val(
+        self.manualInput.val()
       );
 
       const amount = $(`${self.amountsRadiosClass}:checked`).val();
@@ -158,7 +157,7 @@ export default class FormHandler {
       .attr('name', 'campaignId')
       .val(campaignId);
 
-    this.formEl.append(hiddenInput);
+    this.form.append(hiddenInput);
   }
 
   _checkForCampaignId() {
