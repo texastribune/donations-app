@@ -1,0 +1,186 @@
+.checkout {
+  @include span-columns(5);
+  background-color: $white;
+  padding: 1em 1em 0 1em;
+  position: relative;
+  zoom: 1;
+
+  @include media($tablet-carousel) {
+    @include span-columns(12);
+    margin: 0 auto;
+    max-width: $mobile-width;
+  }
+
+  @include media($mobile) {
+    border-bottom: 1px solid $gray-light;
+    padding-bottom: 1.5em;
+  }
+
+  &__legend {
+    @extend .weight--bold;
+    display: block !important; // old iOS versions
+    font-size: 1.8em;
+    text-align: center;
+  }
+
+  &__group {
+    border: none;
+    margin: 0;
+    padding: 0;
+
+    &--amounts {
+
+    }
+
+    &--frequencies {
+
+    }
+
+    &--submit {
+
+    }
+  }
+
+  .checkout__amounts,
+  .checkout__frequencies {
+    list-style: none;
+  }
+}
+
+.carousel {
+
+
+  &__radios {
+    -webkit-margin-before-collapse: separate;
+    margin-top: 1em;
+  }
+
+  &__label {
+    border-color: $yellow-tribune;
+    color: $black;
+    margin-top: 1em;
+
+    &--selected {
+      @extend .carousel__label;
+      background-color: $white;
+
+      .carousel__slide--frequency & {
+        text-indent: 16px;
+      }
+    }
+
+    &--normal {
+      @extend .carousel__label;
+      background-color: $yellow-tribune;
+    }
+
+    &--full {
+      @extend .form-button--full;
+      @extend .form-button--thick;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    &--third {
+      @extend .form-button--third;
+      @extend .form-button--thin;
+    }
+
+    &:hover {
+      background-color: $white;
+    }
+  }
+
+  &__dollars {
+    @extend .weight--bold;
+    font-size: .9em;
+  }
+
+  &__qualifier {
+    font-size: .7em;
+  }
+
+  &__checkmark {
+    color: $yellow-tribune;
+
+    .carousel__label--selected & {
+      display: inline;
+    }
+
+    .carousel__label--normal & {
+      display: none;
+    }
+  }
+
+  &__student {
+    margin-top: 1em;
+  }
+
+  &__manual {
+    margin: 1em auto;
+    max-width: 250px;
+  }
+
+  &__manual-label {
+    @extend .weight--bold;
+    float: left;
+    // for vertical centering
+    line-height: 25px;
+    margin-right: .5em;
+  }
+
+  &__manual-input {
+    @extend .weight--bold;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 1px;
+    display: block;
+    float: right;
+    // for vertical centering
+    height: 25px;
+    text-indent: .5em;
+    width: 100px;
+
+    &--selected {
+      @extend .carousel__manual-input;
+      border-color: $teal-tribune;
+    }
+
+    &--invalid {
+      @extend .carousel__manual-input;
+      border-color: $error-red;
+    }
+
+    &--normal {
+      @extend .carousel__manual-input;
+      border-color: $teal-tribune;
+    }
+  }
+
+  &__manual-error {
+    color: $error-red;
+    font-size: .7em;
+    margin: .25em 0 0 0;
+    text-align: right;
+  }
+
+  &__submit {
+    @extend .form-button--full;
+    @extend .form-button--thin;
+    @extend .uppercase;
+    @extend .weight--bold;
+    background-color: #222;
+    border-color: #222;
+    color: $white;
+    display: block;
+
+    &:hover {
+      background-color: $white;
+      color: #222;
+    }
+  }
+}

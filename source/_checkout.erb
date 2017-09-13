@@ -1,6 +1,7 @@
 <div class="checkout">
   <form id="checkout-form" class="checkout__form" method="get" action="https://checkout.texastribune.org/memberform">
-    <formset class="checkout__group--amounts">
+    <formset class="checkout__group checkout__group--amounts">
+      <legend class="checkout__legend">I'm ready to give&hellip;</legend>
       <ul id="amounts-attach" class="checkout__amounts">
         <li class="checkout__amounts-item">
           <input id="amount-0" class="checkout__amounts-radio visually-hidden" type="radio" value="5" name="amount">
@@ -38,7 +39,7 @@
       </div>
     </formset>
 
-    <formset class="checkout__group--frequencies">
+    <formset class="checkout__group checkout__group--frequencies">
       <ul id="frequencies-attach" class="checkout__frequencies">
         <li class="checkout__frequencies-item">
           <input id="frequency-monthly" class="checkout__frequencies-radio visually-hidden" type="radio" value="monthly" name="installmentPeriod" checked>
@@ -51,7 +52,7 @@
       </ul>
     </formset>
 
-    <formset class="checkout__group--frequencies">
+    <formset class="checkout__group checkout__group--submit">
       <input type="submit" value="Go to checkout">
     </form>
   </form>
