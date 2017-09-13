@@ -5,11 +5,11 @@
   "author": "Andrew Gibson <agibson@texastribune.org>",
   "scripts": {
     "dev": "bundle exec middleman",
-    "build": "npm run middleman && npm run critical",
+    "build": "yarn run middleman && yarn run critical",
     "middleman": "bundle exec middleman build",
     "critical": "node ./utils/critical.js",
     "deploy": "./utils/deploy.sh",
-    "build:deploy": "npm run build && npm run deploy"
+    "build:deploy": "yarn run build && yarn run deploy"
   },
   "main": "source/index.html.erb",
   "repository": {
