@@ -18,6 +18,25 @@ export default class FormHandler {
     this.errorEl = $('#error');
   }
 
+  static getCampaignId() {
+    let campaignId = null;
+    let params = window.location.search;
+
+    if (params) {
+      params = params.replace(/\?/g, '').split('&');
+
+      params.forEach((param) => {
+        const splitParam = param.split('=');
+
+        if (splitParam[0].toLowerCase() === 'campaignid') {
+          campaignId = splitParam[1];
+        }
+      });
+    }
+
+    return campaignId;
+  }
+
   static isValidAmount(amount) {
     if (amount === '') {
       return false;
@@ -132,7 +151,26 @@ export default class FormHandler {
     });
   }
 
+  _addCampaignIdHiddenInput(campaignId) {
+    const hiddenInput = $('<input />');
+    hiddenInput
+      .attr('type', 'hidden')
+      .attr('name', 'campaignId')
+      .val(campaignId);
+
+    this.formEl.append(hiddenInput);
+  }
+
+  _checkForCampaignId() {
+    const campaignId = FormHandler.getCampaignId();
+
+    if (campaignId !== null) {
+      this._addCampaignIdHiddenInput(campaignId);
+    }
+  }
+
   init() {
+    this._checkForCampaignId();
     this._bindAmountsEvents();
     this._bindFrequenciesEvents();
     this._bindManualEvents();
