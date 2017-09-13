@@ -1,0 +1,106 @@
+---
+title: Donate to The Texas Tribune
+---
+
+<% content_for :main do %>
+  <div class="splash">
+    <div class="splash-wrapper">
+      <div class="splash-greeting">
+        <h1 class="splash-header">Support independent, <span class="text-break">fact-based journalism</span></h1>
+        <p class="splash-info">As a 501(c)(3) nonprofit organization, our work is made possible through the generosity of members and donors. <span class="own-line"><a class="splash-link--yellow" href="https://www.texastribune.org/about/">Learn more</a> about the Tribune's mission.</span></p>
+      </div>
+      <%= partial "checkout" %>
+    </div>
+
+    <%= partial "desktop_nav" %>
+  </div>
+
+  <div class="main">
+    <div class="main-left">
+      <div class="section">
+        <h3>All members enjoy the following benefits:</h3>
+        <ul class="info-list">
+          <li>Recognition on our <a href="https://www.texastribune.org/support-us/donors-and-members/">Donor Wall</a></li>
+          <li>Discounted tickets to the annual <a href="https://www.texastribune.org/festival/">Texas Tribune Festival</a></li>
+          <li>Exclusive, quarterly e-newsletter, where members get a behind-the-scenes look at the Tribune’s latest projects and initiatives</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>Sustaining or one-time membership?</h3>
+        <ul class="info-list">
+          <li>We think it's important that you get to support and consume the news on your own time and on your own terms. All donations are greatly appreciated.</li>
+          <li>A sustaining membership means your donation recurs automatically on a monthly or yearly basis via credit card. This provides the Tribune with the sort of predictable revenue that allows us to plan budgets a few years at a time, and it helps eliminate renewal mailings or lapses in your membership.</li>
+          <li>Explore member levels <a href="/levels.html">here</a>.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <p class="student">
+          <a href="https://checkout.texastribune.org/memberform?&amount=10&installmentPeriod=yearly">
+            Interested in becoming a student member?
+            <i class="fa fa-chevron-right"></i>
+          </a>
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>Circle Membership</h3>
+        <ul class="info-list">
+          <li>Circle Membership is a three-year commitment that backs the vital work of our journalists. <a href="/circle.html">Circle members</a> believe in supporting our public service mission so that all Texans can access our nonpartisan news, data and events at no cost.</li>
+          <li>Circle Members enjoy invitations to exclusive events and special updates from CEO Evan Smith.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="main-right">
+      <div class="section">
+        <h3>Have a question?</h3>
+
+        <div class="contact-info">
+          <h5>Membership & The Blast</h5>
+          <h4>Rebecca Quarls</h4>
+          <p class="italic">Membership and Marketing Manager</p>
+          <p>512-716-8686</p>
+          <p><a href="mailto:rquarls@texastribune.org">rquarls@texastribune.org</a></p>
+        </div>
+
+        <div class="contact-info">
+          <h5>Circle Membership</h5>
+          <h4>Suzanne Geiger</h4>
+          <p class="italic">Development Manager</p>
+          <p>512-716-8646</p>
+          <p><a href="mailto:sgeiger@texastribune.org">sgeiger@texastribune.org</a></p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Want to give more?</h3>
+
+        <div class="give-more">
+          <h5>Major gifts or grants</h5>
+          <h4>Terry Quinn</h4>
+          <p class="italic">Chief Development Officer</p>
+          <p>512-716-8613</p>
+          <p><a href="mailto:tquinn@texastribune.org">tquinn@texastribune.org</a></p>
+        </div>
+
+        <div class="give-more">
+          <h5>Corporate sponsorships</h5>
+          <h4>April Hinkle</h4>
+          <p class="italic">Chief Revenue Officer</p>
+          <p>512-716-8634</p>
+          <p><a href="mailto:ahinkle@texastribune.org">ahinkle@texastribune.org</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% content_for :page_js do %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+  <script src="../javascripts/newBundle.js"></script>
+  <script>
+    document.forms[0].reset();
+  </script>
+<% end %>

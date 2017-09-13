@@ -1,7 +1,7 @@
 import '../scss/all.scss';
-import FormHandler from './form';
+import FormCarouselHandler from './formCarousel';
 
-const DonationForm = new FormHandler({
+const DonationForm = new FormCarouselHandler({
   amountsAttach: $('.carousel__slide--amount .carousel__radios'),
   outerContainer: $('#carousel-outer'),
   innerContainer: $('#carousel-inner'),
