@@ -10,9 +10,8 @@ npm-debug.log
 # directories
 build/
 node_modules/
-source/bg
-source/javascripts
 source/css
+source/javascripts/bundle.js
 
 # tests
 test/compiled.js

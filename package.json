@@ -4,12 +4,14 @@
   "description": "Support nonprofit journalism by giving to The Texas Tribune",
   "author": "Andrew Gibson <agibson@texastribune.org>",
   "scripts": {
-    "dev": "bundle exec middleman --watcher-force-polling",
+    "dev": "bundle exec middleman",
     "build": "yarn run middleman && yarn run critical",
     "middleman": "bundle exec middleman build",
     "critical": "node ./utils/critical.js",
     "deploy": "./utils/deploy.sh",
-    "build:deploy": "yarn run build && yarn run deploy"
+    "build:deploy": "yarn run build && yarn run deploy",
+    "js:dev": "webpack --watch",
+    "js:prod": "webpack"
   },
   "main": "source/index.html.erb",
   "repository": {
