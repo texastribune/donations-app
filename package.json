@@ -8,8 +8,6 @@
     "build": "yarn run middleman && yarn run critical",
     "middleman": "bundle exec middleman build",
     "critical": "node ./utils/critical.js",
-    "deploy": "./utils/deploy.sh",
-    "build:deploy": "yarn run build && yarn run deploy",
     "js:dev": "webpack --watch",
     "js:prod": "webpack"
   },

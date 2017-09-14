@@ -1,17 +1,13 @@
-# hidden stuff
 .DS_Store
 .env
+env-docker
 npm-debug.log
 /.sass-cache
 /.cache
 /.tmp
 /.bundle
 
-# directories
 build/
 node_modules/
 source/css
 source/javascripts/bundle.js
-
-# tests
-test/compiled.js
