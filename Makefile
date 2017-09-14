@@ -9,7 +9,6 @@ run: main-image
 	-docker volume rm ${APP}_node_modules-vol
 	-docker volume create --name ${APP}_node_modules-vol
 	docker run --rm \
-		--env-file=${DOCKER_ENV_FILE} \
 		--volume=$$(pwd):/app \
 		--publish=4567:4567 \
 		--publish=35729:35729 \
@@ -24,5 +23,6 @@ main-image:
 deploy:
 	docker start ${AWS_CLI_CONTAINER} || \
 		docker run -t -i \
-		--name=${AWS_CLI_CONTAINER} ${AWS_CLI_IMAGE}
-		--entrypoint=/app/utils/deploy.sh
+		--env-file=${DOCKER_ENV_FILE} \
+		--name=${AWS_CLI_CONTAINER} \
+		${AWS_CLI_IMAGE}
