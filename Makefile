@@ -1,16 +1,19 @@
 NS:=texastribune
 APP:=support
+IMAGE=${NS}/${APP}
 
-build:
-	docker build --tag=${APP} .
-
-run:
+run: build
+	-docker volume rm ${APP}_node_modules-vol
+	-docker volume create --name ${APP}_node_modules-vol
 	docker run --rm \
+		--volume=$$(pwd):/app \
 		--publish=4567:4567 \
+		--publish=35729:35729 \
 		--interactive \
 		--tty \
-		--env=LC_ALL=C.UTF-8 \
-		--env=LANG=en_US.UTF-8 \
-		--env=LANGUAGE=en_US.UTF-8 \
-		--name=${APP} ${APP} \
+		--volume=${APP}_node_modules-vol:/app/node_modules \
+		--name=${NS}-${APP} ${IMAGE} \
 		bash
+
+build:
+	docker build --tag=${IMAGE} .

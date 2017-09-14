@@ -1,6 +1,11 @@
 FROM ruby:2.3.4
 MAINTAINER tech@texastribune.org
 
+RUN apt-get update -qq && apt-get install -y locales -qq && locale-gen en_US.UTF-8 en_us && locale-gen C.UTF-8 && /usr/sbin/update-locale LANG=C.UTF-8
+ENV LANG C.UTF-8
+ENV LANGUAGE C.UTF-8
+ENV LC_ALL C.UTF-8
+
 RUN set -ex \
   && for key in \
     9554F04D7259F04124DE6B476D5A82AC7E37093B \
@@ -58,21 +63,15 @@ RUN set -ex \
 RUN mkdir /app
 WORKDIR /app
 
-COPY data /app/data
-COPY raw /app/raw
-COPY source /app/source
-COPY utils /app/utils
-COPY .babelrc /app/.babelrc
-COPY browserslist /app/browserslist
-COPY config.rb /app/config.rb
 COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
 COPY package.json /app/package.json
 COPY yarn.lock /app/yarn.lock
-COPY postcss.config.js /app/postcss.config.js
-COPY webpack.config.js /app/webpack.config.js
 
 RUN gem install bundler
 RUN bundle install
-
 RUN yarn
+
+COPY . /app/
+
+EXPOSE 4567 35729

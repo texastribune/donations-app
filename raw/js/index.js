@@ -1,5 +1,5 @@
 import '../scss/all.scss';
-import FormHandler from './form';
+/*import FormHandler from './form';
 
 const DonationForm = new FormHandler({
   amountsAttach: $('.carousel__slide--amount .carousel__radios'),
@@ -29,6 +29,9 @@ const DonationForm = new FormHandler({
   }
 });
 
+
+
 DonationForm.initCarousel();
 DonationForm.removeCarouselLoadingClass();
-DonationForm.bindAllEvents();
+DonationForm.bindAllEvents();*/
+console.log('gooadsfasdfeeeeeeeeeezzzzzz');

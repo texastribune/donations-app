@@ -1,5 +1,5 @@
 configure :development do
-  activate :livereload
+  activate :livereload, host: '0.0.0.0'
 end
 
 set :css_dir, 'stylesheets'
