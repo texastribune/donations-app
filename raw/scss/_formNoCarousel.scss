@@ -41,51 +41,56 @@
     }
   }
 
-  .checkout__amounts,
-  .checkout__frequencies {
+  &__amounts,
+  &__frequencies {
     list-style: none;
-  }
-}
-
-.carousel {
-
-
-  &__radios {
-    -webkit-margin-before-collapse: separate;
-    margin-top: 1em;
+    margin: 1em 0 0 0;
+    padding: 0;
   }
 
-  &__label {
+  &__amounts-item {
+    display: inline-block;
+    margin-right: 15px;
+    width: calc(33.3% - 10px);
+
+    &:nth-child(n+4) {
+      margin-top: 1em;
+    }
+
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+
+  &__amounts-radio,
+  &__frequencies-radio {
+
+  }
+
+  &__amounts-radio {
+
+  }
+
+  &__frequencies-radio {
+
+  }
+
+  &__amounts-label,
+  &__frequencies-label {
+    text-align: center;
+  }
+
+  &__amounts-label {
+    @extend .form-button--thin;
+    @extend .bold;
+    background-color: $yellow-tribune;
     border-color: $yellow-tribune;
     color: $black;
-    margin-top: 1em;
+    display: block;
 
-    &--selected {
-      @extend .carousel__label;
+    .checkout__amounts-radio:checked + &,
+    .checkout__frequencies-radio:checked + & {
       background-color: $white;
-
-      .carousel__slide--frequency & {
-        text-indent: 16px;
-      }
-    }
-
-    &--normal {
-      @extend .carousel__label;
-      background-color: $yellow-tribune;
-    }
-
-    &--full {
-      @extend .form-button--full;
-      @extend .form-button--thick;
-
-      &:first-child {
-        margin-top: 0;
-      }
-    }
-
-    &--third {
-      @extend .form-button--third;
-      @extend .form-button--thin;
     }
 
     &:hover {
@@ -93,25 +98,23 @@
     }
   }
 
+  &__frequencies-label {
+
+  }
+
+  &__manual {
+    margin-top: 1em;
+  }
+}
+
+.carousel {
+  &__label {
+
+  }
+
   &__dollars {
     @extend .weight--bold;
     font-size: .9em;
-  }
-
-  &__qualifier {
-    font-size: .7em;
-  }
-
-  &__checkmark {
-    color: $yellow-tribune;
-
-    .carousel__label--selected & {
-      display: inline;
-    }
-
-    .carousel__label--normal & {
-      display: none;
-    }
   }
 
   &__student {
@@ -169,8 +172,6 @@
   }
 
   &__submit {
-    @extend .form-button--full;
-    @extend .form-button--thin;
     @extend .uppercase;
     @extend .weight--bold;
     background-color: #222;
