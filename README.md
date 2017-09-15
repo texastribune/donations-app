@@ -1,6 +1,14 @@
+## Dependencies
++ Node 6.11.3
++ Yarn 0.27.5
+
+These versions are pinned in `Dockerfile`, so you shouldn't have to worry about it.
+
+
 ## Set-up
-- Create an `env-docker` file in the root. Fill it out according to what's in `env.sample`.
-- Run `make`. This will take a few minutes the first time you run it as Docker has to build the image from scratch.
++ Create an `env-docker` file in the root. Fill it out according to what's in `env.sample`.
++ Run `make`. This will take a few minutes the first time you run it as Docker has to build the image from scratch.
+
 
 ## Files and directories of note
 ### `source/`
