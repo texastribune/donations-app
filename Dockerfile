@@ -12,6 +12,27 @@ ENV LANG C.UTF-8
 ENV LANGUAGE C.UTF-8
 ENV LC_ALL C.UTF-8
 
+# get aws-cli
+ENV PYTHONIOENCODING=UTF-8
+RUN apt-get install -y \
+    less \
+    man \
+    ssh \
+    python \
+    python-dev \
+    python-pip \
+    python-virtualenv \
+    vim
+
+RUN \
+    mkdir aws && \
+    virtualenv aws/env && \
+    ./aws/env/bin/pip install awscli && \
+    echo 'source $HOME/aws/env/bin/activate' >> .bashrc && \
+    echo 'complete -C aws_completer aws' >> .bashrc && \
+    ln -s /aws/env/bin/aws /usr/local/bin/aws
+
+# get Node
 RUN set -ex \
   && for key in \
     9554F04D7259F04124DE6B476D5A82AC7E37093B \
@@ -28,7 +49,6 @@ RUN set -ex \
     gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key" ; \
   done
 
-# get Node
 ENV NPM_CONFIG_LOGLEVEL info
 ENV NODE_VERSION 6.11.3
 
@@ -71,6 +91,7 @@ RUN set -ex \
 RUN mkdir /app
 WORKDIR /app
 
+# copy files that define dependencies
 COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
 COPY package.json /app/package.json
@@ -81,6 +102,7 @@ RUN gem install bundler
 RUN bundle install
 RUN yarn
 
+# copy the rest of the app
 COPY . /app/
 
 # expose ports for Middleman and live reloading
