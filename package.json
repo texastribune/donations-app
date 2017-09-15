@@ -5,7 +5,8 @@
   "author": "Andrew Gibson <agibson@texastribune.org>",
   "scripts": {
     "dev": "bundle exec middleman --watcher-force-polling",
-    "build": "yarn run middleman && yarn run critical",
+    "build": "yarn run clean && yarn run middleman && yarn run critical",
+    "clean": "rimraf -f ./build/*",
     "middleman": "bundle exec middleman build",
     "critical": "node ./utils/critical.js",
     "js:dev": "webpack --watch",
@@ -39,6 +40,7 @@
     "inline-critical": "^2.4.0",
     "node-sass": "^4.5.0",
     "postcss-loader": "^1.3.3",
+    "rimraf": "^2.6.2",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.13.2",
     "webpack": "^2.2.1"
