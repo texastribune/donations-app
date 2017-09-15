@@ -1,6 +1,7 @@
 FROM ruby:2.3.4
 MAINTAINER tech@texastribune.org
 
+# set locale
 RUN apt-get update -qq && apt-get install -y \
   locales -qq \
   && locale-gen en_US.UTF-8 en_us \
@@ -27,9 +28,9 @@ RUN set -ex \
     gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key" ; \
   done
 
+# get Node
 ENV NPM_CONFIG_LOGLEVEL info
 ENV NODE_VERSION 6.11.3
-ENV YARN_VERSION 0.27.5
 
 RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && case "${dpkgArch##*-}" in \
@@ -48,6 +49,8 @@ RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && rm "node-v$NODE_VERSION-linux-$ARCH.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt \
   && ln -s /usr/local/bin/node /usr/local/bin/nodejs
 
+# get Yarn
+ENV YARN_VERSION 0.27.5
 RUN set -ex \
   && for key in \
     6A010C5166006599AA17F08146C2130DFD2497F5 \
@@ -73,10 +76,12 @@ COPY Gemfile.lock /app/Gemfile.lock
 COPY package.json /app/package.json
 COPY yarn.lock /app/yarn.lock
 
+# install dependencies
 RUN gem install bundler
 RUN bundle install
 RUN yarn
 
 COPY . /app/
 
+# expose ports for Middleman and live reloading
 EXPOSE 4567 35729
