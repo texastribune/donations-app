@@ -110,6 +110,11 @@ export default class FormHandler {
     });
   }
 
+  _rebindAmountsEvents() {
+    this.amountsRadios = $(this.amountsRadiosClass);
+    this._bindAmountsEvents();
+  }
+
   _bindFrequenciesEvents() {
     const self = this;
 
@@ -119,6 +124,7 @@ export default class FormHandler {
       self._clearValidationError();
       self._clearManualInput();
       self._buildAmounts(frequency);
+      self._rebindAmountsEvents();
     });
   }
 
