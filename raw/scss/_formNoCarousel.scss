@@ -1,7 +1,7 @@
 .checkout {
   @include span-columns(5);
   background-color: $white;
-  padding: 1em 1em 0 1em;
+  padding: 1em;
   position: relative;
   zoom: 1;
 
@@ -25,32 +25,29 @@
 
   &__group {
     border: none;
-    margin: 0;
-    padding: 0;
+    display: block;
+    margin: 1em 0 0 0;
 
-    &--amounts {
-
-    }
-
-    &--frequencies {
-
-    }
-
-    &--submit {
-
+    &:first-of-type {
+      margin-top: 0;
     }
   }
 
   &__amounts,
   &__frequencies {
     list-style: none;
-    margin: 1em 0 0 0;
     padding: 0;
   }
 
-  &__amounts-item {
-    display: inline-block;
+  &__amounts-item,
+  &__frequencies-item {
+    display: block;
+    float: left;
     margin-right: 15px;
+  }
+
+
+  &__amounts-item {
     width: calc(33.3% - 10px);
 
     &:nth-child(n+4) {
@@ -62,25 +59,16 @@
     }
   }
 
-  &__amounts-radio,
-  &__frequencies-radio {
+  &__frequencies-item {
+    width: calc(50% - 7.5px);
 
-  }
-
-  &__amounts-radio {
-
-  }
-
-  &__frequencies-radio {
-
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
   &__amounts-label,
   &__frequencies-label {
-    text-align: center;
-  }
-
-  &__amounts-label {
     @extend .form-button--thin;
     @extend .bold;
     background-color: $yellow-tribune;
@@ -98,29 +86,6 @@
     }
   }
 
-  &__frequencies-label {
-
-  }
-
-  &__manual {
-    margin-top: 1em;
-  }
-}
-
-.carousel {
-  &__label {
-
-  }
-
-  &__dollars {
-    @extend .weight--bold;
-    font-size: .9em;
-  }
-
-  &__student {
-    margin-top: 1em;
-  }
-
   &__manual {
     margin: 1em auto;
     max-width: 250px;
@@ -129,7 +94,6 @@
   &__manual-label {
     @extend .weight--bold;
     float: left;
-    // for vertical centering
     line-height: 25px;
     margin-right: .5em;
   }
@@ -143,22 +107,16 @@
     border-width: 1px;
     display: block;
     float: right;
-    // for vertical centering
     height: 25px;
     text-indent: .5em;
     width: 100px;
 
-    &--selected {
-      @extend .carousel__manual-input;
-      border-color: $teal-tribune;
-    }
-
-    &--invalid {
+    &.invalid {
       @extend .carousel__manual-input;
       border-color: $error-red;
     }
 
-    &--normal {
+    &.valid {
       @extend .carousel__manual-input;
       border-color: $teal-tribune;
     }
@@ -178,6 +136,8 @@
     border-color: #222;
     color: $white;
     display: block;
+    padding: .5em 0;
+    width: 100%;
 
     &:hover {
       background-color: $white;

@@ -1,24 +1,29 @@
 <div class="checkout">
   <form id="checkout-form" class="checkout__form" method="get" action="https://checkout.texastribune.org/memberform">
-    <formset class="checkout__group checkout__group--amounts">
+    <formset class="checkout__group checkout__group--amounts clearfix">
       <legend class="checkout__legend">I'm ready to give&hellip;</legend>
-      <ul id="amounts-attach" class="checkout__amounts">
+      <ul id="amounts-attach" class="checkout__amounts clearfix">
         <li class="checkout__amounts-item">
           <input id="amount-0" class="checkout__amounts-radio visually-hidden" type="radio" value="5" name="amount">
           <label for="amount-0" class="checkout__amounts-label">$5</label>
-        </li><li class="checkout__amounts-item">
+        </li>
+        <li class="checkout__amounts-item">
           <input id="amount-1" class="checkout__amounts-radio visually-hidden" type="radio" value="10" name="amount">
           <label for="amount-1" class="checkout__amounts-label">$10</label>
-        </li><li class="checkout__amounts-item">
+        </li>
+        <li class="checkout__amounts-item">
           <input id="amount-2" class="checkout__amounts-radio visually-hidden" type="radio" value="15" name="amount" checked>
           <label for="amount-2" class="checkout__amounts-label">$15</label>
-        </li><li class="checkout__amounts-item">
+        </li>
+        <li class="checkout__amounts-item">
           <input id="amount-3" class="checkout__amounts-radio visually-hidden" type="radio" value="25" name="amount">
           <label for="amount-3" class="checkout__amounts-label">$25</label>
-        </li><li class="checkout__amounts-item">
+        </li>
+        <li class="checkout__amounts-item">
           <input id="amount-4" class="checkout__amounts-radio visually-hidden" type="radio" value="55" name="amount">
           <label for="amount-4" class="checkout__amounts-label">$55</label>
-        </li><li class="checkout__amounts-item">
+        </li>
+        <li class="checkout__amounts-item">
           <input id="amount-5" class="checkout__amounts-radio visually-hidden" type="radio" value="85" name="amount">
           <label for="amount-5" class="checkout__amounts-label">$85</label>
         </li>
@@ -34,8 +39,8 @@
       </div>
     </formset>
 
-    <formset class="checkout__group checkout__group--frequencies">
-      <ul id="frequencies-attach" class="checkout__frequencies">
+    <formset class="checkout__group checkout__group--frequencies clearfix">
+      <ul id="frequencies-attach" class="checkout__frequencies clearfix">
         <li class="checkout__frequencies-item">
           <input id="frequency-monthly" class="checkout__frequencies-radio visually-hidden" type="radio" value="monthly" name="installmentPeriod" checked>
           <label for="frequency-monthly" class="checkout__frequencies-label">Monthly</label>
@@ -47,8 +52,8 @@
       </ul>
     </formset>
 
-    <formset class="checkout__group checkout__group--submit">
-      <input type="submit" value="Go to checkout">
+    <formset class="checkout__group checkout__group--submit clearfix">
+      <input class="checkout__submit" type="submit" value="Go to checkout">
     </form>
   </form>
 </div>
