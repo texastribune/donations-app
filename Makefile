@@ -2,6 +2,7 @@ NS:=texastribune
 APP:=support
 IMAGE=${NS}/${APP}
 DOCKER_ENV_FILE?=env-docker
+.PHONY: build
 
 run: build
 	-docker volume rm ${APP}_node_modules-vol
