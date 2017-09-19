@@ -15,22 +15,15 @@ ENV LC_ALL C.UTF-8
 # get aws-cli
 ENV PYTHONIOENCODING=UTF-8
 RUN apt-get install -y \
-    less \
-    man \
     ssh \
     python \
     python-dev \
-    python-pip \
-    python-virtualenv \
-    vim
+    python-pip
 
 RUN \
     mkdir aws && \
-    virtualenv aws/env && \
-    ./aws/env/bin/pip install awscli && \
-    echo 'source $HOME/aws/env/bin/activate' >> .bashrc && \
-    echo 'complete -C aws_completer aws' >> .bashrc && \
-    ln -s /aws/env/bin/aws /usr/local/bin/aws
+    pip install awscli && \
+    echo 'complete -C aws_completer aws' >> .bashrc
 
 # get Node
 RUN set -ex \
