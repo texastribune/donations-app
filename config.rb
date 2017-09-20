@@ -1,11 +1,9 @@
 configure :development do
-  activate :livereload
+  activate :livereload, host: '0.0.0.0'
 end
 
 set :css_dir, 'stylesheets'
-
 set :js_dir, 'javascripts'
-
 set :images_dir, 'images'
 
 configure :production do
@@ -18,8 +16,6 @@ activate :gzip
 # https://rossta.net/blog/using-webpack-with-middleman.html
 activate :external_pipeline,
   name: :webpack,
-  command: build? ?
-  "./node_modules/webpack/bin/webpack.js --bail" :
-  "./node_modules/webpack/bin/webpack.js --watch",
-  source: ".tmp",
+  command: build? ? "yarn run js:prod" : "yarn run js:dev",
+  source: ".tmp/dist",
   latency: 1
