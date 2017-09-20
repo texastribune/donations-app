@@ -1,43 +1,21 @@
-## Getting Started
-### Basic setup
-1. Clone down the project repo
-2. Install [rbenv](https://github.com/sstephenson/rbenv) on your machine via Homebrew:
-```
-brew update
-brew install rbenv
-rbenv init
-```
-3. `cd` inside the project directory
-4. Download Ruby 2.3.0, the version used in this project: `rbenv install 2.3.1`
-5. Switch to that version: `rbenv local 2.3.1`
-6. Make sure [Bundler](http://bundler.io/) is installed on your machine: `gem install bundler`
-7. Install project packages: `bundle install`
-8. Install JS packages: `npm install`
+## Dependencies
++ Node 6.11.3
++ Yarn 0.27.5
 
-### Node.js
-Consult the `engines` section of `package.json` for the Node and NPM versions used in this project. Node is only used for development tools (i.e. Webpack), so any relatively up-to-date version of Node/NPM will probably suffice. Still, it's good to match the exact versions if possible.
-
-The easiest way to use the proper Node version is to use [Node Version Manager](https://github.com/creationix/nvm) (nvm).
-
-To use the proper NPM version, simply install it on your machine: `npm install -g npm@<version>`.
+These versions are pinned in `Dockerfile`, so you shouldn't have to worry about it.
 
 
-## Structure
-### `raw/`
-Contains files that will eventually be compiled or otherwise transformed with Webpack.
+## Set-up
++ Create an `env-docker` file in the root. Fill it out according to what's in `env.sample`.
++ Run `make`. This will take a few minutes the first time you run it as Docker has to build the image from scratch.
 
-+ `raw/js`: Place all ES2015 modules and Webpack entry points here.
-+ `raw/bg`: Place all background images here. That's because SCSS files `require()` them and will therefore be part of the Webpack build process.
-+ `raw/scss`: Place all SCSS files -- partials and entry points -- here.
 
+## Files and directories of note
 ### `source/`
-Contains files that Middleman will eventually minify and move to the `build/` directory.
+Contains files that Middleman will eventually process and move to the `build/` directory.
 
-+ `source/img`: Contains all images **except** background images.
-+ `source/layouts`: Contains base ERB templates.
-+ `source/bg`: A `.gitignore`d directory containing Webpack-processed background images
-+ `source/css`: A `.gitignore`d directory containing Webpack-processed CSS.
-+ `source/javascripts`: A `.gitignore`d directory containing Webpack-processed JavaScript.
++ Everything in `source/scss` gets compiled into `source/css`, which is `.gitignore`d.
++ `source/javascripts` contains ES6 modules that are eventually bundled into `source/javascripts/bundle.js`, which is ignored from version control.
 
 ### `utils/`
 + `deploy.sh`: A shell script for deployment to S3.
@@ -46,38 +24,33 @@ Contains files that Middleman will eventually minify and move to the `build/` di
 ### `data/`
 Contains YAML files, the data of which is fed into some ERB templates.
 
-### `.babelrc`
-Tells Babel how to compile our JavaScript.
-
 ### `browserslist`
 Tells Autoprefixer what browsers we care about.
 
 ### `postcss.config.js`
 Tells Webpack what PostCSS stuff we want it to do.
 
-### `webpack.config.js`
-The configuration for a modern-browser Webpack build. More on this later.
-
 
 ## Commands
-+ `npm run dev`: Fire up the development server. This will enable live reloading of templates, JavaScript and CSS.
-+ `npm run build`: Build for production.
-+ `npm run middleman`: Do the official Middleman build process.
-+ `npm run critical`: Inline critical CSS.
++ `yarn run dev`: Fire up the development server. This will enable live reloading of templates, JavaScript and CSS.
++ `yarn run build`: Build for production.
++ `yarn run clean`: Clean out the `build/` directory.
++ `yarn run middleman`: Do the official Middleman build process.
++ `yarn run critical`: Inline critical CSS.
++ `yarn run js:dev`: Put Webpack in watch mode.
++ `yarn run js:prod`: Build the Webpack bundle for production.
++ `yarn run deploy`: Deploy to S3.
++ `yarn run build:deploy`: Build for production, then deploy.
+
+You'll typically only need these three: `yarn run dev`, `yarn run build` and `yarn run deploy`.
 
 
-## Deploying
-1. Set up your `~/.aws/config` like this:
-```
-[default]
-aws_access_key_id=YOUR_UNIQUE_ID
-aws_secret_access_key=YOUR_SECRET_ACCESS_KEY
-```
+## Deployment
+1. Build for production: `yarn run build`
+2. Push to S3: `yarn run deploy`
 
-2. Build for production: `npm run build`
-3. Push to S3: `npm run deploy`
+You can combine the build and deploy into one step with `yarn run build:deploy`.
 
-You can combine the build and deploy into one step with `npm run build:deploy`.
 
-## Known bugs
-+ On Internet Explorer 10 and 11, if a user goes through the carousel form, hits submit, and the hits the browser "back" button, the form does not reset properly. This is despite `document.forms[0].reset()` being called in `index.html`.
+## Browser support
+We autoprefix for everything in `browserslist` but officially only support modern browsers plus Internet Explorer 9.

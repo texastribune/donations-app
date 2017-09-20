@@ -3,12 +3,15 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  entry: './raw/js/index.js',
+  entry: path.join(__dirname, 'source', 'javascripts', 'index.js'),
 
   output: {
-    path: path.join(__dirname, 'source'),
-    filename: 'javascripts/bundle.js',
-    publicPath: './'
+    path: path.join(__dirname, '.tmp', 'dist'),
+    filename: 'javascripts/bundle.js'
+  },
+
+  watchOptions: {
+    poll: true,
   },
 
   resolve: {
@@ -36,7 +39,6 @@ module.exports = {
       {
         test: /\.scss$/,
         include: [
-          /raw/,
           /source/,
           /node_modules/
         ],
@@ -62,7 +64,6 @@ module.exports = {
       {
         test: /\.js$/,
         include: [
-          /raw/,
           /source/,
           /node_modules/
         ],
@@ -74,7 +75,6 @@ module.exports = {
       {
         test: /\.(jpg|png|gif|webp)$/,
         include: [
-          /raw/,
           /source\/scss/,
           /source\/bg/,
           /node_modules/
@@ -83,7 +83,7 @@ module.exports = {
           /source\/img/,
         ],
         use: [{
-          loader: 'file-loader?name=[name].[ext]&outputPath=bg/'
+          loader: 'file-loader?name=[name].[ext]'
         }]
       }
     ]
