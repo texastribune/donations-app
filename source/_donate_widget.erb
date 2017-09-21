@@ -1,0 +1,94 @@
+<div class="donate__inner unloaded">
+  <div id="carousel-outer" class="carousel">
+    <form id="carousel-inner" class="carousel__form clearfix" action="" method="get" aria-labelledby="frequency-legend" role="form">
+      <div class="carousel__slide--frequency">
+        <fieldset class="carousel__fieldset">
+          <legend id="frequency-legend" class="carousel__legend">I want to donate&hellip;</legend>
+          <div class="carousel__radios">
+            <label class="carousel__label--normal carousel__label--full" for="frequency-yearly">
+              <span class="uppercase weight--bold">Yearly</span>
+              <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
+              <input id="frequency-yearly" class="carousel__radio visually-hidden" type="radio" value="yearly" name="frequency" data-frequency="yearly" onclick="ga('send', 'event', 'Support Page', 'donations-app', 'frequency-yearly', {'nonInteraction': 1})">
+            </label>
+
+            <label class="carousel__label--preselected carousel__label--full" for="frequency-monthly">
+              <span class="uppercase weight--bold">Monthly</span>
+              <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
+              <input id="frequency-monthly" class="carousel__radio visually-hidden" type="radio" value="monthly" name="frequency" data-frequency="monthly" checked onclick="ga('send', 'event', 'Support Page', 'donations-app', 'frequency-monthly', {'nonInteraction': 1})">
+            </label>
+
+            <label class="carousel__label--normal carousel__label--full" for="frequency-once">
+              <span class="uppercase weight--bold">One Time</span>
+              <i class="carousel__checkmark fa fa-check-square" aria-hidden="true"></i>
+              <input id="frequency-once" class="carousel__radio visually-hidden" type="radio" value="once" name="frequency" data-frequency="once" onclick="ga('send', 'event', 'Support Page', 'donations-app', 'frequency-once', {'nonInteraction': 1})">
+            </label>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="carousel__slide--amount" aria-hidden="true">
+        <fieldset class="carousel__fieldset">
+          <legend id="amount-legend" class="carousel__legend">I'm ready to give&hellip;</legend>
+          <div class="carousel__radios clearfix">
+            <label class="carousel__label--normal carousel__label--third" for="amount-1">
+              <span class="carousel__dollars">$5</span> <span class="carousel__qualifier">per month</span>
+              <input id="amount-1" class="carousel__radio visually-hidden" type="radio" value="5" name="amount">
+            </label>
+
+            <label class="carousel__label--normal carousel__label--third" for="amount-2">
+              <span class="carousel__dollars">$10</span> <span class="carousel__qualifier">per month</span>
+              <input id="amount-2" class="carousel__radio visually-hidden" type="radio" value="10" name="amount">
+            </label>
+
+            <label class="carousel__label--selected carousel__label--third" for="amount-3">
+              <span class="carousel__dollars">$15</span> <span class="carousel__qualifier">per month</span>
+              <input id="amount-3" class="carousel__radio visually-hidden" type="radio" value="15" name="amount" checked>
+            </label>
+
+            <label class="carousel__label--normal carousel__label--third" for="amount-4">
+              <span class="carousel__dollars">$25</span> <span class="carousel__qualifier">per month</span>
+              <input id="amount-4" class="carousel__radio visually-hidden" type="radio" value="25" name="amount">
+            </label>
+
+            <label class="carousel__label--normal carousel__label--third" for="amount-5">
+              <span class="carousel__dollars">$55</span> <span class="carousel__qualifier">per month</span>
+              <input id="amount-5" class="carousel__radio visually-hidden" type="radio" value="55" name="amount">
+            </label>
+
+            <label class="carousel__label--normal carousel__label--third" for="amount-6">
+              <span class="carousel__dollars">$85</span> <span class="carousel__qualifier">per month</span>
+              <input id="amount-6" class="carousel__radio visually-hidden" type="radio" value="85" name="amount">
+            </label>
+          </div>
+
+          <div class="carousel__manual">
+            <div class="carousel__manual-els clearfix">
+              <label id="manual-label" class="carousel__manual-label" for="amount-manual">Or enter an amount:</label>
+              <input id="amount-manual" class="carousel__radio visually-hidden" type="radio" name="amount">
+              <input id="manual-input" class="carousel__manual-input--normal" type="text" aria-labelledby="manual-label" placeholder="$">
+            </div>
+
+            <p id="error-message" class="carousel__manual-error hidden">Please enter a number.</p>
+          </div>
+        </fieldset>
+
+        <input id="submit" class="carousel__submit" aria-label="Go To Checkout" type="submit" value="Go To Checkout" onclick="ga('send', 'event', 'Support Page', 'donations-app', 'go-to-checkout', {'nonInteraction': 1})">
+      </div>
+    </form>
+
+    <div class="carousel__controls clearfix">
+      <button id="prev" class="carousel__button--prev disabled" aria-label="Go back to previous screen" disabled autocomplete="off" onclick="ga('send', 'event', 'Support Page', 'donations-app', 'app-back', {'nonInteraction': 1})">
+        <i class="fa fa-long-arrow-left" aria-hidden="true"></i>&nbsp;Back
+      </button>
+
+      <ul class="carousel__indicators clearfix" aria-hidden="true">
+        <li class="carousel__dot--selected"></li>
+        <li class="carousel__dot--normal"></li>
+      </ul>
+
+      <button id="next" class="carousel__button--next" aria-label="Move forward to next screen" autocomplete="off" onclick="ga('send', 'event', 'Support Page', 'donations-app', 'app-next', {'nonInteraction': 1})">
+        Next&nbsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</div>

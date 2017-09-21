@@ -1,0 +1,56 @@
+---
+title: TribFest Raffle 2017
+---
+
+<% content_for :main do %>
+  <div class="splash">
+    <div class="splash-wrapper">
+      <div class="splash-greeting">
+        <h1 class="splash-header">Sit beachside in Baja, all while supporting nonprofit journalism.</h1>
+        <p class="splash-info">This weekend only, donate to The Texas Tribune for a chance to win a three-night stay at Hotel San Cristóbal Baja, complete with airfare from Southwest Airlines.</p>
+      </div>
+      <div class="donate">
+        <%= partial "donate_widget" %>
+        <p class="donate__raffle">Raffle closes Sept. 24 at 11:59 pm CST. View rules and regulations <a class="splash-link--yellow" href="https://www.texastribune.org/member-raffle-rules/">here</a>.</p>
+      </div>
+    </div>
+
+    <%= partial "campaign_desktop_nav" %>
+  </div>
+
+  <div class="main">
+    <div class="top">
+      <img class="raffle-logo" src="../img/raffle.jpg">
+    </div>
+
+    <div class="main-left">
+      <div class="section">
+        <h3>About the raffle</h3>
+        <p class="bold">Become a Tribune member or make a donation on top of your existing membership by Sunday, Sept. 24 at midnight for a chance to win:</p>
+        <ul class="info-list">
+          <li>Three nights at Hotel San Cristóbal Baja, an intimate beachside resort on the southwestern edge of the Baja peninsula, framed by the Sierra de la Laguna</li>
+          <li>Airfare for two courtesy of Southwest Airlines</li>
+        </ul>
+        <p>Credible news organizations like The Texas Tribune are essential to the proper functioning of our democratic society. With your help, we’ll raise $15,000 in much-needed revenue that pays for the operations of our nonprofit newsroom, our event production, our data acquisition and dissemination, and every other aspect of our growing and thriving media organization.</p>
+        <p><a href="https://www.texastribune.org/member-raffle-rules/">View rules and regulations here</a>.</p>
+      </div>
+    </div>
+
+    <div class="main-right">
+      <div class="section">
+        <p class="raffle-callout">Help our 501(c)(3) nonprofit newsroom raise $15,000 this weekend during its marquee annual event, The Texas Tribune Festival.</p>
+        <p>Have questions? <a href="mailto:membership@texastribune.org">Email us</a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <%= partial "campaign_mobile_nav" %>
+<% end %>
+
+<% content_for :page_js do %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+  <script src="../javascripts/bundle.js"></script>
+  <script>
+    document.forms[0].reset();
+  </script>
+<% end %>
