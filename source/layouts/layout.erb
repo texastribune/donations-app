@@ -8,6 +8,8 @@
     <title><%= current_page.data.title %> | The Texas Tribune</title>
     <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
 
+    <%= yield_content :page_og %>
+
     <meta property="og:url" content="http://support.texastribune.org/index.html">
     <meta property="og:image" content="https://static.texastribune.org/media/membership/FMD16/26234447754_dc97a48275_b.jpg">
     <meta property="og:title" content="Support Us | The Texas Tribune">
@@ -21,6 +23,8 @@
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
+
+    <%= yield_content :page_canonical %>
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
