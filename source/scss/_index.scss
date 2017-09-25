@@ -1,3 +1,59 @@
+/*
+  We have a normal landing page (/index.html) and our
+  campaign-specific landing page (/campaign.html).
+  Both have virtually the same layout with a few
+  page-specific differences. So instead of having
+  separate SCSS partials for each page, it made sense
+  to put all the styles here and use specificity
+  when needed.
+*/
+
+.campaign {
+  .splash {
+    background-image: url('../bg/raffle.jpg');
+    background-position-y: -70px;
+  }
+
+  @include media($mobile) {
+    .splash-greeting {
+      background-image: url('../bg/raffle.jpg');
+    }
+  }
+
+  .main {
+    @include media($mobile) {
+      padding-top: 2em;
+    }
+  }
+
+  .top {
+    margin-bottom: 3em;
+
+    @include media($mobile) {
+      margin-bottom: 1em;
+      padding: 0 1em;
+    }
+  }
+
+  .section {
+    p {
+      margin: 1em 0;
+    }
+  }
+
+  .raffle-logo {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 450px;
+  }
+
+  .raffle-callout {
+    font-size: 1.4em;
+    font-weight: bold;
+  }
+}
+
 .index, .temp {
   .splash {
     background-image: url('../bg/index.jpg');
@@ -25,7 +81,7 @@
   }
 }
 
-.index, .campaign {
+.index, .temp, .campaign {
   .splash {
     background-color: lighten($black, 20%);
     background-position-x: 50%;
@@ -110,6 +166,48 @@
   .section {
     h3 {
       margin-bottom: .5em;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.index, .temp {
+  .splash {
+    background-image: url('../bg/index.jpg');
+  }
+
+  @include media($mobile) {
+    .splash-greeting {
+      background-image: url('../bg/index.jpg');
+    }
+  }
+
+  .main {
+    @include media($mobile) {
+      background-color: #f9f9f9;
+      padding-top: 1em;
+    }
+  }
+
+  .give-more {
+    margin-top: 2em;
+
+    h5 {
+      margin-bottom: 1em;
     }
   }
 }
