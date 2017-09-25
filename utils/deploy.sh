@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-echo "S3 BUCKET: "${npm_package_config_s3_bucket:?"The S3 bucket needs to be set in the package.json"}
-
-export APP_S3_BUCKET=$npm_package_config_s3_bucket
+yarn run build
 
 echo "Syncing *.css files to S3..."
 aws s3 sync --acl public-read --delete --include '*.css' --cache-control 'max-age=31536000' build s3://$APP_S3_BUCKET/
@@ -17,4 +15,4 @@ echo "Syncing image files to S3..."
 aws s3 sync --acl public-read --delete --include '*.jpg' --include '*.png' --include '*.gif' --cache-control 'max-age=604800' build s3://$APP_S3_BUCKET/
 
 echo "Syncing everything else to S3..."
-aws s3 sync --dryrun build s3://$APP_S3_BUCKET/
+aws s3 sync build s3://$APP_S3_BUCKET/

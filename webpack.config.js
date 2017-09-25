@@ -4,14 +4,18 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    old: './raw/js/old.js',
-    new: './raw/js/new.js'
+    old: path.join(__dirname, 'source', 'javascripts', 'old.js'),
+    new: path.join(__dirname, 'source', 'javascripts', 'new.js')
   },
 
   output: {
-    path: path.join(__dirname, 'source'),
+    path: path.join(__dirname, '.tmp', 'dist'),
     filename: 'javascripts/[name]Bundle.js',
     publicPath: './'
+  },
+
+  watchOptions: {
+    poll: true,
   },
 
   resolve: {
@@ -39,7 +43,6 @@ module.exports = {
       {
         test: /\.scss$/,
         include: [
-          /raw/,
           /source/,
           /node_modules/
         ],
@@ -65,7 +68,6 @@ module.exports = {
       {
         test: /\.js$/,
         include: [
-          /raw/,
           /source/,
           /node_modules/
         ],
@@ -77,7 +79,6 @@ module.exports = {
       {
         test: /\.(jpg|png|gif|webp)$/,
         include: [
-          /raw/,
           /source\/scss/,
           /source\/bg/,
           /node_modules/
@@ -86,7 +87,7 @@ module.exports = {
           /source\/img/,
         ],
         use: [{
-          loader: 'file-loader?name=[name].[ext]&outputPath=bg/'
+          loader: 'file-loader?name=[name].[ext]'
         }]
       }
     ]

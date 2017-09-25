@@ -62,10 +62,11 @@ $carousel-height: 285px;
     }
   }
 
-  &__mail {
+  &__mail,
+  &__raffle {
     color: $white;
+    letter-spacing: .03em;
     margin-top: 1em;
-    text-align: center;
 
     @include media($mobile) {
       color: $black;
@@ -76,6 +77,20 @@ $carousel-height: 285px;
       a {
         color: $teal-tribune;
       }
+    }
+  }
+
+  &__mail {
+    text-align: center;
+
+    .campaign & {
+      display: none;
+    }
+  }
+
+  &__raffle {
+    .index & {
+      display: none;
     }
   }
 }

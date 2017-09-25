@@ -1,8 +1,34 @@
 .index, .temp {
   .splash {
+    background-image: url('../bg/index.jpg');
+  }
+
+  @include media($mobile) {
+    .splash-greeting {
+      background-image: url('../bg/index.jpg');
+    }
+  }
+
+  .main {
+    @include media($mobile) {
+      background-color: #f9f9f9;
+      padding-top: 1em;
+    }
+  }
+
+  .give-more {
+    margin-top: 2em;
+
+    h5 {
+      margin-bottom: 1em;
+    }
+  }
+}
+
+.index, .campaign {
+  .splash {
     background-color: lighten($black, 20%);
     background-position-x: 50%;
-    background-image: url('../bg/index.jpg');
 
     @include media($mobile) {
       background-image: none;
@@ -44,7 +70,6 @@
     }
 
     @include media($mobile) {
-      background-image: url('../bg/index.jpg');
       background-position-x: 50%;
       background-size: cover;
       position: relative;
@@ -82,24 +107,9 @@
     }
   }
 
-  .main {
-    @include media($mobile) {
-      background-color: #f9f9f9;
-      padding-top: 1em;
-    }
-  }
-
   .section {
     h3 {
       margin-bottom: .5em;
-    }
-  }
-
-  .give-more {
-    margin-top: 2em;
-
-    h5 {
-      margin-bottom: 1em;
     }
   }
 }

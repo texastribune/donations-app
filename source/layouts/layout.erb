@@ -8,8 +8,8 @@
     <title><%= current_page.data.title %> | The Texas Tribune</title>
     <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
 
-    <meta property="og:url" content="http://support.texastribune.org/">
-    <meta property="og:image" content="https://s3.amazonaws.com/static.texastribune.org/media/membership/FMD16/26234447754_dc97a48275_b.jpg">
+    <meta property="og:url" content="http://support.texastribune.org/index.html">
+    <meta property="og:image" content="https://static.texastribune.org/media/membership/FMD16/26234447754_dc97a48275_b.jpg">
     <meta property="og:title" content="Support Us | The Texas Tribune">
     <meta property="og:type" content="website">
     <meta property="og:description" content="At The Texas Tribune, members make all the difference. Join me in supporting the Tribune’s nonprofit newsroom by becoming a member today.">
@@ -53,7 +53,6 @@
 
     <%= partial "header" %>
     <%= yield_content :main %>
-    <%= partial "mobile_nav" %>
     <%= partial 'footer' %>
 
     <!-- Google Analytics -->
