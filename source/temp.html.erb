@@ -1,5 +1,5 @@
 ---
-title: Donate to The Texas Tribune
+title: Fall Member Drive
 ---
 
 <% content_for :main do %>
@@ -12,7 +12,7 @@ title: Donate to The Texas Tribune
       <%= partial "checkout" %>
     </div>
 
-    <%= partial "desktop_nav" %>
+    <%= partial "campaign_desktop_nav" %>
   </div>
 
   <div class="main">
@@ -37,7 +37,7 @@ title: Donate to The Texas Tribune
 
       <div class="section">
         <p class="student">
-          <a href="https://checkout.texastribune.org/memberform?&amount=10&installmentPeriod=yearly">
+          <a href="https://checkout.texastribune.org/memberform?amount=10&installmentPeriod=yearly">
             Interested in becoming a student member?
             <i class="fa fa-chevron-right"></i>
           </a>
@@ -95,6 +95,8 @@ title: Donate to The Texas Tribune
       </div>
     </div>
   </div>
+
+  <%= partial "campaign_mobile_nav" %>
 <% end %>
 
 <% content_for :page_js do %>
