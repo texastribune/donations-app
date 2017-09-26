@@ -79,6 +79,10 @@
     }
   }
 
+  &__frequencies-label {
+    text-transform: uppercase;
+  }
+
   &__manual {
     margin: 1em auto;
     max-width: 250px;
@@ -129,6 +133,7 @@
     border-color: #222;
     color: $white;
     display: block;
+    letter-spacing: .04em;
     padding: .5em 0;
     width: 100%;
 

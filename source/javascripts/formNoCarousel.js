@@ -5,6 +5,7 @@ export default class FormHandler {
     this.defaultMonthlyAmountsIndex = 2;
     this.defaultYearlyAmountsIndex = 2;
     this.amountsAttach = $('#amounts-attach');
+    this.frequenciesRadiosClass = '.checkout__frequencies-radio';
     this.frequenciesRadios = $('.checkout__frequencies-radio');
     this.amountsRadiosClass = '.checkout__amounts-radio';
     this.amountsRadios = $('.checkout__amounts-radio');
@@ -15,25 +16,7 @@ export default class FormHandler {
     this.manualRadio = $('#amount-manual');
     this.manualLabel = $('#manual-label');
     this.errorEl = $('#error');
-  }
-
-  static getCampaignId() {
-    let campaignId = null;
-    let params = window.location.search;
-
-    if (params) {
-      params = params.replace(/\?/g, '').split('&');
-
-      params.forEach((param) => {
-        const splitParam = param.split('=');
-
-        if (splitParam[0].toLowerCase() === 'campaignid') {
-          campaignId = splitParam[1];
-        }
-      });
-    }
-
-    return campaignId;
+    this.submitEl = $('#checkout-submit');
   }
 
   static isValidAmount(amount) {
@@ -74,6 +57,38 @@ export default class FormHandler {
     this.amountsAttach.empty().append(markup);
   }
 
+  _getSelectedFrequency() {
+    return $(`${this.frequenciesRadiosClass}:checked`).val();
+  }
+
+  _getSelectedAmount() {
+    return $(`${this.amountsRadiosClass}:checked`).val();
+  }
+
+  _setSubmitText(frequency, amount = null) {
+    let text;
+
+    if (amount) {
+      text = `Give $${amount} ${frequency}`;
+    } else {
+      text = `Give ${frequency}`;
+    }
+
+    this.submitEl.val(text);
+  }
+
+  _setSubmitTextWithAmount() {
+    const currFrequency = this._getSelectedFrequency();
+    const currAmount = this._getSelectedAmount();
+
+    this._setSubmitText(currFrequency, currAmount);
+  }
+
+  _setSubmitTextWithoutAmount() {
+    const currFrequency = this._getSelectedFrequency();
+    this._setSubmitText(currFrequency);
+  }
+
   _updateManualInputBorder(valid) {
     let borderClass;
 
@@ -107,6 +122,7 @@ export default class FormHandler {
 
     this.amountsRadios.change(function() {
       self._clearValidationError();
+      self._setSubmitTextWithAmount();
     });
   }
 
@@ -125,6 +141,7 @@ export default class FormHandler {
       self._clearManualInput();
       self._buildAmounts(frequency);
       self._rebindAmountsEvents();
+      self._setSubmitTextWithAmount();
     });
   }
 
@@ -133,9 +150,8 @@ export default class FormHandler {
 
     this.manualInput.focus(function() {
       self._clearValidationError();
-      self.manualRadio
-        .prop('checked', true)
-        .change();
+      self.manualRadio.prop('checked', true).change();
+      self._setSubmitTextWithoutAmount();
     });
   }
 
@@ -147,7 +163,7 @@ export default class FormHandler {
         self.manualInput.val()
       );
 
-      const amount = $(`${self.amountsRadiosClass}:checked`).val();
+      const amount = self._getSelectedAmount();
 
       if (!FormHandler.isValidAmount(amount)) {
         e.preventDefault();
