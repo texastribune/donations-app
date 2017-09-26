@@ -10,8 +10,10 @@ title: Fall Member Drive
         <p class="splash-info">This weekend only, donate to The Texas Tribune for a chance to win a three-night stay at Hotel San Cristóbal Baja, complete with airfare from Southwest Airlines.</p>
       </div>
       <div class="splash-donate">
-        <%= partial "donate_widget" %>
-        <p class="splash-once"> <a class="splash-link--yellow" href="https://www.texastribune.org/member-raffle-rules/">here</a>.</p>
+        <div class="splash-donate-inner unloaded">
+          <%= partial "donate_widget" %>
+        </div>
+        <p class="splash-mail"><span class="weight--bold">Prefer to mail a check?</span> Use our <a class="splash-link--yellow" href="https://static.texastribune.org/media/marketing/TT-membership-contribution-form.pdf">membership form</a>.</p>
       </div>
     </div>
 
@@ -49,7 +51,7 @@ title: Fall Member Drive
 
 <% content_for :page_js do %>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
-  <script src="../javascripts/bundle.js"></script>
+  <script src="../javascripts/oldBundle.js"></script>
   <script>
     document.forms[0].reset();
   </script>

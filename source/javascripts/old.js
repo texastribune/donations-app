@@ -16,7 +16,7 @@ const DonationForm = new FormCarouselHandler({
   frequenciesRadios: $('.carousel__slide--frequency .carousel__radio'),
   amountsRadios: '.carousel__slide--amount .carousel__radio',
   indicators: $('[class*=carousel__dot]'),
-  fadeEl: $('.donate__inner'),
+  fadeEl: $('.splash-donate-inner'),
   defaultAmountsIndex: 2,
   startSlide: 0,
   startFrequency: 'monthly',

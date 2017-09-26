@@ -102,63 +102,78 @@
       border-bottom: 1px solid $gray-light;
       padding-bottom: 1.5em;
     }
+  }
 
-    &__inner {
-      background-color: $white;
-      padding: 1em 1em 0 1em;
-      position: relative;
-      zoom: 1;
+  .splash-donate-inner {
+    background-color: $white;
+    padding: 1em 1em 0 1em;
+    position: relative;
+    zoom: 1;
 
-      @include media($tablet-carousel) {
-        margin: 0 auto;
-        max-width: $mobile-width;
-      }
+    @include media($tablet-carousel) {
+      margin: 0 auto;
+      max-width: $mobile-width;
+    }
 
-      @include media($mobile) {
-        background: none;
-      }
+    @include media($mobile) {
+      background: none;
+    }
 
-      &.unloaded {
-        &:before {
-          @extend .uppercase;
-          @extend .weight--bold;
-          background-color: rgba($white, .95);
-          color: $teal-tribune;
-          content: 'Loading...';
-          height: 100%;
-          left: 0;
-          padding-top: 25%;
-          position: absolute;
-          text-align: center;
-          top: 0;
-          width: 100%;
-          z-index: 1;
-        }
-      }
-
-      &.loaded {
-        &:before {
-          content: '';
-        }
+    &.unloaded {
+      &:before {
+        @extend .uppercase;
+        @extend .weight--bold;
+        background-color: rgba($white, .95);
+        color: $teal-tribune;
+        content: 'Loading...';
+        height: 100%;
+        left: 0;
+        padding-top: 25%;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        width: 100%;
+        z-index: 1;
       }
     }
 
-    &__mail,
-    &__once {
-      color: $white;
-      letter-spacing: .03em;
-      margin-top: 1em;
-
-      @include media($mobile) {
-        color: $black;
-        margin: 2em auto 0 auto;
-        max-width: $mobile-width;
-        padding: 0 1.5em;
-
-        a {
-          color: $teal-tribune;
-        }
+    &.loaded {
+      &:before {
+        content: '';
       }
+    }
+  }
+
+  .splash-mail,
+  .splash-once {
+    color: $white;
+    letter-spacing: .03em;
+    margin-top: 1em;
+
+    @include media($tablet-carousel) {
+      text-align: center;
+    }
+
+    @include media($mobile) {
+      color: $black;
+      margin: 2em auto 0 auto;
+      max-width: $mobile-width;
+      padding: 0 1.5em;
+
+      a {
+        color: $teal-tribune;
+      }
+    }
+  }
+
+  .splash-once {
+    text-align: center;
+  }
+
+  .main {
+    @include media($mobile) {
+      background-color: #f9f9f9;
+      padding-top: 1em;
     }
   }
 
@@ -181,13 +196,6 @@
     }
   }
 
-  .main {
-    @include media($mobile) {
-      background-color: #f9f9f9;
-      padding-top: 1em;
-    }
-  }
-
   .give-more {
     margin-top: 2em;
 
@@ -207,12 +215,6 @@
   @include media($mobile) {
     .splash-greeting {
       background-image: url('../bg/raffle.jpg');
-    }
-  }
-
-  .main {
-    @include media($mobile) {
-      padding-top: 2em;
     }
   }
 

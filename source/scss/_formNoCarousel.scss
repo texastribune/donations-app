@@ -1,19 +1,12 @@
 .checkout {
-  @include span-columns(5);
   background-color: $white;
   padding: 1em;
   position: relative;
   zoom: 1;
 
   @include media($tablet-carousel) {
-    @include span-columns(12);
     margin: 0 auto;
     max-width: $mobile-width;
-  }
-
-  @include media($mobile) {
-    border-bottom: 1px solid $gray-light;
-    padding-bottom: 1.5em;
   }
 
   &__legend {
