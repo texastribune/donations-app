@@ -156,26 +156,7 @@ export default class FormHandler {
     });
   }
 
-  _addCampaignIdHiddenInput(campaignId) {
-    const hiddenInput = $('<input />');
-    hiddenInput
-      .attr('type', 'hidden')
-      .attr('name', 'campaignId')
-      .val(campaignId);
-
-    this.form.append(hiddenInput);
-  }
-
-  _checkForCampaignId() {
-    const campaignId = FormHandler.getCampaignId();
-
-    if (campaignId !== null) {
-      this._addCampaignIdHiddenInput(campaignId);
-    }
-  }
-
   init() {
-    this._checkForCampaignId();
     this._bindAmountsEvents();
     this._bindFrequenciesEvents();
     this._bindManualEvents();
