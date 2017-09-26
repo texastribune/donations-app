@@ -8,80 +8,7 @@
   when needed.
 */
 
-.campaign {
-  .splash {
-    background-image: url('../bg/raffle.jpg');
-    background-position-y: -70px;
-  }
-
-  @include media($mobile) {
-    .splash-greeting {
-      background-image: url('../bg/raffle.jpg');
-    }
-  }
-
-  .main {
-    @include media($mobile) {
-      padding-top: 2em;
-    }
-  }
-
-  .top {
-    margin-bottom: 3em;
-
-    @include media($mobile) {
-      margin-bottom: 1em;
-      padding: 0 1em;
-    }
-  }
-
-  .section {
-    p {
-      margin: 1em 0;
-    }
-  }
-
-  .raffle-logo {
-    display: block;
-    width: 100%;
-    margin: 0 auto;
-    max-width: 450px;
-  }
-
-  .raffle-callout {
-    font-size: 1.4em;
-    font-weight: bold;
-  }
-}
-
-.index, .temp {
-  .splash {
-    background-image: url('../bg/index.jpg');
-  }
-
-  @include media($mobile) {
-    .splash-greeting {
-      background-image: url('../bg/index.jpg');
-    }
-  }
-
-  .main {
-    @include media($mobile) {
-      background-color: #f9f9f9;
-      padding-top: 1em;
-    }
-  }
-
-  .give-more {
-    margin-top: 2em;
-
-    h5 {
-      margin-bottom: 1em;
-    }
-  }
-}
-
-.index, .temp, .campaign {
+.index, .campaign, .campaign2 {
   .splash {
     background-color: lighten($black, 20%);
     background-position-x: 50%;
@@ -163,6 +90,78 @@
     }
   }
 
+  .splash-donate {
+    @include span-columns(5);
+
+    @include media($tablet-carousel) {
+      @include span-columns(12);
+    }
+
+    @include media($mobile) {
+      background-color: $white;
+      border-bottom: 1px solid $gray-light;
+      padding-bottom: 1.5em;
+    }
+
+    &__inner {
+      background-color: $white;
+      padding: 1em 1em 0 1em;
+      position: relative;
+      zoom: 1;
+
+      @include media($tablet-carousel) {
+        margin: 0 auto;
+        max-width: $mobile-width;
+      }
+
+      @include media($mobile) {
+        background: none;
+      }
+
+      &.unloaded {
+        &:before {
+          @extend .uppercase;
+          @extend .weight--bold;
+          background-color: rgba($white, .95);
+          color: $teal-tribune;
+          content: 'Loading...';
+          height: 100%;
+          left: 0;
+          padding-top: 25%;
+          position: absolute;
+          text-align: center;
+          top: 0;
+          width: 100%;
+          z-index: 1;
+        }
+      }
+
+      &.loaded {
+        &:before {
+          content: '';
+        }
+      }
+    }
+
+    &__mail,
+    &__once {
+      color: $white;
+      letter-spacing: .03em;
+      margin-top: 1em;
+
+      @include media($mobile) {
+        color: $black;
+        margin: 2em auto 0 auto;
+        max-width: $mobile-width;
+        padding: 0 1.5em;
+
+        a {
+          color: $teal-tribune;
+        }
+      }
+    }
+  }
+
   .section {
     h3 {
       margin-bottom: .5em;
@@ -171,21 +170,7 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.index, .temp {
+.index {
   .splash {
     background-image: url('../bg/index.jpg');
   }
@@ -208,6 +193,41 @@
 
     h5 {
       margin-bottom: 1em;
+    }
+  }
+}
+
+
+.campaign, .campaign2 {
+  .splash {
+    background-image: url('../bg/raffle.jpg');
+    background-position-y: -70px;
+  }
+
+  @include media($mobile) {
+    .splash-greeting {
+      background-image: url('../bg/raffle.jpg');
+    }
+  }
+
+  .main {
+    @include media($mobile) {
+      padding-top: 2em;
+    }
+  }
+
+  .top {
+    margin-bottom: 3em;
+
+    @include media($mobile) {
+      margin-bottom: 1em;
+      padding: 0 1em;
+    }
+  }
+
+  .section {
+    p {
+      margin: 1em 0;
     }
   }
 }
