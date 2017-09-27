@@ -184,16 +184,18 @@ export default class FormHandler {
 
   _resetForm() {
     this.form[0].reset();
+    this.frequenciesRadios.prop('checked', false);
+    this.amountsRadios.prop('checked', false);
     this.resetFrequencyEl.prop('checked', true).change();
     this.resetAmountEl.prop('checked', true).change();
   }
 
   init() {
-    this._resetForm();
     this._bindAmountsEvents();
     this._bindFrequenciesEvents();
     this._bindManualEvents();
     this._bindSubmitEvents();
+    this._resetForm();
 
     if (this._manualIsSelected()) {
       this._setSubmitTextWithoutAmount();
