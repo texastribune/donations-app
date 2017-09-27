@@ -184,8 +184,8 @@ export default class FormHandler {
 
   _resetForm() {
     this.form[0].reset();
-    this.resetFrequencyEl.prop('checked', true);
-    this.resetAmountEl.prop('checked', true);
+    this.resetFrequencyEl.prop('checked', true).change();
+    this.resetAmountEl.prop('checked', true).change();
   }
 
   init() {
