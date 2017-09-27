@@ -185,11 +185,5 @@ export default class FormHandler {
     this._bindFrequenciesEvents();
     this._bindManualEvents();
     this._bindSubmitEvents();
-
-    if (this._manualIsSelected()) {
-      this._setSubmitTextWithoutAmount();
-    } else {
-      this._setSubmitTextWithAmount();
-    }
   }
 }
