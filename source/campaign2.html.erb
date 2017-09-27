@@ -110,6 +110,8 @@ title: Fall Member Drive
   <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
   <script src="../javascripts/newBundle.js"></script>
   <script>
+    document.forms[0].reset();
+
     if ('onpageshow' in window) {
       window.addEventListener('pageshow', function() {
         var form = new bundle.FormHandler();
