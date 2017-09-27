@@ -132,7 +132,7 @@
     @extend .uppercase;
     @extend .weight--bold;
     background-color: #222;
-    border-color: #222;
+    border: 2px solid #222;
     color: $white;
     display: block;
     letter-spacing: .04em;
