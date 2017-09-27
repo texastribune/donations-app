@@ -121,6 +121,7 @@ export default class FormHandler {
     const self = this;
 
     this.amountsRadios.change(function() {
+      self._clearManualInput();
       self._clearValidationError();
       self._setSubmitTextWithAmount();
     });
