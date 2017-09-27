@@ -13,6 +13,7 @@ export default class FormHandler {
     this.validClass = 'valid';
     this.form = $('#checkout-form');
     this.manualInput = $('#manual-input');
+    this.manualRadioId = 'amount-manual'
     this.manualRadio = $('#amount-manual');
     this.manualLabel = $('#manual-label');
     this.errorEl = $('#error');
@@ -87,6 +88,11 @@ export default class FormHandler {
   _setSubmitTextWithoutAmount() {
     const currFrequency = this._getSelectedFrequency();
     this._setSubmitText(currFrequency);
+  }
+
+  _manualIsSelected() {
+    const selectedAmountEl = $(`${this.amountsRadiosClass}:checked`);
+    return selectedAmountEl.attr('id') === this.manualRadioId;
   }
 
   _updateManualInputBorder(valid) {
@@ -179,5 +185,11 @@ export default class FormHandler {
     this._bindFrequenciesEvents();
     this._bindManualEvents();
     this._bindSubmitEvents();
+
+    if (this._manualIsSelected()) {
+      this._setSubmitTextWithoutAmount();
+    } else {
+      this._setSubmitTextWithAmount();
+    }
   }
 }
