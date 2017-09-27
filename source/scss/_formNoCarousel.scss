@@ -41,6 +41,7 @@
 
 
   &__amounts-item {
+    width: 100%;
     width: calc(33.3% - 10px);
 
     &:nth-child(n+4) {
@@ -53,6 +54,7 @@
   }
 
   &__frequencies-item {
+    width: 100%;
     width: calc(50% - 7.5px);
 
     &:last-child {
