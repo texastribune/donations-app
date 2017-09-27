@@ -11,6 +11,8 @@ module.exports = {
   output: {
     path: path.join(__dirname, '.tmp', 'dist'),
     filename: 'javascripts/[name]Bundle.js',
+    library: 'bundle',
+    libraryTarget: 'var',
     publicPath: './'
   },
 

@@ -9,8 +9,6 @@ export default class FormHandler {
     this.frequenciesRadios = $('.checkout__frequencies-radio');
     this.amountsRadiosClass = '.checkout__amounts-radio';
     this.amountsRadios = $('.checkout__amounts-radio');
-    this.resetFrequencyEl = $('#frequency-monthly');
-    this.resetAmountEl = $('#amount-2');
     this.invalidClass = 'invalid';
     this.validClass = 'valid';
     this.form = $('#checkout-form');
@@ -90,11 +88,6 @@ export default class FormHandler {
   _setSubmitTextWithoutAmount() {
     const currFrequency = this._getSelectedFrequency();
     this._setSubmitText(currFrequency);
-  }
-
-  _manualIsSelected() {
-    const selectedAmountEl = $(`${this.amountsRadiosClass}:checked`);
-    return selectedAmountEl.attr('id') === this.manualRadioId;
   }
 
   _updateManualInputBorder(valid) {
@@ -184,10 +177,7 @@ export default class FormHandler {
 
   _resetForm() {
     this.form[0].reset();
-    this.frequenciesRadios.prop('checked', false);
-    this.amountsRadios.prop('checked', false);
-    this.resetFrequencyEl.prop('checked', true).change();
-    this.resetAmountEl.prop('checked', true).change();
+    this._clearManualInput();
   }
 
   init() {
@@ -196,11 +186,5 @@ export default class FormHandler {
     this._bindManualEvents();
     this._bindSubmitEvents();
     this._resetForm();
-
-    if (this._manualIsSelected()) {
-      this._setSubmitTextWithoutAmount();
-    } else {
-      this._setSubmitTextWithAmount();
-    }
   }
 }
