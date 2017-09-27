@@ -169,6 +169,7 @@ export default class FormHandler {
       if (!FormHandler.isValidAmount(amount)) {
         e.preventDefault();
         self._raiseValidationError();
+        self.manualInput.blur();
       }
     });
   }
