@@ -9,6 +9,8 @@ export default class FormHandler {
     this.frequenciesRadios = $('.checkout__frequencies-radio');
     this.amountsRadiosClass = '.checkout__amounts-radio';
     this.amountsRadios = $('.checkout__amounts-radio');
+    this.monthlyEl = $('#frequency-monthly');
+    this.resetAmountEl = $('#amount-2');
     this.invalidClass = 'invalid';
     this.validClass = 'valid';
     this.form = $('#checkout-form');
@@ -180,7 +182,14 @@ export default class FormHandler {
     });
   }
 
+  _resetForm() {
+    this.form[0].reset();
+    this.monthlyEl.prop('checked', true);
+    this.resetAmountEl.prop('checked', true);
+  }
+
   init() {
+    this._resetForm();
     this._bindAmountsEvents();
     this._bindFrequenciesEvents();
     this._bindManualEvents();
