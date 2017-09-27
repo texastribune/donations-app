@@ -5,7 +5,7 @@
   "author": "Andrew Gibson <agibson@texastribune.org>",
   "scripts": {
     "dev": "bundle exec middleman --watcher-force-polling",
-    "build": "yarn run clean && yarn run middleman",
+    "build": "yarn run clean && yarn run middleman && yarn run critical",
     "clean": "rimraf -f ./build/*",
     "middleman": "bundle exec middleman build",
     "critical": "node ./utils/critical.js",
