@@ -208,13 +208,13 @@
 
 .campaign, .campaign2 {
   .splash {
-    background-image: url('../bg/raffle.jpg');
+    background-image: url('../bg/fmd17.jpg');
     background-position-y: -70px;
   }
 
   @include media($mobile) {
     .splash-greeting {
-      background-image: url('../bg/raffle.jpg');
+      background-image: url('../bg/fmd17.jpg');
     }
   }
 
