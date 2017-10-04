@@ -209,7 +209,6 @@
 .campaign, .campaign2 {
   .splash {
     background-image: url('../bg/fmd17.jpg');
-    background-position-y: -70px;
   }
 
   @include media($mobile) {
