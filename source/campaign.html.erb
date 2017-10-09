@@ -1,13 +1,14 @@
 ---
-title: Fall Member Drive
+title: Fall Member Drive 2017
 ---
 
 <% content_for :main do %>
   <div class="splash">
     <div class="splash-wrapper">
       <div class="splash-greeting">
-        <h1 class="splash-header">Sit beachside in Baja, all while supporting nonprofit journalism.</h1>
-        <p class="splash-info">This weekend only, donate to The Texas Tribune for a chance to win a three-night stay at Hotel San Cristóbal Baja, complete with airfare from Southwest Airlines.</p>
+        <h1 class="splash-header">Fall Member Drive is going on now</h1>
+        <p class="splash-info">As a 501(c)(3) nonprofit organization, member drives are one of the key ways we raise funds for the Tribune’s public service journalism <em>and</em> make it free and accessible for all Texans.</p>
+        <p class="splash-info">Learn more about the <a class="splash-link--yellow" href="https://www.texastribune.org/about/?_ga=2.158425146.1285863761.1507322585-1391546928.1507322585">Tribune’s mission</a>.</p>
       </div>
       <div class="splash-donate">
         <div class="splash-donate-inner unloaded">
@@ -17,32 +18,68 @@ title: Fall Member Drive
       </div>
     </div>
 
-    <%= partial "campaign_desktop_nav" %>
+    <%= partial(:campaign_desktop_nav, :locals => { :campaign_page_url => '/campaign.html' }) %>
   </div>
 
   <div class="main">
     <div class="main-left">
       <div class="section">
-        <h3>About the raffle</h3>
-        <p class="bold">Become a Tribune member or make a donation on top of your existing membership by Sunday, Sept. 24 at midnight for a chance to win:</p>
+        <h3>This Fall Member Drive, help strengthen the Tribune’s investigative tools</h3>
+        <p>Public records requests, online research tools, legal fees and more. Credible accountability and investigative reporting is expensive to produce. Support these essential, ongoing expenses that help make Texas politics and policy more transparent and informed. Become a sustaining member with a recurring donation that allows the Tribune to plan budgets a few years at a time.</p>
+        <p><span class="bold">Tribune membership starts at $3 per month or $35 per year.</span> Members enjoy:</p>
         <ul class="info-list">
-          <li>Three nights at Hotel San Cristóbal Baja, an intimate beachside resort on the southwestern edge of the Baja peninsula, framed by the Sierra de la Laguna</li>
-          <li>Airfare for two courtesy of Southwest Airlines</li>
+          <li>Recognition on our <a href="https://www.texastribune.org/support-us/donors-and-members/?_ga=2.14933941.285171732.1507323227-1404484368.1507323227">donor wall</a></li>
+          <li>Discounted tickets to <a href="https://www.texastribune.org/festival/?_ga=2.215004375.1311317559.1507325008-1829771714.1507325008">The Texas Tribune Festival</a></li>
+          <li>Exclusive updates on the Tribune’s latest projects and initiatives</li>
         </ul>
-        <p>Credible news organizations like The Texas Tribune are essential to the proper functioning of our democratic society. With your help, we’ll raise $15,000 in much-needed revenue that pays for the operations of our nonprofit newsroom, our event production, our data acquisition and dissemination, and every other aspect of our growing and thriving media organization.</p>
-        <p><a href="https://www.texastribune.org/member-raffle-rules/">View rules and regulations here</a>.</p>
+        <p><a href="https://checkout.texastribune.org/memberform?&amount=10&installmentPeriod=yearly&_ga=2.165052026.453204924.1507322826-35454566.1507322826">Interested in becoming a student member?</a></p>
       </div>
     </div>
 
     <div class="main-right">
       <div class="section">
-        <p class="raffle-callout">Help our 501(c)(3) nonprofit newsroom raise $15,000 this weekend during its marquee annual event, The Texas Tribune Festival.</p>
-        <p>Have questions? <a href="mailto:membership@texastribune.org">Email us</a>.</p>
+        <h3>Have a question?</h3>
+
+        <div class="contact-info">
+          <h5>Membership & The Blast</h5>
+          <h4>Rebecca Quarls</h4>
+          <p class="italic">Membership and Marketing Manager</p>
+          <p>512-716-8686</p>
+          <p><a href="mailto:rquarls@texastribune.org">rquarls@texastribune.org</a></p>
+        </div>
+
+        <div class="contact-info">
+          <h5>Circle Membership</h5>
+          <h4>Suzanne Geiger</h4>
+          <p class="italic">Development Manager</p>
+          <p>512-716-8646</p>
+          <p><a href="mailto:sgeiger@texastribune.org">sgeiger@texastribune.org</a></p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Want to give more?</h3>
+
+        <div class="give-more">
+          <h5>Major gifts or grants</h5>
+          <h4>Terry Quinn</h4>
+          <p class="italic">Chief Development Officer</p>
+          <p>512-716-8613</p>
+          <p><a href="mailto:tquinn@texastribune.org">tquinn@texastribune.org</a></p>
+        </div>
+
+        <div class="give-more">
+          <h5>Corporate sponsorships</h5>
+          <h4>April Hinkle</h4>
+          <p class="italic">Chief Revenue Officer</p>
+          <p>512-716-8634</p>
+          <p><a href="mailto:ahinkle@texastribune.org">ahinkle@texastribune.org</a></p>
+        </div>
       </div>
     </div>
   </div>
 
-  <%= partial "campaign_mobile_nav" %>
+  <%= partial(:campaign_mobile_nav, :locals => { :campaign_page_url => '/campaign.html' }) %>
 <% end %>
 
 <% content_for :page_js do %>
