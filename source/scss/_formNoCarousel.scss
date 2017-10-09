@@ -81,7 +81,9 @@
     }
 
     &:hover {
+      background-color: $white;
       border-color: $yellow-tribune;
+      color: $black;
     }
   }
 
