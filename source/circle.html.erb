@@ -2,6 +2,10 @@
 title: Circle Membership
 ---
 
+<% content_for :header do %>
+  <%= partial(:header, :locals => { :image_url => 'logo.png', :href => 'https://www.texastribune.org/' }) %>
+<% end %>
+
 <% content_for :page_og do %>
   <meta property="og:url" content="http://support.texastribune.org/circle.html">
   <meta property="og:image" content="https://static.texastribune.org/media/membership/FMD17/fb.jpg">

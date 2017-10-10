@@ -1,11 +1,15 @@
 // Masthead with logo
 .masthead {
   @include outer-container;
+
   img {
     padding: 1em 0 1em 2em;
     @include span-columns(5);
     @include media($mobile) {
-      @include span-columns(8);
+      @include outer-container;
+      @include span-columns(10);
+      @include shift(1);
+      padding: 1em;
     }
   }
 
