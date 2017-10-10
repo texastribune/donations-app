@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-yarn run build
-
 echo "Syncing *.css files to S3..."
 aws s3 sync --acl public-read --delete --include '*.css' --cache-control 'max-age=31536000' build s3://$APP_S3_BUCKET/
 
