@@ -1,6 +1,6 @@
 import { debounce, getSupportedTransform } from './utils';
 
-export default class FormHandler {
+export default class FormCarouselHandler {
   constructor(opts) {
     this.originalOpts = opts;
     this.amountsAttach = opts.amountsAttach;

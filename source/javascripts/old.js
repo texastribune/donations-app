@@ -1,7 +1,7 @@
 import '../scss/all.scss';
-import FormHandler from './form';
+import FormCarouselHandler from './formCarousel';
 
-const DonationForm = new FormHandler({
+const DonationForm = new FormCarouselHandler({
   amountsAttach: $('.carousel__slide--amount .carousel__radios'),
   outerContainer: $('#carousel-outer'),
   innerContainer: $('#carousel-inner'),
@@ -16,7 +16,7 @@ const DonationForm = new FormHandler({
   frequenciesRadios: $('.carousel__slide--frequency .carousel__radio'),
   amountsRadios: '.carousel__slide--amount .carousel__radio',
   indicators: $('[class*=carousel__dot]'),
-  fadeEl: $('.donate__inner'),
+  fadeEl: $('.splash-donate-inner'),
   defaultAmountsIndex: 2,
   startSlide: 0,
   startFrequency: 'monthly',

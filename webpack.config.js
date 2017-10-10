@@ -3,11 +3,17 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  entry: path.join(__dirname, 'source', 'javascripts', 'index.js'),
+  entry: {
+    old: path.join(__dirname, 'source', 'javascripts', 'old.js'),
+    new: path.join(__dirname, 'source', 'javascripts', 'new.js')
+  },
 
   output: {
     path: path.join(__dirname, '.tmp', 'dist'),
-    filename: 'javascripts/bundle.js'
+    filename: 'javascripts/[name]Bundle.js',
+    library: 'bundle',
+    libraryTarget: 'var',
+    publicPath: './'
   },
 
   watchOptions: {

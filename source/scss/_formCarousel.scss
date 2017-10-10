@@ -1,99 +1,11 @@
 /*
-
 NOTE: All the hard-coded widths in here suck,
 but there isn't a great way around that given
 we're still supporting IE 7+ and therefore
 can't use flex or inline-block.
-
 */
 
 $carousel-height: 285px;
-
-.donate {
-  @include span-columns(5);
-
-  @include media($tablet-carousel) {
-    @include span-columns(12);
-  }
-
-  @include media($mobile) {
-    background-color: $white;
-    border-bottom: 1px solid $gray-light;
-    padding-bottom: 1.5em;
-  }
-
-  &__inner {
-    background-color: $white;
-    padding: 1em 1em 0 1em;
-    position: relative;
-    zoom: 1;
-
-    @include media($tablet-carousel) {
-      margin: 0 auto;
-      max-width: $mobile-width;
-    }
-
-    @include media($mobile) {
-      background: none;
-    }
-
-    &.unloaded {
-      &:before {
-        @extend .uppercase;
-        @extend .weight--bold;
-        background-color: rgba($white, .95);
-        color: $teal-tribune;
-        content: 'Loading...';
-        height: 100%;
-        left: 0;
-        padding-top: 25%;
-        position: absolute;
-        text-align: center;
-        top: 0;
-        width: 100%;
-        z-index: 1;
-      }
-    }
-
-    &.loaded {
-      &:before {
-        content: '';
-      }
-    }
-  }
-
-  &__mail,
-  &__raffle {
-    color: $white;
-    letter-spacing: .03em;
-    margin-top: 1em;
-
-    @include media($mobile) {
-      color: $black;
-      margin: 2em auto 0 auto;
-      max-width: $mobile-width;
-      padding: 0 1.5em;
-
-      a {
-        color: $teal-tribune;
-      }
-    }
-  }
-
-  &__mail {
-    text-align: center;
-
-    .campaign & {
-      display: none;
-    }
-  }
-
-  &__raffle {
-    .index & {
-      display: none;
-    }
-  }
-}
 
 .carousel {
   // needs to be hard coded to

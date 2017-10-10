@@ -1,0 +1,64 @@
+<div class="checkout">
+  <form id="checkout-form" class="checkout__form" method="get" action="https://checkout.texastribune.org/memberform">
+    <legend class="checkout__legend">I'm ready to give&hellip;</legend>
+
+    <formset class="checkout__group checkout__group--frequencies clearfix">
+      <ul id="frequencies-attach" class="checkout__frequencies clearfix">
+        <li class="checkout__frequencies-item">
+          <input id="frequency-monthly" class="checkout__frequencies-radio visually-hidden" type="radio" value="monthly" name="installmentPeriod" checked>
+          <label for="frequency-monthly" class="checkout__frequencies-label">Monthly</label>
+        </li>
+        <li class="checkout__frequencies-item">
+          <input id="frequency-yearly" class="checkout__frequencies-radio visually-hidden" type="radio" value="yearly" name="installmentPeriod">
+          <label for="frequency-yearly" class="checkout__frequencies-label">Yearly</label>
+        </li>
+      </ul>
+    </formset>
+
+    <formset class="checkout__group checkout__group--amounts clearfix">
+      <ul id="amounts-attach" class="checkout__amounts clearfix">
+        <li class="checkout__amounts-item">
+          <input id="amount-0" class="checkout__amounts-radio visually-hidden" type="radio" value="5" name="amount">
+          <label for="amount-0" class="checkout__amounts-label">$5</label>
+        </li>
+        <li class="checkout__amounts-item">
+          <input id="amount-1" class="checkout__amounts-radio visually-hidden" type="radio" value="10" name="amount">
+          <label for="amount-1" class="checkout__amounts-label">$10</label>
+        </li>
+        <li class="checkout__amounts-item">
+          <input id="amount-2" class="checkout__amounts-radio visually-hidden" type="radio" value="15" name="amount" checked>
+          <label for="amount-2" class="checkout__amounts-label">$15</label>
+        </li>
+        <li class="checkout__amounts-item">
+          <input id="amount-3" class="checkout__amounts-radio visually-hidden" type="radio" value="25" name="amount">
+          <label for="amount-3" class="checkout__amounts-label">$25</label>
+        </li>
+        <li class="checkout__amounts-item">
+          <input id="amount-4" class="checkout__amounts-radio visually-hidden" type="radio" value="55" name="amount">
+          <label for="amount-4" class="checkout__amounts-label">$55</label>
+        </li>
+        <li class="checkout__amounts-item">
+          <input id="amount-5" class="checkout__amounts-radio visually-hidden" type="radio" value="85" name="amount">
+          <label for="amount-5" class="checkout__amounts-label">$85</label>
+        </li>
+      </ul>
+      <div class="checkout__manual clearfix">
+        <div class="checkout__manual-inner">
+          <label id="manual-label" class="checkout__manual-label" for="amount-manual">Or enter an amount:</label>
+          <input id="amount-manual" class="checkout__amounts-radio visually-hidden" type="radio" name="amount">
+          <input id="manual-input" class="checkout__manual-input valid" type="text" placeholder="$">
+        </div>
+
+        <p id="error" class="checkout__manual-error hidden">Please enter a number.</p>
+      </div>
+    </formset>
+
+    <formset class="checkout__group checkout__group--submit clearfix">
+      <input id="checkout-submit" class="checkout__submit" type="submit" value="" onclick="ga('send', 'event', 'Support Page', 'donations-app', 'go-to-checkout', {'nonInteraction': 1})">
+    </formset>
+
+    <formset>
+      <input type="hidden" value="70146000000pdrt" name="campaignId">
+    </formset>
+  </form>
+</div>

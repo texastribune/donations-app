@@ -1,0 +1,154 @@
+.checkout {
+  background-color: $white;
+  padding: 1em;
+  position: relative;
+  zoom: 1;
+
+  @include media($tablet-carousel) {
+    margin: 0 auto;
+    max-width: $mobile-width;
+  }
+
+  &__legend {
+    @extend .weight--bold;
+    display: block !important; // old iOS versions
+    font-size: 1.8em;
+    text-align: center;
+  }
+
+  &__group {
+    border: none;
+    display: block;
+    margin: 1em 0 0 0;
+
+    &--amounts {
+      border-top: 1px solid #DCDCDC;
+      padding-top: 1em;
+    }
+  }
+
+  &__amounts,
+  &__frequencies {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__amounts-item,
+  &__frequencies-item {
+    display: block;
+    float: left;
+    margin-right: 15px;
+  }
+
+
+  &__amounts-item {
+    width: 100%;
+    width: calc(33.3% - 10px);
+
+    &:nth-child(n+4) {
+      margin-top: 1em;
+    }
+
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+
+  &__frequencies-item {
+    width: 100%;
+    width: calc(50% - 7.5px);
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__amounts-label,
+  &__frequencies-label {
+    @extend .form-button--thin;
+    @extend .bold;
+    background-color: #DCDCDC;
+    border-color: #DCDCDC;
+    border-radius: 3px;
+    color: #4A4A4A;
+    display: block;
+
+    .checkout__amounts-radio:checked + &,
+    .checkout__frequencies-radio:checked + & {
+      background-color: $yellow-tribune;
+      border-color: $yellow-tribune;
+    }
+
+    &:hover {
+      background-color: $white;
+      border-color: $yellow-tribune;
+      color: $black;
+    }
+  }
+
+  &__frequencies-label {
+    text-transform: uppercase;
+  }
+
+  &__manual {
+    margin: 1em auto 0 auto;
+    max-width: 250px;
+  }
+
+  &__manual-label {
+    @extend .weight--bold;
+    float: left;
+    line-height: 25px;
+    margin-right: .5em;
+  }
+
+  &__manual-input {
+    @extend .weight--bold;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 1px;
+    display: block;
+    float: right;
+    height: 25px;
+    text-indent: .5em;
+    width: 100px;
+
+    &.invalid {
+      @extend .carousel__manual-input;
+      border-color: $error-red;
+    }
+
+    &.valid {
+      @extend .carousel__manual-input;
+      border-color: $teal-tribune;
+    }
+  }
+
+  &__manual-error {
+    color: $error-red;
+    font-size: .7em;
+    margin: .25em 0 0 0;
+    text-align: right;
+  }
+
+  &__submit {
+    @extend .uppercase;
+    @extend .weight--bold;
+    background-color: #222;
+    border: 2px solid #222;
+    border-radius: 0;
+    color: $white;
+    display: block;
+    letter-spacing: .04em;
+    padding: .5em 0;
+    width: 100%;
+
+    &:hover {
+      background-color: $white;
+      color: #222;
+    }
+  }
+}

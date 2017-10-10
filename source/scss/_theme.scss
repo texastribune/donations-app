@@ -255,7 +255,8 @@ h5.benefit-flag {
 
 
 // Contact Info
-.contact-info {
+.contact-info,
+.give-more {
   margin: 2em 0;
 
   @include media($mobile) {
