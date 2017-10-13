@@ -13,6 +13,7 @@
     <title><%= current_page.data.title %> | The Texas Tribune</title>
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 
+    <%= yield_content :redirect %>
     <%= yield_content :page_og %>
 
     <!-- Google Analytics -->

@@ -2,8 +2,10 @@
 title: Donate to The Texas Tribune
 ---
 
-<% content_for :header do %>
-  <%= partial(:header, :locals => { :image_url => 'logo.png', :href => 'https://www.texastribune.org/' }) %>
+<% content_for :redirect do %>
+  <script>
+    window.location.href = '/campaign.html?campaignId=70146000000pdrt';
+  </script>
 <% end %>
 
 <% content_for :page_og do %>
@@ -12,6 +14,10 @@ title: Donate to The Texas Tribune
   <meta property="og:title" content="Donate during Fall Member Drive | The Texas Tribune">
   <meta property="og:type" content="website">
   <meta property="og:description" content="As a 501(c)(3) nonprofit organization, member drives are one of the key ways we raise funds for the Tribune’s accountability journalism and make it free and accessible for all Texans.">
+<% end %>
+
+<% content_for :header do %>
+  <%= partial(:header, :locals => { :image_url => 'logo.png', :href => 'https://www.texastribune.org/' }) %>
 <% end %>
 
 <% content_for :main do %>
