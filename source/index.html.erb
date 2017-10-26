@@ -22,9 +22,7 @@ title: Donate to The Texas Tribune
         <p class="splash-info">As a 501(c)(3) nonprofit organization, our work is made possible through the generosity of members and donors. <span class="own-line"><a class="splash-link--yellow" href="https://www.texastribune.org/about/">Learn more</a> about the Tribune's mission.</span></p>
       </div>
       <div class="splash-donate">
-        <div class="splash-donate-inner unloaded">
-          <%= partial "donate_widget" %>
-        </div>
+        <%= partial "checkout" %>
         <p class="splash-mail"><span class="weight--bold">Prefer to mail a check?</span> Use our <a class="splash-link--yellow" href="https://static.texastribune.org/media/marketing/TT-membership-contribution-form.pdf">membership form</a>.</p>
       </div>
     </div>
@@ -118,8 +116,18 @@ title: Donate to The Texas Tribune
 
 <% content_for :page_js do %>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
-  <script src="../javascripts/oldBundle.js"></script>
+  <script src="../javascripts/newBundle.js"></script>
   <script>
     document.forms[0].reset();
+
+    if ('onpageshow' in window) {
+      window.addEventListener('pageshow', function() {
+        var form = new bundle.FormHandler();
+        form.init();
+      });
+    } else {
+      var form = new bundle.FormHandler();
+      form.init();
+    }
   </script>
 <% end %>
