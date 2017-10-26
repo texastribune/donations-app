@@ -4,13 +4,12 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    old: path.join(__dirname, 'source', 'javascripts', 'old.js'),
-    new: path.join(__dirname, 'source', 'javascripts', 'new.js')
+    new: path.join(__dirname, 'source', 'javascripts', 'index.js')
   },
 
   output: {
     path: path.join(__dirname, '.tmp', 'dist'),
-    filename: 'javascripts/[name]Bundle.js',
+    filename: 'javascripts/bundle.js',
     library: 'bundle',
     libraryTarget: 'var',
     publicPath: './'
