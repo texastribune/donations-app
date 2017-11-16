@@ -66,13 +66,20 @@
 
   &__amounts-label,
   &__frequencies-label {
-    @extend .form-button--thin;
+    -moz-appearance: none;
+    -webkit-appearance: none;
     @extend .bold;
     background-color: #DCDCDC;
     border-color: #DCDCDC;
     border-radius: 3px;
+    border-style: solid;
+    border-width: 2px;
     color: #4A4A4A;
+    cursor: pointer;
     display: block;
+    padding: .5em 0;
+    text-align: center;
+    transition: background-color .3s;
 
     .checkout__amounts-radio:checked + &,
     .checkout__frequencies-radio:checked + & {
@@ -117,12 +124,12 @@
     width: 100px;
 
     &.invalid {
-      @extend .carousel__manual-input;
+      @extend .checkout__manual-input;
       border-color: $error-red;
     }
 
     &.valid {
-      @extend .carousel__manual-input;
+      @extend .checkout__manual-input;
       border-color: $teal-tribune;
     }
   }

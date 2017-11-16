@@ -34,7 +34,7 @@ Tells Webpack what PostCSS stuff we want it to do.
 ## Commands
 + `yarn run dev`: Fire up the development server. This will enable live reloading of templates, JavaScript and CSS.
 + `yarn run build`: Build for production.
-+ `yarn run clean`: Clean out the `build/` directory.
++ `yarn run clean`: Clean out the `build/` and `.tmp/` directories.
 + `yarn run middleman`: Do the official Middleman build process.
 + `yarn run critical`: Inline critical CSS.
 + `yarn run js:dev`: Put Webpack in watch mode.

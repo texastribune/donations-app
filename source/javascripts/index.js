@@ -1,5 +1,5 @@
 import '../scss/all.scss';
-import FormHandler from './formNoCarousel';
+import FormHandler from './form';
 
 const form = new FormHandler();
 
