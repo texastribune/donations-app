@@ -20,6 +20,7 @@ export default class FormHandler {
     this.manualLabel = $('#manual-label');
     this.errorEl = $('#error');
     this.submitEl = $('#checkout-submit');
+    this.campaignIdEl = $('#campaign-id');
   }
 
   static isValidAmount(amount) {
@@ -42,6 +43,25 @@ export default class FormHandler {
         </li>
       `).join('\n')}
     `;
+  }
+
+  static getCampaignId() {
+    let campaignID = null;
+    let params = window.location.search;
+
+    if (params) {
+      params = params.replace(/\?/g, '').split('&');
+
+      params.forEach((param) => {
+        const splitParam = param.split('=');
+
+        if (splitParam[0].toLowerCase() === 'campaignid') {
+          campaignID = splitParam[1];
+        }
+      });
+    }
+
+    return campaignID;
   }
 
   _buildAmounts(frequency) {
@@ -125,6 +145,16 @@ export default class FormHandler {
     this._updateManualInputBorder(false);
   }
 
+  _addCampaignIdFieldToForm(campaignId) {
+    const el = $('<input />');
+    el.attr('type', 'hidden');
+    el.addClass('hidden');
+    el.attr('name', 'campaignId');
+    el.val(campaignId);
+
+    this.form.append(el);
+  }
+
   _bindAmountsEvents() {
     const self = this;
 
@@ -178,6 +208,14 @@ export default class FormHandler {
         e.preventDefault();
         self._raiseValidationError();
         self.manualInput.blur();
+      } else {
+        if (self.campaignIdEl.length === 0) {
+          const campaignId = FormHandler.getCampaignId();
+
+          if (campaignId) {
+            self._addCampaignIdFieldToForm(campaignId);
+          }
+        }
       }
     });
   }
