@@ -47,9 +47,16 @@ You'll typically only need these three: `yarn run dev`, `yarn run build` and `ya
 
 ## Deployment
 1. Build for production: `yarn run build`
-2. Push to S3: `yarn run deploy`
+2. Push to S3: `yarn run deploy` (this also automatically busts the FB OG cache)
 
 You can combine the build and deploy into one step with `yarn run build:deploy`.
+
+
+## Campaign IDs
+Membership uses unique IDs to track specific campaigns (FMD, Giving Tuesday, etc.). If a campaign is in progress, we hard-code that ID into the donation-widget form (see markup below). This is to ensure *every* click of "Go To Checkout" passes the ID onto our checkout app.
+`<input id="campaign-id" type="hidden" value="<campaign-id>" name="campaignId">`
+
+If a campaign is *not* in progress, that hidden field should not be present. However, we still want to pass campaign IDs to checkout *if* `campaignId` is included as a query parameter. (For campaigns, our membership folks create special URLs to support.texastribune.org that include that query parameter.) That's why [this code](https://github.com/texastribune/donations-app/blob/master/source/javascripts/form.js#L212-L216) exists. The thinking is we want to ensure remnant donations spurred by campaign marketing materials still get recorded as part of that campaign, even if the date of giving is after we've removed the hidden field.
 
 
 ## Browser support
