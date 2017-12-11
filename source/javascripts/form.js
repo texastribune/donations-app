@@ -1,7 +1,7 @@
 export default class FormHandler {
   constructor() {
-    this.monthlyAmounts = [5, 10, 15, 25, 55, 85];
-    this.yearlyAmounts = [50, 75, 100, 250, 500, 1000];
+    this.monthlyAmounts = [5, 10, 15];
+    this.yearlyAmounts = [50, 75, 100];
     this.defaultMonthlyAmountsIndex = 2;
     this.defaultYearlyAmountsIndex = 2;
     this.amountsAttach = $('#amounts-attach');
@@ -112,11 +112,6 @@ export default class FormHandler {
     this._setSubmitText(currFrequency);
   }
 
-  _manualIsSelected() {
-    const selectedAmountEl = $(`${this.amountsRadiosClass}:checked`);
-    return selectedAmountEl.attr('id') === this.manualRadioId;
-  }
-
   _updateManualInputBorder(valid) {
     let borderClass;
 
@@ -220,26 +215,10 @@ export default class FormHandler {
     });
   }
 
-  _resetForm() {
-    this.form[0].reset();
-    this._clearManualInput();
-    this.frequenciesRadios.prop('checked', false);
-    this.amountsRadios.prop('checked', false);
-    this.resetFrequencyEl.prop('checked', true).change();
-    this.resetAmountEl.prop('checked', true).change();
-  }
-
   init() {
     this._bindAmountsEvents();
     this._bindFrequenciesEvents();
     this._bindManualEvents();
     this._bindSubmitEvents();
-    this._resetForm();
-
-    if (this._manualIsSelected()) {
-      this._setSubmitTextWithoutAmount();
-    } else {
-      this._setSubmitTextWithAmount();
-    }
   }
 }
