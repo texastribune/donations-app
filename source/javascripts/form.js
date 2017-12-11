@@ -2,8 +2,8 @@ export default class FormHandler {
   constructor() {
     this.monthlyAmounts = [5, 10, 15];
     this.yearlyAmounts = [50, 75, 100];
-    this.defaultMonthlyAmountsIndex = 2;
-    this.defaultYearlyAmountsIndex = 2;
+    this.defaultMonthlyAmountsIndex = 1;
+    this.defaultYearlyAmountsIndex = 1;
     this.amountsAttach = $('#amounts-attach');
     this.frequenciesRadiosClass = '.checkout__frequencies-radio';
     this.frequenciesRadios = $('.checkout__frequencies-radio');
