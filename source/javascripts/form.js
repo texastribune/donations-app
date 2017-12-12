@@ -1,7 +1,7 @@
 export default class FormHandler {
   constructor() {
-    this.monthlyAmounts = [5, 10, 15];
-    this.yearlyAmounts = [50, 75, 100];
+    this.monthlyAmounts = [10, 15, 25];
+    this.yearlyAmounts = [75, 150, 500];
     this.defaultMonthlyAmountsIndex = 1;
     this.defaultYearlyAmountsIndex = 1;
     this.amountsAttach = $('#amounts-attach');
