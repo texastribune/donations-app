@@ -205,4 +205,33 @@
       padding: 0 1em;
     }
   }
+
+  .small-img {
+    float: left;
+    background: $gray-light;
+    margin: 2em 2em 1em 0;
+    max-width: 300px;
+
+    &__file {
+      display: block;
+      width: 100%;
+    }
+
+    &__caption {
+      font-size: .8em;
+      margin-top: .25em;
+      padding: 1em;
+    }
+
+    @include media($tablet-carousel) {
+      display: none;
+    }
+
+    @include media($mobile) {
+      display: block;
+      float: none;
+      margin: 1em 0 0 0;
+      max-width: none;
+    }
+  }
 }
