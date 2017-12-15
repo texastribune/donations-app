@@ -181,7 +181,7 @@
 
 .campaign {
   .splash {
-    background-image: url('../bg/eoy2.jpg');
+    background-image: url('../bg/eoy.jpg');
     background-position-y: 75%;
     background-position-x: 20%;
     background-size: initial;
@@ -196,7 +196,7 @@
 
   @include media($mobile) {
     .splash-greeting {
-      background-image: url('../bg/eoy2.jpg');
+      background-image: url('../bg/eoy.jpg');
     }
   }
 
