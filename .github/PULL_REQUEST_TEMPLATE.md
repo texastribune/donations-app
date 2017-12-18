@@ -11,6 +11,7 @@
 * [ ] If ending a campaign, redirect `campaign.html` to `index.html` (probably)
 * [ ] Update social meta tags
 * [ ] After deploy, [bust](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/troubleshooting-cards) the Twitter card cache
++ After deploy, [bust the Facebook cache](https://developers.facebook.com/tools/debug/). This is automated as part of the deploy script, but it's good to double check just in case something didn't go/our caching layers are causing something not to update.
 
 #### How should this be manually tested?
 
