@@ -1,10 +1,7 @@
 <div class="nav desktop-nav">
   <ul>
-    <li <% if current_page.data.title == 'Fall Member Drive 2017' %>class="active"<% end %>>
-      <a href="<%= campaign_page_url %>" onclick="ga('send', 'event', 'Support Page', 'nav-bar', 'desktop-fall-member-drive-2017', {'nonInteraction': 1})">Fall member<br> drive 2017<i class="fa fa-caret-down"></i></a>
-    </li>
-    <li <% if current_page.data.title == 'Donate to The Texas Tribune' %>class="active"<% end %>>
-      <a href="/index.html" onclick="ga('send', 'event', 'Support Page', 'nav-bar', 'desktop-become-a-member', {'nonInteraction': 1})">Tribune<br> Membership<i class="fa fa-caret-down"></i></a>
+    <li <% if current_page.data.title == 'Support journalism with impact in Texas' %>class="active"<% end %>>
+      <a href="/campaign.html" onclick="ga('send', 'event', 'Support Page', 'nav-bar', 'desktop-become-a-member', {'nonInteraction': 1})">Tribune<br> Membership<i class="fa fa-caret-down"></i></a>
     </li>
     <li <% if current_page.data.title == 'Explore Levels' %>class="active"<% end %>>
       <a href="/levels.html" onclick="ga('send', 'event', 'Support Page', 'nav-bar', 'desktop-explore-levels', {'nonInteraction': 1})">Explore<br> Levels<i class="fa fa-caret-down"></i></a>

@@ -1,32 +1,25 @@
 ---
-title: Fall Member Drive 2017
+title: Support journalism with impact in Texas
 ---
-
-<% content_for :redirect do %>
-  <script>
-    window.location.href = '/index.html';
-  </script>
-<% end %>
 
 <% content_for :page_og do %>
   <meta property="og:url" content="http://support.texastribune.org/campaign.html">
-  <meta property="og:image" content="https://static.texastribune.org/media/membership/FMD17/fb.jpg">
-  <meta property="og:title" content="Donate during Fall Member Drive | The Texas Tribune">
+  <meta property="og:image" content="https://static.texastribune.org/media/membership/EOY17/eoy-fb-og.jpg">
+  <meta property="og:title" content="Support nonprofit journalism in Texas">
   <meta property="og:type" content="website">
-  <meta property="og:description" content="As a 501(c)(3) nonprofit organization, member drives are one of the key ways we raise funds for the Tribune’s accountability journalism and make it free and accessible for all Texans.">
+  <meta property="og:description" content="Members and donors power our nonprofit newsroom. Please give what you can to support our essential work.">
 <% end %>
 
 <% content_for :header do %>
-  <%= partial(:header, :locals => { :image_url => 'FMD17.png', :href => '/campaign.html' }) %>
+  <%= partial(:header, :locals => { :image_url => 'logo.png', :href => 'https://www.texastribune.org/' }) %>
 <% end %>
 
 <% content_for :main do %>
   <div class="splash">
     <div class="splash-wrapper">
       <div class="splash-greeting">
-        <h1 class="splash-header">Invest in accountability journalism for Texas</h1>
-        <p class="splash-info">Between public records requests, online research tools, legal fees and more, credible accountability and investigative reporting is pricey to produce. This Fall Member Drive, support The Texas Tribune as it works to make Texas politics and policy more transparent.</p>
-        <p class="splash-info">Donate by Oct. 21 to help the Tribune secure $28k in matching funds.</p>
+        <h1 class="splash-header">Support journalism <br> with impact in Texas</h1>
+        <p class="splash-info">Members and donors power our nonprofit newsroom. Please give what you can to support our essential work.</p>
       </div>
       <div class="splash-donate">
         <%= partial "checkout" %>
@@ -34,23 +27,45 @@ title: Fall Member Drive 2017
       </div>
     </div>
 
-    <%= partial(:campaign_desktop_nav, :locals => { :campaign_page_url => '/campaign1.html' }) %>
+    <%= partial 'campaign_desktop_nav' %>
   </div>
 
   <div class="main">
     <div class="main-left">
       <div class="section">
-        <h3>Tribune membership starts at $3/month or $35/year</h3>
-        <p>As a 501(c)(3) nonprofit organization, Fall Member Drive is one of the key ways The Texas Tribune’s accountability journalism is made free and accessible for all Texans.</p>
-        <p>Become a sustaining member with a recurring donation that allows the Tribune to plan budgets a few years at a time. Members enjoy recognition on our <a href="https://www.texastribune.org/support-us/donors-and-members/?_ga=2.14933941.285171732.1507323227-1404484368.1507323227">donor wall</a>, discounted tickets to <a href="https://www.texastribune.org/festival/?_ga=2.215004375.1311317559.1507325008-1829771714.1507325008">The Texas Tribune Festival</a> and exclusive updates on the Tribune’s latest initiatives.</p>
-        <p>This Drive, your donations will be matched dollar for dollar — up to $1k — thanks to generous matching funds from the Knight Foundation, MacArthur Foundation and Democracy Fund.</p>
-        <p><a href="https://checkout.texastribune.org/memberform?&amount=10&installmentPeriod=yearly&_ga=2.165052026.453204924.1507322826-35454566.1507322826">Interested in becoming a student member?</a></p>
+        <h3>This is how Texas Tribune journalism made a difference in 2017</h3>
       </div>
 
       <div class="section">
-        <h3>Circle Membership</h3>
-        <p>Circle Membership is a three-year commitment that backs the vital work of our journalists. <a href="/circle.html">Circle members</a> believe in supporting our public service mission so that all Texans can access our nonpartisan news, data and events at no cost. Circle Members enjoy invitations to exclusive events and special updates from CEO Evan Smith.</p>
-        <p>Learn more about <a href="https://www.texastribune.org/about/?_ga=2.158425146.1285863761.1507322585-1391546928.1507322585">The Texas Tribune’s mission</a>.</p>
+        <h4><a target="_blank" href="https://www.texastribune.org/series/in-harveys-wake/">Hurricane Harvey</a></h4>
+        <p>We predicted the flooding in 2016, meaning when the storm actually hit, our readers had a reference for why it had happened — and a slate of experts to follow during and after.</p>
+      </div>
+
+      <div class="section">
+        <h4><a target="_blank" href="https://www.texastribune.org/organizations/texas-alcoholic-beverage-commission/">Texas Alcoholic Beverage Commission investigation</a></h4>
+        <p>Top TABC officials were ousted amid our investigation into junkets and bad behavior at the taxpayer-funded agency.</p>
+      </div>
+
+      <aside class="small-img clearfix">
+        <figure class="small-img__fig">
+          <img class="small-img__file" src="./img/harvey-reporters.jpg">
+          <figcaption class="small-img__caption">As rescue boats and trucks navigated a West Houston neighborhood flooded by Hurricane Harvey, Neena Satija (left) and Kiah Collier (right) documented the recovery efforts.</figcaption>
+        </figure>
+      </aside>
+
+      <div class="section">
+        <h4><a target="_blank" href="https://www.texastribune.org/2017/10/27/texas-missing-payments-rental-furniture-can-land-you-jail/">Rent-to-own investigation</a></h4>
+        <p>Lawmakers on both sides of the aisle immediately pledged reforms after we revealed people being jailed and criminally prosecuted for missing a payment on a couch.</p>
+      </div>
+
+      <div class="section">
+        <h4><a target="_blank" href="https://www.texastribune.org/2017/11/13/texas-capitol-victims-sexual-harassment-must-fend-themselves/">Sexual harassment</a></h4>
+        <p>Our investigation into sexual malpractice at the Texas Capitol led lawmakers to dismantle their existing sexual harassment rules and put sweeping new policies in place.</p>
+      </div>
+
+      <div class="section">
+        <h4><a target="_blank" href="https://apps.texastribune.org/sold-out/">Sold Out</a></h4>
+        <p>Following our series on child sex trafficking in Texas, which was jointly viewed by hundreds of thousands of readers in Cosmopolitan Magazine, the state hired its first-ever director of human trafficking prevention.</p>
       </div>
     </div>
 
@@ -97,7 +112,7 @@ title: Fall Member Drive 2017
     </div>
   </div>
 
-  <%= partial(:campaign_mobile_nav, :locals => { :campaign_page_url => '/campaign2.html' }) %>
+  <%= partial 'campaign_mobile_nav' %>
 <% end %>
 
 <% content_for :page_js do %>

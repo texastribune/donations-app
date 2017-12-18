@@ -8,10 +8,9 @@
   when needed.
 */
 
-.index, .campaign, .campaign2 {
+.index, .campaign {
   .splash {
     background-color: lighten($black, 20%);
-    background-position-x: 50%;
 
     @include media($mobile) {
       background-image: none;
@@ -53,7 +52,6 @@
     }
 
     @include media($mobile) {
-      background-position-x: 50%;
       background-size: cover;
       position: relative;
 
@@ -118,30 +116,6 @@
     @include media($mobile) {
       background: none;
     }
-
-    &.unloaded {
-      &:before {
-        @extend .uppercase;
-        @extend .weight--bold;
-        background-color: rgba($white, .95);
-        color: $teal-tribune;
-        content: 'Loading...';
-        height: 100%;
-        left: 0;
-        padding-top: 25%;
-        position: absolute;
-        text-align: center;
-        top: 0;
-        width: 100%;
-        z-index: 1;
-      }
-    }
-
-    &.loaded {
-      &:before {
-        content: '';
-      }
-    }
   }
 
   .splash-mail,
@@ -172,7 +146,7 @@
 
   .main {
     @include media($mobile) {
-      background-color: #f9f9f9;
+      background-color: #fdfdfd;
       padding-top: 1em;
     }
   }
@@ -194,6 +168,7 @@
 .index {
   .splash {
     background-image: url('../bg/index.jpg');
+    background-position-x: 50%;
   }
 
   @include media($mobile) {
@@ -204,15 +179,24 @@
 }
 
 
-.campaign, .campaign2 {
+.campaign {
   .splash {
-    background-image: url('../bg/fmd17.jpg');
-    background-position-y: 100%;
+    background-image: url('../bg/eoy.jpg');
+    background-position-y: 75%;
+    background-position-x: 20%;
+    background-size: initial;
+  }
+
+  @include media($tablet-carousel) {
+    .splash {
+      background-position-x: 25%;
+      background-position-y: 0;
+    }
   }
 
   @include media($mobile) {
     .splash-greeting {
-      background-image: url('../bg/fmd17.jpg');
+      background-image: url('../bg/eoy.jpg');
     }
   }
 
@@ -222,6 +206,35 @@
     @include media($mobile) {
       margin-bottom: 1em;
       padding: 0 1em;
+    }
+  }
+
+  .small-img {
+    float: left;
+    background: $gray-light;
+    margin: 2em 2em 1em 0;
+    max-width: 300px;
+
+    &__file {
+      display: block;
+      width: 100%;
+    }
+
+    &__caption {
+      font-size: .8em;
+      margin-top: .25em;
+      padding: 1em;
+    }
+
+    @include media($tablet-carousel) {
+      display: none;
+    }
+
+    @include media($mobile) {
+      display: block;
+      float: none;
+      margin: 1em 0 0 0;
+      max-width: none;
     }
   }
 }
