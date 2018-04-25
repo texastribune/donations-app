@@ -2,6 +2,12 @@
 title: Donate to The Texas Tribune
 ---
 
+<% content_for :redirect do %>
+  <script>
+    window.location.href = 'https://checkout.texastribune.org/donate?campaignId=70146000000M0pM'
+  </script>
+<% end %>
+
 <% content_for :page_og do %>
   <meta property="og:url" content="http://support.texastribune.org/index.html">
   <meta property="og:image" content="https://static.texastribune.org/media/membership/FMD16/26234447754_dc97a48275_b.jpg">
