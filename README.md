@@ -1,3 +1,5 @@
+**THIS APP IS NO LONGER MAINTAINED.**
+
 ## Dependencies
 + Node 6.11.3
 + Yarn 0.27.5
